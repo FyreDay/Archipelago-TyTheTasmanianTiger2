@@ -5,7 +5,7 @@ from BaseClasses import ItemClassification, Item
 from typings.schema import Optional
 
 
-class TCGSimulatorItem(Item):
+class Ty2Item(Item):
     game: str = "TCG Card Shop Simulator"
 
 
