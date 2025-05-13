@@ -8,7 +8,7 @@ ty1_levels: Dict[str, str] = {
     "z3": "Currawong",
     "z4": "Southern Rivers",
     "a1": "Outback Oasis",
-    # "a2": "She'll Be Right",
+    "a2": "She'll Be Right",
     "a3": "Faire Dinkum",
     "a4": "Patchy",
     "b1": "No Man Groves",
