@@ -1,4 +1,14 @@
+from typing import NamedTuple, Optional
 
+from BaseClasses import Location
+
+
+class Ty2Location(Location):
+    game: str = "Ty the Tasmanian Tiger 2"
+
+class LocData(NamedTuple):
+    code: Optional[int]
+    region: Optional[str]
 
 locations = {
     "Platinum Cogs": 0x00,
@@ -14,4 +24,8 @@ locations = {
     "Madam shop Items": 0x00,
     "Races": 0x00, #sanity
     "sign sanity": 0x00 #sanity
+}
+
+chromium_orb_dict = {
+
 }
