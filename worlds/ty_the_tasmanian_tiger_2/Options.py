@@ -18,6 +18,18 @@ class GoalRequiresBosses(Toggle):
     """
     display_name = "Goal Requires Bosses"
 
+class StartWithMaps(Toggle):
+    """
+    Determines if you begin with the collectable maps
+    """
+    display_name = "Start With Maps"
+
+# class StartWithCrafty(Toggle):
+#     """
+#     Determines if you begin with the crafty rang, a rang with a cooldown if you miss
+#     """
+#     display_name = "Start With Crafty"
+
 class ProgressiveRangs(DefaultOnToggle):
     """
     Determines if each rang and their upgrade are progressive
@@ -142,7 +154,8 @@ ty2_option_groups = [
         ShopDifficulty,
         ExtraCogs,
         ExtraOrbs,
-        ChecksRequireInfra
+        ChecksRequireInfra,
+        StartWithMaps
     ]),
     OptionGroup("Sanity Options", [
         FrameSanity,
@@ -166,6 +179,7 @@ class Ty2Options(PerGameCommonOptions):
     extra_cogs: ExtraCogs
     extra_orbs: ExtraOrbs
     require_infra: ChecksRequireInfra
+    start_with_maps: StartWithMaps
 
     frame_sanity: FrameSanity
     steve_sanity: SteveSanity
