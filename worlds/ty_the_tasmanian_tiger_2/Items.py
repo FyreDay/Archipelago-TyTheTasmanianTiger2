@@ -1,3 +1,4 @@
+import copy
 from dataclasses import dataclass
 from typing import Dict
 
@@ -15,15 +16,39 @@ class ItemData:
     classification: ItemClassification
     amount: Optional[int] = 1
 
+def get_junk_item_names(rand, k: int) -> str:
+    junk = rand.choices(
+        list(junk_weights.keys()),
+        weights=list(junk_weights.values()),
+        k=k)
+    return junk
+
 def create_item(world, name: str, classification: ItemClassification, amount: Optional[int] = 1):
     for i in range(amount):
         world.itempool.append(Item(name, classification, world.item_name_to_id[name], world.player))
 
 
-def create_items(world):
+def create_ty2_items(world):
     total_location_count = len(world.multiworld.get_unfilled_locations(world.player))
+    for item_name, item_data in get_rangs(world).items():
+        create_item(world, item_name, item_data.classification, item_data.amount)
     for item_name, item_data in item_dict.items():
         create_item(world, item_name, item_data.classification, item_data.amount)
+    for item_name, item_data in get_collectable_currencies(world).items():
+        create_item(world, item_name, item_data.classification, item_data.amount)
+    for item_name, item_data in get_parking_pads(world).items():
+        create_item(world, item_name, item_data.classification, item_data.amount)
+
+    remaining_locations: int = total_location_count - len(world.itempool)
+    # trap_count: int = round(remaining_locations * options.trap_fill_percentage / 100)
+    junk_count: int = remaining_locations - 0 #trap_count
+    junk = get_junk_item_names(world.random, junk_count)
+    for name in junk:
+        create_item(world, name, ItemClassification.filler)
+    # traps = get_trap_item_names(world.worlds[player], world.random, trap_count)
+    # for name in traps:
+    #     create_single(name, world, player)
+    world.multiworld.itempool += world.itempool
 
 
 item_dict: Dict[str, ItemData] = {
@@ -35,22 +60,10 @@ item_dict: Dict[str, ItemData] = {
     "Missing Persons Map": ItemData(0x22, ItemClassification.useful),
     "Cog Map": ItemData(0x23, ItemClassification.useful),
     "Mysterious Anomalies Map": ItemData(0x24, ItemClassification.useful),
-
-
-    "Platinum cogs": ItemData(0x00, ItemClassification.progression),
-    "Chromium Orbs": ItemData(0x00, ItemClassification.progression),
-
-    "full health": ItemData(0x00, ItemClassification.filler),
-    "Opal bags": ItemData(0x00, ItemClassification.filler),
-
-
-
     # "fourbie speed upgrade": ItemData(0x00, ItemClassification.useful),
-
-    "Progressive parking pad": ItemData(0x00, ItemClassification.progression),#option
-    "Individual parking pad": ItemData(0x00, ItemClassification.progression),#option
 }
-def get_rangs(world):
+
+def get_rangs(world) -> Dict[str, ItemData]:
     if world.options.progressive_rangs.value:
         return progressive_rangs
     else:
@@ -77,7 +90,7 @@ individual_rangs: Dict[str, ItemData] = {
     "Doomerang": ItemData(0x11, ItemClassification.progression),
     # "Aquarang": ItemData(0x12, ItemClassification.progression),
     # "?": ItemData(0x13, ItemClassification.progression),
-    "Craftyrang": ItemData(0x14, ItemClassification.useful),
+    "Craftyrang": ItemData(0x14, ItemClassification.progression),
     "Camerarang": ItemData(0x15, ItemClassification.useful),
 
 }
@@ -94,9 +107,49 @@ progressive_rangs: Dict[str, ItemData] = {
 
 }
 
-def get_
+def get_parking_pads(world) -> Dict[str, ItemData]:
+    # if world.options.progressive_parking_pads.value:
+    #     return progressive_parking_pads
+    # else:
+    return parking_bays
 
-def get_filler(world):
+parking_bays: Dict[str, ItemData] = {
+    "Oasis Parking Bay": ItemData(0x00, ItemClassification.progression),
+}
+
+progressive_parking_bays: Dict[str, ItemData] = {
+    "Progressive Parking Bay": ItemData(0x00, ItemClassification.progression, 100),
+}
+
+def get_collectable_currencies(world) -> Dict[str, ItemData]:
+    collectibles_copy: Dict[str, ItemData] = copy.deepcopy(collectibles)
+    collectibles_copy["Platinum Cog"].amount += world.options.extra_cogs.value
+    collectibles_copy["Kromium Orb"].amount += world.options.extra_orbs.value
+    return collectibles_copy
 
 
-dynamic_item_dict: Dict
+collectibles: Dict[str, ItemData] = {
+    "Platinum Cog": ItemData(0x00, ItemClassification.progression_skip_balancing, 50),
+    "Kromium Orb": ItemData(0x00, ItemClassification.progression_skip_balancing, 30),
+}
+
+def get_filler(world) -> Dict[str, ItemData]:
+    return junk_items
+
+junk_items: Dict[str, ItemData] = {
+    "Opal": ItemData(0x00, ItemClassification.filler),
+    "10 Opals": ItemData(0x00, ItemClassification.filler),
+    "25 Opals": ItemData(0x00, ItemClassification.filler),
+    "100 Opals": ItemData(0x00, ItemClassification.filler),
+    "200 Opals": ItemData(0x00, ItemClassification.filler),
+    "Full Pie": ItemData(0x00, ItemClassification.filler),
+}
+
+junk_weights = {
+    "Opal": 50,
+    "10 Opals": 30,
+    "25 Opals": 20,
+    "100 Opals": 10,
+    "200 Opals": 5,
+    "Full Pie": 20,
+}

@@ -10,6 +10,9 @@ class LocData(NamedTuple):
     code: Optional[int]
     region: Optional[str]
 
+def create_ty2_locations(world):
+    return {}
+
 locations = {
     "Mission Complete": 0x00,
     "rang shop Items": 0x00, # randomize cost
