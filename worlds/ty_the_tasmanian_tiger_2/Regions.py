@@ -66,7 +66,7 @@ def create_region(world, name: str, location_dict):
     world.multiworld.regions.append(region)
     return region
 
-def create_regions(world, location_dict):
+def create_ty2_regions(world, location_dict):
     create_region(world, "Menu", location_dict)
     create_region(world, "Burramudgee HQ", location_dict)
     create_region(world, "Currawong", location_dict)
@@ -103,7 +103,7 @@ def connect_regions(world, from_name: str, to_name: str, entrance_name: str, ent
     entrance.randomization_group = entrance_group;
     return entrance
 
-def connect_regions(world):
+def connect_ty2_regions(world):
     connect_regions(world, "Menu", "Burramudgee HQ", "Start", 3)
     connect_regions(world, "Burramudgee HQ", "Cass' Run", "Bush Rescue Plane", 1)
     connect_regions(world, "Burramudgee HQ", "Currawong", "Picture", 1)

@@ -2,7 +2,9 @@ from typing import ClassVar, Dict
 
 from BaseClasses import Tutorial
 from worlds.AutoWorld import WebWorld, World
+from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items
 from worlds.ty_the_tasmanian_tiger_2.Options import ty2_option_groups, Ty2Options
+from worlds.ty_the_tasmanian_tiger_2.Regions import create_ty2_regions, connect_ty2_regions
 from worlds.ty_the_tasmanian_tiger_2.dictionaries.Item_Dict import full_item_dict
 from worlds.ty_the_tasmanian_tiger_2.dictionaries.Location_Dict import full_location_dict
 
@@ -42,6 +44,9 @@ class Ty2World(World):
     def __init__(self, multiworld, player):
         super().__init__(multiworld, player)
         self.itempool = []
+        self.locations = {}
+        self.items = {}
+        self.trap_weights = {}
 
     def fill_slot_data(self) -> id:
         return {
@@ -60,5 +65,9 @@ class Ty2World(World):
         }
 
     def generate_early(self) -> None:
+        self.locations = create_ty2_regions(self)
     def create_regions(self):
+        create_ty2_regions(self, self.locations)
+        connect_ty2_regions(self)
     def create_items(self):
+        create_ty2_items(self)
