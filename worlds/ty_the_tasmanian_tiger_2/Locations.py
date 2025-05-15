@@ -1,4 +1,4 @@
-from typing import NamedTuple, Optional
+from typing import NamedTuple, Optional, Dict
 
 from BaseClasses import Location
 
@@ -9,21 +9,61 @@ class Ty2Location(Location):
 class LocData(NamedTuple):
     code: Optional[int]
     region: Optional[str]
+    id: Optional[int] = -1
 
 def create_ty2_locations(world):
-    return {}
+    all_locations ={**shop_location_dict, **platinum_cog_dict, **kromium_orb_dict, **bilby_dict, **mission_dict}
+    if world.options.frill_sanity.value:
+        all_locations.update(disguised_frill_dict)
+    if world.options.steve_sanity.value:
+        all_locations.update(steve_dict)
+    if world.options.frame_sanity.value:
+        all_locations.update(steve_dict)
+    return all_locations
 
-locations = {
-    "Mission Complete": 0x00,
-    "rang shop Items": 0x00, # randomize cost
-    "Sly shop Items": 0x00,
-    "Cop shop Items": 0x00, # all cog costs are 3 or randomize based on classification
-    "Madam shop Items": 0x00,
-    # "Races": 0x00, #sanity
-    # "sign sanity": 0x00 #sanity
+shop_location_dict = {
+    "Rang Shop 1": LocData(0x00, "Burramudgee Town"),
+    "Rang Shop 2": LocData(0x00, "Burramudgee Town"),
+    "Rang Shop 3": LocData(0x00, "Burramudgee Town"),
+    "Rang Shop 4": LocData(0x00, "Burramudgee Town"),
+    "Rang Shop 5": LocData(0x00, "Burramudgee Town"),
+    "Rang Shop 6": LocData(0x00, "Burramudgee Town"),
+    "Rang Shop 7": LocData(0x00, "Burramudgee Town"),
+    "Rang Shop 8": LocData(0x00, "Burramudgee Town"),
+    "Sly's Shack 1": LocData(0x00, "SR - sly"),
+    "Sly's Shack 2": LocData(0x00, "SR - sly"),
+    "Sly's Shack 3": LocData(0x00, "SR - sly"),
+    "Sly's Shack 4": LocData(0x00, "SR - sly"),
+    "Sly's Shack 5": LocData(0x00, "SR - sly"),
+    "Sly's Shack 6": LocData(0x00, "SR - sly"),
+    "Sly's Shack 7": LocData(0x00, "SR - sly"),
+    "Sly's Shack 8": LocData(0x00, "SR - sly"),
+    "Sly's Shack 9": LocData(0x00, "SR - sly"),
+    "Sly's Shack 10": LocData(0x00, "SR - sly"),
+    "Sly's Shack 11": LocData(0x00, "SR - sly"),
+    "Trader Bob's 1": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's 2": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's 3": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's 4": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's 5": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 1": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 2": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 3": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 4": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 5": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 6": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 7": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 8": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 9": LocData(0x00, "Burramudgee Town"),
+    "Trader Bob's Cog 10": LocData(0x00, "Burramudgee Town"),
+    "Madam Mopoke's 1": LocData(0x00, "Burramudgee Town"),
+    "Madam Mopoke's 2": LocData(0x00, "Burramudgee Town"),
+    "Madam Mopoke's 3": LocData(0x00, "Burramudgee Town"),
+
 }
 
-platinum_cog_dict = {
+platinum_cog_dict: Dict[str, LocData] = {
+    "Platinum Cog 0": LocData(0x00, ""),
     "Platinum Cog 1": LocData(0x00, ""),
     "Platinum Cog 2": LocData(0x00, ""),
     "Platinum Cog 3": LocData(0x00, ""),
@@ -73,10 +113,10 @@ platinum_cog_dict = {
     "Platinum Cog 47": LocData(0x00, ""),
     "Platinum Cog 48": LocData(0x00, ""),
     "Platinum Cog 49": LocData(0x00, ""),
-    "Platinum Cog 50": LocData(0x00, ""),
 }
 
-chromium_orb_dict = {
+kromium_orb_dict: Dict[str, LocData] = {
+    "Chromium Orb 0": LocData(0x00, ""),
     "Chromium Orb 1": LocData(0x00, ""),
     "Chromium Orb 2": LocData(0x00, ""),
     "Chromium Orb 3": LocData(0x00, ""),
@@ -106,10 +146,10 @@ chromium_orb_dict = {
     "Chromium Orb 27": LocData(0x00, ""),
     "Chromium Orb 28": LocData(0x00, ""),
     "Chromium Orb 29": LocData(0x00, ""),
-    "Chromium Orb 30": LocData(0x00, ""),
 }
 
-Bilby_dict = {
+bilby_dict: Dict[str, LocData] = {
+    "Bilby 0": LocData(0x00, ""),
     "Bilby 1": LocData(0x00, ""),
     "Bilby 2": LocData(0x00, ""),
     "Bilby 3": LocData(0x00, ""),
@@ -139,10 +179,10 @@ Bilby_dict = {
     "Bilby 27": LocData(0x00, ""),
     "Bilby 28": LocData(0x00, ""),
     "Bilby 29": LocData(0x00, ""),
-    "Bilby 30": LocData(0x00, ""),
 }
 
-disguised_frill_dict = {
+disguised_frill_dict: Dict[str, LocData] = {
+    "Disguised Frill 0": LocData(0x00, ""),
     "Disguised Frill 1": LocData(0x00, ""),
     "Disguised Frill 2": LocData(0x00, ""),
     "Disguised Frill 3": LocData(0x00, ""),
@@ -167,10 +207,10 @@ disguised_frill_dict = {
     "Disguised Frill 22": LocData(0x00, ""),
     "Disguised Frill 23": LocData(0x00, ""),
     "Disguised Frill 24": LocData(0x00, ""),
-    "Disguised Frill 25": LocData(0x00, ""),
 }
 
-steve_dict = {
+steve_dict: Dict[str, LocData] = {
+    "Steve 0": LocData(0x00, ""),
     "Steve 1": LocData(0x00, ""),
     "Steve 2": LocData(0x00, ""),
     "Steve 3": LocData(0x00, ""),
@@ -180,10 +220,10 @@ steve_dict = {
     "Steve 7": LocData(0x00, ""),
     "Steve 8": LocData(0x00, ""),
     "Steve 9": LocData(0x00, ""),
-    "Steve 10": LocData(0x00, ""),
 }
 
-picture_frame_dict = {
+picture_frame_dict: Dict[str, LocData] = {
+    "Picture Frame 0": LocData(0x00, ""),
     "Picture Frame 1": LocData(0x00, ""),
     "Picture Frame 2": LocData(0x00, ""),
     "Picture Frame 3": LocData(0x00, ""),
@@ -358,5 +398,98 @@ picture_frame_dict = {
     "Picture Frame 172": LocData(0x00, ""),
     "Picture Frame 173": LocData(0x00, ""),
     "Picture Frame 174": LocData(0x00, ""),
-    "Picture Frame 175": LocData(0x00, ""),
+}
+
+mission_dict: Dict[str, LocData] = {
+    "750 Metal Menace": LocData(0x00, "", 1),
+    "Explosive Cargo": LocData(0x00, "", 2),
+    "Boss Cass Bust-Up": LocData(0x00, "", 83),
+    "Haunted Hassle": LocData(0x00, "", 4),
+    "Tree Rescue": LocData(0x00, "", 5),
+    "Crouching Birrel, Hidden Squeaver": LocData(0x00, "", 6),
+    "Refinery Run": LocData(0x00, "", 7),
+    "Currawong Jail Break": LocData(0x00, "", 84),
+    "Dennis Dash": LocData(0x00, "", 9),
+    "Rocky Road": LocData(0x00, "", 10),
+    "Lava Chill Out": LocData(0x00, "", 11),
+    "Canopy Capers": LocData(0x00, "", 12),
+    "Croc Stock Pile": LocData(0x00, "", 13),
+    "Fire Fight": LocData(0x00, "", 14),
+    "Truck Tragedy": LocData(0x00, "", 16),
+    "Plutonium Panic": LocData(0x00, "", 17),
+    "Need A Spare": LocData(0x00, "", 18),
+    # "TEXT_MISSION_19_DESC": LocData(0x00, "", 19),
+    "King Squeaver and Birrel Hood": LocData(0x00, "", 20),
+    # "TEXT_MISSION_21_DESC": LocData(0x00, "", 21),
+    "Lava Falls": LocData(0x00, "", 22),
+    "Hearty Beach": LocData(0x00, "", 23),
+    "Musical Mommy": LocData(0x00, "", 24),
+    "Tourist Trap": LocData(0x00, "", 25),
+    "Crocodile Chaos": LocData(0x00, "", 26),
+    # "TEXT_MISSION_27_DESC": LocData(0x00, "", 27),
+    "Sheep Dip": LocData(0x00, "", 28),
+    "Danger Lab": LocData(0x00, "", 29),
+    # "TEXT_MISSION_30_DESC": LocData(0x00, "", 30),
+    # "TEXT_MISSION_31_DESC": LocData(0x00, "", 31),
+    # "TEXT_MISSION_32_DESC": LocData(0x00, "", 32),
+    "Dennis Freeway": LocData(0x00, "", 33),
+    "Teeter Tottering Inferno": LocData(0x00, "", 34),
+    "Up the Creek": LocData(0x00, "", 35),
+    "Grindstone Cowboy": LocData(0x00, "", 36),
+    "Volcano Rescue": LocData(0x00, "", 37),
+    "Bush Fire": LocData(0x00, "", 38),
+    "Truck Stop": LocData(0x00, "", 39),
+    "Sea Lab": LocData(0x00, "", 40),
+    "Grub Grab": LocData(0x00, "", 41),
+    "Big Bang": LocData(0x00, "", 42),
+    "Parrotbeard Cove": LocData(0x00, "", 43),
+    # "TEXT_MISSION_44_DESC": LocData(0x00, "", 44),
+    "Never Never Road": LocData(0x00, "", 45),
+    "Snake Eyes": LocData(0x00, "", 46),
+    "Hidden Danger": LocData(0x00, "", 47),
+    # "TEXT_MISSION_48_DESC": LocData(0x00, "", 48),
+    "Chopper Challenge": LocData(0x00, "", 49),
+    # "TEXT_MISSION_50_DESC": LocData(0x00, "", 50),
+    # "TEXT_MISSION_51_DESC": LocData(0x00, "", 51),
+    "Oil Rig Fire": LocData(0x00, "", 52),
+    "Training Grounds 1": LocData(0x00, "", 53),
+    "Training Grounds 2": LocData(0x00, "", 54),
+    "Ripper Nipper": LocData(0x00, "", 55),
+    "Frill Attack": LocData(0x00, "", 56),
+    # "TEXT_MISSION_57_DESC": LocData(0x00, "", 57),
+    # "TEXT_MISSION_58_DESC": LocData(0x00, "", 58),
+    "Attack of the 50 Foot Squeaver": LocData(0x00, "", 59),
+    "Outback Dash": LocData(0x00, "", 60),
+    # "TEXT_MISSION_61_DESC": LocData(0x00, "", 61),
+    "Mech Mayhem": LocData(0x00, "", 62),
+    # "TEXT_MISSION_63_DESC": LocData(0x00, "", 63),
+    "Deep Sea Scare": LocData(0x00, "", 64),
+    # "TEXT_MISSION_65_DESC": LocData(0x00, "", 65),
+    # "TEXT_MISSION_66_DESC": LocData(0x00, "", 66),
+    # "TEXT_MISSION_67_DESC": LocData(0x00, "", 67),
+    "Turbo Track": LocData(0x00, "", 68),
+    # "TEXT_MISSION_69_DESC": LocData(0x00, "", 69),
+    "Killer Koala": LocData(0x00, "", 70),
+    # "TEXT_MISSION_71_DESC": LocData(0x00, "", 71),
+    # "TEXT_MISSION_72_DESC": LocData(0x00, "", 72),
+    # "TEXT_MISSION_73_DESC": LocData(0x00, "", 73),
+    # "TEXT_MISSION_74_DESC": LocData(0x00, "", 74),
+    # "TEXT_MISSION_75_DESC": LocData(0x00, "", 75),
+    # "TEXT_MISSION_76_DESC": LocData(0x00, "", 76),
+    # "TEXT_MISSION_77_DESC": LocData(0x00, "", 77),
+    # "TEXT_MISSION_78_DESC": LocData(0x00, "", 78),
+    # "TEXT_MISSION_79_DESC": LocData(0x00, "", 79),
+    "Bush Rescue Training Program": LocData(0x00, "", 85),
+    "That's A Croc": LocData(0x00, "", 98),
+    "Patchy": LocData(0x00, "", 80),
+    "Fluffy": LocData(0x00, "", 81),
+    "Buster the Nanobots": LocData(0x00, "", 82),
+}
+
+race_dict: Dict[str, LocData] = {
+    # "Races": 0x00, #sanity
+}
+
+sign_dict: Dict[str, LocData] = {
+    # "sign sanity": 0x00 #sanity
 }
