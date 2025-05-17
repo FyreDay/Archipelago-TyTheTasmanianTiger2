@@ -3,6 +3,7 @@ from typing import ClassVar, Dict
 from BaseClasses import Tutorial
 from worlds.AutoWorld import WebWorld, World
 from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items
+from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations
 from worlds.ty_the_tasmanian_tiger_2.Options import ty2_option_groups, Ty2Options
 from worlds.ty_the_tasmanian_tiger_2.Regions import create_ty2_regions, connect_ty2_regions
 from worlds.ty_the_tasmanian_tiger_2.dictionaries.Item_Dict import full_item_dict
@@ -65,7 +66,7 @@ class Ty2World(World):
         }
 
     def generate_early(self) -> None:
-        self.locations = create_ty2_regions(self)
+        self.locations = create_ty2_locations(self)
     def create_regions(self):
         create_ty2_regions(self, self.locations)
         connect_ty2_regions(self)
