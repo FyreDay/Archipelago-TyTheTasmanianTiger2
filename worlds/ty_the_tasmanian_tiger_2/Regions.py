@@ -8,12 +8,12 @@ ty1_levels: Dict[str, str] = {
     "z3": "Currawong",
     "z4": "Southern Rivers",
     "a1": "Outback Oasis",
-    "a2": "She'll Be Right",
+    "a2": "Never Never",
     "a3": "Faire Dinkum",
     "a4": "Patchy",
     "b1": "No Man Groves",
     "b2": "Cassopolis Now",
-    "b3": "Whoop Whoop Walkabout",
+    "b3": "Sulfer rocks",
     "b4": "Fluffy's Fortress",
     "c2": "Cassopolis Redux",
     "c3": "Dinky Dino Saurus",
@@ -47,6 +47,8 @@ ty1_levels: Dict[str, str] = {
     # "r6": "Never Never Road",
     # "r7": "Outback Dash",
     # "r9": "Turbo Track",
+
+
 
 }
 
