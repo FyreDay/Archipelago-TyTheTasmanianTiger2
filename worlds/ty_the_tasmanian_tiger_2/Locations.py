@@ -414,7 +414,7 @@ mission_dict: Dict[str, LocData] = {
     "Lava Chill Out": LocData(0x00, "Never Never", 11), #thermo, lash, OR frosty
     "Canopy Capers": LocData(0x00, "Frill neck", 12),
     "Croc Stock Pile": LocData(0x00, "", 13), #didnt send
-    "Fire Fight": LocData(0x00, "", 14),
+    "Fire Fight": LocData(0x00, "", 14),#didnt send
     "Truck Tragedy": LocData(0x00, "", 16), #lifter bunyip
     "Plutonium Panic": LocData(0x00, "By Never Never", 17),
     "Need A Spare": LocData(0x00, "Past patchy", 18),
@@ -481,9 +481,9 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_79_DESC": LocData(0x00, "", 79),
     "Bush Rescue Training Program": LocData(0x00, "Burramudgee HQ", 85), #
     "That's A Croc": LocData(0x00, "Burramudgee Town", 98),
-    "Patchy": LocData(0x00, "", 80),
-    "Fluffy": LocData(0x00, "", 81),
-    "Buster the Nanobots": LocData(0x00, "", 82),
+    "Patchy": LocData(0x00, "", 980),
+    "Fluffy": LocData(0x00, "", 981),
+    "Buster the Nanobots": LocData(0x00, "", 982),
 
     #mission 86 is get into car
     #patchy is m980
