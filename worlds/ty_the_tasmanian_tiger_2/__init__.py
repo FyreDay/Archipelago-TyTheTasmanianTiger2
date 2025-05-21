@@ -1,11 +1,13 @@
 from typing import ClassVar, Dict
 
 from BaseClasses import Tutorial
+from entrance_rando import disconnect_entrance_for_randomization, randomize_entrances
 from worlds.AutoWorld import WebWorld, World
 from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items
 from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations
 from worlds.ty_the_tasmanian_tiger_2.Options import ty2_option_groups, Ty2Options
 from worlds.ty_the_tasmanian_tiger_2.Regions import create_ty2_regions, connect_ty2_regions
+from worlds.ty_the_tasmanian_tiger_2.Rules import set_rules
 from worlds.ty_the_tasmanian_tiger_2.dictionaries.Item_Dict import full_item_dict
 from worlds.ty_the_tasmanian_tiger_2.dictionaries.Location_Dict import full_location_dict
 
@@ -70,5 +72,12 @@ class Ty2World(World):
     def create_regions(self):
         create_ty2_regions(self, self.locations)
         connect_ty2_regions(self)
+
+
+    def connect_entrances(self) -> None:
+        if False:
+            result = randomize_entrances(self, True, {0: [0]})
     def create_items(self):
         create_ty2_items(self)
+    def set_rules(self):
+        set_rules(self)
