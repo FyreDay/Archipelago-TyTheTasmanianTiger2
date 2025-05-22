@@ -52,7 +52,7 @@ def create_ty2_items(world):
 
 item_dict: Dict[str, ItemData] = {
     "Lifter Bunyip Key": ItemData(51, ItemClassification.progression),
-    "Thermo Extreme Bunyip Key": ItemData(52, ItemClassification.progression),
+    "hermo Bunyip Key": ItemData(52, ItemClassification.progression),
     "Missing Persons Map": ItemData(55, ItemClassification.useful),
     "Cog Map": ItemData(56, ItemClassification.useful),
     "Mysterious Anomalies Map": ItemData(57, ItemClassification.useful),
