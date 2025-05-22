@@ -50,16 +50,15 @@ def create_ty2_items(world):
     #     create_single(name, world, player)
     world.multiworld.itempool += world.itempool
 
-
 item_dict: Dict[str, ItemData] = {
-    "Lifter Bunyip Key": ItemData(0x1d, ItemClassification.progression),
-    "Thermo Extreme Bunyip Key": ItemData(0x1e, ItemClassification.progression),
-    "Sub Bunyip Key": ItemData(0x1f   , ItemClassification.progression),
-    "Gold Paw": ItemData(0x20, ItemClassification.useful),
-    "Platinum Paw": ItemData(0x21, ItemClassification.useful),
-    "Missing Persons Map": ItemData(0x22, ItemClassification.useful),
-    "Cog Map": ItemData(0x23, ItemClassification.useful),
-    "Mysterious Anomalies Map": ItemData(0x24, ItemClassification.useful),
+    "Lifter Bunyip Key": ItemData(51, ItemClassification.progression),
+    "Thermo Extreme Bunyip Key": ItemData(52, ItemClassification.progression),
+    "Missing Persons Map": ItemData(55, ItemClassification.useful),
+    "Cog Map": ItemData(56, ItemClassification.useful),
+    "Mysterious Anomalies Map": ItemData(57, ItemClassification.useful),
+    "Sub Bunyip Key": ItemData(59, ItemClassification.progression),
+    "Gold Paw": ItemData(77, ItemClassification.useful),
+    "Platinum Paw": ItemData(78, ItemClassification.useful),
     # "fourbie speed upgrade": ItemData(0x00, ItemClassification.useful),
 }
 
@@ -70,14 +69,14 @@ def get_rangs(world) -> Dict[str, ItemData]:
         return individual_rangs
 
 individual_rangs: Dict[str, ItemData] = {
-    "Boomerang": ItemData(0x00, ItemClassification.useful),
+    "Boomerang": ItemData(0x13, ItemClassification.useful),
     "Multirang": ItemData(0x01, ItemClassification.useful),
     "Flamerang": ItemData(0x02, ItemClassification.progression),
     "Lavarang": ItemData(0x03, ItemClassification.progression),
     "Frostyrang": ItemData(0x04, ItemClassification.progression),
     "Freezerang": ItemData(0x05, ItemClassification.progression),
-    "Zappyrang": ItemData(0x06, ItemClassification.progression),
-    "Thunderang": ItemData(0x07, ItemClassification.progression),
+    "Zappyrang": ItemData(0x06, ItemClassification.useful),
+    "Thunderang": ItemData(0x07, ItemClassification.useful),
     "Lasharang": ItemData(0x08, ItemClassification.progression),
     "Warperang": ItemData(0x09, ItemClassification.progression),
     "Infrarang": ItemData(0x0a, ItemClassification.progression),
@@ -99,7 +98,7 @@ progressive_rangs: Dict[str, ItemData] = {
     "Progressive Boomerang": ItemData(0x16, ItemClassification.useful, 3), #Boomerang - Multirang - Megarang - Omegarang
     "Progressive Flamerang": ItemData(0x17, ItemClassification.progression, 2),
     "Progressive Frostyrang": ItemData(0x18, ItemClassification.progression, 2),
-    "Progressive Zappyrang": ItemData(0x19, ItemClassification.progression, 2),
+    "Progressive Zappyrang": ItemData(0x19, ItemClassification.useful, 2),
     "Progressive Lasharang": ItemData(0x1a, ItemClassification.progression, 2),
     "Progressive Infrarang": ItemData(0x1b, ItemClassification.progression, 2),
     "Progressive Smasharang": ItemData(0x1c, ItemClassification.progression, 5), #Craftyrang - Smasharang - Kaboomarang - Deadlyrang - Doomerang
@@ -114,11 +113,46 @@ def get_parking_pads(world) -> Dict[str, ItemData]:
     return parking_bays
 
 parking_bays: Dict[str, ItemData] = {
-    "Oasis Parking Bay": ItemData(0x00, ItemClassification.progression),
+    "Burramudgee Town ParkingBay": ItemData(30000, ItemClassification.progression),
+    "Min Min Plains ParkingBay": ItemData(3689, ItemClassification.progression),
+    "Training grounds 03 ParkingBay": ItemData(3688, ItemClassification.progression),
+    "Training grounds 08 ParkingBay": ItemData(4092, ItemClassification.progression),
+    "Dennis Freeway ParkingBay": ItemData(3692, ItemClassification.progression),
+    "Muddy Bottom ParkingBay": ItemData(3306, ItemClassification.progression),
+    "Oil Rig ParkingBay": ItemData(3285, ItemClassification.progression),
+    "Beach ParkingBay": ItemData(3287, ItemClassification.progression),
+    "Lava Falls Race ParkingBay": ItemData(3712, ItemClassification.progression),
+    "MountBoom End ParkingBay": ItemData(3735, ItemClassification.progression),
+    "MountBoom Start ParkingBay": ItemData(3694, ItemClassification.progression),
+    "Frill Neck Forest ParkingBay": ItemData(3693, ItemClassification.progression),
+    "Sheep Dip ParkingBay": ItemData(3292, ItemClassification.progression),
+    "Camping ParkingBay": ItemData(4130, ItemClassification.progression),
+    "Outback Oasis ParkingBay": ItemData(3685, ItemClassification.progression),
+    "Refinery Run ParkingBay": ItemData(3687, ItemClassification.progression),
+    "Fire Fight ParkingBay": ItemData(3983, ItemClassification.progression),
+    "sly ParkingBay": ItemData(3244, ItemClassification.progression),
+    "Outback Dash ParkingBay": ItemData(3714, ItemClassification.progression),
+    "Car trouble ParkingBay": ItemData(3702, ItemClassification.progression),
+    "Never Never Road ParkingBay": ItemData(3713, ItemClassification.progression),
+    "Plutonium Panic ParkingBay": ItemData(3284, ItemClassification.progression),
+    "m59 ParkingBay": ItemData(3709, ItemClassification.progression),
+    "Never Never ParkingBay": ItemData(3710, ItemClassification.progression),
+    "Lava Falls ParkingBay": ItemData(3711, ItemClassification.progression),
+    "m42 ParkingBay": ItemData(4035, ItemClassification.progression),
+    "Turbo Track ParkingBay": ItemData(3300, ItemClassification.progression),
+    "Patchy ParkingBay": ItemData(3951, ItemClassification.progression),
+    "m2 ParkingBay": ItemData(3686, ItemClassification.progression),
+    "m38 ParkingBay": ItemData(3733, ItemClassification.progression),
+    "Sulphur Rocks ParkingBay": ItemData(3967, ItemClassification.progression),
+    "m20 ParkingBay": ItemData(3690, ItemClassification.progression),
+    "M66 ParkingBay": ItemData(3691, ItemClassification.progression),
+    "Faire Dinkum ParkingBay": ItemData(3277, ItemClassification.progression),
+    "a5 ParkingBay": ItemData(3954, ItemClassification.progression),
+    "3708 ParkingBay": ItemData(3708, ItemClassification.progression), #also unlocks 3732
 }
 
 progressive_parking_bays: Dict[str, ItemData] = {
-    "Progressive Parking Bay": ItemData(0x00, ItemClassification.progression, 100),
+    "Progressive Parking Bay": ItemData(0x1f, ItemClassification.progression, 100),
 }
 
 def get_collectable_currencies(world) -> Dict[str, ItemData]:
@@ -129,27 +163,29 @@ def get_collectable_currencies(world) -> Dict[str, ItemData]:
 
 
 collectibles: Dict[str, ItemData] = {
-    "Platinum Cog": ItemData(0x00, ItemClassification.progression_skip_balancing, 50),
-    "Kromium Orb": ItemData(0x00, ItemClassification.progression_skip_balancing, 30),
+    "Platinum Cog": ItemData(0x20, ItemClassification.progression_skip_balancing, 50),
+    "Kromium Orb": ItemData(0x21, ItemClassification.progression_skip_balancing, 30),
 }
 
 def get_filler(world) -> Dict[str, ItemData]:
     return junk_items
 
 junk_items: Dict[str, ItemData] = {
-    "Opal": ItemData(0x00, ItemClassification.filler),
-    "10 Opals": ItemData(0x00, ItemClassification.filler),
-    "25 Opals": ItemData(0x00, ItemClassification.filler),
-    "100 Opals": ItemData(0x00, ItemClassification.filler),
-    "200 Opals": ItemData(0x00, ItemClassification.filler),
-    "Full Pie": ItemData(0x00, ItemClassification.filler),
+    "Opal": ItemData(0x22, ItemClassification.filler),
+    "10 Opals": ItemData(0x23, ItemClassification.filler),
+    "25 Opals": ItemData(0x24, ItemClassification.filler),
+    "100 Opals": ItemData(0x25, ItemClassification.filler),
+    "200 Opals": ItemData(0x26, ItemClassification.filler),
+    "Full Pie": ItemData(0x27, ItemClassification.filler),
 }
 
 junk_weights = {
-    "Opal": 50,
+    "Opal": 0,
     "10 Opals": 30,
     "25 Opals": 20,
     "100 Opals": 10,
     "200 Opals": 5,
-    "Full Pie": 20,
+    "Full Pie": 10,
 }
+
+full_item_dict: Dict[str, ItemData] = {**item_dict, **individual_rangs, **progressive_rangs, **parking_bays, **progressive_parking_bays, **collectibles, **junk_items}

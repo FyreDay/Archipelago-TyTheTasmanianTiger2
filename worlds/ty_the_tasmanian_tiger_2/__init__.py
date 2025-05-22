@@ -1,15 +1,14 @@
 from typing import ClassVar, Dict
 
 from BaseClasses import Tutorial
+from Utils import visualize_regions
 from entrance_rando import disconnect_entrance_for_randomization, randomize_entrances
 from worlds.AutoWorld import WebWorld, World
-from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items
-from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations
+from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items, full_item_dict
+from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations, full_location_dict
 from worlds.ty_the_tasmanian_tiger_2.Options import ty2_option_groups, Ty2Options
 from worlds.ty_the_tasmanian_tiger_2.Regions import create_ty2_regions, connect_ty2_regions
 from worlds.ty_the_tasmanian_tiger_2.Rules import set_rules
-from worlds.ty_the_tasmanian_tiger_2.dictionaries.Item_Dict import full_item_dict
-from worlds.ty_the_tasmanian_tiger_2.dictionaries.Location_Dict import full_location_dict
 
 
 class Ty2Web(WebWorld):
@@ -25,8 +24,6 @@ class Ty2Web(WebWorld):
     )
 
     tutorials = [setup_en]
-    option_groups = ty2_option_groups
-
 
 class Ty2World(World):
     """
@@ -35,10 +32,11 @@ class Ty2World(World):
     """
     game: str = "Ty the Tasmanian Tiger 2"
     web = Ty2Web()
-    options = Ty2Options
-
+    options_dataclass = Ty2Options
+    options: Ty2Options
+    option_groups = ty2_option_groups
     item_name_to_id: ClassVar[Dict[str, int]] = {item_name: item_data.code for item_name, item_data in full_item_dict.items()}
-    location_name_to_id: ClassVar[Dict[str, int]] = full_location_dict
+    location_name_to_id: ClassVar[Dict[str, int]] = {loc_name: loc_data.code for loc_name, loc_data in full_location_dict.items()}
 
     locations = {}
     items = {}
@@ -67,17 +65,26 @@ class Ty2World(World):
             "DeathLink": self.options.death_link.value,
         }
 
+    def generate_output(self, output_directory: str):
+        visualize_regions(self.multiworld.get_region("Menu", self.player), f"Player{self.player}.puml",
+                          show_entrance_names=False,
+                          regions_to_highlight=self.multiworld.get_all_state(self.player).reachable_regions[
+                              self.player])
+
     def generate_early(self) -> None:
         self.locations = create_ty2_locations(self)
+
     def create_regions(self):
         create_ty2_regions(self, self.locations)
         connect_ty2_regions(self)
 
-
     def connect_entrances(self) -> None:
         if False:
             result = randomize_entrances(self, True, {0: [0]})
+
     def create_items(self):
         create_ty2_items(self)
+
     def set_rules(self):
         set_rules(self)
+
