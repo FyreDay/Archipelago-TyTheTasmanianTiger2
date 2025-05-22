@@ -9,11 +9,11 @@ ty1_levels: Dict[str, str] = {
     "z4": "Southern Rivers",
     "a1": "Outback Oasis",
     "a2": "Never Never",
-    "a3": "Faire Dinkum",
+    "a3": "Wetlands",
     "a4": "Patchy",
     # "b1": "No Man Groves",
     # "b2": "Cassopolis Now",
-    "b3": "Sulfer rocks",
+    "b3": "Sulphur Rocks",
     "b4": "Fluffy's Fortress",
     # "c2": "Cassopolis Redux",
     # "c3": "Dinky Dino Saurus",
@@ -40,13 +40,13 @@ ty1_levels: Dict[str, str] = {
     "m52": "Oil Rig Fire",
     "m56": "Attack of the RoboCrabs",
 
-    # "r1": "Refinery Run ",
-    # "r2": "Lava Falls",
-    # "r3": "Hearty Beach Races",
-    # "r4": "Parrotbeard Cove",
-    # "r6": "Never Never Road",
-    # "r7": "Outback Dash",
-    # "r9": "Turbo Track",
+    "r1": "Refinery Run ",
+    "r2": "Lava Falls",
+    "r3": "Hearty Beach Races",
+    "r4": "Parrotbeard Cove", # in SR - Beach
+    "r6": "Never Never Road",
+    "r7": "Outback Dash",
+    "r9": "Turbo Track",
 
 
 
@@ -85,14 +85,18 @@ def create_ty2_regions(world, location_dict):
     create_region(world, "SR - Faire Dinkum", location_dict)
     create_region(world, "Faire Dinkum", location_dict)
     create_region(world, "Faire Dinkum - Infra", location_dict)
-    create_region(world, "Patchy", location_dict)
-    create_region(world, "Sulfer rocks", location_dict)
-    create_region(world, "Sulfer rocks - Infra", location_dict)
+    create_region(world, "Sulphur Rocks", location_dict)
+    create_region(world, "Sulphur Rocks - Infra", location_dict)
+    create_region(world, "SR - Wetlands", location_dict)
+    create_region(world, "Wetlands", location_dict)
+    create_region(world, "Wetlands - Infra", location_dict)
     create_region(world, "Fluffy's Fortress", location_dict)
+    create_region(world, "SR - Fluffy's Fortress", location_dict)
     create_region(world, "Buster the Nanobot Boss", location_dict)
+    create_region(world, "SR - Buster the Nanobot Boss", location_dict)
     create_region(world, "Cass' Run", location_dict)
     create_region(world, "Southern Rivers", location_dict)
-    create_region(world, "SR - SR - Min Min Plains", location_dict)
+    create_region(world, "SR - Min Min Plains", location_dict)
     create_region(world, "SR - Training Grounds 03", location_dict)
     create_region(world, "Training Grounds 03", location_dict)
     create_region(world, "SR - Dennis Freeway", location_dict)
@@ -104,46 +108,48 @@ def create_ty2_regions(world, location_dict):
     create_region(world, "Oil Rig", location_dict)
     create_region(world, "SR - Beach", location_dict)
     create_region(world, "Beach Sub", location_dict)
-    create_region(world, "Beach Rex", location_dict)
-    create_region(world, "SR - r3", location_dict)
+    create_region(world, "Deep Sea Scare", location_dict)
+    create_region(world, "SR - Lava Falls Race", location_dict)
     create_region(world, "SR - MountBoom End", location_dict)
     create_region(world, "MountBoom", location_dict)
+    create_region(world, "MountBoom -> Infra", location_dict)
     create_region(world, "SR - MountBoom Start", location_dict)
     create_region(world, "SR - Frill Neck Forest", location_dict)
     create_region(world, "Frill Neck Forest", location_dict)
+    create_region(world, "Frill Neck Forest - Infra", location_dict)
     create_region(world, "SR - Sheep Dip", location_dict)
     create_region(world, "Sheep Dip", location_dict)
     create_region(world, "SR - Camping", location_dict)
-    create_region(world, "SR - r1", location_dict)
+    create_region(world, "SR - Refinery Run", location_dict)
     create_region(world, "SR - Fire Fight", location_dict)
     create_region(world, "Fire Fight", location_dict)
-    create_region(world, "SR - sly", location_dict)
-    create_region(world, "SR - r7", location_dict)
-    create_region(world, "SR - car trouble", location_dict)
-    create_region(world, "SR - r6", location_dict)
-    create_region(world, "SR - m17", location_dict)
-    create_region(world, "SR - m59", location_dict)
-    create_region(world, "SR - r2", location_dict)
-    create_region(world, "SR - m42", location_dict)
-    create_region(world, "SR - r9", location_dict)
+    create_region(world, "SR - Sly", location_dict)
+    create_region(world, "SR - Outback Dash", location_dict)
+    create_region(world, "SR - Truck Tragedy", location_dict)
+    create_region(world, "SR - Never Never Road", location_dict)
+    create_region(world, "SR - Plutonium Panic", location_dict)
+    create_region(world, "SR - 50 Foot Squeaver", location_dict)
+    create_region(world, "SR - Lava Falls", location_dict)
+    create_region(world, "SR - Min Min Mining", location_dict)
+    create_region(world, "SR - Turbo Track", location_dict)
     create_region(world, "SR - Patchy", location_dict)
     create_region(world, "Patchy", location_dict)
-    create_region(world, "SR - m2", location_dict)
-    create_region(world, "m2", location_dict)
-    create_region(world, "SR - m38", location_dict)
-    create_region(world, "m38", location_dict)
-    create_region(world, "SR - b3", location_dict)
-    create_region(world, "b3", location_dict)
+    create_region(world, "SR - Lake Burramudgee", location_dict) #m2
+    create_region(world, "Lake Burramudgee", location_dict)
+    create_region(world, "SR - Bush Fire", location_dict)
+    create_region(world, "Bush Fire", location_dict)
+    create_region(world, "SR - Sulphur Rocks", location_dict)
     create_region(world, "SR - m20", location_dict)
     create_region(world, "SR - m66", location_dict)
     create_region(world, "m66", location_dict)
     create_region(world, "SR - a5", location_dict)
-    create_region(world, "a5", location_dict)
+    create_region(world, "SR - Truck Stop", location_dict)
+    create_region(world, "SR - Cul De Sac", location_dict)
 
 
 def connect_regions(world, from_name: str, to_name: str, entrance_name: str, entrance_group = 0) -> Entrance:
-    entrance_region = world.get_region(from_name, world.player)
-    exit_region = world.get_region(to_name, world.player)
+    entrance_region = world.get_region(from_name)
+    exit_region = world.get_region(to_name)
     entrance = entrance_region.connect(exit_region, entrance_name)
     entrance.randomization_group = entrance_group
     if False and entrance.randomization_group == 0:
@@ -159,7 +165,7 @@ def connect_ty2_regions(world):
     connect_regions(world, "Burramudgee Town", "Burramudgee Town - Infra", "Burramudgee Town -> Infra", 1)
     connect_regions(world, "Burramudgee Town", "SR - Burramudgee Town", "SR - Burramudgee Connector")
     connect_regions(world, "Southern Rivers", "SR - Burramudgee Town", "Burramudgee ParkingBay", 1)
-    connect_regions(world, "Southern Rivers", "SR - Min Min Plains", "Min Min Plains ParkingBay", 1)
+    connect_regions(world, "Southern Rivers", "SR - Min Min Plains", "Min Min Plains ParkingBay", 1) #3689
     connect_regions(world, "Southern Rivers", "SR - Training Grounds 03", "Training Grounds 03 ParkingBay", 1) #3688
     connect_regions(world, "SR - Training Grounds 03", "Training Grounds 03", "Training Grounds 03 Connector")
     connect_regions(world, "Southern Rivers", "SR - Dennis Freeway", "Dennis Freeway ParkingBay", 1) #3692
@@ -171,48 +177,61 @@ def connect_ty2_regions(world):
     connect_regions(world, "SR - Oil Rig", "Oil Rig", "Oil Rig Connector")
     connect_regions(world, "Southern Rivers", "SR - Beach", "Beach ParkingBay", 1)  # 3287
     connect_regions(world, "SR - Beach", "Beach Sub", "Beach Mission Sub Connector")
-    connect_regions(world, "SR - Beach", "Beach Rex", "Beach Mission Rex Connector")
-    connect_regions(world, "Southern Rivers", "SR - r3", "r3 ParkingBay", 1)  # 3712
+    connect_regions(world, "SR - Beach", "Deep Sea Scare", "Deep Sea Scare Connector")
+    connect_regions(world, "Southern Rivers", "SR - Lava Falls Race", "Lava Falls Race ParkingBay", 1)  # 3712
     connect_regions(world, "Southern Rivers", "SR - MountBoom End", "MountBoom End ParkingBay", 1)  # 3735
     connect_regions(world, "SR - MountBoom End", "MountBoom", "MountBoom End Connector")
     connect_regions(world, "Southern Rivers", "SR - MountBoom Start", "MountBoom Start ParkingBay", 1)  # 3694
     connect_regions(world, "SR - MountBoom Start", "MountBoom", "MountBoom Start Connector")
+    connect_regions(world, "MountBoom", "MountBoom -> Infra", "MountBoom -> Infra")
     connect_regions(world, "Southern Rivers", "SR - Frill Neck Forest", "Frill Neck Forest ParkingBay", 1)  # 3693
     connect_regions(world, "SR - Frill Neck Forest", "Frill Neck Forest", "Frill Neck Forest Load Zone")
+    connect_regions(world, "Frill Neck Forest", "Frill Neck Forest - Infra", "Frill Neck Forest -> Infra")
     connect_regions(world, "Southern Rivers", "SR - Sheep Dip", "Sheep Dip ParkingBay", 1)  # 3292
     connect_regions(world, "SR - Sheep Dip", "Sheep Dip", "Sheep Dip Connector")
     connect_regions(world, "Southern Rivers", "SR - Camping", "Camping ParkingBay", 1)  # 4130
-    connect_regions(world, "Southern Rivers", "SR - Oasis", "Oasis ParkingBay", 1)  # 3685
-    connect_regions(world, "SR - Oasis", "Outback Oasis", "Oasis Connector")
-    connect_regions(world, "Southern Rivers", "SR - r1", "r1 ParkingBay", 1)  # 3687
+    connect_regions(world, "Southern Rivers", "SR - Outback Oasis", "Outback Oasis ParkingBay", 1)  # 3685
+    connect_regions(world, "SR - Outback Oasis", "Outback Oasis", "Outback Oasis Connector")
+    connect_regions(world, "Outback Oasis", "Outback Oasis - Infra", "Outback Oasis -> Infra")
+    connect_regions(world, "Southern Rivers", "SR - Refinery Run", "Refinery Run ParkingBay", 1)  # 3687
     connect_regions(world, "Southern Rivers", "SR - Fire Fight", "Fire Fight ParkingBay", 1)  # 3983
     connect_regions(world, "SR - Fire Fight", "Fire Fight", "Fire Fight Connector")
-    connect_regions(world, "Southern Rivers", "SR - sly", "sly ParkingBay", 1)  # 3244
-    connect_regions(world, "Southern Rivers", "SR - r7", "r7 ParkingBay", 1)  # 3714
-    connect_regions(world, "Southern Rivers", "SR - car trouble", "car trouble ParkingBay", 1)  # 3702
-    connect_regions(world, "Southern Rivers", "SR - r6", "r6 ParkingBay", 1)  # 3713
-    connect_regions(world, "Southern Rivers", "SR - m17", "m17 ParkingBay", 1)  # 3284
-    connect_regions(world, "Southern Rivers", "SR - m59", "m59 ParkingBay", 1)  # 3709
+    connect_regions(world, "Southern Rivers", "SR - Sly", "sly ParkingBay", 1)  # 3244
+    connect_regions(world, "Southern Rivers", "SR - Outback Dash", "Outback Dash ParkingBay", 1)  # 3714
+    connect_regions(world, "Southern Rivers", "SR - Truck Tragedy", "Truck Tragedy ParkingBay", 1)  # 3702
+    connect_regions(world, "Southern Rivers", "SR - Never Never Road", "Never Never Road ParkingBay", 1)  # 3713
+    connect_regions(world, "Southern Rivers", "SR - Plutonium Panic", "Plutonium Panic ParkingBay", 1)  # 3284
+    connect_regions(world, "Southern Rivers", "SR - 50 Foot Squeaver", "50 Foot Squeaver ParkingBay", 1)  # 3709
     connect_regions(world, "Southern Rivers", "SR - Never Never", "Never Never ParkingBay", 1)  # 3710
     connect_regions(world, "SR - Never Never", "Never Never", "Never Never Connector")
-    connect_regions(world, "Southern Rivers", "SR - r2", "r2 ParkingBay", 1)  # 3711
-    connect_regions(world, "Southern Rivers", "SR - m42", "m42 ParkingBay", 1)  # 4035
-    connect_regions(world, "Southern Rivers", "SR - r9", "r9 ParkingBay", 1)  # 3300
+    connect_regions(world, "Never Never", "Never Never - Infra", "Never Never -> Infra")
+    connect_regions(world, "Southern Rivers", "SR - Lava Falls", "Lava Falls ParkingBay", 1)  # 3711
+    connect_regions(world, "Southern Rivers", "SR - Min Min Mining", "Min Min Mining ParkingBay", 1)  # 4035
+    connect_regions(world, "Southern Rivers", "SR - Turbo Track", "Turbo Track ParkingBay", 1)  # 3300
     connect_regions(world, "Southern Rivers", "SR - Patchy", "Patchy ParkingBay", 1)  # 3951
     connect_regions(world, "SR - Patchy", "Patchy", "Patchy Connector")
-    connect_regions(world, "Southern Rivers", "SR - m2", "m2 ParkingBay", 1)  # 3686
-    connect_regions(world, "SR - m2", "m2", "m2 Connector")
-    connect_regions(world, "Southern Rivers", "SR - m38", "m38 ParkingBay", 1)  # 3733
-    connect_regions(world, "SR - m38", "m38", "m38 Connector")
-    connect_regions(world, "Southern Rivers", "SR - b3", "b3 ParkingBay", 1)  # 3967
-    connect_regions(world, "SR - b3", "b3", "b3 Connector")
-    connect_regions(world, "Southern Rivers", "SR - m20", "m20 ParkingBay", 1)  # 3690
+    connect_regions(world, "Southern Rivers", "SR - Lake Burramudgee", "m2 ParkingBay", 1)  # 3686
+    connect_regions(world, "SR - Lake Burramudgee", "Lake Burramudgee", "Lake Burramudgee Connector")
+    connect_regions(world, "Southern Rivers", "SR - Bush Fire", "Bush Fire ParkingBay", 1)  # 3733
+    connect_regions(world, "SR - Bush Fire", "Bush Fire", "Bush Fire Connector")
+    connect_regions(world, "Southern Rivers", "SR - Sulphur Rocks", "Sulphur Rocks ParkingBay", 1)  # 3967
+    connect_regions(world, "SR - Sulphur Rocks", "Sulphur Rocks", "Sulphur Rocks Connector")
+    connect_regions(world, "Sulphur Rocks", "Sulphur Rocks - Infra", "Sulphur Rocks -> Infra")
+    connect_regions(world, "Southern Rivers", "SR - m20", "m20 ParkingBay", 1)  # 3690 # King Squeaver and Birrel Hood
     connect_regions(world, "Southern Rivers", "SR - m66", "M66 ParkingBay", 1)  # 3691
     connect_regions(world, "SR - m66", "m66", "m66 Connector")
     connect_regions(world, "Southern Rivers", "SR - Faire Dinkum", "Faire Dinkum ParkingBay", 1)  # 3277
     connect_regions(world, "SR - Faire Dinkum", "Faire Dinkum", "Faire Dinkum Connector")
-    connect_regions(world, "Southern Rivers", "SR - a5", "a5 ParkingBay", 1)  # 3954
-    connect_regions(world, "SR - a5", "a5", "a5 Connector")
+    connect_regions(world, "Faire Dinkum", "Faire Dinkum - Infra", "Faire Dinkum -> Infra")
+    connect_regions(world, "Southern Rivers", "SR - Wetlands", "Wetlands ParkingBay", 1)
+    connect_regions(world, "SR - Wetlands", "Wetlands", "Wetlands Connector")
+    connect_regions(world, "Wetlands", "Wetlands - Infra", "Wetlands -> Infra")
+    connect_regions(world, "Southern Rivers", "SR - Truck Stop", "Truck Stop ParkingBay") # north 3708  #south 3732
+    connect_regions(world, "Southern Rivers", "SR - Cul De Sac", "Cul De Sac ParkingBay")
+    connect_regions(world, "Southern Rivers", "SR - Buster the Nanobot Boss", "Buster ParkingBay")
+    connect_regions(world, "Buster the Nanobot Boss", "SR - Buster the Nanobot Boss", "Buster Connector")
+    connect_regions(world, "Southern Rivers", "SR - Fluffy's Fortress", "Fluffy ParkingBay")
+    connect_regions(world, "Fluffy's Fortress", "Fluffy's Fortress", "Fluffy Connector")
 
 
 # name ParkingBay

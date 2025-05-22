@@ -12,7 +12,8 @@ class LocData(NamedTuple):
     id: Optional[int] = -1
 
 def create_ty2_locations(world):
-    all_locations ={**shop_location_dict, **platinum_cog_dict, **kromium_orb_dict, **bilby_dict, **mission_dict}
+    all_locations = {**shop_location_dict, **platinum_cog_dict, **kromium_orb_dict, **bilby_dict, **mission_dict}
+    print(f"location length {len(all_locations)}")
     if world.options.frill_sanity.value:
         all_locations.update(disguised_frill_dict)
     if world.options.steve_sanity.value:
@@ -22,43 +23,44 @@ def create_ty2_locations(world):
     return all_locations
 
 shop_location_dict = {
-    "Rang Shop 1": LocData(0x00, "Burramudgee Town"),
-    "Rang Shop 2": LocData(0x00, "Burramudgee Town"),
-    "Rang Shop 3": LocData(0x00, "Burramudgee Town"),
-    "Rang Shop 4": LocData(0x00, "Burramudgee Town"),
-    "Rang Shop 5": LocData(0x00, "Burramudgee Town"),
-    "Rang Shop 6": LocData(0x00, "Burramudgee Town"),
-    "Rang Shop 7": LocData(0x00, "Burramudgee Town"),
-    "Rang Shop 8": LocData(0x00, "Burramudgee Town"),
-    "Sly's Shack 1": LocData(0x00, "SR - sly"),
-    "Sly's Shack 2": LocData(0x00, "SR - sly"),
-    "Sly's Shack 3": LocData(0x00, "SR - sly"),
-    "Sly's Shack 4": LocData(0x00, "SR - sly"),
-    "Sly's Shack 5": LocData(0x00, "SR - sly"),
-    "Sly's Shack 6": LocData(0x00, "SR - sly"),
-    "Sly's Shack 7": LocData(0x00, "SR - sly"),
-    "Sly's Shack 8": LocData(0x00, "SR - sly"),
-    "Sly's Shack 9": LocData(0x00, "SR - sly"),
-    "Sly's Shack 10": LocData(0x00, "SR - sly"),
-    "Sly's Shack 11": LocData(0x00, "SR - sly"),
-    "Trader Bob's 1": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's 2": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's 3": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's 4": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's 5": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 1": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 2": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 3": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 4": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 5": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 6": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 7": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 8": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 9": LocData(0x00, "Burramudgee Town"),
-    "Trader Bob's Cog 10": LocData(0x00, "Burramudgee Town"),
-    "Madam Mopoke's 1": LocData(0x00, "Burramudgee Town"),
-    "Madam Mopoke's 2": LocData(0x00, "Burramudgee Town"),
-    "Madam Mopoke's 3": LocData(0x00, "Burramudgee Town"),
+"Rang Shop 8": LocData(26, "Burramudgee Town"),# Camerarang
+    "Rang Shop 1": LocData(8, "Burramudgee Town"), #frosty
+    "Rang Shop 2": LocData(9, "Burramudgee Town"), #flame
+    "Rang Shop 3": LocData(18, "Burramudgee Town"), #zappy
+    "Rang Shop 4": LocData(12, "Burramudgee Town"), #infra
+    "Rang Shop 5": LocData(11, "Burramudgee Town"), #lash
+    "Rang Shop 6": LocData(13, "Burramudgee Town"),
+    "Rang Shop 7": LocData(14, "Burramudgee Town"),
+
+    "Sly's Shack 1": LocData(17, "SR - Sly"), #freeze
+    "Sly's Shack 2": LocData(16, "SR - Sly"), #lava
+    "Sly's Shack 3": LocData(15, "SR - Sly"), #multi
+    "Sly's Shack 4": LocData(19, "SR - Sly"), #warp
+    "Sly's Shack 5": LocData(10, "SR - Sly"), #thunder
+    "Sly's Shack 6": LocData(20, "SR - Sly"), #X
+    "Sly's Shack 7": LocData(21, "SR - Sly"), #kaboom
+    "Sly's Shack 8": LocData(22, "SR - Sly"), #omega
+    "Sly's Shack 9": LocData(23, "SR - Sly"), #deadly
+    "Sly's Shack 10": LocData(24, "SR - Sly"), #doom
+    "Sly's Shack 11": LocData(25, "SR - Sly"), #crafty
+    "Trader Bob's 1": LocData(1, "Burramudgee Town"), #lifter
+    "Trader Bob's 2": LocData(2, "Burramudgee Town"), #thermo
+    "Trader Bob's 3": LocData(59, "Burramudgee Town"), #sub
+    "Trader Bob's 4": LocData(77, "Burramudgee Town"), #gold paw
+    "Trader Bob's 5": LocData(78, "Burramudgee Town"), #plat paw
+    "Trader Bob's Cog 1": LocData(79, "Burramudgee Town"),
+    "Trader Bob's Cog 2": LocData(80, "Burramudgee Town"),
+    "Trader Bob's Cog 3": LocData(81, "Burramudgee Town"),
+    "Trader Bob's Cog 4": LocData(82, "Burramudgee Town"),
+    "Trader Bob's Cog 5": LocData(83, "Burramudgee Town"),
+    "Trader Bob's Cog 6": LocData(84, "Burramudgee Town"),
+    "Trader Bob's Cog 7": LocData(85, "Burramudgee Town"),
+    "Trader Bob's Cog 8": LocData(86, "Burramudgee Town"),
+    "Trader Bob's Cog 9": LocData(87, "Burramudgee Town"),
+    "Trader Bob's Cog 10": LocData(88, "Burramudgee Town"),
+    "Madam Mopoke's 1": LocData(5, "Burramudgee Town"),
+    "Madam Mopoke's 2": LocData(6, "Burramudgee Town"),
+    "Madam Mopoke's 3": LocData(7, "Burramudgee Town"),
 
 }
 
@@ -503,3 +505,5 @@ race_dict: Dict[str, LocData] = {
 sign_dict: Dict[str, LocData] = {
     # "sign sanity": 0x00 #sanity
 }
+
+full_location_dict: Dict[str, LocData] = {**shop_location_dict, **platinum_cog_dict, **kromium_orb_dict, **bilby_dict, **steve_dict, **disguised_frill_dict, **picture_frame_dict, **mission_dict}
