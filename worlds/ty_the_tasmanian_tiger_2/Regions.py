@@ -152,8 +152,8 @@ def connect_regions(world, from_name: str, to_name: str, entrance_name: str, ent
     exit_region = world.get_region(to_name)
     entrance = entrance_region.connect(exit_region, entrance_name)
     entrance.randomization_group = entrance_group
-    if False and entrance.randomization_group == 0:
-        world.disconnect_entrance_for_randomization(entrance)
+    # if False and entrance.randomization_group == 0:
+    #     world.disconnect_entrance_for_randomization(entrance)
     return entrance
 
 def connect_ty2_regions(world):

@@ -65,12 +65,6 @@ class Ty2World(World):
             "DeathLink": self.options.death_link.value,
         }
 
-    def generate_output(self, output_directory: str):
-        visualize_regions(self.multiworld.get_region("Menu", self.player), f"Player{self.player}.puml",
-                          show_entrance_names=False,
-                          regions_to_highlight=self.multiworld.get_all_state(self.player).reachable_regions[
-                              self.player])
-
     def generate_early(self) -> None:
         self.locations = create_ty2_locations(self)
 
@@ -78,13 +72,19 @@ class Ty2World(World):
         create_ty2_regions(self, self.locations)
         connect_ty2_regions(self)
 
-    def connect_entrances(self) -> None:
-        if False:
-            result = randomize_entrances(self, True, {0: [0]})
+    # def connect_entrances(self) -> None:
+    #     if False:
+    #         result = randomize_entrances(self, True, {0: [0]})
 
     def create_items(self):
         create_ty2_items(self)
 
     def set_rules(self):
         set_rules(self)
+
+    def generate_output(self, output_directory: str):
+        visualize_regions(self.multiworld.get_region("Menu", self.player), f"Player{self.player}.puml",
+                          show_entrance_names=False,
+                          regions_to_highlight=self.multiworld.get_all_state(self.player).reachable_regions[
+                              self.player])
 
