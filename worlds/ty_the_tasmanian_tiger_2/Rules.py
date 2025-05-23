@@ -4,22 +4,313 @@ from worlds.ty_the_tasmanian_tiger_2.Locations import Ty2Location, mission_dict
 
 
 def has_infra(world, state):
-    state.has("Progressive Infrarang", world.player) or state.has("Infrarang", world.player) or state.has("X-Rang", world.player)
+    return (state.has("Progressive Infrarang", world.player)
+            or state.has("Infrarang", world.player)
+            or state.has("X-Rang", world.player))
+
+def can_cold(world, state):
+    return (can_freeze(world, state)
+            or state.has("Thermo Bunyip Key", world.player))
+
 def can_smash_crate(world, state):
-    (state.has("Progressive Smasharang", world.player, 1) or state.has("Craftyrang", world.player) or state.has("Smasharang", world.player)
-     or state.has("Kaboomarang", world.player) or state.has("Deadlyrang", world.player) or state.has("Deadlyrang", world.player))
+    return (state.has("Progressive Smasharang", world.player, 1)
+            or state.has("Craftyrang", world.player)
+            or can_smash_wall(world, state))
+
 def can_smash_wall(world, state):
-    (state.has("Progressive Smasharang", world.player, 2) or state.has("Smasharang", world.player)
-     or state.has("Kaboomarang", world.player) or state.has("Deadlyrang", world.player) or state.has("Deadlyrang", world.player))
+    return (state.has("Progressive Smasharang", world.player, 2)
+            or state.has("Smasharang", world.player)
+            or state.has("Kaboomarang", world.player)
+            or state.has("Deadlyrang", world.player)
+            or state.has("Doomerang", world.player))
+
+def can_burn(world, state):
+    return (state.has("Progressive Flamerang", world.player, 1)
+            or state.has("Flamerang", world.player)
+            or state.has("Lavarang", world.player))
+
+def can_freeze(world, state):
+    return (state.has("Progressive Frostyrang", world.player, 1)
+    or state.has("Frostyrang", world.player)
+    or state.has("Freezerang", world.player))
+
+def can_zap(world, state):
+    return (state.has("Progressive Zappyrang", world.player, 1)
+    or state.has("Zappyrang", world.player)
+    or state.has("Thunderang", world.player))
+
+def can_swing(world, state):
+    return (state.has("Progressive Lasharang", world.player, 1)
+     or state.has("Lasharang", world.player)
+     or state.has("Warperang", world.player))
+
+def can_tp(world, state):
+    return (state.has("Progressive Lasharang", world.player, 2)
+            or state.has("Warperang", world.player))
+
+def can_reach_mission_count(state: CollectionState, target_count: int):
+        count_so_far = 0
+        for loc in mission_locations:
+            if loc.can_reach(state):
+                count_so_far += 1
+            if count_so_far >= target_count:
+                return True
+        return False
 
 def get_rules(world):
     rules = {
         "locations": {
-            "Platinum Cog 5": lambda state: can_smash_wall(world, state),
+            #Missions
+            "Haunted Hassle": lambda state:
+                has_infra(world, state),
+            "Lava Chill Out": lambda state:
+                can_swing(world, state) or can_cold(world, state),
+            "Hidden Danger": lambda state:
+                has_infra(world, state),
+            "Deep Sea Scare": lambda state:
+                state.has("Sub Bunyip Key", world.player),
+            "Sea Lab": lambda state:
+                state.has("Sub Bunyip Key", world.player),
+            "Oil Rig Fire": lambda state:
+                state.has("Thermo Bunyip Key", world.player),
+            "Truck Tragedy": lambda state:
+                state.has("Lifter Bunyip Key", world.player),
+            "Truck Stop": lambda state:
+                state.has("Lifter Bunyip Key", world.player),
+            "Bush Fire": lambda state:
+                state.has("Thermo Bunyip Key", world.player),
+            "Killer Koala": lambda state:
+                has_infra(world, state),
+            #Cogs
+            "Platinum Cog 2": lambda state:
+                can_smash_wall(world, state),
+            "Platinum Cog 4": lambda state:
+                can_smash_wall(world, state),
+            "Platinum Cog 6": lambda state:
+                can_smash_wall(world, state),
+            "Platinum Cog 12": lambda state:
+                can_swing(world, state)  or can_cold(world, state),
+            "Platinum Cog 17": lambda state:
+                has_infra(world, state),
+            "Platinum Cog 18": lambda state:
+                can_swing(world, state),
+            "Platinum Cog 20": lambda state:
+                can_smash_wall(world, state),
+            "Platinum Cog 21": lambda state:
+                can_smash_wall(world, state),
+            "Platinum Cog 24": lambda state:
+                can_freeze(world, state),
+            "Platinum Cog 25": lambda state:
+                state.has("Lifter Bunyip Key", world.player),
+            "Platinum Cog 32": lambda state:
+                can_tp(world, state),
+            "Platinum Cog 38": lambda state:
+                can_tp(world, state),
+            "Platinum Cog 40": lambda state:
+                can_tp(world, state),
+            "Platinum Cog 42": lambda state:
+                can_smash_wall(world, state),
+            "Platinum Cog 45": lambda state:
+                can_burn(world, state),
+            "Platinum Cog 50": lambda state:
+                has_infra(world, state),
+            #Orbs
+            "Kromium Orb 1": lambda state:
+                can_swing(world, state),
+            "Kromium Orb 3": lambda state:
+                can_swing(world, state),
+            "Kromium Orb 4": lambda state:
+                can_swing(world, state)  or can_freeze(world, state),
+            "Kromium Orb 8": lambda state:
+                can_tp(world, state) and can_smash_wall(world, state),
+            "Kromium Orb 10": lambda state:
+                can_smash_wall(world, state),
+            "Kromium Orb 14": lambda state:
+                has_infra(world, state),
+            "Kromium Orb 15": lambda state:
+                has_infra(world, state),
+            "Kromium Orb 16": lambda state:
+                can_smash_wall(world, state),
+            "Kromium Orb 17": lambda state:
+                can_swing(world, state),
+            "Kromium Orb 23": lambda state:
+                can_swing(world, state),
+            "Kromium Orb 26": lambda state:
+                can_swing(world, state),
+            "Kromium Orb 28": lambda state:
+                can_smash_wall(world, state),
+            #Bilbies
+            "Bilby 1": lambda state:
+                can_smash_wall(world,state),
+            "Bilby 5": lambda state:
+                can_swing(world, state) or can_cold(world, state),
+            "Bilby 16": lambda state:
+                has_infra(world, state),
+            "Bilby 17": lambda state:
+                can_swing(world, state),
+            "Bilby 19": lambda state:
+                can_swing(world, state),
+            "Bilby 20": lambda state:
+                can_swing(world, state),
+            "Bilby 22": lambda state:
+                can_burn(world, state),
+            "Bilby 23": lambda state:
+                can_burn(world, state),
+            "Bilby 26": lambda state:
+                can_tp(world, state),
+            "Bilby 28": lambda state:
+                can_freeze(world, state),
+            #Frills
+            "Disguised Frill 1": lambda state:
+                has_infra(world, state)
+                and state.can_reach_region("Burramudgee Town", world.player)
+                and can_smash_wall(world, state),
+            "Disguised Frill 2": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 3": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 4": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 5": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 6": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 7": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 8": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 9": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 10": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 11": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 12": lambda state:
+                has_infra(world, state)
+                and state.can_reach_region("Burramudgee Town", world.player)
+                and can_swing(world, state),
+            "Disguised Frill 13": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 14": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 15": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 16": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 17": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 18": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 19": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 20": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 21": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 22": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 23": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 24": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 25": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+
+            #Steves
+            "Steve 3": lambda state:
+                can_swing(world, state),
+            "Steve 7": lambda state:
+                state.has("Thermo Bunyip Key", world.player),
+            #Frames
+            "Picture Frame 1": lambda state:
+                can_tp(world, state),
+            "Picture Frame 2": lambda state:
+                can_tp(world, state),
+            "Picture Frame 3": lambda state:
+                can_tp(world, state),
+            "Picture Frame 5": lambda state:
+                can_swing(world, state),
+            "Picture Frame 7": lambda state:
+                can_swing(world, state) or can_cold(world, state),
+            "Picture Frame 13": lambda state:
+                can_smash_wall(world, state),
+            "Picture Frame 19": lambda state:
+                can_tp(world, state),
+            "Picture Frame 20": lambda state:
+                can_tp(world, state),
+            "Picture Frame 21": lambda state:
+                can_tp(world, state),
+            "Picture Frame 22": lambda state:
+                can_tp(world, state),
+            "Picture Frame 23": lambda state:
+                can_tp(world, state),
+            "Picture Frame 31": lambda state:
+                can_smash_wall(world, state),
+            "Picture Frame 32": lambda state:
+                can_smash_wall(world, state),
+            "Picture Frame 36": lambda state:
+                can_swing(world, state),
+            "Picture Frame 37": lambda state:
+                can_swing(world, state),
+            "Picture Frame 38": lambda state:
+                can_swing(world, state),
+            "Picture Frame 62": lambda state:
+                can_swing(world, state),
         },
         "entrances": {
+            "Burramudgee HQ -> Infra":
+                lambda state: not world.options.require_infra
+                or has_infra(world, state),
+            "Burramudgee HQ -> Crates":
+                lambda state: can_smash_crate(world, state),
             "Burramudgee Town -> Infra":
-                lambda state: has_infra(world, state),
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "Outback Oasis -> Infra":
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "MountBoom -> Infra":
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "Frill Neck Forest -> Infra":
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "Wetlands -> Infra":
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "Faire Dinkum -> Infra":
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "Never Never -> Infra":
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "Sulphur Rocks -> Infra":
+                lambda state: not world.options.require_infra
+                              or has_infra(world, state),
+            "MountBoom Start ParkingBay":
+                lambda state: state.has("MountBoom Start ParkingBay", world.player),
+            "MountBoom Start Lava":
+                lambda state: state.has("Thermo Bunyip Key", world.player),
+            "MountBoom End Lava":
+                lambda state: state.has("Thermo Bunyip Key", world.player),
+            "MountBoom End ParkingBay":
+                lambda state: state.has("MountBoom End ParkingBay", world.player),
+            "Burramudgee ParkingBay":
+                lambda state: state.has("Burramudgee Town ParkingBay", world.player),
+            "Outback Oasis ParkingBay":
+                lambda state: state.has("Outback Oasis ParkingBay", world.player),
+            "Oil Rig ParkingBay":
+                lambda state: state.has("Oil Rig ParkingBay", world.player),
+            "Patchy ParkingBay":
+                lambda state: state.has("Patchy ParkingBay", world.player),
+            "Bush Rescue Plane":
+                lambda state: (not world.options.require_bosses and can_reach_mission_count(state, 20))
+                              or (world.options.require_bosses
+                              and state.can_reach_location("Patchy", world.player)
+                              and state.can_reach_location("Buster the Nanobot Boss", world.player)
+                              and state.can_reach_location("Fluffy", world.player)
+                              and can_reach_mission_count(state, 20)),
+
         }
     }
     return rules

@@ -24,12 +24,6 @@ class StartWithMaps(Toggle):
     """
     display_name = "Start With Maps"
 
-# class StartWithCrafty(Toggle):
-#     """
-#     Determines if you begin with the crafty rang, a rang with a cooldown if you miss
-#     """
-#     display_name = "Start With Crafty"
-
 class ProgressiveRangs(DefaultOnToggle):
     """
     Determines if each rang and their upgrade are progressive
@@ -42,11 +36,11 @@ class ProgressiveRangs(DefaultOnToggle):
 #     """
 #     display_name = "Connector Randomization"
 
-class ShopDifficulty(Choice):
+class ShopPrices(Choice):
     """
     Determines how expensive the shops are
     """
-    display_name = "Goal"
+    display_name = "Shop Prices"
     option_cheap = 0
     option_normal = 1
     option_expensive = 2
@@ -72,7 +66,7 @@ class ExtraOrbs(Range):
 
 class ChecksRequireInfra(Toggle):
     """
-    Determines whether the generator considers checks using invisible objects to be logically locked behind the infrarang
+    Determines whether the generator considers checks using invisible objects logically require the Infrarang
 
     This also affects Frame Sanity
     """
@@ -86,7 +80,7 @@ class FrameSanity(Toggle):
 
 class SteveSanity(Toggle):
     """
-    Determines if talking to steve grants checks
+    Determines if talking to Steve grants checks
     """
     display_name = "Steve Sanity"
 
@@ -151,7 +145,7 @@ class ty2_option_groups(PerGameCommonOptions):
     ]),
     OptionGroup("General Options", [
         ProgressiveRangs,
-        ShopDifficulty,
+        ShopPrices,
         ExtraCogs,
         ExtraOrbs,
         ChecksRequireInfra,
@@ -174,7 +168,7 @@ class Ty2Options(PerGameCommonOptions):
     require_bosses: GoalRequiresBosses
 
     progressive_rangs: ProgressiveRangs
-    shop_difficulty: ShopDifficulty
+    shop_difficulty: ShopPrices
     extra_cogs: ExtraCogs
     extra_orbs: ExtraOrbs
     require_infra: ChecksRequireInfra

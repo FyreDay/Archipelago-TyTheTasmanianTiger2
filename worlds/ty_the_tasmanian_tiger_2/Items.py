@@ -7,7 +7,7 @@ from typing import Optional
 
 
 class Ty2Item(Item):
-    game: str = "TCG Card Shop Simulator"
+    game: str = "Ty the Tasmanian Tiger 2"
 
 
 @dataclass
@@ -135,7 +135,7 @@ parking_bays: Dict[str, ItemData] = {
     "Outback Oasis ParkingBay": ItemData(3685, ItemClassification.progression),
     "Refinery Run ParkingBay": ItemData(3687, ItemClassification.progression),
     "Fire Fight ParkingBay": ItemData(3983, ItemClassification.progression),
-    "sly ParkingBay": ItemData(3244, ItemClassification.progression),
+    "Sly ParkingBay": ItemData(3244, ItemClassification.progression),
     "Outback Dash ParkingBay": ItemData(3714, ItemClassification.progression),
     "Car trouble ParkingBay": ItemData(3702, ItemClassification.progression),
     "Never Never Road ParkingBay": ItemData(3713, ItemClassification.progression),
