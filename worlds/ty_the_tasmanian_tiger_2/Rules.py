@@ -1,5 +1,7 @@
-from BaseClasses import ItemClassification
+from BaseClasses import ItemClassification, CollectionState, Location
 from worlds.ty_the_tasmanian_tiger_2.Items import Ty2Item
+from worlds.ty_the_tasmanian_tiger_2.Locations import Ty2Location, mission_dict
+
 
 def has_infra(world, state):
     state.has("Progressive Infrarang", world.player) or state.has("Infrarang", world.player) or state.has("X-Rang", world.player)
@@ -22,7 +24,13 @@ def get_rules(world):
     }
     return rules
 
+mission_locations = []
+
 def set_rules(world):
+    mission_locations.clear()
+    for mission_name, mission_data in mission_dict.items():
+        mission_locations.append(world.get_location(mission_name, world.player))
+
     rules_lookup = get_rules(world)
 
     for entrance_name, rule in rules_lookup["entrances"].items():
