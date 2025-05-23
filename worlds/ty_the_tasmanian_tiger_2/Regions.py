@@ -71,6 +71,7 @@ def create_region(world, name: str, location_dict):
 def create_ty2_regions(world, location_dict):
     create_region(world, "Menu", location_dict)
     create_region(world, "Burramudgee HQ", location_dict)
+    create_region(world, "Burramudgee HQ - Crates", location_dict)
     create_region(world, "Currawong", location_dict)
     create_region(world, "Burramudgee HQ - Infra", location_dict)
     create_region(world, "Burramudgee Town", location_dict)
