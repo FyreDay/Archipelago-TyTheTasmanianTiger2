@@ -26,7 +26,7 @@ shop_location_dict = {
 "Rang Shop 8": LocData(26, "Burramudgee Town"),# Camerarang
     "Rang Shop 1": LocData(8, "Burramudgee Town"), #frosty
     "Rang Shop 2": LocData(9, "Burramudgee Town"), #flame
-    "Rang Shop 3": LocData(18, "Burramudgee Town"), #zappy
+    "Rang Shop 3": LocData(10, "Burramudgee Town"), #zappy
     "Rang Shop 4": LocData(12, "Burramudgee Town"), #infra
     "Rang Shop 5": LocData(11, "Burramudgee Town"), #lash
     "Rang Shop 6": LocData(13, "Burramudgee Town"),
@@ -36,7 +36,7 @@ shop_location_dict = {
     "Sly's Shack 2": LocData(16, "SR - Sly"), #lava
     "Sly's Shack 3": LocData(15, "SR - Sly"), #multi
     "Sly's Shack 4": LocData(19, "SR - Sly"), #warp
-    "Sly's Shack 5": LocData(10, "SR - Sly"), #thunder
+    "Sly's Shack 5": LocData(18, "SR - Sly"), #thunder
     "Sly's Shack 6": LocData(20, "SR - Sly"), #X
     "Sly's Shack 7": LocData(21, "SR - Sly"), #kaboom
     "Sly's Shack 8": LocData(22, "SR - Sly"), #omega

@@ -32,12 +32,16 @@ def create_ty2_items(world):
     total_location_count = len(world.multiworld.get_unfilled_locations(world.player))
     for item_name, item_data in get_rangs(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
+    print(len(world.itempool))
     for item_name, item_data in item_dict.items():
         create_item(world, item_name, item_data.classification, item_data.amount)
+    print(len(world.itempool))
     for item_name, item_data in get_collectable_currencies(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
+    print(len(world.itempool))
     for item_name, item_data in get_parking_pads(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
+    print(len(world.itempool))
 
     remaining_locations: int = total_location_count - len(world.itempool)
     # trap_count: int = round(remaining_locations * options.trap_fill_percentage / 100)
@@ -52,7 +56,7 @@ def create_ty2_items(world):
 
 item_dict: Dict[str, ItemData] = {
     "Lifter Bunyip Key": ItemData(51, ItemClassification.progression),
-    "hermo Bunyip Key": ItemData(52, ItemClassification.progression),
+    "Thermo Bunyip Key": ItemData(52, ItemClassification.progression),
     "Missing Persons Map": ItemData(55, ItemClassification.useful),
     "Cog Map": ItemData(56, ItemClassification.useful),
     "Mysterious Anomalies Map": ItemData(57, ItemClassification.useful),
@@ -66,6 +70,7 @@ def get_rangs(world) -> Dict[str, ItemData]:
     if world.options.progressive_rangs.value:
         return progressive_rangs
     else:
+        print("individual rangs")
         return individual_rangs
 
 individual_rangs: Dict[str, ItemData] = {
