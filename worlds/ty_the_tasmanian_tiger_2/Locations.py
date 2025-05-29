@@ -20,7 +20,7 @@ def create_ty2_locations(world):
     if world.options.steve_sanity.value:
         all_locations.update(steve_dict)
     if world.options.frame_sanity.value:
-        all_locations.update(steve_dict)
+        all_locations.update(picture_frame_dict)
 
     return all_locations
 
@@ -204,9 +204,9 @@ disguised_frill_dict: Dict[str, LocData] = {
     "Disguised Frill 15": LocData(0x460E, "Dennis Freeway"),
     "Disguised Frill 16": LocData(0x460F, "Outback Oasis"),
     "Disguised Frill 17": LocData(0x460010, "SR - Cul De Sac"),
-    "Disguised Frill 18": LocData(0x460011, "SR - Lake Burramudgee"),
+    "Disguised Frill 18": LocData(0x460011, "SR - Explosive Cargo"),
     "Disguised Frill 19": LocData(0x460012, "SR - Frill Neck Forest"),
-    "Disguised Frill 20": LocData(0x460013, "Truck Tragedy"),
+    "Disguised Frill 20": LocData(0x460013, "SR - Truck Tragedy"),
     "Disguised Frill 21": LocData(0x460014, "SR - Never Never"),
     "Disguised Frill 22": LocData(0x460015, "SR - Sheep Dip"),
     "Disguised Frill 23": LocData(0x460016, "Frill Neck Forest"),
@@ -246,11 +246,11 @@ picture_frame_dict: Dict[str, LocData] = {
     "Picture Frame 15": LocData(0x500F, "Never Never - Infra"),#infra
     "Picture Frame 16": LocData(0x5010, "Never Never - Infra"),#infra
     "Picture Frame 17": LocData(0x5011, "Never Never - Infra"),#infra
-    "Picture Frame 18": LocData(0x5012, "Wetlands tree"),#warparang
-    "Picture Frame 19": LocData(0x5013, "Wetlands tree"),#warparang
-    "Picture Frame 20": LocData(0x5014, "Wetlands tree"),#warparang
-    "Picture Frame 21": LocData(0x5015, "Wetlands tree"),#warparang
-    "Picture Frame 22": LocData(0x5016, "Wetlands tree"), #warparang
+    "Picture Frame 18": LocData(0x5012, "Wetlands Tree"),#warparang
+    "Picture Frame 19": LocData(0x5013, "Wetlands Tree"),#warparang
+    "Picture Frame 20": LocData(0x5014, "Wetlands Tree"),#warparang
+    "Picture Frame 21": LocData(0x5015, "Wetlands Tree"),#warparang
+    "Picture Frame 22": LocData(0x5016, "Wetlands Tree"), #warparang
     "Picture Frame 23": LocData(0x5017, "Faire Dinkum"),
     "Picture Frame 24": LocData(0x5018, "Faire Dinkum"),
     "Picture Frame 25": LocData(0x5019, "Faire Dinkum"),

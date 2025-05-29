@@ -90,11 +90,11 @@ def create_ty2_regions(world, location_dict):
     create_region(world, "Sulphur Rocks - Infra", location_dict)
     create_region(world, "SR - Wetlands", location_dict)
     create_region(world, "Wetlands", location_dict)
+    create_region(world, "Wetlands Tree", location_dict)
     create_region(world, "Wetlands - Infra", location_dict)
     create_region(world, "Fluffy's Fortress", location_dict)
     create_region(world, "SR - Fluffy's Fortress", location_dict)
     create_region(world, "Buster the Nanobot Boss", location_dict)
-    create_region(world, "SR - Buster the Nanobot Boss", location_dict)
     create_region(world, "Cass' Run", location_dict)
     create_region(world, "Southern Rivers", location_dict)
     create_region(world, "SR - Min Min Plains", location_dict)
@@ -308,16 +308,16 @@ def connect_ty2_regions(world):
                     "Wetlands ParkingBay", 1)
     connect_regions(world, "SR - Wetlands", "Wetlands",
                     "Wetlands Connector")
+    connect_regions(world, "Wetlands", "Wetlands Tree",
+                    "Wetlands Teleport", 2)
     connect_regions(world, "Wetlands", "Wetlands - Infra",
                     "Wetlands -> Infra")
     connect_regions(world, "Southern Rivers", "SR - Truck Stop",
                     "Truck Stop ParkingBay")  # 3702
     connect_regions(world, "Southern Rivers", "SR - Cul De Sac",
                     "Cul De Sac ParkingBay")
-    connect_regions(world, "Southern Rivers", "SR - Buster the Nanobot Boss",
-                    "Buster ParkingBay")
-    connect_regions(world, "SR - Buster the Nanobot Boss", "Buster the Nanobot Boss",
-                    "Buster Connector")
+    connect_regions(world, "Oil Rig", "Buster the Nanobot Boss",
+                    "Oil Rig Button", 2)
     connect_regions(world, "Southern Rivers", "SR - Fluffy's Fortress",
                     "Fluffy ParkingBay")
     connect_regions(world, "SR - Fluffy's Fortress", "Fluffy's Fortress",
