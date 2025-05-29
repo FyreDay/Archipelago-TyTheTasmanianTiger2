@@ -234,16 +234,6 @@ def get_rules(world):
                 can_swing(world, state) or can_cold(world, state),
             "Picture Frame 13": lambda state:
                 can_smash_wall(world, state),
-            "Picture Frame 19": lambda state:
-                can_tp(world, state),
-            "Picture Frame 20": lambda state:
-                can_tp(world, state),
-            "Picture Frame 21": lambda state:
-                can_tp(world, state),
-            "Picture Frame 22": lambda state:
-                can_tp(world, state),
-            "Picture Frame 23": lambda state:
-                can_tp(world, state),
             "Picture Frame 31": lambda state:
                 can_smash_wall(world, state),
             "Picture Frame 32": lambda state:
@@ -287,6 +277,8 @@ def get_rules(world):
             "Sulphur Rocks -> Infra":
                 lambda state: not world.options.require_infra
                               or has_infra(world, state),
+            "Wetlands Teleport":lambda state:
+                can_tp(world, state),
             "MountBoom Start ParkingBay":
                 lambda state: state.has("MountBoom Start ParkingBay", world.player),
             "MountBoom Start Lava":
