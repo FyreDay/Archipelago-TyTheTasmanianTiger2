@@ -297,12 +297,72 @@ def get_rules(world):
                 lambda state: state.has("MountBoom End ParkingBay", world.player),
             "Burramudgee ParkingBay":
                 lambda state: state.has("Burramudgee Town ParkingBay", world.player),
-            "Outback Oasis ParkingBay":
-                lambda state: state.has("Outback Oasis ParkingBay", world.player),
+            "Min Min Plains ParkingBay":
+                lambda state: state.has("Min Min Plains ParkingBay", world.player),
+            "Training Grounds 03 ParkingBay":
+                lambda state: state.has("Training Grounds 03 ParkingBay", world.player),
+            "Training Grounds 08 ParkingBay":
+                lambda state: state.has("Training Grounds 08 ParkingBay", world.player),
+            "Dennis Freeway ParkingBay":
+                lambda state: state.has("Dennis Freeway ParkingBay", world.player),
             "Oil Rig ParkingBay":
                 lambda state: state.has("Oil Rig ParkingBay", world.player),
+            "Beach ParkingBay":
+                lambda state: state.has("Beach ParkingBay", world.player),
+            "Lava Falls Race ParkingBay":
+                lambda state: state.has("Lava Falls Race ParkingBay", world.player),
+            "Frill Neck Forest ParkingBay":
+                lambda state: state.has("Frill Neck Forest ParkingBay", world.player),
+            "Sheep Dip ParkingBay":
+                lambda state: state.has("Sheep Dip ParkingBay", world.player),
+            "Camping ParkingBay":
+                lambda state: state.has("Camping ParkingBay", world.player),
+            "Outback Oasis ParkingBay":
+                lambda state: state.has("Outback Oasis ParkingBay", world.player),
+            "Refinery Run ParkingBay":
+                lambda state: state.has("Refinery Run ParkingBay", world.player),
+            "Fire Fight ParkingBay":
+                lambda state: state.has("Fire Fight ParkingBay", world.player),
+            "Sly ParkingBay":
+                lambda state: state.has("Sly ParkingBay", world.player),
+            "Outback Dash ParkingBay":
+                lambda state: state.has("Outback Dash ParkingBay", world.player),
+            "Never Never Road ParkingBay":
+                lambda state: state.has("Never Never Road ParkingBay", world.player),
+            "Truck Tragedy ParkingBay":
+                lambda state: state.has("Truck Tragedy ParkingBay", world.player),
+            "Truck Stop ParkingBay":
+                lambda state: state.has("Truck Stop ParkingBay", world.player),
+            "Plutonium Panic ParkingBay":
+                lambda state: state.has("Plutonium Panic ParkingBay", world.player),
+            "50 Foot Squeaver ParkingBay":
+                lambda state: state.has("50 Foot Squeaver ParkingBay", world.player),
+            "Never Never ParkingBay":
+                lambda state: state.has("Never Never ParkingBay", world.player),
+            "Lava Falls ParkingBay":
+                lambda state: state.has("Lava Falls ParkingBay", world.player),
+            "Min Min Mining ParkingBay":
+                lambda state: state.has("Min Min Mining ParkingBay", world.player),
+            "Turbo Track ParkingBay":
+                lambda state: state.has("Turbo Track ParkingBay", world.player),
             "Patchy ParkingBay":
                 lambda state: state.has("Patchy ParkingBay", world.player),
+            "King Squeaver ParkingBay":
+                lambda state: state.has("King Squeaver ParkingBay", world.player),
+            "Bush Fire ParkingBay":
+                lambda state: state.has("Bush Fire ParkingBay", world.player),
+            "Sulphur Rocks ParkingBay":
+                lambda state: state.has("Sulphur Rocks ParkingBay", world.player),
+            "Explosive Cargo ParkingBay":
+                lambda state: state.has("Explosive Cargo ParkingBay", world.player),
+            "M66 ParkingBay":
+                lambda state: state.has("M66 ParkingBay", world.player),
+            "Faire Dinkum ParkingBay":
+                lambda state: state.has("Faire Dinkum ParkingBay", world.player),
+            "Wetlands ParkingBay":
+                lambda state: state.has("Wetlands ParkingBay", world.player),
+            "Hearty Beach ParkingBay":
+                lambda state: state.has("Hearty Beach ParkingBay", world.player),
             "Bush Rescue Plane":
                 lambda state: (not world.options.require_bosses and can_reach_mission_count(state, 20))
                               or (world.options.require_bosses
@@ -320,7 +380,12 @@ mission_locations = []
 def set_rules(world):
     mission_locations.clear()
     for mission_name, mission_data in mission_dict.items():
-        mission_locations.append(world.get_location(mission_name, world.player))
+        try:
+            mission_locations.append(world.get_location(mission_name))
+        except KeyError as e:
+            print(f"Key error, {e}")
+            pass
+
 
     rules_lookup = get_rules(world)
 

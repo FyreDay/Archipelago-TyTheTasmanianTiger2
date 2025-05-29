@@ -11,7 +11,7 @@ ty1_levels: Dict[str, str] = {
     "a2": "Never Never",
     "a3": "Wetlands",
     "a4": "Patchy",
-    # "b1": "No Man Groves",
+    "a5": "Faire Dinkum",
     # "b2": "Cassopolis Now",
     "b3": "Sulphur Rocks",
     "b4": "Fluffy's Fortress",
@@ -102,6 +102,8 @@ def create_ty2_regions(world, location_dict):
     create_region(world, "Training Grounds 03", location_dict)
     create_region(world, "SR - Dennis Freeway", location_dict)
     create_region(world, "Dennis Freeway", location_dict)
+    create_region(world, "SR - Croc Stock Pile", location_dict)
+    create_region(world, "Croc Stock Pile", location_dict)
     create_region(world, "SR - Muddy Bottom", location_dict)
     create_region(world, "SR - Training Grounds 08", location_dict)
     create_region(world, "Training Grounds 08", location_dict)
@@ -137,15 +139,15 @@ def create_ty2_regions(world, location_dict):
     create_region(world, "SR - Turbo Track", location_dict)
     create_region(world, "SR - Patchy", location_dict)
     create_region(world, "Patchy", location_dict)
-    create_region(world, "SR - Lake Burramudgee", location_dict) #m2
-    create_region(world, "Lake Burramudgee", location_dict)
+    create_region(world, "SR - Explosive Cargo", location_dict) #m2
+    create_region(world, "Explosive Cargo", location_dict)
     create_region(world, "SR - Bush Fire", location_dict)
     create_region(world, "Bush Fire", location_dict)
     create_region(world, "SR - Sulphur Rocks", location_dict)
-    create_region(world, "SR - m20", location_dict)
+    create_region(world, "SR - King Squeaver", location_dict)
     create_region(world, "SR - m66", location_dict)
     create_region(world, "m66", location_dict)
-    # create_region(world, "SR - a5", location_dict)
+    create_region(world, "SR - Hearty Beach", location_dict)
     create_region(world, "SR - Truck Stop", location_dict)
     create_region(world, "SR - Cul De Sac", location_dict)
 
@@ -188,6 +190,10 @@ def connect_ty2_regions(world):
                     "Dennis Freeway ParkingBay", 1) #3692
     connect_regions(world, "SR - Dennis Freeway", "Dennis Freeway",
                     "Dennis Freeway Connector")
+    connect_regions(world, "Southern Rivers", "SR - Croc Stock Pile",
+                    "Croc Stock Pile ParkingBay", 1) #3692
+    connect_regions(world, "SR - Croc Stock Pile", "Croc Stock Pile",
+                    "Croc Stock Pile Connector")
     connect_regions(world, "Southern Rivers", "SR - Muddy Bottom",
                     "Muddy Bottom ParkingBay", 1)  # 3306
     connect_regions(world, "Southern Rivers", "SR - Training Grounds 08",
@@ -249,7 +255,7 @@ def connect_ty2_regions(world):
     connect_regions(world, "Southern Rivers", "SR - Outback Dash",
                     "Outback Dash ParkingBay", 1)  # 3714
     connect_regions(world, "Southern Rivers", "SR - Truck Tragedy",
-                    "Truck Tragedy ParkingBay", 1)  # 3702
+                    "Truck Tragedy ParkingBay", 1)   # north 3708  #south 3732
     connect_regions(world, "Southern Rivers", "SR - Never Never Road",
                     "Never Never Road ParkingBay", 1)  # 3713
     connect_regions(world, "Southern Rivers", "SR - Plutonium Panic",
@@ -272,10 +278,10 @@ def connect_ty2_regions(world):
                     "Patchy ParkingBay", 1)  # 3951
     connect_regions(world, "SR - Patchy", "Patchy",
                     "Patchy Connector")
-    connect_regions(world, "Southern Rivers", "SR - Lake Burramudgee",
-                    "m2 ParkingBay", 1)  # 3686
-    connect_regions(world, "SR - Lake Burramudgee", "Lake Burramudgee",
-                    "Lake Burramudgee Connector")
+    connect_regions(world, "Southern Rivers", "SR - Explosive Cargo",
+                    "Explosive Cargo ParkingBay", 1)  # 3686
+    connect_regions(world, "SR - Explosive Cargo", "Explosive Cargo",
+                    "Explosive Cargo Connector")
     connect_regions(world, "Southern Rivers", "SR - Bush Fire",
                     "Bush Fire ParkingBay", 1)  # 3733
     connect_regions(world, "SR - Bush Fire", "Bush Fire",
@@ -286,8 +292,8 @@ def connect_ty2_regions(world):
                     "Sulphur Rocks Connector")
     connect_regions(world, "Sulphur Rocks", "Sulphur Rocks - Infra",
                     "Sulphur Rocks -> Infra")
-    connect_regions(world, "Southern Rivers", "SR - m20",
-                    "m20 ParkingBay", 1)  # 3690 # King Squeaver and Birrel Hood
+    connect_regions(world, "Southern Rivers", "SR - King Squeaver",
+                    "King Squeaver ParkingBay", 1)  # 3690 # King Squeaver and Birrel Hood
     connect_regions(world, "Southern Rivers", "SR - m66",
                     "M66 ParkingBay", 1)  # 3691
     connect_regions(world, "SR - m66", "m66",
@@ -305,7 +311,7 @@ def connect_ty2_regions(world):
     connect_regions(world, "Wetlands", "Wetlands - Infra",
                     "Wetlands -> Infra")
     connect_regions(world, "Southern Rivers", "SR - Truck Stop",
-                    "Truck Stop ParkingBay") # north 3708  #south 3732
+                    "Truck Stop ParkingBay")  # 3702
     connect_regions(world, "Southern Rivers", "SR - Cul De Sac",
                     "Cul De Sac ParkingBay")
     connect_regions(world, "Southern Rivers", "SR - Buster the Nanobot Boss",
@@ -316,6 +322,8 @@ def connect_ty2_regions(world):
                     "Fluffy ParkingBay")
     connect_regions(world, "SR - Fluffy's Fortress", "Fluffy's Fortress",
                     "Fluffy Connector")
+    connect_regions(world, "Southern Rivers", "SR - Hearty Beach",
+                    "Hearty Beach ParkingBay")
 
 
 # name ParkingBay

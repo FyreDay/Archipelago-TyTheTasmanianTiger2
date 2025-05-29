@@ -14,12 +14,14 @@ class LocData(NamedTuple):
 def create_ty2_locations(world):
     all_locations = {**shop_location_dict, **platinum_cog_dict, **kromium_orb_dict, **bilby_dict, **mission_dict}
     print(f"location length {len(all_locations)}")
+
     if world.options.frill_sanity.value:
         all_locations.update(disguised_frill_dict)
     if world.options.steve_sanity.value:
         all_locations.update(steve_dict)
     if world.options.frame_sanity.value:
         all_locations.update(steve_dict)
+
     return all_locations
 
 shop_location_dict = {
@@ -415,14 +417,14 @@ mission_dict: Dict[str, LocData] = {
     "Dennis Dash": LocData(0x6d000009, "Never Never", 9),
     "Rocky Road": LocData(0x6d00000a, "Never Never", 10),
     "Lava Chill Out": LocData(0x6d00000b, "Never Never", 11), #thermo, lash, OR frosty
-    "Canopy Capers": LocData(0x6d00000c, "Frill neck", 12),
+    "Canopy Capers": LocData(0x6d00000c, "Frill Neck Forest", 12),
     "Croc Stock Pile": LocData(0x6d00000d, "SR - Croc Stock Pile", 13), #didnt send
-    "Fire Fight": LocData(0x6d00000e, "Fire Fight", 14),#didnt send
+    "Fire Fight": LocData(0x6d00000e, "Fire Fight", 14),
     "Truck Tragedy": LocData(0x6d000010, "SR - Truck Tragedy", 16), #lifter bunyip
     "Plutonium Panic": LocData(0x6d000011, "SR - Plutonium Panic", 17),
     "Need A Spare": LocData(0x6d000012, "SR - Cul De Sac", 18),
     # "TEXT_MISSION_19_DESC": LocData(0x6d000013, "", 19),
-    "King Squeaver and Birrel Hood": LocData(0x6d000014, "m20", 20),
+    "King Squeaver and Birrel Hood": LocData(0x6d000014, "SR - King Squeaver", 20),
     # "TEXT_MISSION_21_DESC": LocData(0x6d000015, "", 21),
     "Lava Falls": LocData(0x6d000016, "SR - Lava Falls", 22),
     "Hearty Beach": LocData(0x6d000017, "SR - Hearty Beach", 23),
@@ -455,8 +457,8 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_50_DESC": LocData(0x6d000032, "", 50),
     # "TEXT_MISSION_51_DESC": LocData(0x6d000033, "", 51),
     "Oil Rig Fire": LocData(0x6d000034, "Oil Rig", 52), #done before buster
-    "Training Grounds 03": LocData(0x6d000035, "", 53), #didnt count
-    "Training Grounds 08": LocData(0x6d000036, "", 54),
+    "Training Grounds 03": LocData(0x6d000035, "Training Grounds 03", 53), #didnt count
+    "Training Grounds 08": LocData(0x6d000036, "Training Grounds 08", 54),
     "Ripper Nipper": LocData(0x6d000037, "SR - Beach", 55), #sunscreen
     # "Frill Attack": LocData(0x6d000038, "", 56), does not exist
     # "TEXT_MISSION_57_DESC": LocData(0x6d000039, "", 57),

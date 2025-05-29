@@ -45,7 +45,7 @@ def create_ty2_items(world):
 
     remaining_locations: int = total_location_count - len(world.itempool)
     # trap_count: int = round(remaining_locations * options.trap_fill_percentage / 100)
-    junk_count: int = remaining_locations - 0 #trap_count
+    junk_count: int = remaining_locations - 1 #trap_count
     junk = get_junk_item_names(world.random, junk_count)
     for name in junk:
         create_item(world, name, ItemClassification.filler)
@@ -120,9 +120,10 @@ def get_parking_pads(world) -> Dict[str, ItemData]:
 parking_bays: Dict[str, ItemData] = {
     "Burramudgee Town ParkingBay": ItemData(30000, ItemClassification.progression),
     "Min Min Plains ParkingBay": ItemData(3689, ItemClassification.progression),
-    "Training grounds 03 ParkingBay": ItemData(3688, ItemClassification.progression),
-    "Training grounds 08 ParkingBay": ItemData(4092, ItemClassification.progression),
+    "Training Grounds 03 ParkingBay": ItemData(3688, ItemClassification.progression),
+    "Training Grounds 08 ParkingBay": ItemData(4092, ItemClassification.progression),
     "Dennis Freeway ParkingBay": ItemData(3692, ItemClassification.progression),
+    "Croc Stock Pile ParkingBay": ItemData(30001, ItemClassification.progression),
     "Muddy Bottom ParkingBay": ItemData(3306, ItemClassification.progression),
     "Oil Rig ParkingBay": ItemData(3285, ItemClassification.progression),
     "Beach ParkingBay": ItemData(3287, ItemClassification.progression),
@@ -137,23 +138,24 @@ parking_bays: Dict[str, ItemData] = {
     "Fire Fight ParkingBay": ItemData(3983, ItemClassification.progression),
     "Sly ParkingBay": ItemData(3244, ItemClassification.progression),
     "Outback Dash ParkingBay": ItemData(3714, ItemClassification.progression),
-    "Car trouble ParkingBay": ItemData(3702, ItemClassification.progression),
+    "Truck Tragedy ParkingBay": ItemData(3708 , ItemClassification.progression), #also unlocks 3732
+    "Truck Stop ParkingBay": ItemData(3702, ItemClassification.progression),
     "Never Never Road ParkingBay": ItemData(3713, ItemClassification.progression),
     "Plutonium Panic ParkingBay": ItemData(3284, ItemClassification.progression),
-    "m59 ParkingBay": ItemData(3709, ItemClassification.progression),
+    "50 Foot Squeaver ParkingBay": ItemData(3709, ItemClassification.progression),
     "Never Never ParkingBay": ItemData(3710, ItemClassification.progression),
     "Lava Falls ParkingBay": ItemData(3711, ItemClassification.progression),
-    "m42 ParkingBay": ItemData(4035, ItemClassification.progression),
+    "Min Min Mining ParkingBay": ItemData(4035, ItemClassification.progression),
     "Turbo Track ParkingBay": ItemData(3300, ItemClassification.progression),
     "Patchy ParkingBay": ItemData(3951, ItemClassification.progression),
-    "m2 ParkingBay": ItemData(3686, ItemClassification.progression),
-    "m38 ParkingBay": ItemData(3733, ItemClassification.progression),
+    "Explosive Cargo ParkingBay": ItemData(3686, ItemClassification.progression),
+    "Bush Fire ParkingBay": ItemData(3733, ItemClassification.progression),
     "Sulphur Rocks ParkingBay": ItemData(3967, ItemClassification.progression),
-    "m20 ParkingBay": ItemData(3690, ItemClassification.progression),
+    "King Squeaver ParkingBay": ItemData(3690, ItemClassification.progression),
     "M66 ParkingBay": ItemData(3691, ItemClassification.progression),
     "Faire Dinkum ParkingBay": ItemData(3277, ItemClassification.progression),
-    "a5 ParkingBay": ItemData(3954, ItemClassification.progression),
-    "3708 ParkingBay": ItemData(3708, ItemClassification.progression), #also unlocks 3732
+    "Wetlands ParkingBay": ItemData(3954, ItemClassification.progression),
+    "Hearty Beach ParkingBay": ItemData(3954, ItemClassification.progression),
 }
 
 progressive_parking_bays: Dict[str, ItemData] = {

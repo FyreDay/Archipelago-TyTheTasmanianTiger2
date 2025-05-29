@@ -88,9 +88,6 @@ class Ty2World(World):
                                     self.item_name_to_id["Burramudgee Town ParkingBay"], self.player))
 
     def set_rules(self):
-        visualize_regions(self.multiworld.get_region("Menu", self.player), f"Player{self.player}.puml",
-                          show_entrance_names=True)
-
         set_rules(self)
 
     def generate_output(self, output_directory: str):
