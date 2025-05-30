@@ -118,7 +118,7 @@ def get_parking_pads(world) -> Dict[str, ItemData]:
     return parking_bays
 
 parking_bays: Dict[str, ItemData] = {
-    "Burramudgee Town ParkingBay": ItemData(30000, ItemClassification.progression),
+    "Burramudgee Town ParkingBay": ItemData(3736, ItemClassification.progression),
     "Min Min Plains ParkingBay": ItemData(3689, ItemClassification.progression),
     "Training Grounds 03 ParkingBay": ItemData(3688, ItemClassification.progression),
     "Training Grounds 08 ParkingBay": ItemData(4092, ItemClassification.progression),
@@ -155,7 +155,7 @@ parking_bays: Dict[str, ItemData] = {
     "M66 ParkingBay": ItemData(3691, ItemClassification.progression),
     "Faire Dinkum ParkingBay": ItemData(3277, ItemClassification.progression),
     "Wetlands ParkingBay": ItemData(3954, ItemClassification.progression),
-    "Hearty Beach ParkingBay": ItemData(3954, ItemClassification.progression),
+    "Hearty Beach ParkingBay": ItemData(30001, ItemClassification.progression),
 }
 
 progressive_parking_bays: Dict[str, ItemData] = {
