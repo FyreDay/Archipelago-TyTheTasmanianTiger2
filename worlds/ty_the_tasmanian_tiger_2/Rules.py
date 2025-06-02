@@ -297,8 +297,6 @@ def get_rules(world):
                 lambda state: state.has("Training Grounds 08 ParkingBay", world.player),
             "Dennis Freeway ParkingBay":
                 lambda state: state.has("Dennis Freeway ParkingBay", world.player),
-            "Oil Rig ParkingBay":
-                lambda state: state.has("Oil Rig ParkingBay", world.player),
             "Beach ParkingBay":
                 lambda state: state.has("Beach ParkingBay", world.player),
             "Lava Falls Race ParkingBay":
@@ -337,8 +335,6 @@ def get_rules(world):
                 lambda state: state.has("Min Min Mining ParkingBay", world.player),
             "Turbo Track ParkingBay":
                 lambda state: state.has("Turbo Track ParkingBay", world.player),
-            "Patchy ParkingBay":
-                lambda state: state.has("Patchy ParkingBay", world.player),
             "King Squeaver ParkingBay":
                 lambda state: state.has("King Squeaver ParkingBay", world.player),
             "Bush Fire ParkingBay":
@@ -355,6 +351,12 @@ def get_rules(world):
                 lambda state: state.has("Wetlands ParkingBay", world.player),
             "Hearty Beach ParkingBay":
                 lambda state: state.has("Hearty Beach ParkingBay", world.player),
+            "Patchy ParkingBay":
+                lambda state: can_reach_mission_count(state, 5),
+            "Oil Rig ParkingBay":
+                lambda state: can_reach_mission_count(state, 10),
+            "Fluffy ParkingBay":
+                lambda state: can_reach_mission_count(state, 15),
             "Bush Rescue Plane":
                 lambda state: (not world.options.require_bosses and can_reach_mission_count(state, 20))
                               or (world.options.require_bosses

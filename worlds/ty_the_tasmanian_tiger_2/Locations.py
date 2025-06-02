@@ -207,7 +207,7 @@ disguised_frill_dict: Dict[str, LocData] = {
     "Disguised Frill 18": LocData(0x460011, "SR - Explosive Cargo"),
     "Disguised Frill 19": LocData(0x460012, "SR - Frill Neck Forest"),
     "Disguised Frill 20": LocData(0x460013, "SR - Truck Tragedy"),
-    "Disguised Frill 21": LocData(0x460014, "SR - Never Never"),
+    "Disguised Frill 21": LocData(0x460014, "SR - Never Never"), #didnt send
     "Disguised Frill 22": LocData(0x460015, "SR - Sheep Dip"),
     "Disguised Frill 23": LocData(0x460016, "Frill Neck Forest"),
     "Disguised Frill 24": LocData(0x460017, "MountBoom Start"),
@@ -414,9 +414,9 @@ mission_dict: Dict[str, LocData] = {
     "Crouching Birrel, Hidden Squeaver": LocData(0x6d000006, "SR - Min Min Plains", 6),
     "Refinery Run": LocData(0x6d000007, "SR - Refinery Run", 7), #
     "Currawong Jail Break": LocData(0x6d000054, "Menu", 84),
-    "Dennis Dash": LocData(0x6d000009, "Never Never", 9),
-    "Rocky Road": LocData(0x6d00000a, "Never Never", 10),
-    "Lava Chill Out": LocData(0x6d00000b, "Never Never", 11), #thermo, lash, OR frosty
+    "Dennis Dash": LocData(0x6d000009, "Never Never", 9),# need requirements removed
+    "Rocky Road": LocData(0x6d00000a, "Never Never", 10), # need requirements removed
+    "Lava Chill Out": LocData(0x6d00000b, "Never Never", 11), #thermo, lash, OR frosty # need requirements removed
     "Canopy Capers": LocData(0x6d00000c, "Frill Neck Forest", 12),
     "Croc Stock Pile": LocData(0x6d00000d, "SR - Croc Stock Pile", 13), #didnt send
     "Fire Fight": LocData(0x6d00000e, "Fire Fight", 14),
@@ -428,7 +428,7 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_21_DESC": LocData(0x6d000015, "", 21),
     "Lava Falls": LocData(0x6d000016, "SR - Lava Falls", 22),
     "Hearty Beach": LocData(0x6d000017, "SR - Hearty Beach", 23),
-    "Musical Mommy": LocData(0x6d000018, "Never Never", 24),
+    "Musical Mommy": LocData(0x6d000018, "Never Never", 24), #needs requirements removed
     "Tourist Trap": LocData(0x6d000019, "Faire Dinkum", 25),
     "Crocodile Chaos": LocData(0x6d00001a, "Wetlands", 26),
     # "TEXT_MISSION_27_DESC": LocData(0x6d00001b, "", 27),
@@ -486,10 +486,13 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_79_DESC": LocData(0x6d00004f, "", 79),
     "Bush Rescue Training Program": LocData(0x6d000055, "Burramudgee HQ", 85), #
     "That's A Croc": LocData(0x6d000062, "Burramudgee Town", 98),
-    "Patchy": LocData(0x6d0003d4, "Patchy", 980),
-    "Fluffy": LocData(0x6d0003d5, "Fluffy's Fortress", 981),
-    "Buster the Nanobot Boss": LocData(0x6d0003d6, "Buster the Nanobot Boss", 982),
+    "Patchy": LocData(0x6d0003d4, "Patchy", 80),
+    "Fluffy": LocData(0x6d0003d5, "Fluffy's Fortress", 81),
+    "Buster the Nanobot Boss": LocData(0x6d0003d6, "Buster the Nanobot Boss", 82),
 
+    #chromium orbs still increase
+    # MISSION 87 IS A MISSED TRAINING GROUNDS
+    #99 is see julius
     #mission 86 is get into car
     #patchy is m980
     # is m981
