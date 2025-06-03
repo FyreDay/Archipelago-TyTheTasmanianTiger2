@@ -38,10 +38,6 @@ class Ty2World(World):
     item_name_to_id: ClassVar[Dict[str, int]] = {item_name: item_data.code for item_name, item_data in full_item_dict.items()}
     location_name_to_id: ClassVar[Dict[str, int]] = {loc_name: loc_data.code for loc_name, loc_data in full_location_dict.items()}
 
-    locations = {}
-    items = {}
-    trap_weights = {}
-
     def __init__(self, multiworld, player):
         super().__init__(multiworld, player)
         self.itempool = []
