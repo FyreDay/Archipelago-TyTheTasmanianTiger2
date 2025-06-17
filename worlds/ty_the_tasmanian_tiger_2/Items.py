@@ -32,16 +32,16 @@ def create_ty2_items(world):
     total_location_count = len(world.multiworld.get_unfilled_locations(world.player))
     for item_name, item_data in get_rangs(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
-    print(len(world.itempool))
     for item_name, item_data in item_dict.items():
+        if world.options.start_with_maps.value and (item_name is "Missing Persons Map" or
+        item_name is "Cog Map" or item_name is "Mysterious Anomalies Map"):
+            continue
         create_item(world, item_name, item_data.classification, item_data.amount)
-    print(len(world.itempool))
     for item_name, item_data in get_collectable_currencies(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
-    print(len(world.itempool))
     for item_name, item_data in get_parking_pads(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
-    print(len(world.itempool))
+    #print(len(world.itempool))
 
     remaining_locations: int = total_location_count - len(world.itempool)
     # trap_count: int = round(remaining_locations * options.trap_fill_percentage / 100)
@@ -120,18 +120,18 @@ def get_parking_pads(world) -> Dict[str, ItemData]:
 parking_bays: Dict[str, ItemData] = {
     "Burramudgee Town ParkingBay": ItemData(3736, ItemClassification.progression),
     "Min Min Plains ParkingBay": ItemData(3689, ItemClassification.progression),
-    "Training Grounds 03 ParkingBay": ItemData(3688, ItemClassification.progression),
+    "Freeway Training Grounds ParkingBay": ItemData(3688, ItemClassification.progression),
     "Training Grounds 08 ParkingBay": ItemData(4092, ItemClassification.progression),
     "Dennis Freeway ParkingBay": ItemData(3692, ItemClassification.progression),
     "Croc Stock Pile ParkingBay": ItemData(30001, ItemClassification.progression),
     "Muddy Bottom ParkingBay": ItemData(3306, ItemClassification.progression),
     # "Oil Rig ParkingBay": ItemData(3285, ItemClassification.progression),
     "Beach ParkingBay": ItemData(3287, ItemClassification.progression),
-    "Lava Falls Race ParkingBay": ItemData(3712, ItemClassification.progression),
+    "Hearty Beach (Race) ParkingBay": ItemData(3712, ItemClassification.progression),
     "MountBoom End ParkingBay": ItemData(3735, ItemClassification.progression),
     "MountBoom Start ParkingBay": ItemData(3694, ItemClassification.progression),
     "Frill Neck Forest ParkingBay": ItemData(3693, ItemClassification.progression),
-    "Sheep Dip ParkingBay": ItemData(3292, ItemClassification.progression),
+    "Sheep Dip ParkingBay": ItemData(3292, ItemClassification.progression), #Old Stony Creek
     "Camping ParkingBay": ItemData(4130, ItemClassification.progression),
     "Outback Oasis ParkingBay": ItemData(3685, ItemClassification.progression),
     "Refinery Run ParkingBay": ItemData(3687, ItemClassification.progression),
@@ -144,7 +144,7 @@ parking_bays: Dict[str, ItemData] = {
     "Plutonium Panic ParkingBay": ItemData(3284, ItemClassification.progression),
     "50 Foot Squeaver ParkingBay": ItemData(3709, ItemClassification.progression),
     "Never Never ParkingBay": ItemData(3710, ItemClassification.progression),
-    "Lava Falls ParkingBay": ItemData(3711, ItemClassification.progression),
+    "Lava Falls Race ParkingBay": ItemData(3711, ItemClassification.progression),
     "Min Min Mining ParkingBay": ItemData(4035, ItemClassification.progression),
     "Turbo Track ParkingBay": ItemData(3300, ItemClassification.progression),
     # "Patchy ParkingBay": ItemData(3951, ItemClassification.progression),
@@ -155,7 +155,7 @@ parking_bays: Dict[str, ItemData] = {
     "M66 ParkingBay": ItemData(3691, ItemClassification.progression),
     "Faire Dinkum ParkingBay": ItemData(3277, ItemClassification.progression),
     "Wetlands ParkingBay": ItemData(3954, ItemClassification.progression),
-    "Hearty Beach ParkingBay": ItemData(30001, ItemClassification.progression),
+    "Hearty Beach ParkingBay": ItemData(30002, ItemClassification.progression),
 }
 
 progressive_parking_bays: Dict[str, ItemData] = {
