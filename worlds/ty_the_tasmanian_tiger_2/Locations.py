@@ -26,7 +26,7 @@ def create_ty2_locations(world):
     return all_locations
 
 shop_location_dict: Dict[str, LocData] = {
-"Rang Shop 8": LocData(26, "Burramudgee Town"),# Camerarang
+    "Rang Shop 8": LocData(26, "Burramudgee Town"),# Camerarang
     "Rang Shop 1": LocData(8, "Burramudgee Town"), #frosty
     "Rang Shop 2": LocData(9, "Burramudgee Town"), #flame
     "Rang Shop 3": LocData(10, "Burramudgee Town"), #zappy
