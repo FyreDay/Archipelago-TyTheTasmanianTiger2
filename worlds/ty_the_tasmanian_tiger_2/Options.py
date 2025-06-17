@@ -18,23 +18,27 @@ class GoalRequiresBosses(Toggle):
     """
     display_name = "Goal Requires Bosses"
 
-class StartWithMaps(Toggle):
+class TotalMissionsForGoal(Range):
     """
-    Determines if you begin with the collectable maps
+    How Many Missions do you need for goal. Bosses will be
     """
-    display_name = "Start With Maps"
+    display_name = "Missions For Goal"
+    range_start = 0
+    range_end = 50
+    default = 20
 
-class ProgressiveRangs(DefaultOnToggle):
+class SouthernRiversBarrierUnlock(Choice):
     """
-    Determines if each rang and their upgrade are progressive
+    When should the barriers in Southern rivers be unlocked?
+    Vanilla: On Boss Defeat open up the next part of the map
+    On Item Receive: Unlocks when you receive AP Items (unimplemented)
+    Open World: Southern rivers is completely open
     """
-    display_name = "Progressive Rangs"
-
-# class ConnectorRandomization(Toggle):
-#     """
-#     Determines whether the Connectors are randomized
-#     """
-#     display_name = "Connector Randomization"
+    display_name = "Barrier Unlock Conditions"
+    option_vanilla = 0
+    #option_on_item_receive = 1
+    option_open_world = 2
+    default = 0
 
 class ShopPrices(Choice):
     """
@@ -64,6 +68,30 @@ class ExtraOrbs(Range):
     range_end = 30
     default = 15
 
+class StartWithMaps(Toggle):
+    """
+    Determines if you begin with the collectable maps
+    """
+    display_name = "Start With Maps"
+
+class ProgressiveRangs(DefaultOnToggle):
+    """
+    Determines if each rang and their upgrade are progressive
+    """
+    display_name = "Progressive Rangs"
+
+# class ConnectorRandomization(Toggle):
+#     """
+#     Determines whether the Connectors are randomized
+#     """
+#     display_name = "Connector Randomization"
+
+class RacesAreMissions(DefaultOnToggle):
+    """
+    Determines if winning races grants checks and counts towards missions complete
+    """
+    display_name = "Races"
+
 class ChecksRequireInfra(Toggle):
     """
     Determines whether the generator considers checks using invisible objects logically require the Infrarang
@@ -90,11 +118,6 @@ class FrillSanity(Toggle):
     """
     display_name = "Frill Sanity"
 
-# class RaceSanity(Toggle):
-#     """
-#     Determines if winning races grants checks
-#     """
-#     display_name = "Race Sanity"
 
 # class Signsanity(Toggle):
 #     """
@@ -141,7 +164,9 @@ class FrillSanity(Toggle):
 class ty2_option_groups(PerGameCommonOptions):
     OptionGroup("Goal Options", [
         Goal,
+        TotalMissionsForGoal,
         GoalRequiresBosses,
+        SouthernRiversBarrierUnlock,
     ]),
     OptionGroup("General Options", [
         ProgressiveRangs,
@@ -165,8 +190,11 @@ class ty2_option_groups(PerGameCommonOptions):
 @dataclass
 class Ty2Options(PerGameCommonOptions):
     goal: Goal
+    missions_for_goal: TotalMissionsForGoal
     require_bosses: GoalRequiresBosses
+    barrier_unlock: SouthernRiversBarrierUnlock
 
+    race_checks: RacesAreMissions
     progressive_rangs: ProgressiveRangs
     shop_difficulty: ShopPrices
     extra_cogs: ExtraCogs

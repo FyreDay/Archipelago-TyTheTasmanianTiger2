@@ -134,7 +134,6 @@ def create_ty2_regions(world, location_dict):
     create_region(world, "SR - Never Never Road", location_dict)
     create_region(world, "SR - Plutonium Panic", location_dict)
     create_region(world, "SR - 50 Foot Squeaver", location_dict)
-    create_region(world, "SR - Lava Falls", location_dict)
     create_region(world, "SR - Min Min Mining", location_dict)
     create_region(world, "SR - Turbo Track", location_dict)
     create_region(world, "SR - Patchy", location_dict)
@@ -268,8 +267,6 @@ def connect_ty2_regions(world):
                     "Never Never Connector")
     connect_regions(world, "Never Never", "Never Never - Infra",
                     "Never Never -> Infra")
-    connect_regions(world, "Southern Rivers", "SR - Lava Falls",
-                    "Lava Falls ParkingBay", 1)  # 3711
     connect_regions(world, "Southern Rivers", "SR - Min Min Mining",
                     "Min Min Mining ParkingBay", 1)  # 4035
     connect_regions(world, "Southern Rivers", "SR - Turbo Track",
@@ -325,7 +322,7 @@ def connect_ty2_regions(world):
     connect_regions(world, "Southern Rivers", "SR - Hearty Beach",
                     "Hearty Beach ParkingBay")
 
-
+# 3711 unknown
 # name ParkingBay
 #   pos -13993.49 3732.76 11135.69
 #   ID 3736 Z4_StartParking

@@ -48,10 +48,10 @@ def can_tp(world, state):
     return (state.has("Progressive Lasharang", world.player, 2)
             or state.has("Warperang", world.player))
 
-def can_reach_mission_count(state: CollectionState, target_count: int):
+def can_reach_mission_count(world, state: CollectionState, target_count: int):
         count_so_far = 0
-        for loc in mission_locations:
-            if loc.can_reach(state):
+        for mission_name, mission_data in mission_dict.items():
+            if state.can_reach_location(mission_name, world.player):
                 count_so_far += 1
             if count_so_far >= target_count:
                 return True
@@ -60,6 +60,33 @@ def can_reach_mission_count(state: CollectionState, target_count: int):
 def get_rules(world):
     rules = {
         "locations": {
+            #collectable shops
+            "Trader Bob's Cog 1": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:1])),
+            "Trader Bob's Cog 2": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:2])),
+            "Trader Bob's Cog 3": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:3])),
+            "Trader Bob's Cog 4": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:4])),
+            "Trader Bob's Cog 5": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:5])),
+            "Trader Bob's Cog 6": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:6])),
+            "Trader Bob's Cog 7": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:7])),
+            "Trader Bob's Cog 8": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:8])),
+            "Trader Bob's Cog 9": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:9])),
+            "Trader Bob's Cog 10": lambda state:
+                state.has("Platinum Cog", world.player, sum(world.cog_prices[:10])),
+            "Madam Mopoke's 1": lambda state:
+                state.has("Kromium Orb", world.player, sum(world.orb_prices[:1])),
+            "Madam Mopoke's 2": lambda state:
+                state.has("Kromium Orb", world.player, sum(world.orb_prices[:2])),
+            "Madam Mopoke's 3": lambda state:
+                state.has("Kromium Orb", world.player, sum(world.orb_prices[:3])),
             #Missions
             "Haunted Hassle": lambda state:
                 has_infra(world, state),
@@ -292,7 +319,7 @@ def get_rules(world):
             "Min Min Plains ParkingBay":
                 lambda state: state.has("Min Min Plains ParkingBay", world.player),
             "Training Grounds 03 ParkingBay":
-                lambda state: state.has("Training Grounds 03 ParkingBay", world.player),
+                lambda state: state.has("Freeway Training Grounds ParkingBay", world.player),
             "Training Grounds 08 ParkingBay":
                 lambda state: state.has("Training Grounds 08 ParkingBay", world.player),
             "Dennis Freeway ParkingBay":
@@ -352,49 +379,43 @@ def get_rules(world):
             "Hearty Beach ParkingBay":
                 lambda state: state.has("Hearty Beach ParkingBay", world.player),
             "Patchy ParkingBay":
-                lambda state: can_reach_mission_count(state, 5),
+                lambda state: can_reach_mission_count(world, state, 5),
             "Oil Rig ParkingBay":
-                lambda state: can_reach_mission_count(state, 10),
+                lambda state: can_reach_mission_count(world,state, 10),
             "Fluffy ParkingBay":
-                lambda state: can_reach_mission_count(state, 15),
+                lambda state: can_reach_mission_count(world, state, 15),
             "Bush Rescue Plane":
-                lambda state: (not world.options.require_bosses and can_reach_mission_count(state, 20))
-                              or (world.options.require_bosses
+                lambda state: (not world.options.require_bosses.value and can_reach_mission_count(world, state, 20))
+                              or (world.options.require_bosses.value
                               and state.can_reach_location("Patchy", world.player)
                               and state.can_reach_location("Buster the Nanobot Boss", world.player)
                               and state.can_reach_location("Fluffy", world.player)
-                              and can_reach_mission_count(state, 20)),
+                              and can_reach_mission_count(world, state, 20)),
 
         }
     }
     return rules
 
-mission_locations = []
+
 
 def set_rules(world):
-    mission_locations.clear()
-    for mission_name, mission_data in mission_dict.items():
-        try:
-            mission_locations.append(world.get_location(mission_name))
-        except KeyError as e:
-            print(f"Key error, {e}")
-            pass
-
 
     rules_lookup = get_rules(world)
+
+    world.explicit_indirect_conditions = False
 
     for entrance_name, rule in rules_lookup["entrances"].items():
         try:
             world.get_entrance(entrance_name).access_rule = rule
         except KeyError as e:
-            print(f"Key error, {e}")
+            #print(f"Key error, {e}")
             pass
 
     for location_name, rule in rules_lookup["locations"].items():
         try:
             world.get_location(location_name).access_rule = rule
         except KeyError as e:
-            print(f"Key error, {e}")
+            #print(f"Key error, {e}")
             pass
 
     world.multiworld.get_location(f"Boss Cass Bust-Up", world.player).place_locked_item(

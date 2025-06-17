@@ -13,7 +13,8 @@ class LocData(NamedTuple):
 
 def create_ty2_locations(world):
     all_locations = {**shop_location_dict, **platinum_cog_dict, **kromium_orb_dict, **bilby_dict, **mission_dict}
-    print(f"location length {len(all_locations)}")
+    if world.options.race_checks.value:
+        all_locations.update(race_dict)
 
     if world.options.frill_sanity.value:
         all_locations.update(disguised_frill_dict)
@@ -24,7 +25,7 @@ def create_ty2_locations(world):
 
     return all_locations
 
-shop_location_dict = {
+shop_location_dict: Dict[str, LocData] = {
 "Rang Shop 8": LocData(26, "Burramudgee Town"),# Camerarang
     "Rang Shop 1": LocData(8, "Burramudgee Town"), #frosty
     "Rang Shop 2": LocData(9, "Burramudgee Town"), #flame
@@ -215,8 +216,8 @@ disguised_frill_dict: Dict[str, LocData] = {
 }
 
 steve_dict: Dict[str, LocData] = {
-    "Steve 1": LocData(0x5300, "SR - Sly"),
-    "Steve 2": LocData(0x5301, "Sewer"),
+    "Steve 1": LocData(0x5300, "Burramudgee Town"),
+    "Steve 2": LocData(0x5301, "SR - Sly"),
     "Steve 3": LocData(0x5302, "Outback Oasis"), #Lash
     "Steve 4": LocData(0x5303, "Sulphur Rocks"),
     "Steve 5": LocData(0x5304, "MountBoom"), #thermo
@@ -405,14 +406,25 @@ picture_frame_dict: Dict[str, LocData] = {
     "Picture Frame 174": LocData(0x50AE, "Sulphur Rocks"),
 }
 
+race_dict: Dict[str, LocData] = {
+    "Refinery Run": LocData(0x6d000007, "SR - Refinery Run", 7),
+    "Lava Falls": LocData(0x6d000016, "SR - Lava Falls Race", 22),
+    "Hearty Beach": LocData(0x6d000017, "SR - Hearty Beach", 23),
+    "Parrotbeard Cove": LocData(0x6d00002b, "SR - Beach", 43),
+    "Never Never Road": LocData(0x6d00002d, "SR - Never Never Road", 45),
+    "Outback Dash": LocData(0x6d00003c, "SR - Outback Dash", 60),
+    "Turbo Track": LocData(0x6d000044, "SR - Turbo Track", 68),
+
+}
+
 mission_dict: Dict[str, LocData] = {
     # "750 Metal Menace": LocData(0x6d000001, "", 1), is this used
-    "Explosive Cargo": LocData(0x6d000002, "SR - Explosive Cargo", 2), #didnt get set to 5+
+    "Explosive Cargo": LocData(0x6d000002, "Explosive Cargo", 2), #didnt get set to 5+
     "Boss Cass Bust-Up": LocData(None, "Cass' Run", 83), #0x6d000053
     "Haunted Hassle": LocData(0x6d000004, "Burramudgee Town", 4), #infrarang
     "Tree Rescue": LocData(0x6d000005, "Burramudgee Town", 5),
     "Crouching Birrel, Hidden Squeaver": LocData(0x6d000006, "SR - Min Min Plains", 6),
-    "Refinery Run": LocData(0x6d000007, "SR - Refinery Run", 7), #
+
     "Currawong Jail Break": LocData(0x6d000054, "Menu", 84),
     "Dennis Dash": LocData(0x6d000009, "Never Never", 9),# need requirements removed
     "Rocky Road": LocData(0x6d00000a, "Never Never", 10), # need requirements removed
@@ -426,8 +438,6 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_19_DESC": LocData(0x6d000013, "", 19),
     "King Squeaver and Birrel Hood": LocData(0x6d000014, "SR - King Squeaver", 20),
     # "TEXT_MISSION_21_DESC": LocData(0x6d000015, "", 21),
-    "Lava Falls": LocData(0x6d000016, "SR - Lava Falls", 22),
-    "Hearty Beach": LocData(0x6d000017, "SR - Hearty Beach", 23),
     "Musical Mommy": LocData(0x6d000018, "Never Never", 24), #needs requirements removed
     "Tourist Trap": LocData(0x6d000019, "Faire Dinkum", 25),
     "Crocodile Chaos": LocData(0x6d00001a, "Wetlands", 26),
@@ -447,9 +457,8 @@ mission_dict: Dict[str, LocData] = {
     "Sea Lab": LocData(0x6d000028, "Beach Sub", 40), #sub bunyip
     "Grub Grab": LocData(0x6d000029, "SR - Beach", 41), #talk to dennis sunscreen
     "Big Bang": LocData(0x6d00002a, "SR - Min Min Mining", 42),
-    "Parrotbeard Cove": LocData(0x6d00002b, "SR - Beach", 43),
+
     # "TEXT_MISSION_44_DESC": LocData(0x6d00002c, "", 44),
-    "Never Never Road": LocData(0x6d00002d, "SR - Never Never Road", 45),
     "Snake Eyes": LocData(0x6d00002e, "Sulphur Rocks", 46),
     "Hidden Danger": LocData(0x6d00002f, "Burramudgee Town", 47), #infrarang
     # "TEXT_MISSION_48_DESC": LocData(0x6d000030, "", 48),
@@ -464,7 +473,7 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_57_DESC": LocData(0x6d000039, "", 57),
     # "TEXT_MISSION_58_DESC": LocData(0x6d00003a, "", 58),
     "Attack of the 50 Foot Squeaver": LocData(0x6d00003b, "SR - 50 Foot Squeaver", 59),
-    "Outback Dash": LocData(0x6d00003c, "SR - Outback Dash", 60),
+
     # "TEXT_MISSION_61_DESC": LocData(0x6d00003d, "", 61),
     # "Mech Mayhem": LocData(0x6d00003e, "", 62),
     # "TEXT_MISSION_63_DESC": LocData(0x6d00003f, "", 63),
@@ -472,7 +481,7 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_65_DESC": LocData(0x6d000041, "", 65),
     # "TEXT_MISSION_66_DESC": LocData(0x6d000042, "", 66),
     # "TEXT_MISSION_67_DESC": LocData(0x6d000043, "", 67),
-    "Turbo Track": LocData(0x6d000044, "SR - Turbo Track", 68),
+
     # "TEXT_MISSION_69_DESC": LocData(0x6d000045, "", 69),
     "Killer Koala": LocData(0x6d000046, "Burramudgee Town", 70),
     # "TEXT_MISSION_71_DESC": LocData(0x6d000047, "", 71),
@@ -519,4 +528,5 @@ full_location_dict: Dict[str, LocData] = {**shop_location_dict,
                                           **steve_dict,
                                           **disguised_frill_dict,
                                           **picture_frame_dict,
-                                          **mission_dict}
+                                          **mission_dict,
+                                          **race_dict}
