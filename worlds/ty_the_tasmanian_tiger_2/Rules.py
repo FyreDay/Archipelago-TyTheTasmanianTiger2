@@ -108,6 +108,10 @@ def get_rules(world):
                 state.has("Thermo Bunyip Key", world.player),
             "Killer Koala": lambda state:
                 has_infra(world, state),
+            "Grub Grab": lambda state:
+                state.has("Burramudgee Town ParkingBay", world.player) and (state.has("Patchy Barriers", world.player) or state.has("Buster Barriers", world.player)),
+            "Ripper Nipper": lambda state:
+                state.has("Wobbygon Bay ParkingBay", world.player) and state.has("Ripper Nipper ParkingBay", world.player),
             #Cogs
             "Platinum Cog 2": lambda state:
                 can_smash_wall(world, state),
@@ -244,9 +248,9 @@ def get_rules(world):
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
 
             #Steves
-            "Steve 3": lambda state:
+            "Steve - Outback Oasis": lambda state:
                 can_swing(world, state),
-            "Steve 7": lambda state:
+            "Steve - MountBoom": lambda state:
                 state.has("Thermo Bunyip Key", world.player),
             #Frames
             "Picture Frame 1": lambda state:
@@ -318,20 +322,20 @@ def get_rules(world):
                 lambda state: state.has("Burramudgee Town ParkingBay", world.player),
             "Min Min Plains ParkingBay":
                 lambda state: state.has("Min Min Plains ParkingBay", world.player),
-            "Training Grounds 03 ParkingBay":
+            "Freeway Training Grounds ParkingBay":
                 lambda state: state.has("Freeway Training Grounds ParkingBay", world.player),
-            "Training Grounds 08 ParkingBay":
-                lambda state: state.has("Training Grounds 08 ParkingBay", world.player),
+            "Beach Training Grounds ParkingBay":
+                lambda state: state.has("Beach Training Grounds ParkingBay", world.player),
             "Dennis Freeway ParkingBay":
                 lambda state: state.has("Dennis Freeway ParkingBay", world.player),
-            "Beach ParkingBay":
-                lambda state: state.has("Beach ParkingBay", world.player),
+            "Wobbygon Bay ParkingBay":
+                lambda state: state.has("Wobbygon Bay ParkingBay", world.player),
             "Lava Falls Race ParkingBay":
                 lambda state: state.has("Lava Falls Race ParkingBay", world.player),
             "Frill Neck Forest ParkingBay":
                 lambda state: state.has("Frill Neck Forest ParkingBay", world.player),
-            "Sheep Dip ParkingBay":
-                lambda state: state.has("Sheep Dip ParkingBay", world.player),
+            "Old Stony Creek ParkingBay":
+                lambda state: state.has("Old Stony Creek ParkingBay", world.player),
             "Camping ParkingBay":
                 lambda state: state.has("Camping ParkingBay", world.player),
             "Outback Oasis ParkingBay":
@@ -368,29 +372,48 @@ def get_rules(world):
                 lambda state: state.has("Bush Fire ParkingBay", world.player),
             "Sulphur Rocks ParkingBay":
                 lambda state: state.has("Sulphur Rocks ParkingBay", world.player),
-            "Explosive Cargo ParkingBay":
-                lambda state: state.has("Explosive Cargo ParkingBay", world.player),
-            "M66 ParkingBay":
-                lambda state: state.has("M66 ParkingBay", world.player),
+            "Lake Burramudgee ParkingBay":
+                lambda state: state.has("Lake Burramudgee ParkingBay", world.player),
+            "Muddy Bottom ParkingBay":
+                lambda state: state.has("Muddy Bottom ParkingBay", world.player),
+            "Dusty Barrows ParkingBay":
+                lambda state: state.has("Dusty Barrows ParkingBay", world.player),
+            "Ripper Nipper ParkingBay":
+                lambda state: state.has("Ripper Nipper ParkingBay", world.player),
+
             "Faire Dinkum ParkingBay":
                 lambda state: state.has("Faire Dinkum ParkingBay", world.player),
             "Wetlands ParkingBay":
                 lambda state: state.has("Wetlands ParkingBay", world.player),
             "Hearty Beach ParkingBay":
                 lambda state: state.has("Hearty Beach ParkingBay", world.player),
+            "Patchy Barriers West":
+                lambda state: state.has("Patchy Barriers", world.player),
+            "Patchy Barriers South":
+                lambda state: state.has("Patchy Barriers", world.player),
+            "Fluffy Barriers South":
+                lambda state: state.has("Fluffy Barriers", world.player),
+            "Fluffy Barriers North":
+                lambda state: state.has("Fluffy Barriers", world.player),
+            "Buster Barriers West":
+                lambda state: state.has("Buster Barriers", world.player),
+            "Buster Barriers East":
+                lambda state: state.has("Buster Barriers", world.player),
+            "Truck Stop Clear":
+                lambda state: state.has("Truck Stop ParkingBay", world.player),
             "Patchy ParkingBay":
-                lambda state: can_reach_mission_count(world, state, 5),
+                lambda state: state.has("Patchy ParkingBay", world.player),
             "Oil Rig ParkingBay":
-                lambda state: can_reach_mission_count(world,state, 10),
+                lambda state: state.has("Oil Rig ParkingBay", world.player),
             "Fluffy ParkingBay":
-                lambda state: can_reach_mission_count(world, state, 15),
+                lambda state: state.has("Fluffy ParkingBay", world.player),
             "Bush Rescue Plane":
-                lambda state: (not world.options.require_bosses.value and can_reach_mission_count(world, state, 20))
+                lambda state: (not world.options.require_bosses.value and can_reach_mission_count(world, state, world.options.missions_for_goal.value))
                               or (world.options.require_bosses.value
                               and state.can_reach_location("Patchy", world.player)
                               and state.can_reach_location("Buster the Nanobot Boss", world.player)
                               and state.can_reach_location("Fluffy", world.player)
-                              and can_reach_mission_count(world, state, 20)),
+                              and can_reach_mission_count(world, state, world.options.missions_for_goal.value)),
 
         }
     }

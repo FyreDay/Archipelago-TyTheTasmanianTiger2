@@ -20,7 +20,7 @@ class GoalRequiresBosses(Toggle):
 
 class TotalMissionsForGoal(Range):
     """
-    How Many Missions do you need for goal. Bosses will be
+    How Many Missions do you need to get the plane for cass's run.
     """
     display_name = "Missions For Goal"
     range_start = 0
@@ -31,12 +31,12 @@ class SouthernRiversBarrierUnlock(Choice):
     """
     When should the barriers in Southern rivers be unlocked?
     Vanilla: On Boss Defeat open up the next part of the map
-    On Item Receive: Unlocks when you receive AP Items (unimplemented)
+    On Item Receive: Unlocks when you receive AP Items
     Open World: Southern rivers is completely open
     """
     display_name = "Barrier Unlock Conditions"
     option_vanilla = 0
-    #option_on_item_receive = 1
+    option_items = 1
     option_open_world = 2
     default = 0
 
