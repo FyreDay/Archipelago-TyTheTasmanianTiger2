@@ -45,11 +45,40 @@ class Ty2World(World):
         self.items = {}
         self.trap_weights = {}
 
+        self.rang_prices = []
+        self.sly_prices = []
+        self.cop_prices = []
+
         self.cog_prices = []
         self.orb_prices = []
 
+
     def generate_early(self) -> None:
         self.locations = create_ty2_locations(self)
+
+        min_price, max_price = 1000, 3000
+        if self.options.shop_difficulty.value == 1:
+            min_price, max_price = 1000, 5000
+        elif self.options.shop_difficulty.value == 2:
+            min_price, max_price = 3000, 7000
+        self.rang_prices = self.generate_shop(8,1000000,min_price, max_price)
+
+
+        min_price, max_price = 5000, 15000
+        if self.options.shop_difficulty.value == 1:
+            min_price, max_price = 10000, 25000
+        elif self.options.shop_difficulty.value == 2:
+            min_price, max_price = 12000, 40000
+        self.sly_prices = self.generate_shop(11,1000000,min_price, max_price)
+
+
+        min_price, max_price = 1000, 4000
+        if self.options.shop_difficulty.value == 1:
+            min_price, max_price = 3000, 6000
+        elif self.options.shop_difficulty.value == 2:
+            min_price, max_price = 4000, 7500
+        self.cop_prices = self.generate_shop(5,1000000,min_price, max_price)
+
 
         min_price, max_price = 1, 3
         if self.options.shop_difficulty.value == 1:
@@ -57,6 +86,8 @@ class Ty2World(World):
         elif self.options.shop_difficulty.value == 2:
             min_price, max_price = 3, 6
         self.cog_prices = self.generate_shop(10,50,min_price, max_price)
+
+
         min_price, max_price = 3, 6
         if self.options.shop_difficulty.value == 1:
             min_price, max_price = 5, 8
@@ -68,6 +99,7 @@ class Ty2World(World):
         create_ty2_regions(self, self.locations)
         connect_ty2_regions(self)
 
+
     def connect_entrances(self) -> None:
         print("Connect Entrance")
         # result = randomize_entrances(self, True, {0: [0]})
@@ -78,21 +110,31 @@ class Ty2World(World):
     def create_items(self):
         create_ty2_items(self)
 
+        self.push_precollected(Item("Burramudgee Town ParkingBay", ItemClassification.progression,
+                                    self.item_name_to_id["Burramudgee Town ParkingBay"], self.player))
+
         if self.options.progressive_rangs.value:
             self.push_precollected(Item("Progressive Boomerang", ItemClassification.progression, self.item_name_to_id["Progressive Boomerang"], self.player))
         else:
             self.push_precollected(Item("Boomerang", ItemClassification.progression,
                                         self.item_name_to_id["Boomerang"], self.player))
-        self.push_precollected(Item("Burramudgee Town ParkingBay", ItemClassification.progression,
-                                    self.item_name_to_id["Burramudgee Town ParkingBay"], self.player))
+
 
         if self.options.start_with_maps.value:
-            self.push_precollected(Item("Missing Persons Map", ItemClassification.progression,
+            self.push_precollected(Item("Missing Persons Map", ItemClassification.useful,
                                         self.item_name_to_id["Missing Persons Map"], self.player))
-            self.push_precollected(Item("Cog Map", ItemClassification.progression,
+            self.push_precollected(Item("Cog Map", ItemClassification.useful,
                                         self.item_name_to_id["Cog Map"], self.player))
-            self.push_precollected(Item("Mysterious Anomalies Map", ItemClassification.progression,
+            self.push_precollected(Item("Mysterious Anomalies Map", ItemClassification.useful,
                                         self.item_name_to_id["Mysterious Anomalies Map"], self.player))
+
+        if self.options.barrier_unlock.value == 2:
+            self.push_precollected(Item("Patchy Barriers", ItemClassification.progression,
+                                        self.item_name_to_id["Patchy Barriers"], self.player))
+            self.push_precollected(Item("Buster Barriers", ItemClassification.progression,
+                                        self.item_name_to_id["Buster Barriers"], self.player))
+            self.push_precollected(Item("Fluffy Barriers", ItemClassification.progression,
+                                        self.item_name_to_id["Fluffy Barriers"], self.player))
 
 
     def set_rules(self):
@@ -108,11 +150,15 @@ class Ty2World(World):
         return {
             "ModVersion": "0.0.1",
             "Goal": self.options.goal.value,
+            "MissionsToGoal": self.options.missions_for_goal.value,
             "ReqBosses": self.options.require_bosses.value,
             "BarrierUnlock": self.options.barrier_unlock.value,
             "RaceChecks": self.options.race_checks.value,
             "ProgressiveRangs": self.options.progressive_rangs.value,
             "ShopDifficulty": self.options.shop_difficulty.value,
+            "RangPrices": self.rang_prices,
+            "SlyPrices": self.sly_prices,
+            "CopPrices": self.cop_prices,
             "CogPrices": self.cog_prices,
             "OrbPrices": self.orb_prices,
             "ExtraCogs": self.options.extra_cogs.value,

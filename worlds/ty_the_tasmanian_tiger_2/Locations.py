@@ -35,17 +35,17 @@ shop_location_dict: Dict[str, LocData] = {
     "Rang Shop 6": LocData(13, "Burramudgee Town"),
     "Rang Shop 7": LocData(14, "Burramudgee Town"),
 
-    "Sly's Shack 1": LocData(17, "SR - Sly"), #freeze
-    "Sly's Shack 2": LocData(16, "SR - Sly"), #lava
-    "Sly's Shack 3": LocData(15, "SR - Sly"), #multi
-    "Sly's Shack 4": LocData(19, "SR - Sly"), #warp
-    "Sly's Shack 5": LocData(18, "SR - Sly"), #thunder
-    "Sly's Shack 6": LocData(20, "SR - Sly"), #X
-    "Sly's Shack 7": LocData(21, "SR - Sly"), #kaboom
-    "Sly's Shack 8": LocData(22, "SR - Sly"), #omega
-    "Sly's Shack 9": LocData(23, "SR - Sly"), #deadly
-    "Sly's Shack 10": LocData(24, "SR - Sly"), #doom
-    "Sly's Shack 11": LocData(25, "SR - Sly"), #crafty
+    "Sly's Shack 1": LocData(17, "SR - Sly Shack"), #freeze
+    "Sly's Shack 2": LocData(16, "SR - Sly Shack"), #lava
+    "Sly's Shack 3": LocData(15, "SR - Sly Shack"), #multi
+    "Sly's Shack 4": LocData(19, "SR - Sly Shack"), #warp
+    "Sly's Shack 5": LocData(18, "SR - Sly Shack"), #thunder
+    "Sly's Shack 6": LocData(20, "SR - Sly Shack"), #X
+    "Sly's Shack 7": LocData(21, "SR - Sly Shack"), #kaboom
+    "Sly's Shack 8": LocData(22, "SR - Sly Shack"), #omega
+    "Sly's Shack 9": LocData(23, "SR - Sly Shack"), #deadly
+    "Sly's Shack 10": LocData(24, "SR - Sly Shack"), #doom
+    "Sly's Shack 11": LocData(25, "SR - Sly Shack"), #crafty
     "Trader Bob's 1": LocData(1, "Burramudgee Town"), #lifter
     "Trader Bob's 2": LocData(2, "Burramudgee Town"), #thermo
     "Trader Bob's 3": LocData(59, "Burramudgee Town"), #sub
@@ -114,9 +114,9 @@ platinum_cog_dict: Dict[str, LocData] = {
     "Platinum Cog 44": LocData(0x432B, "Wetlands"),
     "Platinum Cog 45": LocData(0x432C, "Wetlands"), #flamerang optional
     "Platinum Cog 46": LocData(0x432D, "Wetlands"),
-    "Platinum Cog 47": LocData(0x432E, "SR - Beach"),
-    "Platinum Cog 48": LocData(0x432F, "SR - Beach"),
-    "Platinum Cog 49": LocData(0x4330, "SR - Beach"),
+    "Platinum Cog 47": LocData(0x432E, "SR - Wobbygon Bay"),
+    "Platinum Cog 48": LocData(0x432F, "SR - Wobbygon Bay"),
+    "Platinum Cog 49": LocData(0x4330, "SR - Wobbygon Bay"),
     "Platinum Cog 50": LocData(0x4331, "Burramudgee HQ - Infra"),
 }
 
@@ -129,9 +129,9 @@ kromium_orb_dict: Dict[str, LocData] = {
     "Kromium Orb 6": LocData(0x4B05, "SR- Sulphur Rocks"),
     "Kromium Orb 7": LocData(0x4B06, "MountBoom"), #thermo
     "Kromium Orb 8": LocData(0x4B07, "MountBoom"),#warperang #thermo smash
-    "Kromium Orb 9": LocData(0x4B08, "SR - Beach"),
+    "Kromium Orb 9": LocData(0x4B08, "SR - Wobbygon Bay"),
     "Kromium Orb 10": LocData(0x4B09, "Outback Oasis"), #smasharang
-    "Kromium Orb 11": LocData(0x4B0A, "SR - Sly"),
+    "Kromium Orb 11": LocData(0x4B0A, "SR - Sly Shack"),
     "Kromium Orb 12": LocData(0x4B0B, "Outback Oasis"),
     "Kromium Orb 13": LocData(0x4B0C, "Sulphur Rocks"),
     "Kromium Orb 14": LocData(0x4B0D, "Sulphur Rocks"), #infra
@@ -145,12 +145,12 @@ kromium_orb_dict: Dict[str, LocData] = {
     "Kromium Orb 22": LocData(0x4B15, "Never Never"),
     "Kromium Orb 23": LocData(0x4B16, "Wetlands"), #lasharang
     "Kromium Orb 24": LocData(0x4B17, "Frill Neck Forest"),
-    "Kromium Orb 25": LocData(0x4B18, "Burramudgee Town"),
+    "Kromium Orb 25": LocData(0x4B18, "SR - Dennis Freeway"),
     "Kromium Orb 26": LocData(0x4B19, "Sulphur Rocks"), #lasharang
     "Kromium Orb 27": LocData(0x4B1A, "Faire Dinkum"),
     "Kromium Orb 28": LocData(0x4B1B, "Faire Dinkum"), #smasharang
     "Kromium Orb 29": LocData(0x4B1C, "Faire Dinkum"),
-    "Kromium Orb 30": LocData(0x4B1D, "SR - Beach"),
+    "Kromium Orb 30": LocData(0x4B1D, "SR - Wobbygon Bay"),
 } #what is the orb at freeway
 
 bilby_dict: Dict[str, LocData] = {
@@ -182,8 +182,8 @@ bilby_dict: Dict[str, LocData] = {
     "Bilby 26": LocData(0x4219, "SR - Dennis Freeway"),    #dennis freeway #warperang
     "Bilby 27": LocData(0x421A, "Burramudgee HQ"),
     "Bilby 28": LocData(0x421B, "Burramudgee HQ"), #optional frostyrang
-    "Bilby 29": LocData(0x421C, "SR - Beach"),
-    "Bilby 30": LocData(0x421D, "SR - Beach"),
+    "Bilby 29": LocData(0x421C, "SR - Wobbygon Bay"),
+    "Bilby 30": LocData(0x421D, "SR - Wobbygon Bay"),
 }
 
 
@@ -205,7 +205,7 @@ disguised_frill_dict: Dict[str, LocData] = {
     "Disguised Frill 15": LocData(0x460E, "Dennis Freeway"),
     "Disguised Frill 16": LocData(0x460F, "Outback Oasis"),
     "Disguised Frill 17": LocData(0x460010, "SR - Cul De Sac"),
-    "Disguised Frill 18": LocData(0x460011, "SR - Explosive Cargo"),
+    "Disguised Frill 18": LocData(0x460011, "SR - Lake Barramudgee"),
     "Disguised Frill 19": LocData(0x460012, "SR - Frill Neck Forest"),
     "Disguised Frill 20": LocData(0x460013, "SR - Truck Tragedy"),
     "Disguised Frill 21": LocData(0x460014, "SR - Never Never"), #didnt send
@@ -216,16 +216,16 @@ disguised_frill_dict: Dict[str, LocData] = {
 }
 
 steve_dict: Dict[str, LocData] = {
-    "Steve 1": LocData(0x5300, "Burramudgee Town"),
-    "Steve 2": LocData(0x5301, "SR - Sly"),
-    "Steve 3": LocData(0x5302, "Outback Oasis"), #Lash
-    "Steve 4": LocData(0x5303, "Sulphur Rocks"),
-    "Steve 5": LocData(0x5304, "MountBoom"), #thermo
-    "Steve 6": LocData(0x5305, "SR - Training north of dennis"),
-    "Steve 7": LocData(0x5306, "Never Never"), #thermo
-    "Steve 8": LocData(0x5307, "Wetlands"),
-    "Steve 9": LocData(0x5308, "SR - Frill Neck Forest"),
-    "Steve 10": LocData(0x5309, "SR - Beach"),
+    "Steve - Sly Shack": LocData(0x5300, "SR - Sly Shack"),
+    "Steve - Burramudgee Town": LocData(0x5301, "Burramudgee Town"),
+    "Steve - Outback Oasis": LocData(0x5302, "Outback Oasis"), #Lash
+    "Steve - Sulphur Rocks": LocData(0x5303, "Sulphur Rocks"),
+    "Steve - MountBoom": LocData(0x5304, "MountBoom"), #thermo
+    "Steve - Freeway Training": LocData(0x5305, "SR - Freeway Training Grounds"),
+    "Steve - Never Never": LocData(0x5306, "Never Never"), #thermo
+    "Steve - Wetlands": LocData(0x5307, "Wetlands"),
+    "Steve - Fill Neck": LocData(0x5308, "SR - Frill Neck Forest"),
+    "Steve - Wobbygon Bay": LocData(0x5309, "SR - Wobbygon Bay"),
 }
 
 picture_frame_dict: Dict[str, LocData] = {
@@ -410,7 +410,7 @@ race_dict: Dict[str, LocData] = {
     "Refinery Run": LocData(0x6d000007, "SR - Refinery Run", 7),
     "Lava Falls": LocData(0x6d000016, "SR - Lava Falls Race", 22),
     "Hearty Beach": LocData(0x6d000017, "SR - Hearty Beach", 23),
-    "Parrotbeard Cove": LocData(0x6d00002b, "SR - Beach", 43),
+    "Parrotbeard Cove": LocData(0x6d00002b, "SR - Wobbygon Bay", 43),
     "Never Never Road": LocData(0x6d00002d, "SR - Never Never Road", 45),
     "Outback Dash": LocData(0x6d00003c, "SR - Outback Dash", 60),
     "Turbo Track": LocData(0x6d000044, "SR - Turbo Track", 68),
@@ -419,7 +419,7 @@ race_dict: Dict[str, LocData] = {
 
 mission_dict: Dict[str, LocData] = {
     # "750 Metal Menace": LocData(0x6d000001, "", 1), is this used
-    "Explosive Cargo": LocData(0x6d000002, "Explosive Cargo", 2), #didnt get set to 5+
+    "Explosive Cargo": LocData(0x6d000002, "Lake Burramudgee", 2), #didnt get set to 5+
     "Boss Cass Bust-Up": LocData(None, "Cass' Run", 83), #0x6d000053
     "Haunted Hassle": LocData(0x6d000004, "Burramudgee Town", 4), #infrarang
     "Tree Rescue": LocData(0x6d000005, "Burramudgee Town", 5),
@@ -430,11 +430,11 @@ mission_dict: Dict[str, LocData] = {
     "Rocky Road": LocData(0x6d00000a, "Never Never", 10), # need requirements removed
     "Lava Chill Out": LocData(0x6d00000b, "Never Never", 11), #thermo, lash, OR frosty # need requirements removed
     "Canopy Capers": LocData(0x6d00000c, "Frill Neck Forest", 12),
-    "Croc Stock Pile": LocData(0x6d00000d, "SR - Croc Stock Pile", 13), #didnt send
+    "Croc Stock Pile": LocData(0x6d00000d, "Muddy Bottom", 13), #didnt send
     "Fire Fight": LocData(0x6d00000e, "Fire Fight", 14),
     "Truck Tragedy": LocData(0x6d000010, "SR - Truck Tragedy", 16), #lifter bunyip
     "Plutonium Panic": LocData(0x6d000011, "SR - Plutonium Panic", 17),
-    "Need A Spare": LocData(0x6d000012, "SR - Cul De Sac", 18),
+    "Need A Spare": LocData(0x6d000012, "SR - Dusty Barrows", 18),
     # "TEXT_MISSION_19_DESC": LocData(0x6d000013, "", 19),
     "King Squeaver and Birrel Hood": LocData(0x6d000014, "SR - King Squeaver", 20),
     # "TEXT_MISSION_21_DESC": LocData(0x6d000015, "", 21),
@@ -442,7 +442,7 @@ mission_dict: Dict[str, LocData] = {
     "Tourist Trap": LocData(0x6d000019, "Faire Dinkum", 25),
     "Crocodile Chaos": LocData(0x6d00001a, "Wetlands", 26),
     # "TEXT_MISSION_27_DESC": LocData(0x6d00001b, "", 27),
-    "Sheep Dip": LocData(0x6d00001c, "Sheep Dip", 28), #doesnt send
+    "Sheep Dip": LocData(0x6d00001c, "Old Stony Creek", 28), #doesnt send
     # "Danger Lab": LocData(0x6d00001d, "", 29),
     # "TEXT_MISSION_30_DESC": LocData(0x6d00001e, "", 30),
     # "TEXT_MISSION_31_DESC": LocData(0x6d00001f, "", 31),
@@ -455,7 +455,7 @@ mission_dict: Dict[str, LocData] = {
     "Bush Fire": LocData(0x6d000026, "Bush Fire", 38), #thermo
     "Truck Stop": LocData(0x6d000027, "SR - Truck Stop", 39), #stupid long mission #lifter bunyip
     "Sea Lab": LocData(0x6d000028, "Beach Sub", 40), #sub bunyip
-    "Grub Grab": LocData(0x6d000029, "SR - Beach", 41), #talk to dennis sunscreen
+    "Grub Grab": LocData(0x6d000029, "SR - Wobbygon Bay", 41), #talk to dennis sunscreen
     "Big Bang": LocData(0x6d00002a, "SR - Min Min Mining", 42),
 
     # "TEXT_MISSION_44_DESC": LocData(0x6d00002c, "", 44),
@@ -466,9 +466,9 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_50_DESC": LocData(0x6d000032, "", 50),
     # "TEXT_MISSION_51_DESC": LocData(0x6d000033, "", 51),
     "Oil Rig Fire": LocData(0x6d000034, "Oil Rig", 52), #done before buster
-    "Training Grounds 03": LocData(0x6d000035, "Training Grounds 03", 53), #didnt count
-    "Training Grounds 08": LocData(0x6d000036, "Training Grounds 08", 54),
-    "Ripper Nipper": LocData(0x6d000037, "SR - Beach", 55), #sunscreen
+    "Freeway Training Grounds": LocData(0x6d000035, "Freeway Training Grounds", 53), #didnt count
+    "Beach Training Grounds": LocData(0x6d000036, "Beach Training Grounds", 54),
+    "Ripper Nipper": LocData(0x6d000037, "SR - Wobbygon Bay", 55), #sunscreen
     # "Frill Attack": LocData(0x6d000038, "", 56), does not exist
     # "TEXT_MISSION_57_DESC": LocData(0x6d000039, "", 57),
     # "TEXT_MISSION_58_DESC": LocData(0x6d00003a, "", 58),
