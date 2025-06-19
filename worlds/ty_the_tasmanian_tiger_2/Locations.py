@@ -499,8 +499,6 @@ mission_dict: Dict[str, LocData] = {
     "Fluffy": LocData(0x6d0003d5, "Fluffy's Fortress", 81),
     "Buster the Nanobot Boss": LocData(0x6d0003d6, "Buster the Nanobot Boss", 82),
 
-    #chromium orbs still increase
-    # MISSION 87 IS A MISSED TRAINING GROUNDS
     #99 is see julius
     #mission 86 is get into car
     #patchy is m980

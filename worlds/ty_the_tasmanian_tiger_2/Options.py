@@ -24,7 +24,7 @@ class TotalMissionsForGoal(Range):
     """
     display_name = "Missions For Goal"
     range_start = 0
-    range_end = 50
+    range_end = 44
     default = 20
 
 class SouthernRiversBarrierUnlock(Choice):
@@ -71,6 +71,7 @@ class ExtraOrbs(Range):
 class StartWithMaps(Toggle):
     """
     Determines if you begin with the collectable maps
+    The Maps still require infrarang or x-rang to be held
     """
     display_name = "Start With Maps"
 

@@ -33,8 +33,8 @@ def create_ty2_items(world):
     for item_name, item_data in get_rangs(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
     for item_name, item_data in item_dict.items():
-        if world.options.start_with_maps.value and (item_name is "Missing Persons Map" or
-        item_name is "Cog Map" or item_name is "Mysterious Anomalies Map"):
+        if world.options.start_with_maps.value and item_name in (
+        "Missing Persons Map", "Cog Map", "Mysterious Anomalies Map"):
             continue
         create_item(world, item_name, item_data.classification, item_data.amount)
     for item_name, item_data in get_collectable_currencies(world).items():
