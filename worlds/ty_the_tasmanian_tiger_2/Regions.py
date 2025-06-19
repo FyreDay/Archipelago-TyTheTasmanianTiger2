@@ -61,11 +61,11 @@ def create_locations(world, region, loc_dict):
         if data.region != region.name:
             continue
         create_location(world, region, key, data.code)
-        if region.name is "Patchy" and world.options.barrier_unlock.value == 0:
+        if region.name == "Patchy" and world.options.barrier_unlock.value == 0:
             create_location(world, region, "Beat Patchy", None)
-        if region.name is "Fluffy's Fortress" and world.options.barrier_unlock.value == 0:
+        if region.name == "Fluffy's Fortress" and world.options.barrier_unlock.value == 0:
             create_location(world, region, "Beat Fluffy", None)
-        if region.name is "Buster the Nanobot Boss" and world.options.barrier_unlock.value == 0:
+        if region.name == "Buster the Nanobot Boss" and world.options.barrier_unlock.value == 0:
             create_location(world, region, "Beat Buster", None)
 
 

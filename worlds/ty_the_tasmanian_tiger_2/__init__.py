@@ -113,10 +113,7 @@ class Ty2World(World):
         self.push_precollected(Item("Burramudgee Town ParkingBay", ItemClassification.progression,
                                     self.item_name_to_id["Burramudgee Town ParkingBay"], self.player))
 
-        if self.options.progressive_rangs.value:
-            self.push_precollected(Item("Progressive Boomerang", ItemClassification.progression, self.item_name_to_id["Progressive Boomerang"], self.player))
-        else:
-            self.push_precollected(Item("Boomerang", ItemClassification.progression,
+        self.push_precollected(Item("Boomerang", ItemClassification.progression,
                                         self.item_name_to_id["Boomerang"], self.player))
 
 
