@@ -405,6 +405,8 @@ def get_rules(world):
                 lambda state: state.has("Patchy ParkingBay", world.player),
             "Oil Rig ParkingBay":
                 lambda state: state.has("Oil Rig ParkingBay", world.player),
+            "Oil Rig Button":
+                lambda state: state.has("Thermo Bunyip Key", world.player),
             "Fluffy ParkingBay":
                 lambda state: state.has("Fluffy ParkingBay", world.player),
             "Bush Rescue Plane":

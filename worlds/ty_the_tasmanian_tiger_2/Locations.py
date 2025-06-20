@@ -418,7 +418,7 @@ race_dict: Dict[str, LocData] = {
 }
 
 mission_dict: Dict[str, LocData] = {
-    # "750 Metal Menace": LocData(0x6d000001, "", 1), is this used
+    "750 Metal Menace": LocData(0x6d000001, "Outback Oasis", 1),
     "Explosive Cargo": LocData(0x6d000002, "Lake Burramudgee", 2), #didnt get set to 5+
     "Boss Cass Bust-Up": LocData(None, "Cass' Run", 83), #0x6d000053
     "Haunted Hassle": LocData(0x6d000004, "Burramudgee Town", 4), #infrarang
