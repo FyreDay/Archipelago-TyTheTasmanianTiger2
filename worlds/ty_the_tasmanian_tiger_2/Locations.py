@@ -13,6 +13,8 @@ class LocData(NamedTuple):
 
 def create_ty2_locations(world):
     all_locations = {**shop_location_dict, **platinum_cog_dict, **kromium_orb_dict, **bilby_dict, **mission_dict}
+    all_locations.update(get_mission_complete_events(world))
+
     if world.options.race_checks.value:
         all_locations.update(race_dict)
 
@@ -417,6 +419,24 @@ race_dict: Dict[str, LocData] = {
 
 }
 
+
+def get_mission_complete_events(world):
+    complete_mission_dict = {}
+    for name, loc_data in mission_dict.items():
+        if loc_data.code is None:
+            continue
+
+        new_name = f"Complete {name}"
+        new_ingame_id = loc_data.id + 100  # Add 100 to ingame ID
+
+        complete_mission_dict[new_name] = LocData(None, loc_data.region, new_ingame_id)
+
+    if world.options.barrier_unlock.value == 0:
+        complete_mission_dict["Beat Patchy"] = LocData(None, "Patchy", 980)
+        complete_mission_dict["Beat Fluffy"] = LocData(None, "Fluffy's Fortress", 981)
+        complete_mission_dict["Beat Buster"] = LocData(None, "Buster the Nanobot Boss", 982)
+    return complete_mission_dict
+
 mission_dict: Dict[str, LocData] = {
     "750 Metal Menace": LocData(0x6d000001, "Outback Oasis", 1),
     "Explosive Cargo": LocData(0x6d000002, "Lake Burramudgee", 2), #didnt get set to 5+
@@ -495,9 +515,9 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_79_DESC": LocData(0x6d00004f, "", 79),
     "Bush Rescue Training Program": LocData(0x6d000055, "Burramudgee HQ", 85), #
     "That's A Croc": LocData(0x6d000062, "Burramudgee Town", 98),
-    "Patchy": LocData(0x6d0003d4, "Patchy", 80),
-    "Fluffy": LocData(0x6d0003d5, "Fluffy's Fortress", 81),
-    "Buster the Nanobot Boss": LocData(0x6d0003d6, "Buster the Nanobot Boss", 82),
+    "Patchy": LocData(0x6d000050, "Patchy", 80),
+    "Fluffy": LocData(0x6d000051, "Fluffy's Fortress", 81),
+    "Buster the Nanobot Boss": LocData(0x6d000052, "Buster the Nanobot Boss", 82),
 
     #99 is see julius
     #mission 86 is get into car
@@ -511,9 +531,7 @@ mission_dict: Dict[str, LocData] = {
 
 }
 
-race_dict: Dict[str, LocData] = {
-    # "Races": 0x00, #sanity
-}
+
 
 sign_dict: Dict[str, LocData] = {
     # "sign sanity": 0x00 #sanity

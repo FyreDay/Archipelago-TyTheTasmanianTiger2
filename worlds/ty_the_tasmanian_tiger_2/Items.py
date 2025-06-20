@@ -5,6 +5,8 @@ from typing import Dict
 from BaseClasses import ItemClassification, Item
 from typing import Optional
 
+from worlds.ty_the_tasmanian_tiger_2.Locations import get_mission_complete_events
+
 
 class Ty2Item(Item):
     game: str = "Ty the Tasmanian Tiger 2"
@@ -29,7 +31,12 @@ def create_item(world, name: str, classification: ItemClassification, amount: Op
 
 
 def create_ty2_items(world):
+    starting_items = ["Burramudgee Town ParkingBay"]
+
     total_location_count = len(world.multiworld.get_unfilled_locations(world.player))
+    print(total_location_count)
+    total_location_count -= add_mission_complete_events(world)
+    print(total_location_count)
     for item_name, item_data in get_rangs(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
     for item_name, item_data in item_dict.items():
@@ -40,18 +47,13 @@ def create_ty2_items(world):
     for item_name, item_data in get_collectable_currencies(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
     for item_name, item_data in get_parking_pads(world).items():
+        if item_name in starting_items:
+            continue
         create_item(world, item_name, item_data.classification, item_data.amount)
-    if world.options.barrier_unlock.value == 0:
-        world.multiworld.get_location(f"Beat Patchy", world.player).place_locked_item(
-            Ty2Item("Patchy Barriers", ItemClassification.progression, None, world.player))
-        world.multiworld.get_location(f"Beat Buster", world.player).place_locked_item(
-            Ty2Item("Buster Barriers", ItemClassification.progression, None, world.player))
-        world.multiworld.get_location(f"Beat Fluffy", world.player).place_locked_item(
-            Ty2Item("Fluffy Barriers", ItemClassification.progression, None, world.player))
-        total_location_count -= 3
     if world.options.barrier_unlock.value == 1:
         for item_name, item_data in barriers.items():
             create_item(world, item_name, item_data.classification, item_data.amount)
+
     #print(len(world.itempool))
 
     remaining_locations: int = total_location_count - len(world.itempool)
@@ -64,6 +66,35 @@ def create_ty2_items(world):
     # for name in traps:
     #     create_single(name, world, player)
     world.multiworld.itempool += world.itempool
+
+def add_mission_complete_events(world):
+    complete_mission_dict = get_mission_complete_events(world)
+    count = 0
+    for mission_name, loc_data in complete_mission_dict.items():
+        # Assuming your locations are named exactly as the mission_name
+        try:
+            item_name = "Mission Complete"
+            if world.options.barrier_unlock.value == 0:
+                if mission_name == "Beat Patchy":
+                    item_name = "Patchy Barriers"
+                if mission_name == "Beat Buster":
+                    item_name = "Buster Barriers"
+                if mission_name == "Beat Fluffy":
+                    item_name = "Fluffy Barriers"
+
+            if mission_name == "Complete Patchy":
+                item_name = "Patchy Defeated"
+            if mission_name == "Complete Buster the Nanobot Boss":
+                item_name = "Buster Defeated"
+            if mission_name == "Complete Fluffy":
+                item_name = "Fluffy Defeated"
+            location = world.multiworld.get_location(mission_name, world.player)
+            event_item = Ty2Item(item_name, ItemClassification.progression, None, world.player)
+            location.place_locked_item(event_item)
+            count+=1
+        except KeyError:
+            print(f"Location {mission_name} not found in multiworld, skipping.")
+    return count
 
 barriers: Dict[str, ItemData] = {
     "Patchy Barriers": ItemData(980, ItemClassification.progression),
