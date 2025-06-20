@@ -48,15 +48,6 @@ def can_tp(world, state):
     return (state.has("Progressive Lasharang", world.player, 2)
             or state.has("Warperang", world.player))
 
-def can_reach_mission_count(world, state: CollectionState, target_count: int):
-        count_so_far = 0
-        for mission_name, mission_data in mission_dict.items():
-            if state.can_reach_location(mission_name, world.player):
-                count_so_far += 1
-            if count_so_far >= target_count:
-                return True
-        return False
-
 def get_rules(world):
     rules = {
         "locations": {
@@ -111,6 +102,30 @@ def get_rules(world):
             "Grub Grab": lambda state:
                 state.has("Burramudgee Town ParkingBay", world.player) and (state.has("Patchy Barriers", world.player) or state.has("Buster Barriers", world.player)),
             "Ripper Nipper": lambda state:
+                state.has("Wobbygon Bay ParkingBay", world.player) and state.has("Ripper Nipper ParkingBay", world.player),
+            "Complete Haunted Hassle": lambda state:
+                has_infra(world, state),
+            "Complete Lava Chill Out": lambda state:
+                can_swing(world, state) or can_cold(world, state),
+            "Complete Hidden Danger": lambda state:
+                has_infra(world, state),
+            "Complete Deep Sea Scare": lambda state:
+                state.has("Sub Bunyip Key", world.player),
+            "Complete Sea Lab": lambda state:
+                state.has("Sub Bunyip Key", world.player),
+            "Complete Oil Rig Fire": lambda state:
+                state.has("Thermo Bunyip Key", world.player),
+            "Complete Truck Tragedy": lambda state:
+                state.has("Lifter Bunyip Key", world.player),
+            "Complete Truck Stop": lambda state:
+                state.has("Lifter Bunyip Key", world.player),
+            "Complete Bush Fire": lambda state:
+                state.has("Thermo Bunyip Key", world.player),
+            "Complete Killer Koala": lambda state:
+                has_infra(world, state),
+            "Complete Grub Grab": lambda state:
+                state.has("Burramudgee Town ParkingBay", world.player) and (state.has("Patchy Barriers", world.player) or state.has("Buster Barriers", world.player)),
+            "Complete Ripper Nipper": lambda state:
                 state.has("Wobbygon Bay ParkingBay", world.player) and state.has("Ripper Nipper ParkingBay", world.player),
             #Cogs
             "Platinum Cog 2": lambda state:
@@ -410,13 +425,11 @@ def get_rules(world):
             "Fluffy ParkingBay":
                 lambda state: state.has("Fluffy ParkingBay", world.player),
             "Bush Rescue Plane":
-                lambda state: (not world.options.require_bosses.value and can_reach_mission_count(world, state, world.options.missions_for_goal.value))
-                              or (world.options.require_bosses.value
-                              and state.can_reach_location("Patchy", world.player)
-                              and state.can_reach_location("Buster the Nanobot Boss", world.player)
-                              and state.can_reach_location("Fluffy", world.player)
-                              and can_reach_mission_count(world, state, world.options.missions_for_goal.value)),
-
+                lambda state: (state.has("Mission Complete", world.player, world.options.missions_for_goal.value)
+                               and state.has("Patchy Defeated", world.player)
+                               and state.has("Buster Defeated", world.player)
+                               and state.has("Fluffy Defeated", world.player)
+                               ) if world.options.require_bosses.value else state.has("Mission Complete", world.player, world.options.missions_for_goal.value),
         }
     }
     return rules
