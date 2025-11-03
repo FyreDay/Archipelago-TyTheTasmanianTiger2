@@ -109,8 +109,8 @@ item_dict: Dict[str, ItemData] = {
     "Cog Map": ItemData(56, ItemClassification.useful),
     "Mysterious Anomalies Map": ItemData(57, ItemClassification.useful),
     "Sub Bunyip Key": ItemData(59, ItemClassification.progression),
-    "Gold Paw": ItemData(77, ItemClassification.useful),
-    "Platinum Paw": ItemData(78, ItemClassification.useful),
+    "Progressive Health Paw": ItemData(77, ItemClassification.useful, 2),
+    # "Platinum Paw": ItemData(78, ItemClassification.useful),
     # "fourbie speed upgrade": ItemData(0x00, ItemClassification.useful),
 }
 

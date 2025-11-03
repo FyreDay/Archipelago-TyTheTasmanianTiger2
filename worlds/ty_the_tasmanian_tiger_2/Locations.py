@@ -70,151 +70,151 @@ shop_location_dict: Dict[str, LocData] = {
 }
 
 platinum_cog_dict: Dict[str, LocData] = {
-    "Platinum Cog 1": LocData(0x4300, "Never Never"),
-    "Platinum Cog 2": LocData(0x4301, "Outback Oasis"), #smasharang
-    "Platinum Cog 3": LocData(0x4302, "Outback Oasis"),
-    "Platinum Cog 4": LocData(0x4303, "Outback Oasis"), #smasharang
-    "Platinum Cog 5": LocData(0x4304, "Outback Oasis"),
-    "Platinum Cog 6": LocData(0x4305, "Never Never"), #smasharang
-    "Platinum Cog 7": LocData(0x4306, "Never Never"),
-    "Platinum Cog 8": LocData(0x4307, "Never Never"),
-    "Platinum Cog 9": LocData(0x4308, "Never Never"),
-    "Platinum Cog 10": LocData(0x4309, "Never Never"),
-    "Platinum Cog 11": LocData(0x430A, "Never Never"),
-    "Platinum Cog 12": LocData(0x430B, "Never Never"),#thermo, lash, OR frosty
-    "Platinum Cog 13": LocData(0x430C, "Never Never"),
-    "Platinum Cog 14": LocData(0x430D, "Never Never"),
-    "Platinum Cog 15": LocData(0x430E, "Never Never"),
-    "Platinum Cog 16": LocData(0x430F, "Never Never"),
-    "Platinum Cog 17": LocData(0x4310, "Never Never"), #infra
-    "Platinum Cog 18": LocData(0x4311, "Never Never"), #lasharang
-    "Platinum Cog 19": LocData(0x4312, "Never Never"),
-    "Platinum Cog 20": LocData(0x4313, "Never Never"), #smasharang
-    "Platinum Cog 21": LocData(0x4314, "Faire Dinkum"), #smasharang
-    "Platinum Cog 22": LocData(0x4315, "Faire Dinkum"),
-    "Platinum Cog 23": LocData(0x4316, "Faire Dinkum"),
-    "Platinum Cog 24": LocData(0x4317, "Sulphur Rocks"), #frosty
-    "Platinum Cog 25": LocData(0x4318, "Sulphur Rocks"), #lifter bunyip key
-    "Platinum Cog 26": LocData(0x4319, "Sulphur Rocks"),
-    "Platinum Cog 27": LocData(0x431A, "Sulphur Rocks"), #lasharang
-    "Platinum Cog 28": LocData(0x431B, "Sulphur Rocks"),
-    "Platinum Cog 29": LocData(0x431C, "Sulphur Rocks"),
-    "Platinum Cog 30": LocData(0x431D, "Sulphur Rocks"),
-    "Platinum Cog 31": LocData(0x431E, "Sulphur Rocks"),
-    "Platinum Cog 32": LocData(0x431F, "Sulphur Rocks"), #warparang
-    "Platinum Cog 33": LocData(0x4320, "Burramudgee Town"),
-    "Platinum Cog 34": LocData(0x4321, "Burramudgee Town"),
-    "Platinum Cog 35": LocData(0x4322, "Burramudgee Town"),
-    "Platinum Cog 36": LocData(0x4323, "Cass' Run"),
-    "Platinum Cog 37": LocData(0x4324, "Frill Neck Forest"),
-    "Platinum Cog 38": LocData(0x4325, "MountBoom"),#warparang #thermo
-    "Platinum Cog 39": LocData(0x4326, "MountBoom"), #thermo
-    "Platinum Cog 40": LocData(0x4327, "MountBoom"),#warparang #thermo
-    "Platinum Cog 41": LocData(0x4328, "Wetlands"),
-    "Platinum Cog 42": LocData(0x4329, "Wetlands"), #smasharang
-    "Platinum Cog 43": LocData(0x432A, "Wetlands"),
-    "Platinum Cog 44": LocData(0x432B, "Wetlands"),
-    "Platinum Cog 45": LocData(0x432C, "Wetlands"), #flamerang optional
-    "Platinum Cog 46": LocData(0x432D, "Wetlands"),
-    "Platinum Cog 47": LocData(0x432E, "SR - Wobbygon Bay"),
-    "Platinum Cog 48": LocData(0x432F, "SR - Wobbygon Bay"),
-    "Platinum Cog 49": LocData(0x4330, "SR - Wobbygon Bay"),
-    "Platinum Cog 50": LocData(0x4331, "Burramudgee HQ - Infra"),
+    "Platinum Cog 0": LocData(0x4300, "Never Never"),
+    "Platinum Cog 1": LocData(0x4301, "Outback Oasis"), #smasharang
+    "Platinum Cog 2": LocData(0x4302, "Outback Oasis"),
+    "Platinum Cog 3": LocData(0x4303, "Outback Oasis"), #smasharang
+    "Platinum Cog 4": LocData(0x4304, "Outback Oasis"),
+    "Platinum Cog 5": LocData(0x4305, "Never Never"), #smasharang
+    "Platinum Cog 6": LocData(0x4306, "Never Never"),
+    "Platinum Cog 7": LocData(0x4307, "Never Never"),
+    "Platinum Cog 8": LocData(0x4308, "Never Never"),
+    "Platinum Cog 9": LocData(0x4309, "Never Never"),
+    "Platinum Cog 10": LocData(0x430A, "Never Never"),
+    "Platinum Cog 11": LocData(0x430B, "Never Never"),#thermo, lash, OR frosty
+    "Platinum Cog 12": LocData(0x430C, "Never Never"),
+    "Platinum Cog 13": LocData(0x430D, "Never Never"),
+    "Platinum Cog 14": LocData(0x430E, "Never Never"),
+    "Platinum Cog 15": LocData(0x430F, "Never Never"),
+    "Platinum Cog 16": LocData(0x4310, "Never Never"), #infra
+    "Platinum Cog 17": LocData(0x4311, "Never Never"), #lasharang
+    "Platinum Cog 18": LocData(0x4312, "Never Never"),
+    "Platinum Cog 19": LocData(0x4313, "Never Never"), #smasharang
+    "Platinum Cog 20": LocData(0x4314, "Faire Dinkum"), #smasharang
+    "Platinum Cog 21": LocData(0x4315, "Faire Dinkum"),
+    "Platinum Cog 22": LocData(0x4316, "Faire Dinkum"),
+    "Platinum Cog 23": LocData(0x4317, "Sulphur Rocks"), #frosty
+    "Platinum Cog 24": LocData(0x4318, "Sulphur Rocks"), #lifter bunyip key
+    "Platinum Cog 25": LocData(0x4319, "Sulphur Rocks"),
+    "Platinum Cog 26": LocData(0x431A, "Sulphur Rocks"), #lasharang
+    "Platinum Cog 27": LocData(0x431B, "Sulphur Rocks"),
+    "Platinum Cog 28": LocData(0x431C, "Sulphur Rocks"),
+    "Platinum Cog 29": LocData(0x431D, "Sulphur Rocks"),
+    "Platinum Cog 30": LocData(0x431E, "Sulphur Rocks"),
+    "Platinum Cog 31": LocData(0x431F, "Sulphur Rocks"), #warparang
+    "Platinum Cog 32": LocData(0x4320, "Burramudgee Town"),
+    "Platinum Cog 33": LocData(0x4321, "Burramudgee Town"),
+    "Platinum Cog 34": LocData(0x4322, "Burramudgee Town"),
+    "Platinum Cog 35": LocData(0x4323, "Cass' Run"),
+    "Platinum Cog 36": LocData(0x4324, "Frill Neck Forest"),
+    "Platinum Cog 37": LocData(0x4325, "MountBoom"),#warparang #thermo
+    "Platinum Cog 38": LocData(0x4326, "MountBoom"), #thermo
+    "Platinum Cog 39": LocData(0x4327, "MountBoom"),#warparang #thermo
+    "Platinum Cog 40": LocData(0x4328, "Wetlands"),
+    "Platinum Cog 41": LocData(0x4329, "Wetlands"), #smasharang
+    "Platinum Cog 42": LocData(0x432A, "Wetlands"),
+    "Platinum Cog 43": LocData(0x432B, "Wetlands"),
+    "Platinum Cog 44": LocData(0x432C, "Wetlands"), #flamerang optional
+    "Platinum Cog 45": LocData(0x432D, "Wetlands"),
+    "Platinum Cog 46": LocData(0x432E, "SR - Wobbygon Bay"),
+    "Platinum Cog 47": LocData(0x432F, "SR - Wobbygon Bay"),
+    "Platinum Cog 48": LocData(0x4330, "SR - Wobbygon Bay"),
+    "Platinum Cog 49": LocData(0x4331, "Burramudgee HQ - Infra"),
 }
 
 kromium_orb_dict: Dict[str, LocData] = {
-    "Kromium Orb 1": LocData(0x4B00, "Burramudgee Town"),#lasharang
-    "Kromium Orb 2": LocData(0x4B01, "Burramudgee Town"),
-    "Kromium Orb 3": LocData(0x4B02, "Sulphur Rocks"), #lasharang
-    "Kromium Orb 4": LocData(0x4B03, "Sulphur Rocks"), #lasharang #frostyrang
-    "Kromium Orb 5": LocData(0x4B04, "Sulphur Rocks"),
-    "Kromium Orb 6": LocData(0x4B05, "SR- Sulphur Rocks"),
-    "Kromium Orb 7": LocData(0x4B06, "MountBoom"), #thermo
-    "Kromium Orb 8": LocData(0x4B07, "MountBoom"),#warperang #thermo smash
-    "Kromium Orb 9": LocData(0x4B08, "SR - Wobbygon Bay"),
-    "Kromium Orb 10": LocData(0x4B09, "Outback Oasis"), #smasharang
-    "Kromium Orb 11": LocData(0x4B0A, "SR - Sly Shack"),
-    "Kromium Orb 12": LocData(0x4B0B, "Outback Oasis"),
-    "Kromium Orb 13": LocData(0x4B0C, "Sulphur Rocks"),
-    "Kromium Orb 14": LocData(0x4B0D, "Sulphur Rocks"), #infra
-    "Kromium Orb 15": LocData(0x4B0E, "Sulphur Rocks"), #infra
-    "Kromium Orb 16": LocData(0x4B0F, "Never Never"), #smasharang
-    "Kromium Orb 17": LocData(0x4B10, "Never Never"), #lasharang
-    "Kromium Orb 18": LocData(0x4B11, "Never Never"),
-    "Kromium Orb 19": LocData(0x4B12, "Never Never"),
-    "Kromium Orb 20": LocData(0x4B13, "Never Never"),
-    "Kromium Orb 21": LocData(0x4B14, "Never Never"),
-    "Kromium Orb 22": LocData(0x4B15, "Never Never"),
-    "Kromium Orb 23": LocData(0x4B16, "Wetlands"), #lasharang
-    "Kromium Orb 24": LocData(0x4B17, "Frill Neck Forest"),
-    "Kromium Orb 25": LocData(0x4B18, "SR - Dennis Freeway"),
-    "Kromium Orb 26": LocData(0x4B19, "Sulphur Rocks"), #lasharang
-    "Kromium Orb 27": LocData(0x4B1A, "Faire Dinkum"),
-    "Kromium Orb 28": LocData(0x4B1B, "Faire Dinkum"), #smasharang
-    "Kromium Orb 29": LocData(0x4B1C, "Faire Dinkum"),
-    "Kromium Orb 30": LocData(0x4B1D, "SR - Wobbygon Bay"),
+    "Kromium Orb 0": LocData(0x4B00, "Burramudgee Town"),#lasharang
+    "Kromium Orb 1": LocData(0x4B01, "Burramudgee Town"),
+    "Kromium Orb 2": LocData(0x4B02, "Sulphur Rocks"), #lasharang
+    "Kromium Orb 3": LocData(0x4B03, "Sulphur Rocks"), #lasharang #frostyrang
+    "Kromium Orb 4": LocData(0x4B04, "Sulphur Rocks"),
+    "Kromium Orb 5": LocData(0x4B05, "SR - Sulphur Rocks"),
+    "Kromium Orb 6": LocData(0x4B06, "MountBoom"), #thermo
+    "Kromium Orb 7": LocData(0x4B07, "MountBoom"),#warperang #thermo smash
+    "Kromium Orb 8": LocData(0x4B08, "SR - Wobbygon Bay"),
+    "Kromium Orb 9":  LocData(0x4B09, "Outback Oasis"), #smasharang
+    "Kromium Orb 10": LocData(0x4B0A, "SR - Sly Shack"),
+    "Kromium Orb 11": LocData(0x4B0B, "Outback Oasis"),
+    "Kromium Orb 12": LocData(0x4B0C, "Sulphur Rocks"),
+    "Kromium Orb 13": LocData(0x4B0D, "Sulphur Rocks"), #infra
+    "Kromium Orb 14": LocData(0x4B0E, "Sulphur Rocks"), #infra
+    "Kromium Orb 15": LocData(0x4B0F, "Never Never"), #smasharang
+    "Kromium Orb 16": LocData(0x4B10, "Never Never"), #lasharang
+    "Kromium Orb 17": LocData(0x4B11, "Never Never"),
+    "Kromium Orb 18": LocData(0x4B12, "Never Never"),
+    "Kromium Orb 19": LocData(0x4B13, "Never Never"),
+    "Kromium Orb 20": LocData(0x4B14, "Never Never"),
+    "Kromium Orb 21": LocData(0x4B15, "Never Never"),
+    "Kromium Orb 22": LocData(0x4B16, "Wetlands"), #lasharang
+    "Kromium Orb 23": LocData(0x4B17, "Frill Neck Forest"),
+    "Kromium Orb 24": LocData(0x4B18, "SR - Dennis Freeway"),
+    "Kromium Orb 25": LocData(0x4B19, "Sulphur Rocks"), #lasharang
+    "Kromium Orb 26": LocData(0x4B1A, "Faire Dinkum"),
+    "Kromium Orb 27": LocData(0x4B1B, "Faire Dinkum"), #smasharang
+    "Kromium Orb 28": LocData(0x4B1C, "Faire Dinkum"),
+    "Kromium Orb 29": LocData(0x4B1D, "SR - Wobbygon Bay"),
 } #what is the orb at freeway
 
 bilby_dict: Dict[str, LocData] = {
-    "Bilby 1": LocData(0x4200, "Outback Oasis"), #smasharang
-    "Bilby 2": LocData(0x4201, "Outback Oasis"),
-    "Bilby 3": LocData(0x4202, "Outback Oasis"),
-    "Bilby 4": LocData(0x4203, "Never Never"),
-    "Bilby 5": LocData(0x4204, "Never Never"),#thermo, lash, OR frosty
-    "Bilby 6": LocData(0x4205, "Never Never"),
-    "Bilby 7": LocData(0x4206, "Never Never"),
-    "Bilby 8": LocData(0x4207, "Faire Dinkum"),
-    "Bilby 9": LocData(0x4208, "Faire Dinkum"),
-    "Bilby 10": LocData(0x4209, "Faire Dinkum"),
-    "Bilby 11": LocData(0x420A, "Sulphur Rocks"),
-    "Bilby 12": LocData(0x420B, "Sulphur Rocks"),
-    "Bilby 13": LocData(0x420C, "Sulphur Rocks"),
-    "Bilby 14": LocData(0x420D, "Sulphur Rocks"),
-    "Bilby 15": LocData(0x420E, "Sulphur Rocks"),
-    "Bilby 16": LocData(0x420F, "Faire Dinkum"), #(infra)
-    "Bilby 17": LocData(0x4210, "Frill Neck Forest"), #lasharang - possible without
-    "Bilby 18": LocData(0x4211, "Frill Neck Forest"),
-    "Bilby 19": LocData(0x4212, "MountBoom"), #lasharang and thermo - MountBoom Beginning
-    "Bilby 20": LocData(0x4213, "MountBoom"), #warparang #thermo
-    "Bilby 21": LocData(0x4214, "Wetlands"),
-    "Bilby 22": LocData(0x4215, "Wetlands"), #flamerang
-    "Bilby 23": LocData(0x4216, "Wetlands"), #flamerang optional
-    "Bilby 24": LocData(0x4217, "Burramudgee HQ"),
-    "Bilby 25": LocData(0x4218, "Burramudgee HQ"),
-    "Bilby 26": LocData(0x4219, "SR - Dennis Freeway"),    #dennis freeway #warperang
-    "Bilby 27": LocData(0x421A, "Burramudgee HQ"),
-    "Bilby 28": LocData(0x421B, "Burramudgee HQ"), #optional frostyrang
-    "Bilby 29": LocData(0x421C, "SR - Wobbygon Bay"),
-    "Bilby 30": LocData(0x421D, "SR - Wobbygon Bay"),
+    "Bilby 0": LocData(0x4200, "Outback Oasis"), #smasharang
+    "Bilby 1": LocData(0x4201, "Outback Oasis"),
+    "Bilby 2": LocData(0x4202, "Outback Oasis"),
+    "Bilby 3": LocData(0x4203, "Never Never"),
+    "Bilby 4": LocData(0x4204, "Never Never"),#thermo, lash, OR frosty
+    "Bilby 5": LocData(0x4205, "Never Never"),
+    "Bilby 6": LocData(0x4206, "Never Never"),
+    "Bilby 7": LocData(0x4207, "Faire Dinkum"),
+    "Bilby 8": LocData(0x4208, "Faire Dinkum"),
+    "Bilby 9": LocData(0x4209, "Faire Dinkum"),
+    "Bilby 10": LocData(0x420A, "Sulphur Rocks"),
+    "Bilby 11": LocData(0x420B, "Sulphur Rocks"),
+    "Bilby 12": LocData(0x420C, "Sulphur Rocks"),
+    "Bilby 13": LocData(0x420D, "Sulphur Rocks"),
+    "Bilby 14": LocData(0x420E, "Sulphur Rocks"),
+    "Bilby 15": LocData(0x420F, "Faire Dinkum"), #(infra)
+    "Bilby 16": LocData(0x4210, "Frill Neck Forest"), #lasharang - possible without
+    "Bilby 17": LocData(0x4211, "Frill Neck Forest"),
+    "Bilby 18": LocData(0x4212, "MountBoom"), #lasharang and thermo - MountBoom Beginning
+    "Bilby 19": LocData(0x4213, "MountBoom"), #warparang #thermo
+    "Bilby 20": LocData(0x4214, "Wetlands"),
+    "Bilby 21": LocData(0x4215, "Wetlands"), #flamerang
+    "Bilby 22": LocData(0x4216, "Wetlands"), #flamerang optional
+    "Bilby 23": LocData(0x4217, "Burramudgee HQ"),
+    "Bilby 24": LocData(0x4218, "Burramudgee HQ"),
+    "Bilby 25": LocData(0x4219, "Burramudgee HQ"),
+    "Bilby 26": LocData(0x421A, "Burramudgee HQ"),
+    "Bilby 27": LocData(0x421B, "SR - Wobbygon Bay"),
+    "Bilby 28": LocData(0x421C, "SR - Wobbygon Bay"),
+    "Bilby 29": LocData(0x421D, "SR - Wobbygon Bay"),
 }
 
 
 disguised_frill_dict: Dict[str, LocData] = {
-    "Disguised Frill 1": LocData(0x4600, "Outback Oasis"), #smasharang
-    "Disguised Frill 2": LocData(0x4601, "Outback Oasis"),
-    "Disguised Frill 3": LocData(0x4602, "Outback Oasis"),
-    "Disguised Frill 4": LocData(0x4603, "Never Never"),
-    "Disguised Frill 5": LocData(0x4604, "Never Never"),
-    "Disguised Frill 6": LocData(0x4605, "Never Never"),
-    "Disguised Frill 7": LocData(0x4606, "Wetlands"),
-    "Disguised Frill 8": LocData(0x4607, "Wetlands"),
-    "Disguised Frill 9": LocData(0x4608, "Faire Dinkum"),
-    "Disguised Frill 10": LocData(0x4609, "Sulphur Rocks"),
-    "Disguised Frill 11": LocData(0x460A, "Sulphur Rocks"),
-    "Disguised Frill 12": LocData(0x460B, "Sulphur Rocks"),#lasharang, not needed
-    "Disguised Frill 13": LocData(0x460C, "Burramudgee Town"),
-    "Disguised Frill 14": LocData(0x460D, "Burramudgee Town"),
-    "Disguised Frill 15": LocData(0x460E, "Dennis Freeway"),
-    "Disguised Frill 16": LocData(0x460F, "Outback Oasis"),
-    "Disguised Frill 17": LocData(0x460010, "SR - Cul De Sac"),
-    "Disguised Frill 18": LocData(0x460011, "SR - Lake Barramudgee"),
-    "Disguised Frill 19": LocData(0x460012, "SR - Frill Neck Forest"),
-    "Disguised Frill 20": LocData(0x460013, "SR - Truck Tragedy"),
-    "Disguised Frill 21": LocData(0x460014, "SR - Never Never"), #didnt send
-    "Disguised Frill 22": LocData(0x460015, "SR - Sheep Dip"),
-    "Disguised Frill 23": LocData(0x460016, "Frill Neck Forest"),
-    "Disguised Frill 24": LocData(0x460017, "MountBoom Start"),
-    "Disguised Frill 25": LocData(0x460018, "MountBoom End"),
+    "Disguised Frill 0": LocData(0x4600, "Outback Oasis"), #smasharang
+    "Disguised Frill 1": LocData(0x4601, "Outback Oasis"),
+    "Disguised Frill 2": LocData(0x4602, "Outback Oasis"),
+    "Disguised Frill 3": LocData(0x4603, "Never Never"),
+    "Disguised Frill 4": LocData(0x4604, "Never Never"),
+    "Disguised Frill 5": LocData(0x4605, "Never Never"),
+    "Disguised Frill 6": LocData(0x4606, "Wetlands"),
+    "Disguised Frill 7": LocData(0x4607, "Wetlands"),
+    "Disguised Frill 8": LocData(0x4608, "Faire Dinkum"),
+    "Disguised Frill 9": LocData(0x4609, "Sulphur Rocks"),
+    "Disguised Frill 10": LocData(0x460A, "Sulphur Rocks"),
+    "Disguised Frill 11": LocData(0x460B, "Sulphur Rocks"),#lasharang, not needed
+    "Disguised Frill 12": LocData(0x460C, "Burramudgee Town"),
+    "Disguised Frill 13": LocData(0x460D, "Burramudgee Town"),
+    "Disguised Frill 14": LocData(0x460E, "Dennis Freeway"),
+    "Disguised Frill 15": LocData(0x460F, "Outback Oasis"),
+    "Disguised Frill 16": LocData(0x460010, "SR - Cul De Sac"),
+    "Disguised Frill 17": LocData(0x460011, "SR - Lake Barramudgee"),
+    "Disguised Frill 18": LocData(0x460012, "SR - Frill Neck Forest"),
+    "Disguised Frill 19": LocData(0x460013, "SR - Truck Tragedy"),
+    "Disguised Frill 20": LocData(0x460014, "SR - Never Never"), #didnt send
+    "Disguised Frill 21": LocData(0x460015, "SR - Sheep Dip"),
+    "Disguised Frill 22": LocData(0x460016, "Frill Neck Forest"),
+    "Disguised Frill 23": LocData(0x460017, "MountBoom Start"),
+    "Disguised Frill 24": LocData(0x460018, "MountBoom End"),
 }
 
 steve_dict: Dict[str, LocData] = {
