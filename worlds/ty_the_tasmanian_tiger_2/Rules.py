@@ -150,6 +150,10 @@ def get_rules(world):
                 state.has("Lifter Bunyip Key", world.player),
             "Platinum Cog 32": lambda state:
                 can_tp(world, state),
+            "Platinum Cog 34": lambda state:
+                can_smash_crate(world, state),
+            "Platinum Cog 35": lambda state:
+                has_infra(world, state),
             "Platinum Cog 38": lambda state:
                 can_tp(world, state),
             "Platinum Cog 40": lambda state:
@@ -202,10 +206,6 @@ def get_rules(world):
                 can_burn(world, state),
             "Bilby 23": lambda state:
                 can_burn(world, state),
-            "Bilby 26": lambda state:
-                can_tp(world, state),
-            "Bilby 28": lambda state:
-                can_freeze(world, state),
             #Frills
             "Disguised Frill 1": lambda state:
                 has_infra(world, state)

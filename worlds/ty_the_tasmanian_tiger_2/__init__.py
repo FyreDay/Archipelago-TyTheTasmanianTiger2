@@ -61,39 +61,42 @@ class Ty2World(World):
             min_price, max_price = 1000, 5000
         elif self.options.shop_difficulty.value == 2:
             min_price, max_price = 3000, 7000
-        self.rang_prices = self.generate_shop(8,1000000,min_price, max_price)
 
+        self.rang_prices = self.generate_shop(8, 1000000, min_price, max_price)
+        self.rang_prices.sort()
 
         min_price, max_price = 5000, 15000
         if self.options.shop_difficulty.value == 1:
             min_price, max_price = 10000, 25000
         elif self.options.shop_difficulty.value == 2:
             min_price, max_price = 12000, 40000
-        self.sly_prices = self.generate_shop(11,1000000,min_price, max_price)
-
+        self.sly_prices = self.generate_shop(11, 1000000, min_price, max_price)
+        self.sly_prices.sort()
 
         min_price, max_price = 1000, 4000
         if self.options.shop_difficulty.value == 1:
             min_price, max_price = 3000, 6000
         elif self.options.shop_difficulty.value == 2:
             min_price, max_price = 4000, 7500
-        self.cop_prices = self.generate_shop(5,1000000,min_price, max_price)
 
+        self.cop_prices = self.generate_shop(5, 1000000, min_price, max_price)
+        self.cop_prices.sort()
 
         min_price, max_price = 1, 3
         if self.options.shop_difficulty.value == 1:
             min_price, max_price = 2, 4
         elif self.options.shop_difficulty.value == 2:
             min_price, max_price = 3, 6
-        self.cog_prices = self.generate_shop(10,50,min_price, max_price)
-
+        self.cog_prices = self.generate_shop(10, 50, min_price, max_price)
+        self.cog_prices.sort()
 
         min_price, max_price = 3, 6
         if self.options.shop_difficulty.value == 1:
             min_price, max_price = 5, 8
         elif self.options.shop_difficulty.value == 2:
             min_price, max_price = 7, 10
-        self.orb_prices = self.generate_shop(3,30, min_price, max_price)
+        self.orb_prices = self.generate_shop(3, 30, min_price, max_price)
+        self.orb_prices.sort()
 
     def create_regions(self):
         create_ty2_regions(self, self.locations)
