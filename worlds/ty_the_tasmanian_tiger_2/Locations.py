@@ -206,15 +206,15 @@ disguised_frill_dict: Dict[str, LocData] = {
     "Disguised Frill 13": LocData(0x460D, "Burramudgee Town"),
     "Disguised Frill 14": LocData(0x460E, "Dennis Freeway"),
     "Disguised Frill 15": LocData(0x460F, "Outback Oasis"),
-    "Disguised Frill 16": LocData(0x460010, "SR - Cul De Sac"),
-    "Disguised Frill 17": LocData(0x460011, "SR - Lake Barramudgee"),
-    "Disguised Frill 18": LocData(0x460012, "SR - Frill Neck Forest"),
-    "Disguised Frill 19": LocData(0x460013, "SR - Truck Tragedy"),
-    "Disguised Frill 20": LocData(0x460014, "SR - Never Never"), #didnt send
-    "Disguised Frill 21": LocData(0x460015, "SR - Sheep Dip"),
-    "Disguised Frill 22": LocData(0x460016, "Frill Neck Forest"),
-    "Disguised Frill 23": LocData(0x460017, "MountBoom Start"),
-    "Disguised Frill 24": LocData(0x460018, "MountBoom End"),
+    "Disguised Frill 16": LocData(0x4610, "SR - Cul De Sac"),
+    "Disguised Frill 17": LocData(0x4611, "SR - Lake Barramudgee"),
+    "Disguised Frill 18": LocData(0x4612, "SR - Frill Neck Forest"),
+    "Disguised Frill 19": LocData(0x4613, "SR - Truck Tragedy"),
+    "Disguised Frill 20": LocData(0x4614, "SR - Never Never"), #didnt send
+    "Disguised Frill 21": LocData(0x4615, "SR - Sheep Dip"),
+    "Disguised Frill 22": LocData(0x4616, "Frill Neck Forest"),
+    "Disguised Frill 23": LocData(0x4617, "MountBoom Start"),
+    "Disguised Frill 24": LocData(0x4618, "MountBoom End"),
 }
 
 steve_dict: Dict[str, LocData] = {
