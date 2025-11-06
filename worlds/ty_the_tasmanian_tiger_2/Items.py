@@ -233,7 +233,7 @@ def get_filler(world) -> Dict[str, ItemData]:
     return junk_items
 
 junk_items: Dict[str, ItemData] = {
-    "100 Opal": ItemData(0x22, ItemClassification.filler),
+    "100 Opals": ItemData(0x22, ItemClassification.filler),
     "200 Opals": ItemData(0x23, ItemClassification.filler),
     "500 Opals": ItemData(0x24, ItemClassification.filler),
     "1000 Opals": ItemData(0x25, ItemClassification.filler),
@@ -242,11 +242,11 @@ junk_items: Dict[str, ItemData] = {
 }
 
 junk_weights = {
-    "Opal": 0,
-    "10 Opals": 30,
-    "25 Opals": 20,
-    "100 Opals": 10,
-    "200 Opals": 5,
+    "100 Opals": 0,
+    "200 Opals": 30,
+    "500 Opals": 20,
+    "1000 Opals": 10,
+    "5000 Opals": 5,
     "Full Pie": 10,
 }
 
