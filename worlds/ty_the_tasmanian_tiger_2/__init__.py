@@ -65,11 +65,11 @@ class Ty2World(World):
         self.rang_prices = self.generate_shop(8, 1000000, min_price, max_price)
         self.rang_prices.sort()
 
-        min_price, max_price = 5000, 15000
+        min_price, max_price = 4000, 10000
         if self.options.shop_difficulty.value == 1:
-            min_price, max_price = 10000, 25000
+            min_price, max_price = 7500, 15000
         elif self.options.shop_difficulty.value == 2:
-            min_price, max_price = 12000, 40000
+            min_price, max_price = 10000, 25000
         self.sly_prices = self.generate_shop(11, 1000000, min_price, max_price)
         self.sly_prices.sort()
 
@@ -151,6 +151,7 @@ class Ty2World(World):
             "ModVersion": "0.0.1",
             "Goal": self.options.goal.value,
             "MissionsToGoal": self.options.missions_for_goal.value,
+            "SkipCurrawong" : self.options.skip_currawong.value,
             "ReqBosses": self.options.require_bosses.value,
             "BarrierUnlock": self.options.barrier_unlock.value,
             "RaceChecks": self.options.race_checks.value,

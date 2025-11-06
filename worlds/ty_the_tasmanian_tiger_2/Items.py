@@ -37,13 +37,16 @@ def create_ty2_items(world):
     print(total_location_count)
     total_location_count -= add_mission_complete_events(world)
     print(total_location_count)
+
     for item_name, item_data in get_rangs(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
+
     for item_name, item_data in item_dict.items():
         if world.options.start_with_maps.value and item_name in (
         "Missing Persons Map", "Cog Map", "Mysterious Anomalies Map"):
             continue
         create_item(world, item_name, item_data.classification, item_data.amount)
+
     for item_name, item_data in get_collectable_currencies(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
     for item_name, item_data in get_parking_pads(world).items():
@@ -230,11 +233,11 @@ def get_filler(world) -> Dict[str, ItemData]:
     return junk_items
 
 junk_items: Dict[str, ItemData] = {
-    "Opal": ItemData(0x22, ItemClassification.filler),
-    "10 Opals": ItemData(0x23, ItemClassification.filler),
-    "25 Opals": ItemData(0x24, ItemClassification.filler),
-    "100 Opals": ItemData(0x25, ItemClassification.filler),
-    "200 Opals": ItemData(0x26, ItemClassification.filler),
+    "100 Opal": ItemData(0x22, ItemClassification.filler),
+    "200 Opals": ItemData(0x23, ItemClassification.filler),
+    "500 Opals": ItemData(0x24, ItemClassification.filler),
+    "1000 Opals": ItemData(0x25, ItemClassification.filler),
+    "5000 Opals": ItemData(0x26, ItemClassification.filler),
     "Full Pie": ItemData(0x27, ItemClassification.filler),
 }
 

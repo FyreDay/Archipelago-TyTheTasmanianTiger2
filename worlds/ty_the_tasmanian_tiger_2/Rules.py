@@ -332,7 +332,7 @@ def get_rules(world):
             "MountBoom End Lava":
                 lambda state: state.has("Thermo Bunyip Key", world.player),
             "MountBoom End ParkingBay":
-                lambda state: state.has("MountBoom End ParkingBay", world.player),
+                lambda state: state.has("MountBoom End ParkingBay", world.player) and state.has("MountBoom Start ParkingBay", world.player) and state.has("Thermo Bunyip Key", world.player),
             "Burramudgee ParkingBay":
                 lambda state: state.has("Burramudgee Town ParkingBay", world.player),
             "Min Min Plains ParkingBay":
