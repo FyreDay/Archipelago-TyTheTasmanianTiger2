@@ -27,6 +27,12 @@ class TotalMissionsForGoal(Range):
     range_end = 40
     default = 20
 
+class SkipCurrawong(DefaultOnToggle):
+    """
+    Skip Currawong, the beginning level where Fluffy breaks cass out.
+    """
+    display_name = "Skip Currawong"
+
 class SouthernRiversBarrierUnlock(Choice):
     """
     When should the barriers in Southern rivers be unlocked?
@@ -167,6 +173,7 @@ class ty2_option_groups(PerGameCommonOptions):
         Goal,
         TotalMissionsForGoal,
         GoalRequiresBosses,
+        SkipCurrawong,
         SouthernRiversBarrierUnlock,
     ]),
     OptionGroup("General Options", [
@@ -193,6 +200,7 @@ class Ty2Options(PerGameCommonOptions):
     goal: Goal
     missions_for_goal: TotalMissionsForGoal
     require_bosses: GoalRequiresBosses
+    skip_currawong: SkipCurrawong
     barrier_unlock: SouthernRiversBarrierUnlock
 
     race_checks: RacesAreMissions
