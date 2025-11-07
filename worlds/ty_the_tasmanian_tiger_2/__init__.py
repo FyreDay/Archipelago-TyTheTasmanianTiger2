@@ -1,4 +1,4 @@
-from typing import ClassVar, Dict, Optional
+from typing import ClassVar, Dict, Optional, Any
 
 from BaseClasses import Tutorial, Item, ItemClassification, CollectionState, Location
 from Utils import visualize_regions
@@ -38,6 +38,13 @@ class Ty2World(World):
     item_name_to_id: ClassVar[Dict[str, int]] = {item_name: item_data.code for item_name, item_data in full_item_dict.items()}
     location_name_to_id: ClassVar[Dict[str, int]] = {loc_name: loc_data.code for loc_name, loc_data in full_location_dict.items()}
 
+    # UT Stuff Here
+    ut_can_gen_without_yaml = True
+
+    @staticmethod
+    def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
+        return slot_data
+
     def __init__(self, multiworld, player):
         super().__init__(multiworld, player)
         self.itempool = []
@@ -52,8 +59,13 @@ class Ty2World(World):
         self.cog_prices = []
         self.orb_prices = []
 
+        self.hints = {}
 
     def generate_early(self) -> None:
+
+        # UT Stuff Here
+        self.handle_ut_yamless(None)
+
         self.locations = create_ty2_locations(self)
 
         min_price, max_price = 1000, 3000
@@ -193,3 +205,38 @@ class Ty2World(World):
             remaining_currency -= price
 
         return shop_prices
+
+    def handle_ut_yamless(self, slot_data: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+
+        if not slot_data \
+                and hasattr(self.multiworld, "re_gen_passthrough") \
+                and isinstance(self.multiworld.re_gen_passthrough, dict) \
+                and self.game in self.multiworld.re_gen_passthrough:
+            slot_data = self.multiworld.re_gen_passthrough[self.game]
+
+        if not slot_data:
+            return None
+
+        # fill in options
+        self.options.goal.value = slot_data["Goal"]
+        self.options.missions_for_goal.value = slot_data["MissionsToGoal"]
+        self.options.skip_currawong.value = slot_data["SkipCurrawong"]
+        self.options.require_bosses.value = slot_data["ReqBosses"]
+        self.options.barrier_unlock.value = slot_data["BarrierUnlock"]
+        self.options.race_checks.value = slot_data["RaceChecks"]
+        self.options.progressive_rangs.value = slot_data["ProgressiveRangs"]
+        self.options.shop_difficulty.value = slot_data["ShopDifficulty"]
+        self.rang_prices = slot_data["RangPrices"]
+        self.sly_prices = slot_data["SlyPrices"]
+        self.cop_prices = slot_data["CopPrices"]
+        self.cog_prices = slot_data["CogPrices"]
+        self.orb_prices = slot_data["OrbPrices"]
+        self.options.extra_cogs.value = slot_data["ExtraCogs"]
+        self.options.extra_orbs.value = slot_data["ExtraOrbs"]
+        self.options.require_infra.value = slot_data["ChecksRequireInfra"]
+        self.options.frame_sanity.value = slot_data["FrameSanity"]
+        self.options.steve_sanity.value = slot_data["SteveSanity"]
+        self.options.frill_sanity.value = slot_data["FrillSanity"]
+        self.options.death_link.value = slot_data["DeathLink"]
+
+        return slot_data
