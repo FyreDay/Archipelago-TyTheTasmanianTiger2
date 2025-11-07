@@ -162,18 +162,20 @@ def connect_regions(world, from_name: str, to_name: str, entrance_name: str, ent
     exit_region = world.get_region(to_name)
     entrance = entrance_region.connect(exit_region, entrance_name)
     entrance.randomization_group = entrance_group
+    if two_way:
+        entrance = exit_region.connect(entrance_region, entrance_name+" Backwards")
     # if entrance.randomization_group == 0:
     #     world.disconnect_entrance_for_randomization(entrance)
     return entrance
 
 def connect_ty2_regions(world):
-    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Sly","Patchy Barriers West", 1)
-    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Prawn","Patchy Barriers South", 1)
-    connect_regions(world, "Southern Rivers - Sly", "Southern Rivers - Pineapple","Fluffy Barriers South", 1)
-    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Banana","Fluffy Barriers North", 1)
-    connect_regions(world, "Southern Rivers - Pineapple", "Southern Rivers - Banana","Truck Stop Clear", 1)
-    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Pie","Buster Barriers West", 1)
-    connect_regions(world, "Southern Rivers - Prawn", "Southern Rivers - Pie","Buster Barriers East", 1)
+    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Sly","Patchy Barriers West", 1, True)
+    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Prawn","Patchy Barriers South", 1, True)
+    connect_regions(world, "Southern Rivers - Sly", "Southern Rivers - Pineapple","Fluffy Barriers South", 1, True)
+    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Banana","Fluffy Barriers North", 1, True)
+    connect_regions(world, "Southern Rivers - Pineapple", "Southern Rivers - Banana","Truck Stop Clear", 1, True)
+    connect_regions(world, "Southern Rivers - Burramudgee", "Southern Rivers - Pie","Buster Barriers West", 1, True)
+    connect_regions(world, "Southern Rivers - Prawn", "Southern Rivers - Pie","Buster Barriers East", 1, True)
 
     #Burra
     connect_regions(world, "Menu", "Burramudgee HQ",
