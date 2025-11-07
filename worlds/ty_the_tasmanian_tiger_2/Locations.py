@@ -94,7 +94,7 @@ platinum_cog_dict: Dict[str, LocData] = {
     "Platinum Cog 21 - Smash Wall": LocData(0x4315, "Faire Dinkum"),
     "Platinum Cog 22 - Long Ride In The Trees": LocData(0x4316, "Faire Dinkum"),
     "Platinum Cog 23 - Snake Eyes Challenge": LocData(0x4317, "Sulphur Rocks"), #frosty
-    "Platinum Cog 24": LocData(0x4318, "Sulphur Rocks"), #lifter bunyip key
+    "Platinum Cog 24 - Boulder Lift": LocData(0x4318, "Sulphur Rocks"), #lifter bunyip key
     "Platinum Cog 25 - Swinging Around": LocData(0x4319, "Sulphur Rocks"),
     "Platinum Cog 26": LocData(0x431A, "Sulphur Rocks"), #lasharang
     "Platinum Cog 27": LocData(0x431B, "Sulphur Rocks"),
@@ -125,8 +125,8 @@ platinum_cog_dict: Dict[str, LocData] = {
 kromium_orb_dict: Dict[str, LocData] = {
     "Kromium Orb 0 - High Above Burramudgee": LocData(0x4B00, "Burramudgee Town"),#lasharang
     "Kromium Orb 1 - Above the Canal": LocData(0x4B01, "Burramudgee Town"),
-    "Kromium Orb 2 = Swinging Over the Pond": LocData(0x4B02, "Sulphur Rocks"), #lasharang
-    "Kromium Orb 3 - Sulpher Lava": LocData(0x4B03, "Sulphur Rocks"), #lasharang #frostyrang
+    "Kromium Orb 2 - Swinging Over the Pond": LocData(0x4B02, "Sulphur Rocks"), #lasharang
+    "Kromium Orb 3 - Sulphur Lava": LocData(0x4B03, "Sulphur Rocks"), #lasharang #frostyrang
     "Kromium Orb 4 - Exploding Pillars": LocData(0x4B04, "Sulphur Rocks"),
     "Kromium Orb 5 - Jumping Maze": LocData(0x4B05, "SR - Sulphur Rocks"),
     "Kromium Orb 6": LocData(0x4B06, "MountBoom"), #thermo
@@ -137,7 +137,7 @@ kromium_orb_dict: Dict[str, LocData] = {
     "Kromium Orb 11": LocData(0x4B0B, "Outback Oasis"),
     "Kromium Orb 12 - Sulpher Overlook": LocData(0x4B0C, "Sulphur Rocks"),
     "Kromium Orb 13": LocData(0x4B0D, "Sulphur Rocks"), #infra
-    "Kromium Orb 14 - On Invisable Platforms": LocData(0x4B0E, "Sulphur Rocks"), #infra
+    "Kromium Orb 14 - On Invisible Platforms": LocData(0x4B0E, "Sulphur Rocks"), #infra
     "Kromium Orb 15": LocData(0x4B0F, "Never Never"), #smasharang
     "Kromium Orb 16": LocData(0x4B10, "Never Never"), #lasharang
     "Kromium Orb 17": LocData(0x4B11, "Never Never"),
@@ -206,12 +206,12 @@ disguised_frill_dict: Dict[str, LocData] = {
     "Disguised Frill 13 - Near Canal": LocData(0x460D, "Burramudgee Town"),
     "Disguised Frill 14": LocData(0x460E, "Dennis Freeway"),
     "Disguised Frill 15": LocData(0x460F, "Outback Oasis"),
-    "Disguised Frill 16": LocData(0x4610, "SR - Cul De Sac"),
-    "Disguised Frill 17": LocData(0x4611, "SR - Lake Barramudgee"),
+    "Disguised Frill 16": LocData(0x4610, "SR - Old Stony Creek"), #todo: this is wrong region
+    "Disguised Frill 17": LocData(0x4611, "SR - Old Stony Creek"),#todo: this is wrong region find the right one
     "Disguised Frill 18": LocData(0x4612, "SR - Frill Neck Forest"),
     "Disguised Frill 19": LocData(0x4613, "SR - Truck Tragedy"),
     "Disguised Frill 20": LocData(0x4614, "SR - Never Never"), #didnt send
-    "Disguised Frill 21": LocData(0x4615, "SR - Sheep Dip"),
+    "Disguised Frill 21": LocData(0x4615, "SR - Old Stony Creek"),#todo: this is wrong region
     "Disguised Frill 22": LocData(0x4616, "Frill Neck Forest"),
     "Disguised Frill 23": LocData(0x4617, "MountBoom Start"),
     "Disguised Frill 24": LocData(0x4618, "MountBoom End"),
@@ -513,7 +513,7 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_77_DESC": LocData(0x6d00004d, "", 77),
     # "TEXT_MISSION_78_DESC": LocData(0x6d00004e, "", 78),
     # "TEXT_MISSION_79_DESC": LocData(0x6d00004f, "", 79),
-    "Near Freeway Julius Training": LocData(0x6d000058, "Sr - Training Freeway", 88), # nned sr - traing freeway
+    "Near Freeway Julius Training": LocData(0x6d000058, "SR - Freeway Training Grounds", 88), # nned sr - traing freeway
     "Bush Rescue Training Program": LocData(0x6d000055, "Burramudgee HQ", 85), #
     "That's A Croc": LocData(0x6d000062, "Burramudgee Town", 98),
     "Patchy": LocData(0x6d000050, "Patchy", 80),

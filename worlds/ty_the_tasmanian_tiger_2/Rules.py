@@ -52,31 +52,31 @@ def get_rules(world):
     rules = {
         "locations": {
             #collectable shops
-            "Trader Bob's Cog 1": lambda state:
+            "Trader Bob's Cog Item 1": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:1])),
-            "Trader Bob's Cog 2": lambda state:
+            "Trader Bob's Cog Item 2": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:2])),
-            "Trader Bob's Cog 3": lambda state:
+            "Trader Bob's Cog Item 3": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:3])),
-            "Trader Bob's Cog 4": lambda state:
+            "Trader Bob's Cog Item 4": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:4])),
-            "Trader Bob's Cog 5": lambda state:
+            "Trader Bob's Cog Item 5": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:5])),
-            "Trader Bob's Cog 6": lambda state:
+            "Trader Bob's Cog Item 6": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:6])),
-            "Trader Bob's Cog 7": lambda state:
+            "Trader Bob's Cog Item 7": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:7])),
-            "Trader Bob's Cog 8": lambda state:
+            "Trader Bob's Cog Item 8": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:8])),
-            "Trader Bob's Cog 9": lambda state:
+            "Trader Bob's Cog Item 9": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:9])),
-            "Trader Bob's Cog 10": lambda state:
+            "Trader Bob's Cog Item 10": lambda state:
                 state.has("Platinum Cog", world.player, sum(world.cog_prices[:10])),
-            "Madam Mopoke's 1": lambda state:
+            "Madam Mopoke's Orb Item 1": lambda state:
                 state.has("Kromium Orb", world.player, sum(world.orb_prices[:1])),
-            "Madam Mopoke's 2": lambda state:
+            "Madam Mopoke's Orb Item 2": lambda state:
                 state.has("Kromium Orb", world.player, sum(world.orb_prices[:2])),
-            "Madam Mopoke's 3": lambda state:
+            "Madam Mopoke's Orb Item 3": lambda state:
                 state.has("Kromium Orb", world.player, sum(world.orb_prices[:3])),
             #Missions
             "Haunted Hassle": lambda state:
@@ -128,89 +128,89 @@ def get_rules(world):
             "Complete Ripper Nipper": lambda state:
                 state.has("Wobbygon Bay ParkingBay", world.player) and state.has("Ripper Nipper ParkingBay", world.player),
             #Cogs
-            "Platinum Cog 2": lambda state:
+            "Platinum Cog 1": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 4": lambda state:
+            "Platinum Cog 3": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 6": lambda state:
+            "Platinum Cog 5": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 12": lambda state:
-                can_swing(world, state)  or can_cold(world, state),
+            "Platinum Cog 11": lambda state:
+            (can_swing(world, state)  or can_cold(world, state)) and state.has("Thermo Bunyip Key", world.player),
+            "Platinum Cog 16": lambda state:
+                has_infra(world, state),
             "Platinum Cog 17": lambda state:
-                has_infra(world, state),
-            "Platinum Cog 18": lambda state:
                 can_swing(world, state),
-            "Platinum Cog 20": lambda state:
+            "Platinum Cog 19": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 21": lambda state:
+            "Platinum Cog 20 - End of Level": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 24": lambda state:
+            "Platinum Cog 23 - Snake Eyes Challenge": lambda state:
                 can_freeze(world, state),
-            "Platinum Cog 25": lambda state:
+            "Platinum Cog 24 - Boulder Lift": lambda state:
                 state.has("Lifter Bunyip Key", world.player),
-            "Platinum Cog 32": lambda state:
+            "Platinum Cog 26": lambda state:
+                can_swing(world, state),
+            "Platinum Cog 31": lambda state:
                 can_tp(world, state),
-            "Platinum Cog 34": lambda state:
+            "Platinum Cog 33 - Rope Timer Race": lambda state:
                 can_smash_crate(world, state),
-            "Platinum Cog 35": lambda state:
+            "Platinum Cog 34 - On Haunted Mansion": lambda state:
                 has_infra(world, state),
-            "Platinum Cog 38": lambda state:
+            "Platinum Cog 37": lambda state:
                 can_tp(world, state),
-            "Platinum Cog 40": lambda state:
+            "Platinum Cog 39": lambda state:
                 can_tp(world, state),
-            "Platinum Cog 42": lambda state:
+            "Platinum Cog 41": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 45": lambda state:
+            "Platinum Cog 44": lambda state:
                 can_burn(world, state),
-            "Platinum Cog 50": lambda state:
-                has_infra(world, state),
             #Orbs
-            "Kromium Orb 1": lambda state:
+            "Kromium Orb 0 - High Above Burramudgee": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 3": lambda state:
+            "Kromium Orb 2 - Swinging Over the Pond": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 4": lambda state:
+            "Kromium Orb 3 - Sulphur Lava": lambda state:
                 can_swing(world, state)  or can_freeze(world, state),
-            "Kromium Orb 8": lambda state:
+            "Kromium Orb 7": lambda state:
                 can_tp(world, state) and can_smash_wall(world, state),
-            "Kromium Orb 10": lambda state:
+            "Kromium Orb 9": lambda state:
                 can_smash_wall(world, state),
-            "Kromium Orb 14": lambda state:
+            "Kromium Orb 13": lambda state:
                 has_infra(world, state),
+            "Kromium Orb 14 - On Invisible Platforms": lambda state:
+                has_infra(world, state) or (world.options.require_infra.value != 0),
             "Kromium Orb 15": lambda state:
-                has_infra(world, state),
+                can_smash_wall(world, state),
             "Kromium Orb 16": lambda state:
-                can_smash_wall(world, state),
-            "Kromium Orb 17": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 23": lambda state:
+            "Kromium Orb 22": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 26": lambda state:
+            "Kromium Orb 25": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 28": lambda state:
-                can_smash_wall(world, state),
+            "Kromium Orb 27 - Frosty Tutorial": lambda state:
+                can_freeze(world, state),
             #Bilbies
-            "Bilby 1": lambda state:
+            "Bilby 0": lambda state:
                 can_smash_wall(world,state),
-            "Bilby 5": lambda state:
+            "Bilby 4": lambda state:
                 can_swing(world, state) or can_cold(world, state),
+            "Bilby 15": lambda state:
+                has_infra(world, state) or (world.options.require_infra.value != 0),
             "Bilby 16": lambda state:
-                has_infra(world, state),
-            "Bilby 17": lambda state:
                 can_swing(world, state),
+            "Bilby 18": lambda state:
+                can_swing(world, state) and state.has("Thermo Bunyip Key", world.player),
             "Bilby 19": lambda state:
                 can_swing(world, state),
-            "Bilby 20": lambda state:
-                can_swing(world, state),
-            "Bilby 22": lambda state:
+            "Bilby 21": lambda state:
                 can_burn(world, state),
-            # "Bilby 23": lambda state:
-            #     can_burn(world, state),
             #Frills
-            "Disguised Frill 1": lambda state:
+            "Disguised Frill 0": lambda state:
                 has_infra(world, state)
                 and state.can_reach_region("Burramudgee Town", world.player)
                 and can_smash_wall(world, state),
+            "Disguised Frill 1": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
             "Disguised Frill 2": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
             "Disguised Frill 3": lambda state:
@@ -223,19 +223,19 @@ def get_rules(world):
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
             "Disguised Frill 7": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 8": lambda state:
+            "Disguised Frill 8 - Under Walkway": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 9": lambda state:
+            "Disguised Frill 9 - Sulpher Start": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 10": lambda state:
+            "Disguised Frill 10 - In Hole": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 11": lambda state:
-                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 12": lambda state:
+            "Disguised Frill 11 - Behind Fence": lambda state:
                 has_infra(world, state)
                 and state.can_reach_region("Burramudgee Town", world.player)
                 and can_swing(world, state),
-            "Disguised Frill 13": lambda state:
+            "Disguised Frill 12 - Near Police": lambda state:
+                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
+            "Disguised Frill 13 - Near Canal": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
             "Disguised Frill 14": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
@@ -259,8 +259,6 @@ def get_rules(world):
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
             "Disguised Frill 24": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 25": lambda state:
-                has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
 
             #Steves
             "Steve - Outback Oasis": lambda state:
@@ -268,35 +266,35 @@ def get_rules(world):
             "Steve - MountBoom": lambda state:
                 state.has("Thermo Bunyip Key", world.player),
             #Frames
+            "Picture Frame 0": lambda state:
+                can_tp(world, state),
             "Picture Frame 1": lambda state:
                 can_tp(world, state),
             "Picture Frame 2": lambda state:
                 can_tp(world, state),
-            "Picture Frame 3": lambda state:
-                can_tp(world, state),
-            "Picture Frame 5": lambda state:
+            "Picture Frame 4": lambda state:
                 can_swing(world, state),
-            "Picture Frame 7": lambda state:
+            "Picture Frame 6": lambda state:
                 can_swing(world, state) or can_cold(world, state),
-            "Picture Frame 13": lambda state:
+            "Picture Frame 12": lambda state:
                 can_smash_wall(world, state),
-            "Picture Frame 31": lambda state:
+            "Picture Frame 30 - Smash Wall": lambda state:
                 can_smash_wall(world, state),
-            "Picture Frame 32": lambda state:
+            "Picture Frame 31 - Smash Wall": lambda state:
                 can_smash_wall(world, state),
-            "Picture Frame 36": lambda state:
+            "Picture Frame 35 - Behind Fence": lambda state:
                 can_swing(world, state),
-            "Picture Frame 37": lambda state:
+            "Picture Frame 36 - Behind Fence": lambda state:
                 can_swing(world, state),
-            "Picture Frame 38": lambda state:
+            "Picture Frame 37 - Behind Fence": lambda state:
                 can_swing(world, state),
-            "Picture Frame 62": lambda state:
+            "Picture Frame 61": lambda state:
                 can_swing(world, state),
-            "Picture Frame 153": lambda state:
+            "Picture Frame 153 - HQ Warparang Tutorial": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
-            "Picture Frame 154": lambda state:
+            "Picture Frame 154 - HQ Warparang Tutorial": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
-            "Picture Frame 155": lambda state:
+            "Picture Frame 155 - HQ Warparang Tutorial": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
         },
         "entrances": {
@@ -373,7 +371,9 @@ def get_rules(world):
                 lambda state: state.has("Never Never Road ParkingBay", world.player),
             "Truck Tragedy ParkingBay":
                 lambda state: state.has("Truck Tragedy ParkingBay", world.player),
-            "Truck Stop ParkingBay":
+            "Truck Stop ParkingBay South":
+                lambda state: state.has("Truck Stop ParkingBay", world.player),
+            "Truck Stop ParkingBay North":
                 lambda state: state.has("Truck Stop ParkingBay", world.player),
             "Plutonium Panic ParkingBay":
                 lambda state: state.has("Plutonium Panic ParkingBay", world.player),
@@ -381,8 +381,6 @@ def get_rules(world):
                 lambda state: state.has("50 Foot Squeaver ParkingBay", world.player),
             "Never Never ParkingBay":
                 lambda state: state.has("Never Never ParkingBay", world.player),
-            "Lava Falls ParkingBay":
-                lambda state: state.has("Lava Falls ParkingBay", world.player),
             "Min Min Mining ParkingBay":
                 lambda state: state.has("Min Min Mining ParkingBay", world.player),
             "Turbo Track ParkingBay":
@@ -452,14 +450,14 @@ def set_rules(world):
         try:
             world.get_entrance(entrance_name).access_rule = rule
         except KeyError as e:
-            #print(f"Key error, {e}")
+            print(f"Key error, {e}")
             pass
 
     for location_name, rule in rules_lookup["locations"].items():
         try:
             world.get_location(location_name).access_rule = rule
         except KeyError as e:
-            #print(f"Key error, {e}")
+            print(f"Key error, {e}")
             pass
 
     world.multiworld.get_location(f"Boss Cass Bust-Up", world.player).place_locked_item(
