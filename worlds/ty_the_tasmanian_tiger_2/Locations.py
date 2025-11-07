@@ -28,44 +28,44 @@ def create_ty2_locations(world):
     return all_locations
 
 shop_location_dict: Dict[str, LocData] = {
-    "Rang Shop 8": LocData(26, "Burramudgee Town"),# Camerarang
-    "Rang Shop 1": LocData(8, "Burramudgee Town"), #frosty
-    "Rang Shop 2": LocData(9, "Burramudgee Town"), #flame
-    "Rang Shop 3": LocData(10, "Burramudgee Town"), #zappy
-    "Rang Shop 4": LocData(12, "Burramudgee Town"), #infra
-    "Rang Shop 5": LocData(11, "Burramudgee Town"), #lash
-    "Rang Shop 6": LocData(13, "Burramudgee Town"),
-    "Rang Shop 7": LocData(14, "Burramudgee Town"),
+    "Rang Shop Item 8": LocData(26, "Burramudgee Town"),# Camerarang
+    "Rang Shop Item 1": LocData(8, "Burramudgee Town"), #frosty
+    "Rang Shop Item 2": LocData(9, "Burramudgee Town"), #flame
+    "Rang Shop Item 3": LocData(18, "Burramudgee Town"), #zappy
+    "Rang Shop Item 4": LocData(12, "Burramudgee Town"), #infra
+    "Rang Shop Item 5": LocData(11, "Burramudgee Town"), #lash
+    "Rang Shop Item 6": LocData(13, "Burramudgee Town"),
+    "Rang Shop Item 7": LocData(14, "Burramudgee Town"),
 
-    "Sly's Shack 1": LocData(17, "SR - Sly Shack"), #freeze
-    "Sly's Shack 2": LocData(16, "SR - Sly Shack"), #lava
-    "Sly's Shack 3": LocData(15, "SR - Sly Shack"), #multi
-    "Sly's Shack 4": LocData(19, "SR - Sly Shack"), #warp
-    "Sly's Shack 5": LocData(18, "SR - Sly Shack"), #thunder
-    "Sly's Shack 6": LocData(20, "SR - Sly Shack"), #X
-    "Sly's Shack 7": LocData(21, "SR - Sly Shack"), #kaboom
-    "Sly's Shack 8": LocData(22, "SR - Sly Shack"), #omega
-    "Sly's Shack 9": LocData(23, "SR - Sly Shack"), #deadly
-    "Sly's Shack 10": LocData(24, "SR - Sly Shack"), #doom
-    "Sly's Shack 11": LocData(25, "SR - Sly Shack"), #crafty
-    "Trader Bob's 1": LocData(1, "Burramudgee Town"), #lifter
-    "Trader Bob's 2": LocData(2, "Burramudgee Town"), #thermo
-    "Trader Bob's 3": LocData(59, "Burramudgee Town"), #sub
-    "Trader Bob's 4": LocData(77, "Burramudgee Town"), #gold paw
-    "Trader Bob's 5": LocData(78, "Burramudgee Town"), #plat paw
-    "Trader Bob's Cog 1": LocData(79, "Burramudgee Town"),
-    "Trader Bob's Cog 2": LocData(80, "Burramudgee Town"),
-    "Trader Bob's Cog 3": LocData(81, "Burramudgee Town"),
-    "Trader Bob's Cog 4": LocData(82, "Burramudgee Town"),
-    "Trader Bob's Cog 5": LocData(83, "Burramudgee Town"),
-    "Trader Bob's Cog 6": LocData(84, "Burramudgee Town"),
-    "Trader Bob's Cog 7": LocData(85, "Burramudgee Town"),
-    "Trader Bob's Cog 8": LocData(86, "Burramudgee Town"),
-    "Trader Bob's Cog 9": LocData(87, "Burramudgee Town"),
-    "Trader Bob's Cog 10": LocData(88, "Burramudgee Town"),
-    "Madam Mopoke's 1": LocData(5, "Burramudgee Town"),
-    "Madam Mopoke's 2": LocData(6, "Burramudgee Town"),
-    "Madam Mopoke's 3": LocData(7, "Burramudgee Town"),
+    "Sly's Shack Item 1": LocData(17, "SR - Sly Shack"), #freeze
+    "Sly's Shack Item 2": LocData(16, "SR - Sly Shack"), #lava
+    "Sly's Shack Item 3": LocData(15, "SR - Sly Shack"), #multi
+    "Sly's Shack Item 4": LocData(19, "SR - Sly Shack"), #warp
+    "Sly's Shack Item 5": LocData(10, "SR - Sly Shack"), #thunder
+    "Sly's Shack Item 6": LocData(20, "SR - Sly Shack"), #X
+    "Sly's Shack Item 7": LocData(21, "SR - Sly Shack"), #kaboom
+    "Sly's Shack Item 8": LocData(22, "SR - Sly Shack"), #omega
+    "Sly's Shack Item 9": LocData(23, "SR - Sly Shack"), #deadly
+    "Sly's Shack Item 10": LocData(24, "SR - Sly Shack"), #doom
+    "Sly's Shack Item 11": LocData(25, "SR - Sly Shack"), #crafty
+    "Trader Bob's Opal Item 1": LocData(1, "Burramudgee Town"), #lifter
+    "Trader Bob's Opal Item 2": LocData(2, "Burramudgee Town"), #thermo
+    "Trader Bob's Opal Item 3": LocData(59, "Burramudgee Town"), #sub
+    "Trader Bob's Opal Item 4": LocData(77, "Burramudgee Town"), #gold paw
+    "Trader Bob's Opal Item 5": LocData(78, "Burramudgee Town"), #plat paw
+    "Trader Bob's Cog Item 1": LocData(79, "Burramudgee Town"),
+    "Trader Bob's Cog Item 2": LocData(80, "Burramudgee Town"),
+    "Trader Bob's Cog Item 3": LocData(81, "Burramudgee Town"),
+    "Trader Bob's Cog Item 4": LocData(82, "Burramudgee Town"),
+    "Trader Bob's Cog Item 5": LocData(83, "Burramudgee Town"),
+    "Trader Bob's Cog Item 6": LocData(84, "Burramudgee Town"),
+    "Trader Bob's Cog Item 7": LocData(85, "Burramudgee Town"),
+    "Trader Bob's Cog Item 8": LocData(86, "Burramudgee Town"),
+    "Trader Bob's Cog Item 9": LocData(87, "Burramudgee Town"),
+    "Trader Bob's Cog Item 10": LocData(88, "Burramudgee Town"),
+    "Madam Mopoke's Orb Item 1": LocData(5, "Burramudgee Town"),
+    "Madam Mopoke's Orb Item 2": LocData(6, "Burramudgee Town"),
+    "Madam Mopoke's Orb Item 3": LocData(7, "Burramudgee Town"),
 
 }
 
@@ -90,21 +90,21 @@ platinum_cog_dict: Dict[str, LocData] = {
     "Platinum Cog 17": LocData(0x4311, "Never Never"), #lasharang
     "Platinum Cog 18": LocData(0x4312, "Never Never"),
     "Platinum Cog 19": LocData(0x4313, "Never Never"), #smasharang
-    "Platinum Cog 20": LocData(0x4314, "Faire Dinkum"), #smasharang
-    "Platinum Cog 21": LocData(0x4315, "Faire Dinkum"),
-    "Platinum Cog 22": LocData(0x4316, "Faire Dinkum"),
-    "Platinum Cog 23": LocData(0x4317, "Sulphur Rocks"), #frosty
+    "Platinum Cog 20 - End of Level": LocData(0x4314, "Faire Dinkum"), #smasharang
+    "Platinum Cog 21 - Smash Wall": LocData(0x4315, "Faire Dinkum"),
+    "Platinum Cog 22 - Long Ride In The Trees": LocData(0x4316, "Faire Dinkum"),
+    "Platinum Cog 23 - Snake Eyes Challenge": LocData(0x4317, "Sulphur Rocks"), #frosty
     "Platinum Cog 24": LocData(0x4318, "Sulphur Rocks"), #lifter bunyip key
-    "Platinum Cog 25": LocData(0x4319, "Sulphur Rocks"),
+    "Platinum Cog 25 - Swinging Around": LocData(0x4319, "Sulphur Rocks"),
     "Platinum Cog 26": LocData(0x431A, "Sulphur Rocks"), #lasharang
     "Platinum Cog 27": LocData(0x431B, "Sulphur Rocks"),
     "Platinum Cog 28": LocData(0x431C, "Sulphur Rocks"),
-    "Platinum Cog 29": LocData(0x431D, "Sulphur Rocks"),
-    "Platinum Cog 30": LocData(0x431E, "Sulphur Rocks"),
+    "Platinum Cog 29 - Beyond Saw": LocData(0x431D, "Sulphur Rocks"),
+    "Platinum Cog 30 - Sulpher Start": LocData(0x431E, "Sulphur Rocks"),
     "Platinum Cog 31": LocData(0x431F, "Sulphur Rocks"), #warparang
-    "Platinum Cog 32": LocData(0x4320, "Burramudgee Town"),
-    "Platinum Cog 33": LocData(0x4321, "Burramudgee Town"),
-    "Platinum Cog 34": LocData(0x4322, "Burramudgee Town"),
+    "Platinum Cog 32 - Across the Camera Eggs": LocData(0x4320, "Burramudgee Town"),
+    "Platinum Cog 33 - Rope Timer Race": LocData(0x4321, "Burramudgee Town"),
+    "Platinum Cog 34 - On Haunted Mansion": LocData(0x4322, "Burramudgee Town"),
     "Platinum Cog 35": LocData(0x4323, "Cass' Run"),
     "Platinum Cog 36": LocData(0x4324, "Frill Neck Forest"),
     "Platinum Cog 37": LocData(0x4325, "MountBoom"),#warparang #thermo
@@ -119,25 +119,25 @@ platinum_cog_dict: Dict[str, LocData] = {
     "Platinum Cog 46": LocData(0x432E, "SR - Wobbygon Bay"),
     "Platinum Cog 47": LocData(0x432F, "SR - Wobbygon Bay"),
     "Platinum Cog 48": LocData(0x4330, "SR - Wobbygon Bay"),
-    "Platinum Cog 49": LocData(0x4331, "Burramudgee HQ - Infra"),
+    "Platinum Cog 49 - Floating Above HQ": LocData(0x4331, "Burramudgee HQ - Infra"),
 }
 
 kromium_orb_dict: Dict[str, LocData] = {
-    "Kromium Orb 0": LocData(0x4B00, "Burramudgee Town"),#lasharang
-    "Kromium Orb 1": LocData(0x4B01, "Burramudgee Town"),
-    "Kromium Orb 2": LocData(0x4B02, "Sulphur Rocks"), #lasharang
-    "Kromium Orb 3": LocData(0x4B03, "Sulphur Rocks"), #lasharang #frostyrang
-    "Kromium Orb 4": LocData(0x4B04, "Sulphur Rocks"),
-    "Kromium Orb 5": LocData(0x4B05, "SR - Sulphur Rocks"),
+    "Kromium Orb 0 - High Above Burramudgee": LocData(0x4B00, "Burramudgee Town"),#lasharang
+    "Kromium Orb 1 - Above the Canal": LocData(0x4B01, "Burramudgee Town"),
+    "Kromium Orb 2 = Swinging Over the Pond": LocData(0x4B02, "Sulphur Rocks"), #lasharang
+    "Kromium Orb 3 - Sulpher Lava": LocData(0x4B03, "Sulphur Rocks"), #lasharang #frostyrang
+    "Kromium Orb 4 - Exploding Pillars": LocData(0x4B04, "Sulphur Rocks"),
+    "Kromium Orb 5 - Jumping Maze": LocData(0x4B05, "SR - Sulphur Rocks"),
     "Kromium Orb 6": LocData(0x4B06, "MountBoom"), #thermo
     "Kromium Orb 7": LocData(0x4B07, "MountBoom"),#warperang #thermo smash
     "Kromium Orb 8": LocData(0x4B08, "SR - Wobbygon Bay"),
     "Kromium Orb 9":  LocData(0x4B09, "Outback Oasis"), #smasharang
-    "Kromium Orb 10": LocData(0x4B0A, "SR - Sly Shack"),
+    "Kromium Orb 10 - Sly Shack": LocData(0x4B0A, "SR - Sly Shack"),
     "Kromium Orb 11": LocData(0x4B0B, "Outback Oasis"),
-    "Kromium Orb 12": LocData(0x4B0C, "Sulphur Rocks"),
+    "Kromium Orb 12 - Sulpher Overlook": LocData(0x4B0C, "Sulphur Rocks"),
     "Kromium Orb 13": LocData(0x4B0D, "Sulphur Rocks"), #infra
-    "Kromium Orb 14": LocData(0x4B0E, "Sulphur Rocks"), #infra
+    "Kromium Orb 14 - On Invisable Platforms": LocData(0x4B0E, "Sulphur Rocks"), #infra
     "Kromium Orb 15": LocData(0x4B0F, "Never Never"), #smasharang
     "Kromium Orb 16": LocData(0x4B10, "Never Never"), #lasharang
     "Kromium Orb 17": LocData(0x4B11, "Never Never"),
@@ -147,11 +147,11 @@ kromium_orb_dict: Dict[str, LocData] = {
     "Kromium Orb 21": LocData(0x4B15, "Never Never"),
     "Kromium Orb 22": LocData(0x4B16, "Wetlands"), #lasharang
     "Kromium Orb 23": LocData(0x4B17, "Frill Neck Forest"),
-    "Kromium Orb 24": LocData(0x4B18, "SR - Dennis Freeway"),
+    "Kromium Orb 24 - Town Overlook": LocData(0x4B18, "Burramudgee HQ"),
     "Kromium Orb 25": LocData(0x4B19, "Sulphur Rocks"), #lasharang
-    "Kromium Orb 26": LocData(0x4B1A, "Faire Dinkum"),
-    "Kromium Orb 27": LocData(0x4B1B, "Faire Dinkum"), #smasharang
-    "Kromium Orb 28": LocData(0x4B1C, "Faire Dinkum"),
+    "Kromium Orb 26 - Moving Platform": LocData(0x4B1A, "Faire Dinkum"),
+    "Kromium Orb 27 - Frosty Tutorial": LocData(0x4B1B, "Burramudgee HQ"), #smasharang
+    "Kromium Orb 28 - Behind Dunny": LocData(0x4B1C, "Faire Dinkum"),
     "Kromium Orb 29": LocData(0x4B1D, "SR - Wobbygon Bay"),
 } #what is the orb at freeway
 
@@ -163,14 +163,14 @@ bilby_dict: Dict[str, LocData] = {
     "Bilby 4": LocData(0x4204, "Never Never"),#thermo, lash, OR frosty
     "Bilby 5": LocData(0x4205, "Never Never"),
     "Bilby 6": LocData(0x4206, "Never Never"),
-    "Bilby 7": LocData(0x4207, "Faire Dinkum"),
-    "Bilby 8": LocData(0x4208, "Faire Dinkum"),
-    "Bilby 9": LocData(0x4209, "Faire Dinkum"),
-    "Bilby 10": LocData(0x420A, "Sulphur Rocks"),
+    "Bilby 7 - Secret Button": LocData(0x4207, "Faire Dinkum"),
+    "Bilby 8 - Town Overlook": LocData(0x4208, "Faire Dinkum"),
+    "Bilby 9 - Half Under Webs": LocData(0x4209, "Faire Dinkum"),
+    "Bilby 10 - Sulpher Overlook": LocData(0x420A, "Sulphur Rocks"),
     "Bilby 11": LocData(0x420B, "Sulphur Rocks"),
-    "Bilby 12": LocData(0x420C, "Sulphur Rocks"),
+    "Bilby 12 - Floating Over Sulpher": LocData(0x420C, "Sulphur Rocks"),
     "Bilby 13": LocData(0x420D, "Sulphur Rocks"),
-    "Bilby 14": LocData(0x420E, "Sulphur Rocks"),
+    "Bilby 14 - Over pond": LocData(0x420E, "Sulphur Rocks"),
     "Bilby 15": LocData(0x420F, "Faire Dinkum"), #(infra)
     "Bilby 16": LocData(0x4210, "Frill Neck Forest"), #lasharang - possible without
     "Bilby 17": LocData(0x4211, "Frill Neck Forest"),
@@ -179,10 +179,10 @@ bilby_dict: Dict[str, LocData] = {
     "Bilby 20": LocData(0x4214, "Wetlands"),
     "Bilby 21": LocData(0x4215, "Wetlands"), #flamerang
     "Bilby 22": LocData(0x4216, "Wetlands"), #flamerang optional
-    "Bilby 23": LocData(0x4217, "Burramudgee HQ"),
-    "Bilby 24": LocData(0x4218, "Burramudgee HQ"),
-    "Bilby 25": LocData(0x4219, "Burramudgee HQ"),
-    "Bilby 26": LocData(0x421A, "Burramudgee HQ"),
+    "Bilby 23 - Under Ramp": LocData(0x4217, "Burramudgee HQ"),
+    "Bilby 24 - Cliffside": LocData(0x4218, "Burramudgee HQ"),
+    "Bilby - Top of HQ": LocData(0x4219, "Burramudgee HQ"), #25
+    "Bilby 26 - Watch Tower": LocData(0x421A, "Burramudgee HQ"),
     "Bilby 27": LocData(0x421B, "SR - Wobbygon Bay"),
     "Bilby 28": LocData(0x421C, "SR - Wobbygon Bay"),
     "Bilby 29": LocData(0x421D, "SR - Wobbygon Bay"),
@@ -198,12 +198,12 @@ disguised_frill_dict: Dict[str, LocData] = {
     "Disguised Frill 5": LocData(0x4605, "Never Never"),
     "Disguised Frill 6": LocData(0x4606, "Wetlands"),
     "Disguised Frill 7": LocData(0x4607, "Wetlands"),
-    "Disguised Frill 8": LocData(0x4608, "Faire Dinkum"),
-    "Disguised Frill 9": LocData(0x4609, "Sulphur Rocks"),
-    "Disguised Frill 10": LocData(0x460A, "Sulphur Rocks"),
-    "Disguised Frill 11": LocData(0x460B, "Sulphur Rocks"),#lasharang, not needed
-    "Disguised Frill 12": LocData(0x460C, "Burramudgee Town"),
-    "Disguised Frill 13": LocData(0x460D, "Burramudgee Town"),
+    "Disguised Frill 8 - Under Walkway": LocData(0x4608, "Faire Dinkum"),
+    "Disguised Frill 9 - Sulpher Start": LocData(0x4609, "Sulphur Rocks"),
+    "Disguised Frill 10 - In Hole": LocData(0x460A, "Sulphur Rocks"),
+    "Disguised Frill 11 - Behind Fence": LocData(0x460B, "Sulphur Rocks"),#lasharang, not needed
+    "Disguised Frill 12 - Near Police": LocData(0x460C, "Burramudgee Town"),
+    "Disguised Frill 13 - Near Canal": LocData(0x460D, "Burramudgee Town"),
     "Disguised Frill 14": LocData(0x460E, "Dennis Freeway"),
     "Disguised Frill 15": LocData(0x460F, "Outback Oasis"),
     "Disguised Frill 16": LocData(0x4610, "SR - Cul De Sac"),
@@ -254,29 +254,29 @@ picture_frame_dict: Dict[str, LocData] = {
     "Picture Frame 20": LocData(0x5014, "Wetlands Tree"),#warparang
     "Picture Frame 21": LocData(0x5015, "Wetlands Tree"),#warparang
     "Picture Frame 22": LocData(0x5016, "Wetlands Tree"), #warparang
-    "Picture Frame 23": LocData(0x5017, "Faire Dinkum"),
-    "Picture Frame 24": LocData(0x5018, "Faire Dinkum"),
-    "Picture Frame 25": LocData(0x5019, "Faire Dinkum"),
-    "Picture Frame 26": LocData(0x501A, "Faire Dinkum"),
-    "Picture Frame 27": LocData(0x501B, "Faire Dinkum"),
-    "Picture Frame 28": LocData(0x501C, "Faire Dinkum"),
-    "Picture Frame 29": LocData(0x501D, "Faire Dinkum"),
-    "Picture Frame 30": LocData(0x501E, "Faire Dinkum"), #smasharang
-    "Picture Frame 31": LocData(0x501F, "Faire Dinkum"), #smasharang
-    "Picture Frame 32": LocData(0x5020, "Sulphur Rocks"),
-    "Picture Frame 33": LocData(0x5021, "Sulphur Rocks"),
-    "Picture Frame 34": LocData(0x5022, "Sulphur Rocks"),
-    "Picture Frame 35": LocData(0x5023, "Sulphur Rocks"),#lasharang, not needed
-    "Picture Frame 36": LocData(0x5024, "Sulphur Rocks"), #lasharang, not needed
-    "Picture Frame 37": LocData(0x5025, "Sulphur Rocks"),#lasharang, not needed
-    "Picture Frame 38": LocData(0x5026, "Sulphur Rocks"),
-    "Picture Frame 39": LocData(0x5027, "Burramudgee HQ"),
-    "Picture Frame 40": LocData(0x5028, "Burramudgee HQ"),
-    "Picture Frame 41": LocData(0x5029, "Burramudgee HQ"),
-    "Picture Frame 42": LocData(0x502A, "Burramudgee HQ"),
-    "Picture Frame 43": LocData(0x502B, "Burramudgee HQ"),
-    "Picture Frame 44": LocData(0x502C, "Burramudgee HQ"),
-    "Picture Frame 45": LocData(0x502D, "Burramudgee HQ"),
+    "Picture Frame 23 - In tree": LocData(0x5017, "Faire Dinkum"),
+    "Picture Frame 24 - Town Roofs": LocData(0x5018, "Faire Dinkum"),
+    "Picture Frame 25 - Town Roofs": LocData(0x5019, "Faire Dinkum"),
+    "Picture Frame 26 - Town Roofs": LocData(0x501A, "Faire Dinkum"),
+    "Picture Frame 27 - Town Roofs": LocData(0x501B, "Faire Dinkum"),
+    "Picture Frame 28 - Town Roofs": LocData(0x501C, "Faire Dinkum"),
+    "Picture Frame 29 - Behind End Croc": LocData(0x501D, "Faire Dinkum"),
+    "Picture Frame 30 - Smash Wall": LocData(0x501E, "Faire Dinkum"), #smasharang
+    "Picture Frame 31 - Smash Wall": LocData(0x501F, "Faire Dinkum"), #smasharang
+    "Picture Frame 32 - Sulpher Start": LocData(0x5020, "Sulphur Rocks"),
+    "Picture Frame 33 - Sulpher Start": LocData(0x5021, "Sulphur Rocks"),
+    "Picture Frame 34 - In Hole": LocData(0x5022, "Sulphur Rocks"),
+    "Picture Frame 35 - Behind Fence": LocData(0x5023, "Sulphur Rocks"),#lasharang, not needed
+    "Picture Frame 36 - Behind Fence": LocData(0x5024, "Sulphur Rocks"), #lasharang, not needed
+    "Picture Frame 37 - Behind Fence": LocData(0x5025, "Sulphur Rocks"),#lasharang, not needed
+    "Picture Frame 38 - In Hole": LocData(0x5026, "Sulphur Rocks"),
+    "Picture Frame 39 - Floating Above HQ": LocData(0x5027, "Burramudgee HQ"),
+    "Picture Frame 40 - Floating Above HQ": LocData(0x5028, "Burramudgee HQ"),
+    "Picture Frame 41 - Floating Above HQ": LocData(0x5029, "Burramudgee HQ"),
+    "Picture Frame 42 - Watch Tower": LocData(0x502A, "Burramudgee HQ"),
+    "Picture Frame 43 - Watch Tower": LocData(0x502B, "Burramudgee HQ"),
+    "Picture Frame 44 - Watch Tower": LocData(0x502C, "Burramudgee HQ"),
+    "Picture Frame 45 - Watch Tower": LocData(0x502D, "Burramudgee HQ"),
     "Picture Frame 46": LocData(0x502E, "Frill Neck Forest"),
     "Picture Frame 47": LocData(0x502F, "Frill Neck Forest"),
     "Picture Frame 48": LocData(0x5030, "Frill Neck Forest"),
@@ -326,86 +326,86 @@ picture_frame_dict: Dict[str, LocData] = {
     "Picture Frame 92": LocData(0x505C, "Wetlands - Infra"), #infra
     "Picture Frame 93": LocData(0x505D, "Wetlands - Infra"),#infra
     "Picture Frame 94": LocData(0x505E, "Wetlands - Infra"),#infra
-    "Picture Frame 95": LocData(0x505F, "Faire Dinkum - Infra"), #infra
-    "Picture Frame 96": LocData(0x5060, "Faire Dinkum - Infra"), #infra
-    "Picture Frame 97": LocData(0x5061, "Faire Dinkum - Infra"), #infra
-    "Picture Frame 98": LocData(0x5062, "Faire Dinkum - Infra"), #infra
-    "Picture Frame 99": LocData(0x5063, "Faire Dinkum - Infra"), #infra
-    "Picture Frame 100": LocData(0x5064, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 101": LocData(0x5065, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 102": LocData(0x5066, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 103": LocData(0x5067, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 95 - Town Invisa-crates": LocData(0x505F, "Faire Dinkum - Infra"), #infra
+    "Picture Frame 96 - Town Invisa-crates": LocData(0x5060, "Faire Dinkum - Infra"), #infra
+    "Picture Frame 97 - End Invisa-crates": LocData(0x5061, "Faire Dinkum - Infra"), #infra
+    "Picture Frame 98 - End Invisa-crates": LocData(0x5062, "Faire Dinkum - Infra"), #infra
+    "Picture Frame 99 - End Invisa-crates": LocData(0x5063, "Faire Dinkum - Infra"), #infra
+    "Picture Frame 100 - Sulpher Start Invisa-crates": LocData(0x5064, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 101 - Sulpher Start Invisa-crates": LocData(0x5065, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 102 - Sulpher Start Invisa-crates": LocData(0x5066, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 103 - Sulpher Start Invisa-crates": LocData(0x5067, "Sulphur Rocks - Infra"), #infra
     "Picture Frame 104": LocData(0x5068, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 105": LocData(0x5069, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 106": LocData(0x506A, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 107": LocData(0x506B, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 108": LocData(0x506C, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 109": LocData(0x506D, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 110": LocData(0x506E, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 111": LocData(0x506F, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 112": LocData(0x5070, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 113": LocData(0x5071, "Sulphur Rocks - Infra"), #infra
-    "Picture Frame 114": LocData(0x5072, "Burramudgee Town - Infra"),
-    "Picture Frame 115": LocData(0x5073, "Burramudgee Town - Infra"),
-    "Picture Frame 116": LocData(0x5074, "Burramudgee Town - Infra"),
-    "Picture Frame 117": LocData(0x5075, "Burramudgee Town - Infra"),
-    "Picture Frame 118": LocData(0x5076, "Burramudgee Town - Infra"),
-    "Picture Frame 119": LocData(0x5077, "Burramudgee Town - Infra"),
-    "Picture Frame 120": LocData(0x5078, "Burramudgee Town - Infra"),
-    "Picture Frame 121": LocData(0x5079, "Burramudgee Town - Infra"),
-    "Picture Frame 122": LocData(0x507A, "Burramudgee Town - Infra"),
-    "Picture Frame 123": LocData(0x507B, "Burramudgee Town - Infra"),
-    "Picture Frame 124": LocData(0x507C, "Burramudgee Town - Infra"),
-    "Picture Frame 125": LocData(0x507D, "Burramudgee Town - Infra"),
-    "Picture Frame 126": LocData(0x507E, "Burramudgee Town - Infra"),
-    "Picture Frame 127": LocData(0x507F, "Burramudgee Town - Infra"),
-    "Picture Frame 128": LocData(0x5080, "Burramudgee Town - Infra"),
-    "Picture Frame 129": LocData(0x5081, "Burramudgee Town - Infra"),
-    "Picture Frame 130": LocData(0x5082, "Burramudgee Town - Infra"),
-    "Picture Frame 131": LocData(0x5083, "Burramudgee Town - Infra"),
-    "Picture Frame 132": LocData(0x5084, "Burramudgee Town - Infra"),
-    "Picture Frame 133": LocData(0x5085, "Burramudgee Town - Infra"),
-    "Picture Frame 134": LocData(0x5086, "Burramudgee Town - Infra"),
-    "Picture Frame 135": LocData(0x5087, "Burramudgee Town - Infra"),
-    "Picture Frame 136": LocData(0x5088, "Burramudgee Town - Infra"),
-    "Picture Frame 137": LocData(0x5089, "Burramudgee Town - Infra"),
-    "Picture Frame 138": LocData(0x508A, "Burramudgee HQ"),
-    "Picture Frame 139": LocData(0x508B, "Burramudgee HQ"),
-    "Picture Frame 140": LocData(0x508C, "Burramudgee HQ"),
-    "Picture Frame 141": LocData(0x508D, "Burramudgee HQ"),
-    "Picture Frame 142": LocData(0x508E, "Burramudgee HQ"),
-    "Picture Frame 143": LocData(0x508F, "Burramudgee HQ"),
-    "Picture Frame 144": LocData(0x5090, "Burramudgee HQ"),
-    "Picture Frame 145": LocData(0x5091, "Burramudgee HQ"),
-    "Picture Frame 146": LocData(0x5092, "Burramudgee HQ"),
-    "Picture Frame 147": LocData(0x5093, "Burramudgee HQ"),
-    "Picture Frame 148": LocData(0x5094, "Burramudgee HQ"),
-    "Picture Frame 149": LocData(0x5095, "Burramudgee HQ"),
-    "Picture Frame 150": LocData(0x5096, "Burramudgee HQ"),
-    "Picture Frame 151": LocData(0x5097, "Burramudgee HQ"),
-    "Picture Frame 152": LocData(0x5098, "Burramudgee HQ"),
-    "Picture Frame 153": LocData(0x5099, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 154": LocData(0x509A, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 155": LocData(0x509B, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 156": LocData(0x509C, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 157": LocData(0x509D, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 158": LocData(0x509E, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 159": LocData(0x509F, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 160": LocData(0x50A0, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 161": LocData(0x50A1, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 162": LocData(0x50A2, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 163": LocData(0x50A3, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 164": LocData(0x50A4, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 165": LocData(0x50A5, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 166": LocData(0x50A6, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 167": LocData(0x50A7, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 168": LocData(0x50A8, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 169": LocData(0x50A9, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 170": LocData(0x50AA, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 171": LocData(0x50AB, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 172": LocData(0x50AC, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 173": LocData(0x50AD, "Burramudgee HQ - Crates"),#Smasharang
-    "Picture Frame 174": LocData(0x50AE, "Sulphur Rocks"),
+    "Picture Frame 105 - Sulpher Start Invisa-crates": LocData(0x5069, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 106 - Sulpher Start Invisa-crates": LocData(0x506A, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 107 - Sulpher Start Invisa-crates": LocData(0x506B, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 108 - Sulpher Start Invisa-crates": LocData(0x506C, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 109 - Sulpher Start Invisa-crates": LocData(0x506D, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 110 - Snake Eyes Invisa-crates": LocData(0x506E, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 111 - Snake Eyes Invisa-crates": LocData(0x506F, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 112 - Snake Eyes Invisa-crates": LocData(0x5070, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 113 - Snake Eyes Invisa-crates": LocData(0x5071, "Sulphur Rocks - Infra"), #infra
+    "Picture Frame 114 - Sewer Grid": LocData(0x5072, "Burramudgee Town - Infra"),
+    "Picture Frame 115 - Sewer Grid": LocData(0x5073, "Burramudgee Town - Infra"),
+    "Picture Frame 116 - Sewer Grid": LocData(0x5074, "Burramudgee Town - Infra"),
+    "Picture Frame 117 - Sewer Grid": LocData(0x5075, "Burramudgee Town - Infra"),
+    "Picture Frame 118 - Sewer Grid": LocData(0x5076, "Burramudgee Town - Infra"),
+    "Picture Frame 119 - Sewer CrossWay": LocData(0x5077, "Burramudgee Town - Infra"),
+    "Picture Frame 120 - Sewer Steve": LocData(0x5078, "Burramudgee Town - Infra"),
+    "Picture Frame 121 - Sewer CrossWay": LocData(0x5079, "Burramudgee Town - Infra"),
+    "Picture Frame 122 - Sewer CrossWay": LocData(0x507A, "Burramudgee Town - Infra"),
+    "Picture Frame 123 - Sewer CrossWay": LocData(0x507B, "Burramudgee Town - Infra"),
+    "Picture Frame 124 - Sewer CrossWay Dead End": LocData(0x507C, "Burramudgee Town - Infra"),
+    "Picture Frame 125 - Sewer CrossWay Dead End": LocData(0x507D, "Burramudgee Town - Infra"),
+    "Picture Frame 126 - Sewer CrossWay Dead End": LocData(0x507E, "Burramudgee Town - Infra"),
+    "Picture Frame 127 - Sewer Steve": LocData(0x507F, "Burramudgee Town - Infra"),
+    "Picture Frame 128 - Sewer CrossWay": LocData(0x5080, "Burramudgee Town - Infra"),
+    "Picture Frame 129 - Sewer CrossWay": LocData(0x5081, "Burramudgee Town - Infra"),
+    "Picture Frame 130 - Sewer CrossWay": LocData(0x5082, "Burramudgee Town - Infra"),
+    "Picture Frame 131 - Sewer CrossWay": LocData(0x5083, "Burramudgee Town - Infra"),
+    "Picture Frame 132 - Sewer CrossWay": LocData(0x5084, "Burramudgee Town - Infra"),
+    "Picture Frame 133 - Sewer Entrance": LocData(0x5085, "Burramudgee Town - Infra"),
+    "Picture Frame 134 - Sewer Grid": LocData(0x5086, "Burramudgee Town - Infra"),
+    "Picture Frame 135 - Sewer Grid": LocData(0x5087, "Burramudgee Town - Infra"),
+    "Picture Frame 136 - Sewer Steve": LocData(0x5088, "Burramudgee Town - Infra"),
+    "Picture Frame 137 - Sewer Grid": LocData(0x5089, "Burramudgee Town - Infra"),
+    "Picture Frame 138 - HQ Balcony Boxes": LocData(0x508A, "Burramudgee HQ"),
+    "Picture Frame 139 - HQ Balcony Boxes": LocData(0x508B, "Burramudgee HQ"),
+    "Picture Frame 140 - HQ Balcony Boxes": LocData(0x508C, "Burramudgee HQ"),
+    "Picture Frame 141 - HQ Balcony Boxes": LocData(0x508D, "Burramudgee HQ"),
+    "Picture Frame 142 - HQ Balcony Boxes": LocData(0x508E, "Burramudgee HQ"),
+    "Picture Frame 143 - HQ Balcony Boxes": LocData(0x508F, "Burramudgee HQ"),
+    "Picture Frame 144 - HQ Balcony Boxes": LocData(0x5090, "Burramudgee HQ"),
+    "Picture Frame 145 - HQ Balcony Boxes": LocData(0x5091, "Burramudgee HQ"),
+    "Picture Frame 146 - HQ Balcony Boxes": LocData(0x5092, "Burramudgee HQ"),
+    "Picture Frame 147 - HQ Balcony Boxes": LocData(0x5093, "Burramudgee HQ"),
+    "Picture Frame 148 - HQ Balcony Boxes": LocData(0x5094, "Burramudgee HQ"),
+    "Picture Frame 149 - HQ Balcony Boxes": LocData(0x5095, "Burramudgee HQ"),
+    "Picture Frame 150 - HQ Balcony Boxes": LocData(0x5096, "Burramudgee HQ"),
+    "Picture Frame 151 - HQ Balcony Boxes": LocData(0x5097, "Burramudgee HQ"),
+    "Picture Frame 152 - HQ Balcony Boxes": LocData(0x5098, "Burramudgee HQ"),
+    "Picture Frame 153 - HQ Warparang Tutorial": LocData(0x5099, "Burramudgee HQ"),#Smasharang
+    "Picture Frame 154 - HQ Warparang Tutorial": LocData(0x509A, "Burramudgee HQ"),#Smasharang
+    "Picture Frame 155 - HQ Warparang Tutorial": LocData(0x509B, "Burramudgee HQ"),#Smasharang
+    "Picture Frame 156 - HQ Hanger Boxes": LocData(0x509C, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 157 - HQ Hanger Boxes": LocData(0x509D, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 158 - HQ Hanger Boxes": LocData(0x509E, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 159 - HQ Roof Box": LocData(0x509F, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 160 - HQ Roof Box": LocData(0x50A0, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 161 - HQ Roof Box": LocData(0x50A1, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 162 - HQ Roof Box": LocData(0x50A2, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 163 - HQ Roof Box": LocData(0x50A3, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 164 - HQ Meeting Room Box": LocData(0x50A4, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 165 - HQ Meeting Room Box": LocData(0x50A5, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 166 - HQ Meeting Room Box": LocData(0x50A6, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 167 - HQ Meeting Room Box": LocData(0x50A7, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 168 - HQ Meeting Room Box": LocData(0x50A8, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 169 - HQ Hanger Boxes": LocData(0x50A9, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 170 - HQ Hanger Boxes": LocData(0x50AA, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 171 - HQ Hanger Boxes": LocData(0x50AB, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 172 - HQ Hanger Boxes": LocData(0x50AC, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 173 - HQ Hanger Boxes": LocData(0x50AD, "Burramudgee HQ - Crates"),#Smasharang
+    "Picture Frame 174 - Sulpher Start": LocData(0x50AE, "Sulphur Rocks"),
 }
 
 race_dict: Dict[str, LocData] = {
@@ -513,6 +513,7 @@ mission_dict: Dict[str, LocData] = {
     # "TEXT_MISSION_77_DESC": LocData(0x6d00004d, "", 77),
     # "TEXT_MISSION_78_DESC": LocData(0x6d00004e, "", 78),
     # "TEXT_MISSION_79_DESC": LocData(0x6d00004f, "", 79),
+    "Near Freeway Julius Training": LocData(0x6d000058, "Sr - Training Freeway", 88), # nned sr - traing freeway
     "Bush Rescue Training Program": LocData(0x6d000055, "Burramudgee HQ", 85), #
     "That's A Croc": LocData(0x6d000062, "Burramudgee Town", 98),
     "Patchy": LocData(0x6d000050, "Patchy", 80),

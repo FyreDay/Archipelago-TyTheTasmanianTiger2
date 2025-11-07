@@ -204,8 +204,8 @@ def get_rules(world):
                 can_swing(world, state),
             "Bilby 22": lambda state:
                 can_burn(world, state),
-            "Bilby 23": lambda state:
-                can_burn(world, state),
+            # "Bilby 23": lambda state:
+            #     can_burn(world, state),
             #Frills
             "Disguised Frill 1": lambda state:
                 has_infra(world, state)
@@ -292,6 +292,12 @@ def get_rules(world):
                 can_swing(world, state),
             "Picture Frame 62": lambda state:
                 can_swing(world, state),
+            "Picture Frame 153": lambda state:
+            can_smash_crate(world, state) and can_tp(world, state),
+            "Picture Frame 154": lambda state:
+            can_smash_crate(world, state) and can_tp(world, state),
+            "Picture Frame 155": lambda state:
+            can_smash_crate(world, state) and can_tp(world, state),
         },
         "entrances": {
             "Burramudgee HQ -> Infra":
