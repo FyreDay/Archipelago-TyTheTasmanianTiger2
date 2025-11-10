@@ -120,7 +120,7 @@ class Ty2World(World):
         # result = randomize_entrances(self, True, {0: [0]})
 
     def create_item(self, item: str) -> Ty2Item:
-        return Ty2Item(item, ItemClassification.useful, self.item_name_to_id[item], self.player)
+        return Ty2Item(item, full_item_dict[item].classification, self.item_name_to_id[item], self.player)
 
     def create_items(self):
         create_ty2_items(self)
