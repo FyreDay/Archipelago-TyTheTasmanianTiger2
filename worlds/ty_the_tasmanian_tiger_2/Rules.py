@@ -128,136 +128,134 @@ def get_rules(world):
             "Complete Ripper Nipper": lambda state:
                 state.has("Wobbygon Bay ParkingBay", world.player) and state.has("Ripper Nipper ParkingBay", world.player),
             #Cogs
-            "Platinum Cog 1": lambda state:
+            "Outback Oasis Cog 1 - Dunny Rock Wall": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 3": lambda state:
+            "Outback Oasis Cog 3 - Near Trampoline": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 5": lambda state:
+            "Never Never Cog 5 - Vanishing Platforms": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 11": lambda state:
+            "Never Never Cog 11 - Lava Chill Out": lambda state:
             (can_swing(world, state)  or can_cold(world, state)) and state.has("Thermo Bunyip Key", world.player),
-            "Platinum Cog 16": lambda state:
-                has_infra(world, state),
-            "Platinum Cog 17": lambda state:
-                can_swing(world, state),
-            "Platinum Cog 19": lambda state:
+            "Never Never Cog 19 - End Wall": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 20 - End of Level": lambda state:
+            "Faire Dinkum Cog 20 - End of Level": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 23 - Snake Eyes Challenge": lambda state:
+            "Sulphur Rocks Cog 23 - Snake Eyes Challenge": lambda state:
                 can_freeze(world, state),
-            "Platinum Cog 24 - Boulder Lift": lambda state:
+            "Sulphur Rocks Cog 24 - Boulder Lift": lambda state:
                 state.has("Lifter Bunyip Key", world.player),
-            "Platinum Cog 26": lambda state:
+            "Sulphur Rocks Cog 26": lambda state:
                 can_swing(world, state),
-            "Platinum Cog 31": lambda state:
+            "Sulphur Rocks Cog 31": lambda state:
                 can_tp(world, state),
-            "Platinum Cog 33 - Rope Timer Race": lambda state:
+            "Burramudgee Cog 33 - Rope Timer Race": lambda state:
                 can_smash_crate(world, state),
-            "Platinum Cog 34 - On Haunted Mansion": lambda state:
+            "Burramudgee Cog 34 - On Haunted Mansion": lambda state:
                 has_infra(world, state),
-            "Platinum Cog 37": lambda state:
+            "MountBoom Cog 37": lambda state:
                 can_tp(world, state),
-            "Platinum Cog 39": lambda state:
+            "MountBoom Cog 39": lambda state:
                 can_tp(world, state),
-            "Platinum Cog 41": lambda state:
+            "Wetlands Cog 41 - Rock Wall": lambda state:
                 can_smash_wall(world, state),
-            "Platinum Cog 44": lambda state:
+            "Wetlands Cog 44 - Bunyip": lambda state:
                 can_burn(world, state),
             #Orbs
-            "Kromium Orb 0 - High Above Burramudgee": lambda state:
+            "Burramudgee Orb 0 - High Above Burramudgee": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 2 - Swinging Over the Pond": lambda state:
+            "Sulphur Rocks Orb 2 - Swinging Over the Pond": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 3 - Sulphur Lava": lambda state:
+            "Sulphur Rocks Orb 3 - Sulphur Lava": lambda state:
                 can_swing(world, state)  or can_freeze(world, state),
-            "Kromium Orb 7": lambda state:
+            "MountBoom Orb 7": lambda state:
                 can_tp(world, state) and can_smash_wall(world, state),
-            "Kromium Orb 9": lambda state:
+            "Outback Oasis Orb 9 - Super Frill Beat Up": lambda state:
                 can_smash_wall(world, state),
-            "Kromium Orb 13": lambda state:
+            "Sulphur Rocks Orb 13": lambda state:
                 has_infra(world, state),
-            "Kromium Orb 14 - On Invisible Platforms": lambda state:
+            "Sulphur Rocks Orb 14 - On Invisible Platforms": lambda state:
                 has_infra(world, state) or (world.options.require_infra.value != 0),
-            "Kromium Orb 15": lambda state:
+            "Never Never Orb 15 - Behind Wall": lambda state:
                 can_smash_wall(world, state),
-            "Kromium Orb 16": lambda state:
+            "Never Never Orb 16 - In Trees": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 22": lambda state:
+            "Wetlands Orb 22 - Crocs": lambda state:
                 can_swing(world, state),
-            "Kromium Orb 25": lambda state:
-                can_swing(world, state),
-            "Kromium Orb 27 - Frosty Tutorial": lambda state:
+            "Dennis Freeway Orb 25": lambda state:
+                can_tp(world, state),
+            "Burramudgee Orb 27 - Frosty Tutorial": lambda state:
                 can_freeze(world, state),
             #Bilbies
-            "Bilby 0": lambda state:
+            "Outback Oasis Bilby 0 - Trampoline": lambda state:
                 can_smash_wall(world,state),
-            "Bilby 4": lambda state:
+            "Never Never Bilby 4 - Lava Chill Out": lambda state:
                 can_swing(world, state) or can_cold(world, state),
-            "Bilby 15": lambda state:
+            "Faire Dinkum Bilby 15": lambda state:
                 has_infra(world, state) or (world.options.require_infra.value != 0),
-            "Bilby 16": lambda state:
+            "Frill Neck Bilby 16 - End Trunk": lambda state:
                 can_swing(world, state),
-            "Bilby 18": lambda state:
+            "MountBoom Bilby 18 - Beginning": lambda state:
                 can_swing(world, state) and state.has("Thermo Bunyip Key", world.player),
-            "Bilby 19": lambda state:
+            "MountBoom Bilby 19 - Warp": lambda state:
                 can_swing(world, state),
-            "Bilby 21": lambda state:
+            "Wetlands Bilby 21 - Webbed": lambda state:
+                can_burn(world, state),
+            "Wetlands Bilby 22 - Bunyip": lambda state:
                 can_burn(world, state),
             #Frills
-            "Disguised Frill 0": lambda state:
+            "Outback Oasis Frill 0 - By Bunyip": lambda state:
                 has_infra(world, state)
                 and state.can_reach_region("Burramudgee Town", world.player)
                 and can_smash_wall(world, state),
-            "Disguised Frill 1": lambda state:
+            "Outback Oasis Frill 1 - Start": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 2": lambda state:
+            "Outback Oasis Frill 2 - Cave Overlook": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 3": lambda state:
+            "Outback Oasis Frill 3 - By Wall": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 4": lambda state:
+            "Never Never Frill 4 - Rocky Road": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 5": lambda state:
+            "Never Never Frill 5 - Vine Climb": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 6": lambda state:
+            "Wetlands Frill 6 - By Button": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 7": lambda state:
+            "Wetlands Frill 7 - Crocs": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 8 - Under Walkway": lambda state:
+            "Faire Dinkum Frill 8 - Under Walkway": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 9 - Sulpher Start": lambda state:
+            "Sulphur Rocks Frill 9 - Start": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 10 - In Hole": lambda state:
+            "Sulphur Rocks Frill 10 - In Hole": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 11 - Behind Fence": lambda state:
+            "Sulphur Rocks Frill 11 - Behind Fence": lambda state:
                 has_infra(world, state)
                 and state.can_reach_region("Burramudgee Town", world.player)
                 and can_swing(world, state),
-            "Disguised Frill 12 - Near Police": lambda state:
+            "Burramudgee Frill 12 - Near Police": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 13 - Near Canal": lambda state:
+            "Burramudgee Frill 13 - Near Canal": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 14": lambda state:
+            "Dennis Freeway - Disguised Frill 14": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 15": lambda state:
+            "Outback Oasis Frill 15 - Picnik": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 16": lambda state:
+            "50 Foot Squeaver Frill 16": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 17": lambda state:
+            "Lake Burramudgee Frill 17": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 18": lambda state:
+            "Frill Neck Frill 18": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 19": lambda state:
+            "Truck Tragedy Frill 19": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 20": lambda state:
+            "Never Never Frill 20 - Never Never Entrance": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 21": lambda state:
+            "Sheep Dip Frill 21": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 22": lambda state:
+            "Frill Neck Frill 22": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 23": lambda state:
+            "MountBoom Frill 23": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Disguised Frill 24": lambda state:
+            "MountBoom Frill 24": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
 
             #Steves
@@ -266,35 +264,35 @@ def get_rules(world):
             "Steve - MountBoom": lambda state:
                 state.has("Thermo Bunyip Key", world.player),
             #Frames
-            "Picture Frame 0": lambda state:
+            "Outback Oasis Frame 0 - Warp": lambda state:
                 can_tp(world, state),
-            "Picture Frame 1": lambda state:
+            "Outback Oasis Frame 1 - Warp": lambda state:
                 can_tp(world, state),
-            "Picture Frame 2": lambda state:
+            "Outback Oasis Frame 2 - Warp": lambda state:
                 can_tp(world, state),
-            "Picture Frame 4": lambda state:
+            "Never Never Frame 4 - In Trees": lambda state:
                 can_swing(world, state),
-            "Picture Frame 6": lambda state:
+            "Never Never Frame 6 - Lava Chill Out": lambda state:
                 can_swing(world, state) or can_cold(world, state),
-            "Picture Frame 12": lambda state:
+            "Never Never Frame 12 - Dennis Rock Wall": lambda state:
                 can_smash_wall(world, state),
-            "Picture Frame 30 - Smash Wall": lambda state:
+            "Faire Dinkum Frame 30 - Smash Wall": lambda state:
                 can_smash_wall(world, state),
-            "Picture Frame 31 - Smash Wall": lambda state:
+            "Faire Dinkum Frame 31 - Smash Wall": lambda state:
                 can_smash_wall(world, state),
-            "Picture Frame 35 - Behind Fence": lambda state:
+            "Sulphur Rocks Frame 35 - Behind Fence": lambda state:
                 can_swing(world, state),
-            "Picture Frame 36 - Behind Fence": lambda state:
+            "Sulphur Rocks Frame 36 - Behind Fence": lambda state:
                 can_swing(world, state),
-            "Picture Frame 37 - Behind Fence": lambda state:
+            "Sulphur Rocks Frame 37 - Behind Fence": lambda state:
                 can_swing(world, state),
-            "Picture Frame 61": lambda state:
+            "MountBoom Frame 61 - End": lambda state:
                 can_swing(world, state),
-            "Picture Frame 153 - HQ Warparang Tutorial": lambda state:
+            "Burramudgee Frame 153 - HQ Warparang Tutorial": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
-            "Picture Frame 154 - HQ Warparang Tutorial": lambda state:
+            "Burramudgee Frame 154 - HQ Warparang Tutorial": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
-            "Picture Frame 155 - HQ Warparang Tutorial": lambda state:
+            "Burramudgee Frame 155 - HQ Warparang Tutorial": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
         },
         "entrances": {
