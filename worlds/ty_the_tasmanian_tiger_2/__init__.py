@@ -63,11 +63,6 @@ class Ty2World(World):
 
     def generate_early(self) -> None:
 
-        # UT Stuff Here
-        self.handle_ut_yamless(None)
-
-        self.locations = create_ty2_locations(self)
-
         min_price, max_price = 1000, 3000
         if self.options.shop_difficulty.value == 1:
             min_price, max_price = 1000, 5000
@@ -102,13 +97,20 @@ class Ty2World(World):
         self.cog_prices = self.generate_shop(10, 50, min_price, max_price)
         self.cog_prices.sort()
 
-        min_price, max_price = 3, 6
+        min_price, max_price = 2, 6
         if self.options.shop_difficulty.value == 1:
-            min_price, max_price = 5, 8
+            min_price, max_price = 3, 8
         elif self.options.shop_difficulty.value == 2:
-            min_price, max_price = 7, 10
+            min_price, max_price = 4, 10
         self.orb_prices = self.generate_shop(3, 30, min_price, max_price)
         self.orb_prices.sort()
+
+        # UT Stuff Here
+        self.handle_ut_yamless(None)
+
+        self.locations = create_ty2_locations(self)
+
+
 
     def create_regions(self):
         create_ty2_regions(self, self.locations)
