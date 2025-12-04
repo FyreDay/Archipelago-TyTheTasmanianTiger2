@@ -1,11 +1,11 @@
 from typing import ClassVar, Dict, Optional, Any
 
-from BaseClasses import Tutorial, Item, ItemClassification, CollectionState, Location
+from BaseClasses import Tutorial, Item, ItemClassification, CollectionState, Location, LocationProgressType
 from Utils import visualize_regions
 from entrance_rando import disconnect_entrance_for_randomization, randomize_entrances
 from worlds.AutoWorld import WebWorld, World
 from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items, full_item_dict, Ty2Item, junk_weights
-from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations, full_location_dict
+from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations, full_location_dict, disguised_frill_dict, Ty2Location
 from worlds.ty_the_tasmanian_tiger_2.Options import ty2_option_groups, Ty2Options
 from worlds.ty_the_tasmanian_tiger_2.Regions import create_ty2_regions, connect_ty2_regions
 from worlds.ty_the_tasmanian_tiger_2.Rules import set_rules
@@ -54,7 +54,7 @@ class Ty2World(World):
 
         self.rang_prices = []
         self.sly_prices = []
-        self.cop_prices = []
+        self.trader_bob_prices = []
 
         self.cog_prices = []
         self.orb_prices = []
@@ -91,8 +91,8 @@ class Ty2World(World):
         elif self.options.shop_difficulty.value == 2:
             min_price, max_price = 4000, 7500
 
-        self.cop_prices = self.generate_shop(5, 1000000, min_price, max_price)
-        self.cop_prices.sort()
+        self.trader_bob_prices = self.generate_shop(5, 1000000, min_price, max_price)
+        self.trader_bob_prices.sort()
 
         min_price, max_price = 1, 3
         if self.options.shop_difficulty.value == 1:
@@ -113,6 +113,12 @@ class Ty2World(World):
     def create_regions(self):
         create_ty2_regions(self, self.locations)
         connect_ty2_regions(self)
+        if self.options.frill_sanity:
+            for name, loc_data in disguised_frill_dict.items():
+                region = self.multiworld.get_region(loc_data.region, self.player)
+                loc = Ty2Location(self.player, f"Found {name}", None, region)
+                loc.place_locked_item(Ty2Item("Disguised Frill Found", ItemClassification.progression, None, self.player))
+                region.locations.append(loc)
 
 
     def connect_entrances(self) -> None:
@@ -130,7 +136,6 @@ class Ty2World(World):
 
         self.push_precollected(Item("Boomerang", ItemClassification.progression,
                                         self.item_name_to_id["Boomerang"], self.player))
-
 
         if self.options.start_with_maps.value:
             self.push_precollected(Item("Missing Persons Map", ItemClassification.useful,
@@ -160,7 +165,7 @@ class Ty2World(World):
 
     def fill_slot_data(self) -> id:
         return {
-            "ModVersion": "0.1.2",
+            "ModVersion": "0.1.3",
             "Goal": self.options.goal.value,
             "MissionsToGoal": self.options.missions_for_goal.value,
             "SkipCurrawong" : self.options.skip_currawong.value,
@@ -171,7 +176,7 @@ class Ty2World(World):
             "ShopDifficulty": self.options.shop_difficulty.value,
             "RangPrices": self.rang_prices,
             "SlyPrices": self.sly_prices,
-            "CopPrices": self.cop_prices,
+            "TraderBobPrices": self.trader_bob_prices,
             "CogPrices": self.cog_prices,
             "OrbPrices": self.orb_prices,
             "ExtraCogs": self.options.extra_cogs.value,
@@ -228,7 +233,7 @@ class Ty2World(World):
         self.options.shop_difficulty.value = slot_data["ShopDifficulty"]
         self.rang_prices = slot_data["RangPrices"]
         self.sly_prices = slot_data["SlyPrices"]
-        self.cop_prices = slot_data["CopPrices"]
+        self.trader_bob_prices = slot_data["CopPrices"]
         self.cog_prices = slot_data["CogPrices"]
         self.orb_prices = slot_data["OrbPrices"]
         self.options.extra_cogs.value = slot_data["ExtraCogs"]

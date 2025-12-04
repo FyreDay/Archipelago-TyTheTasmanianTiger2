@@ -94,7 +94,7 @@ def add_mission_complete_events(world):
             location = world.multiworld.get_location(mission_name, world.player)
             event_item = Ty2Item(item_name, ItemClassification.progression, None, world.player)
             location.place_locked_item(event_item)
-            count+=1
+            count += 1
         except KeyError:
             print(f"Location {mission_name} not found in multiworld, skipping.")
     return count
@@ -207,9 +207,7 @@ parking_bays: Dict[str, ItemData] = {
     "Fluffy ParkingBay": ItemData(3691, ItemClassification.progression), #fluffy
     "Faire Dinkum ParkingBay": ItemData(3954, ItemClassification.progression), #fluffy
     "Wetlands ParkingBay": ItemData(3277, ItemClassification.progression), #fluffy
-
-
-    "Dusty Barrows ParkingBay": ItemData(4046, ItemClassification.progression), #patchy
+    "Dusty Burrows ParkingBay": ItemData(4046, ItemClassification.progression), #patchy
     "Ripper Nipper ParkingBay": ItemData(3972, ItemClassification.progression), ##Buster NEED TO ADD (lotion mission)
 }
 

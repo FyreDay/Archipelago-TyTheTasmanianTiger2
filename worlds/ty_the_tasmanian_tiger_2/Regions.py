@@ -2,6 +2,8 @@ from typing import Dict
 
 from BaseClasses import Region, Location, Entrance
 
+from worlds.ty_the_tasmanian_tiger_2.Locations  import create_locations
+
 ty1_levels: Dict[str, str] = {
     "z1": "Burramudgee HQ",
     "z2": "Burramudgee Town",
@@ -47,23 +49,7 @@ ty1_levels: Dict[str, str] = {
     "r6": "Never Never Road",
     "r7": "Outback Dash",
     "r9": "Turbo Track",
-
-
-
 }
-
-def create_location(world, region, name: str, code: int):
-    location = Location(world.player, name, code, region)
-    region.locations.append(location)
-
-def create_locations(world, region, loc_dict):
-    for (key, data) in loc_dict.items():
-        if data.region != region.name:
-            continue
-        create_location(world, region, key, data.code)
-
-
-
 
 def create_region(world, name: str, location_dict):
     region = Region(name, world.player, world.multiworld)
@@ -154,7 +140,7 @@ def create_ty2_regions(world, location_dict):
     create_region(world, "SR - King Squeaver", location_dict)
     create_region(world, "SR - Hearty Beach", location_dict)
     create_region(world, "SR - Truck Stop", location_dict)
-    create_region(world, "SR - Dusty Barrows", location_dict)
+    create_region(world, "SR - Dusty Burrows", location_dict)
 
 
 def connect_regions(world, from_name: str, to_name: str, entrance_name: str, entrance_group = 0, two_way = False) -> Entrance:
@@ -163,7 +149,7 @@ def connect_regions(world, from_name: str, to_name: str, entrance_name: str, ent
     entrance = entrance_region.connect(exit_region, entrance_name)
     entrance.randomization_group = entrance_group
     if two_way:
-        entrance = exit_region.connect(entrance_region, entrance_name+" Backwards")
+        entrance = exit_region.connect(entrance_region, entrance_name + " Backwards")
     # if entrance.randomization_group == 0:
     #     world.disconnect_entrance_for_randomization(entrance)
     return entrance
@@ -216,8 +202,8 @@ def connect_ty2_regions(world):
                     "Lake Burramudgee ParkingBay", 1)  # 3686
     connect_regions(world, "SR - Lake Burramudgee", "Lake Burramudgee",
                     "Lake Burramudgee Connector")
-    connect_regions(world, "Southern Rivers - Burramudgee", "SR - Dusty Barrows",
-                    "Dusty Barrows ParkingBay")
+    connect_regions(world, "Southern Rivers - Burramudgee", "SR - Dusty Burrows",
+                    "Dusty Burrows ParkingBay")
 
     #Prawn
     connect_regions(world, "Southern Rivers - Prawn", "SR - Freeway Training Grounds",
