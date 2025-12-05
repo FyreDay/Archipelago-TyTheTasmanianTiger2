@@ -34,9 +34,9 @@ def create_ty2_items(world):
     starting_items = ["Burramudgee Town ParkingBay"]
 
     total_location_count = len(world.multiworld.get_unfilled_locations(world.player))
-    print(total_location_count)
+    # print(total_location_count)
     total_location_count -= add_mission_complete_events(world)
-    print(total_location_count)
+    # print(total_location_count)
 
     for item_name, item_data in get_rangs(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
