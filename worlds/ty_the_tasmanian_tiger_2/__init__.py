@@ -235,7 +235,7 @@ class Ty2World(World):
         self.options.shop_difficulty.value = slot_data["ShopDifficulty"]
         self.rang_prices = slot_data["RangPrices"]
         self.sly_prices = slot_data["SlyPrices"]
-        self.trader_bob_prices = slot_data["CopPrices"]
+        self.trader_bob_prices = slot_data["TraderBobPrices"]
         self.cog_prices = slot_data["CogPrices"]
         self.orb_prices = slot_data["OrbPrices"]
         self.options.extra_cogs.value = slot_data["ExtraCogs"]
