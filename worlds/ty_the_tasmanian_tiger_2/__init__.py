@@ -167,7 +167,7 @@ class Ty2World(World):
 
     def fill_slot_data(self) -> id:
         return {
-            "ModVersion": "0.1.4",
+            "ModVersion": "0.1.5",
             "Goal": self.options.goal.value,
             "MissionsToGoal": self.options.missions_for_goal.value,
             "SkipCurrawong" : self.options.skip_currawong.value,
