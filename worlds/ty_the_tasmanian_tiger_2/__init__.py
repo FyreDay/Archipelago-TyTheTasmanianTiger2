@@ -159,15 +159,15 @@ class Ty2World(World):
     def set_rules(self):
         set_rules(self)
 
-    def generate_output(self, output_directory: str):
-        visualize_regions(self.multiworld.get_region("Menu", self.player), f"Player{self.player}.puml",
-                          show_entrance_names=True,
-                          regions_to_highlight=self.multiworld.get_all_state(self.player).reachable_regions[
-                              self.player])
+    # def generate_output(self, output_directory: str):
+    #     visualize_regions(self.multiworld.get_region("Menu", self.player), f"Player{self.player}.puml",
+    #                       show_entrance_names=True,
+    #                       regions_to_highlight=self.multiworld.get_all_state(self.player).reachable_regions[
+    #                           self.player])
 
     def fill_slot_data(self) -> id:
         return {
-            "ModVersion": "0.1.3",
+            "ModVersion": "0.1.4",
             "Goal": self.options.goal.value,
             "MissionsToGoal": self.options.missions_for_goal.value,
             "SkipCurrawong" : self.options.skip_currawong.value,

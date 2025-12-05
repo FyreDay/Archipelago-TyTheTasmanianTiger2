@@ -34,6 +34,8 @@ def create_ty2_locations(world):
     if world.options.frame_sanity.value:
         all_locations.update(picture_frame_dict)
 
+    if world.options.skip_currawong.value == 1:
+        del all_locations["Currawong Jail Break"]
     return all_locations
 
 shop_location_dict: Dict[str, LocData] = {
@@ -447,6 +449,7 @@ def get_mission_complete_events(world):
         complete_mission_dict["Beat Patchy"] = LocData(None, "Patchy", 980)
         complete_mission_dict["Beat Fluffy"] = LocData(None, "Fluffy's Fortress", 981)
         complete_mission_dict["Beat Buster"] = LocData(None, "Buster the Nanobot Boss", 982)
+
     return complete_mission_dict
 
 mission_dict: Dict[str, LocData] = {
