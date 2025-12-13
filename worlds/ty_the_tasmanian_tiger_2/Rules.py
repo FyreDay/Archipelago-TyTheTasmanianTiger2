@@ -89,6 +89,8 @@ def get_rules(world):
                 state.has("Sub Bunyip Key", world.player),
             "Sea Lab": lambda state:
                 state.has("Sub Bunyip Key", world.player),
+            "Snake Eyes": lambda state:
+                can_freeze(world, state),
             "Oil Rig Fire": lambda state:
                 state.has("Thermo Bunyip Key", world.player),
             "Truck Tragedy": lambda state:
@@ -116,10 +118,14 @@ def get_rules(world):
                 can_smash_wall(world, state),
             "Faire Dinkum Cog 20 - End of Level": lambda state:
                 can_smash_wall(world, state),
+            "Faire Dinkum Cog 21 - Smash Wall": lambda state:
+                can_smash_wall(world, state),
             "Sulphur Rocks Cog 23 - Snake Eyes Challenge": lambda state:
                 can_freeze(world, state),
             "Sulphur Rocks Cog 24 - Boulder Lift": lambda state:
                 state.has("Lifter Bunyip Key", world.player),
+            "Sulphur Rocks Cog 25 - Swinging Around": lambda state:
+                can_swing(world, state),
             "Sulphur Rocks Cog 26": lambda state:
                 can_swing(world, state),
             "Sulphur Rocks Cog 31": lambda state:
@@ -129,6 +135,8 @@ def get_rules(world):
             "Burramudgee Cog 34 - On Haunted Mansion": lambda state:
                 has_infra(world, state),
             "MountBoom Cog 37": lambda state:
+                can_tp(world, state),
+            "MountBoom Cog 38": lambda state:
                 can_tp(world, state),
             "MountBoom Cog 39": lambda state:
                 can_tp(world, state),
@@ -142,15 +150,11 @@ def get_rules(world):
             "Sulphur Rocks Orb 2 - Swinging Over the Pond": lambda state:
                 can_swing(world, state),
             "Sulphur Rocks Orb 3 - Sulphur Lava": lambda state:
-                can_swing(world, state)  or can_freeze(world, state),
+                can_swing(world, state) and can_freeze(world, state),
             "MountBoom Orb 7": lambda state:
                 can_tp(world, state) and can_smash_wall(world, state),
             "Outback Oasis Orb 9 - Super Frill Beat Up": lambda state:
                 can_smash_wall(world, state),
-            "Sulphur Rocks Orb 13": lambda state:
-                has_infra(world, state),
-            "Sulphur Rocks Orb 14 - On Invisible Platforms": lambda state:
-                has_infra(world, state) or (world.options.require_infra.value != 0),
             "Never Never Orb 15 - Behind Wall": lambda state:
                 can_smash_wall(world, state),
             "Never Never Orb 16 - In Trees": lambda state:
@@ -172,14 +176,12 @@ def get_rules(world):
                 can_smash_wall(world,state),
             "Never Never Bilby 4 - Lava Chill Out": lambda state:
                 can_swing(world, state) or can_cold(world, state),
-            "Faire Dinkum Bilby 15": lambda state:
-                has_infra(world, state) or (world.options.require_infra.value != 0),
             "Frill Neck Bilby 16 - End Trunk": lambda state:
                 can_swing(world, state),
             "MountBoom Bilby 18 - Beginning": lambda state:
                 can_swing(world, state) and state.has("Thermo Bunyip Key", world.player),
             "MountBoom Bilby 19 - Warp": lambda state:
-                can_swing(world, state),
+                can_tp(world, state),
             "Wetlands Bilby 21 - Webbed": lambda state:
                 can_burn(world, state),
             "Wetlands Bilby 22 - Bunyip": lambda state:
@@ -221,7 +223,7 @@ def get_rules(world):
                 has_infra(world, state),
             "Outback Oasis Frill 15 - Picnic": lambda state:
                 has_infra(world, state),
-            "50 Foot Squeaver Frill 16": lambda state:
+            "Dusty Burrows Frill 16": lambda state:
                 has_infra(world, state),
             "Lake Burramudgee Frill 17": lambda state:
                 has_infra(world, state),
@@ -236,7 +238,7 @@ def get_rules(world):
             "Frill Neck Frill 22": lambda state:
                 has_infra(world, state),
             "MountBoom Frill 23": lambda state:
-                has_infra(world, state),
+                has_infra(world, state) and state.has("Thermo Bunyip Key", world.player),
             "MountBoom Frill 24": lambda state:
                 has_infra(world, state),
             #Steves
@@ -257,6 +259,8 @@ def get_rules(world):
                 can_swing(world, state) or can_cold(world, state),
             "Never Never Frame 12 - Dennis Rock Wall": lambda state:
                 can_smash_wall(world, state),
+            "Never Never Frame 13 - Swinging Under": lambda state:
+                can_swing(world, state),
             "Faire Dinkum Frame 30 - Smash Wall": lambda state:
                 can_smash_wall(world, state),
             "Faire Dinkum Frame 31 - Smash Wall": lambda state:
@@ -287,6 +291,8 @@ def get_rules(world):
                 state.can_reach_location("Deep Sea Scare", world.player),
             "Complete Sea Lab": lambda state:
                 state.can_reach_location("Sea Lab", world.player),
+            "Complete Snake Eyes": lambda state:
+                state.can_reach_location("Snake Eyes", world.player),
             "Complete Oil Rig Fire": lambda state:
                 state.can_reach_location("Oil Rig Fire", world.player),
             "Complete Truck Tragedy": lambda state:
@@ -303,7 +309,7 @@ def get_rules(world):
         "entrances": {
             "Burramudgee HQ -> Infra":
                 lambda state: not world.options.require_infra
-                or has_infra(world, state),
+                              or has_infra(world, state),
             "Burramudgee HQ -> Crates":
                 lambda state: can_smash_crate(world, state),
             "Burramudgee Town -> Infra":
