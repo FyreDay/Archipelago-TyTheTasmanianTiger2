@@ -9,6 +9,7 @@ class LocData(NamedTuple):
     code: Optional[int]
     region: Optional[str]
     id: Optional[int] = -1
+    hint_info: Optional[str] = None
 
 def create_location(world, region, name: str, code: int):
     location = Location(world.player, name, code, region)
@@ -77,348 +78,347 @@ shop_location_dict: Dict[str, LocData] = {
     "Madam Mopoke's Orb Item 1": LocData(5, "Burramudgee Town"),
     "Madam Mopoke's Orb Item 2": LocData(6, "Burramudgee Town"),
     "Madam Mopoke's Orb Item 3": LocData(7, "Burramudgee Town"),
-
 }
 
 platinum_cog_dict: Dict[str, LocData] = {
-    "Never Never Cog 0 - Descending Platform": LocData(0x4300, "Never Never"),
-    "Outback Oasis Cog 1 - Dunny Rock Wall": LocData(0x4301, "Outback Oasis"), #smasharang
-    "Outback Oasis Cog 2 - Over Wall": LocData(0x4302, "Outback Oasis"),
-    "Outback Oasis Cog 3 - Near Trampoline": LocData(0x4303, "Outback Oasis"), #smasharang
-    "Outback Oasis Cog 4 - Platform Parkour": LocData(0x4304, "Outback Oasis"),
-    "Never Never Cog 5 - Vanishing Platforms": LocData(0x4305, "Never Never"), #smasharang
-    "Never Never Cog 6 - On Platform": LocData(0x4306, "Never Never"),
-    "Never Never Cog 7 - On Tree": LocData(0x4307, "Never Never"),
-    "Never Never Cog 8 - Hidden Button": LocData(0x4308, "Never Never"),
-    "Never Never Cog 9 - In Trees": LocData(0x4309, "Never Never"),
-    "Never Never Cog 10 - Tree Ladder": LocData(0x430A, "Never Never"),
-    "Never Never Cog 11 - Lava Chill Out": LocData(0x430B, "Never Never"),#thermo, lash, OR frosty
-    "Never Never Cog 12 - Hidden Flower": LocData(0x430C, "Never Never"),
-    "Never Never Cog 13 - Rocky Road": LocData(0x430D, "Never Never"),
-    "Never Never Cog 14 - Rope Slide": LocData(0x430E, "Never Never"),
-    "Never Never Cog 15 - Rope Race": LocData(0x430F, "Never Never"),
-    "Never Never Cog 16 - Hut Button Required": LocData(0x4310, "Never Never - Infra"), #infra
-    "Never Never Cog 17 - Hut": LocData(0x4311, "Never Never"), #lasharang
-    "Never Never Cog 18 - Moving Platform": LocData(0x4312, "Never Never"),
-    "Never Never Cog 19 - End Wall": LocData(0x4313, "Never Never"), #smasharang
-    "Faire Dinkum Cog 20 - End of Level": LocData(0x4314, "Faire Dinkum"), #smasharang
-    "Faire Dinkum Cog 21 - Smash Wall": LocData(0x4315, "Faire Dinkum"),
-    "Faire Dinkum Cog 22 - Long Ride In The Trees": LocData(0x4316, "Faire Dinkum"),
-    "Sulphur Rocks Cog 23 - Snake Eyes Challenge": LocData(0x4317, "Sulphur Rocks"), #frosty
-    "Sulphur Rocks Cog 24 - Boulder Lift": LocData(0x4318, "Sulphur Rocks"), #lifter bunyip key
-    "Sulphur Rocks Cog 25 - Swinging Around": LocData(0x4319, "Sulphur Rocks"), #lasharang
-    "Sulphur Rocks Cog 26": LocData(0x431A, "Sulphur Rocks"), #lasharang
-    "Sulphur Rocks Cog 27": LocData(0x431B, "Sulphur Rocks"),
-    "Sulphur Rocks Cog 28": LocData(0x431C, "Sulphur Rocks"),
-    "Sulphur Rocks Cog 29 - Beyond Saw": LocData(0x431D, "Sulphur Rocks"),
-    "Sulphur Rocks Cog 30 - Sulpher Start": LocData(0x431E, "Sulphur Rocks"),
-    "Sulphur Rocks Cog 31": LocData(0x431F, "Sulphur Rocks"), #warparang
-    "Burramudgee Cog 32 - Across the Camera Eggs": LocData(0x4320, "Burramudgee Town"),
-    "Burramudgee Cog 33 - Rope Timer Race": LocData(0x4321, "Burramudgee Town"),
-    "Burramudgee Cog 34 - On Haunted Mansion": LocData(0x4322, "Burramudgee Town"),
-    "Cass's Run Cog 35": LocData(0x4323, "Cass' Run"),
-    "Frill Neck Cog 36 - Start Trunk Glide": LocData(0x4324, "Frill Neck Forest"),
-    "MountBoom Cog 37": LocData(0x4325, "MountBoom"),#warparang thermo
-    "MountBoom Cog 38": LocData(0x4326, "MountBoom"),#warperang thermo
-    "MountBoom Cog 39": LocData(0x4327, "MountBoom"),#warparang thermo
-    "Wetlands Cog 40 - Button Platform": LocData(0x4328, "Wetlands"),
-    "Wetlands Cog 41 - Rock Wall": LocData(0x4329, "Wetlands"), #smasharang
-    "Wetlands Cog 42 - Timer": LocData(0x432A, "Wetlands"),
-    "Wetlands Cog 43 - Camera Eggs": LocData(0x432B, "Wetlands"),
-    "Wetlands Cog 44 - Bunyip": LocData(0x432C, "Wetlands"), #flamerang optional
-    "Wetlands Cog 45 - Crocs": LocData(0x432D, "Wetlands"),
-    "Wobbygon Cog 46 - Central Ocean": LocData(0x432E, "SR - Wobbygon Bay"),
-    "Wobbygon Cog 47 - In Seaweed": LocData(0x432F, "SR - Wobbygon Bay"),
-    "Wobbygon Cog 48 - Cassopolis": LocData(0x4330, "SR - Wobbygon Bay"),
-    "Burramudgee Cog 49 - Floating Above HQ": LocData(0x4331, "Burramudgee HQ - Infra"),
+    "Outback Oasis Cog 1":  LocData(0x4301, "Outback Oasis", hint_info="Dunny Rock Wall"), #smasharang
+    "Outback Oasis Cog 2":  LocData(0x4302, "Outback Oasis", hint_info="Over Wall"),
+    "Outback Oasis Cog 3":  LocData(0x4303, "Outback Oasis", hint_info="Near Trampoline"), #smasharang
+    "Outback Oasis Cog 4":  LocData(0x4304, "Outback Oasis", hint_info="Platform Parkour"),
+    "Never Never Cog 1":  LocData(0x4300, "Never Never", hint_info="Descending Platform"),
+    "Never Never Cog 2":  LocData(0x4305, "Never Never", hint_info="Vanishing Platforms"), #smasharang
+    "Never Never Cog 3":  LocData(0x4306, "Never Never", hint_info="On Platform"),
+    "Never Never Cog 4":  LocData(0x4307, "Never Never", hint_info="On Tree"),
+    "Never Never Cog 5":  LocData(0x4308, "Never Never", hint_info="Hidden Button"),
+    "Never Never Cog 6":  LocData(0x4309, "Never Never", hint_info="In Trees"),
+    "Never Never Cog 7":  LocData(0x430A, "Never Never", hint_info="Tree Ladder"),
+    "Never Never Cog 8":  LocData(0x430B, "Never Never", hint_info="Lava Chill Out"),#thermo, lash, OR frosty
+    "Never Never Cog 9":  LocData(0x430C, "Never Never", hint_info="Hidden Flower"),
+    "Never Never Cog 10":  LocData(0x430D, "Never Never", hint_info="Rocky Road"),
+    "Never Never Cog 11":  LocData(0x430E, "Never Never", hint_info="Rope Slide"),
+    "Never Never Cog 12":  LocData(0x430F, "Never Never", hint_info="Rope Race"),
+    "Never Never Cog 13":  LocData(0x4310, "Never Never - Infra", hint_info="Hut Button Required"), #infra
+    "Never Never Cog 14":  LocData(0x4311, "Never Never", hint_info="Hut"), #lasharang
+    "Never Never Cog 15":  LocData(0x4312, "Never Never", hint_info="Moving Platform"),
+    "Never Never Cog 16":  LocData(0x4313, "Never Never", hint_info="End Wall"), #smasharang
+    "Faire Dinkum Cog 1":  LocData(0x4314, "Faire Dinkum", hint_info="End of Level"), #smasharang
+    "Faire Dinkum Cog 2":  LocData(0x4315, "Faire Dinkum", hint_info="Smash Wall"),
+    "Faire Dinkum Cog 3":  LocData(0x4316, "Faire Dinkum", hint_info="Long Ride In The Trees"),
+    "Sulphur Rocks Cog 1":  LocData(0x4317, "Sulphur Rocks", hint_info="Snake Eyes Challenge"), #frosty
+    "Sulphur Rocks Cog 2":  LocData(0x4318, "Sulphur Rocks", hint_info="Boulder Lift"), #lifter bunyip key
+    "Sulphur Rocks Cog 3":  LocData(0x4319, "Sulphur Rocks", hint_info="Swinging Around"), #lasharang
+    "Sulphur Rocks Cog 4": LocData(0x431A, "Sulphur Rocks"), #lasharang
+    "Sulphur Rocks Cog 5": LocData(0x431B, "Sulphur Rocks"),
+    "Sulphur Rocks Cog 6": LocData(0x431C, "Sulphur Rocks"),
+    "Sulphur Rocks Cog 7":  LocData(0x431D, "Sulphur Rocks", hint_info="Beyond Saw"),
+    "Sulphur Rocks Cog 8":  LocData(0x431E, "Sulphur Rocks", hint_info="Sulphur Start"),
+    "Sulphur Rocks Cog 9":  LocData(0x431F, "Sulphur Rocks"), #warparang
+    "Burramudgee Cog 1":  LocData(0x4320, "Burramudgee Town", hint_info="Across the Camera Eggs"),
+    "Burramudgee Cog 2":  LocData(0x4321, "Burramudgee Town", hint_info="Rope Timer Race"),
+    "Burramudgee Cog 3":  LocData(0x4322, "Burramudgee Town", hint_info="On Haunted Mansion"),
+    "Burramudgee Cog 4":  LocData(0x4331, "Burramudgee HQ - Infra", hint_info="Floating Above HQ"),
+    "Cass' Run Cog": LocData(0x4323, "Cass' Run"),
+    "Frill Neck Cog":  LocData(0x4324, "Frill Neck Forest", hint_info="Start Trunk Glide"),
+    "Mount Boom Cog 2": LocData(0x4325, "Mount Boom"),#warparang thermo
+    "Mount Boom Cog 3": LocData(0x4326, "Mount Boom"),#warperang thermo
+    "Mount Boom Cog 4": LocData(0x4327, "Mount Boom"),#warparang thermo
+    "Wetlands Cog 1":  LocData(0x4328, "Wetlands", hint_info="Button Platform"),
+    "Wetlands Cog 2":  LocData(0x4329, "Wetlands", hint_info="Rock Wall"), #smasharang
+    "Wetlands Cog 3":  LocData(0x432A, "Wetlands", hint_info="Timer"),
+    "Wetlands Cog 4":  LocData(0x432B, "Wetlands", hint_info="Camera Eggs"),
+    "Wetlands Cog 5":  LocData(0x432C, "Wetlands", hint_info="Bunyip"), #flamerang optional
+    "Wetlands Cog 6":  LocData(0x432D, "Wetlands", hint_info="Crocs"),
+    "Wobbygon Cog 1":  LocData(0x432E, "SR - Wobbygon Bay", hint_info="Central Ocean"),
+    "Wobbygon Cog 2":  LocData(0x432F, "SR - Wobbygon Bay", hint_info="In Seaweed"),
+    "Wobbygon Cog 3":  LocData(0x4330, "SR - Wobbygon Bay", hint_info="Cassopolis"),
 }
 
 kromium_orb_dict: Dict[str, LocData] = {
-    "Burramudgee Orb 0 - High Above Burramudgee": LocData(0x4B00, "Burramudgee Town"),#lasharang
-    "Burramudgee Orb 1 - Above the Canal": LocData(0x4B01, "Burramudgee Town"),
-    "Sulphur Rocks Orb 2 - Swinging Over the Pond": LocData(0x4B02, "Sulphur Rocks"), #lasharang
-    "Sulphur Rocks Orb 3 - Sulphur Lava": LocData(0x4B03, "Sulphur Rocks"), #lasharang #frostyrang
-    "Sulphur Rocks Orb 4 - Exploding Pillars": LocData(0x4B04, "Sulphur Rocks"),
-    "Sulphur Rocks Orb 5 - Jumping Maze": LocData(0x4B05, "SR - Sulphur Rocks"),
-    "MountBoom Orb 6": LocData(0x4B06, "MountBoom"), #thermo
-    "MountBoom Orb 7": LocData(0x4B07, "MountBoom"),#warperang #thermo smash
-    "Wobbygon Orb 8 - Water Near Warps": LocData(0x4B08, "SR - Wobbygon Bay"),
-    "Outback Oasis Orb 9 - Super Frill Beat Up":  LocData(0x4B09, "Outback Oasis"), #smasharang
-    "Sly Orb 10 - Sly Shack": LocData(0x4B0A, "SR - Sly Shack"),
-    "Outback Oasis Orb 11 - Spinning Platforms": LocData(0x4B0B, "Outback Oasis - Infra"),
-    "Sulphur Rocks Orb 12 - Sulpher Overlook": LocData(0x4B0C, "Sulphur Rocks"),
-    "Sulphur Rocks Orb 13": LocData(0x4B0D, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Orb 14 - On Invisible Platforms": LocData(0x4B0E, "Sulphur Rocks - Infra"), #infra
-    "Never Never Orb 15 - Behind Wall": LocData(0x4B0F, "Never Never"), #smasharang
-    "Never Never Orb 16 - In Trees": LocData(0x4B10, "Never Never"), #lasharang OPTIONAL
-    "Never Never Orb 17 - Swinging Fence": LocData(0x4B11, "Never Never"),
-    "Never Never Orb 18 - By Fence": LocData(0x4B12, "Never Never"),
-    "Never Never Orb 19 - Rope Slide": LocData(0x4B13, "Never Never"),
-    "Never Never Orb 20 - Swinging Under": LocData(0x4B14, "Never Never"),
-    "Never Never Orb 21 - Water Wheel": LocData(0x4B15, "Never Never"),
-    "Wetlands Orb 22 - Crocs": LocData(0x4B16, "Wetlands"), #lasharang
-    "Frill Neck Orb 23 - Side Platform": LocData(0x4B17, "Frill Neck Forest"),
-    "Burramudgee Orb 24 - Town Overlook": LocData(0x4B18, "Burramudgee HQ"),
-    "Dennis Freeway Orb 25": LocData(0x4B19, "SR - Dennis Freeway"), #warparang
-    "Faire Dinkum Orb 26 - Moving Platform": LocData(0x4B1A, "Faire Dinkum"),
-    "Burramudgee Orb 27 - Frosty Tutorial": LocData(0x4B1B, "Burramudgee HQ"), #smasharang
-    "Faire Dinkum Orb 28 - Behind Dunny": LocData(0x4B1C, "Faire Dinkum"),
-    "Wobbygon Orb 29 - Corner Seaweed": LocData(0x4B1D, "SR - Wobbygon Bay"),
-} #what is the orb at freeway
+    "Burramudgee Orb 1":  LocData(0x4B00, "Burramudgee Town", hint_info="High Above Burramudgee"),#lasharang
+    "Burramudgee Orb 2":  LocData(0x4B01, "Burramudgee Town", hint_info="Above the Canal"),
+    "Burramudgee Orb 3": LocData(0x4B18, "Burramudgee Town", hint_info="Town Overlook"),
+    "Burramudgee Orb 4": LocData(0x4B1B, "Burramudgee HQ",   hint_info="Frosty Tutorial"),  # smasharang
+    "Sulphur Rocks Orb 1":  LocData(0x4B02, "Sulphur Rocks", hint_info="Swinging Over the Pond"), #lasharang
+    "Sulphur Rocks Orb 2":  LocData(0x4B03, "Sulphur Rocks", hint_info="Sulphur Lava"), #lasharang #frostyrang
+    "Sulphur Rocks Orb 3":  LocData(0x4B04, "Sulphur Rocks", hint_info="Exploding Pillars"),
+    "Sulphur Rocks Orb 4":  LocData(0x4B05, "SR - Sulphur Rocks", hint_info="Jumping Maze"),
+    "Sulphur Rocks Orb 5": LocData(0x4B0C, "Sulphur Rocks", hint_info="Sulphur Overlook"),
+    "Sulphur Rocks Orb 6": LocData(0x4B0D, "Sulphur Rocks - Infra"),  # infra
+    "Sulphur Rocks Orb 7": LocData(0x4B0E, "Sulphur Rocks - Infra", hint_info="On Invisible Platforms"),  # infra
+    "Mount Boom Orb 1": LocData(0x4B06, "Mount Boom"), #thermo
+    "Mount Boom Orb 2": LocData(0x4B07, "Mount Boom"),#warperang #thermo smash
+    "Wobbygon Orb 1":  LocData(0x4B08, "SR - Wobbygon Bay", hint_info="Water Near Warps"),
+    "Wobbygon Orb 2": LocData(0x4B1D, "SR - Wobbygon Bay", hint_info="Corner Seaweed"),
+    "Outback Oasis Orb 1":   LocData(0x4B09, "Outback Oasis", hint_info="Super Frill Beat Up"), #smasharang
+    "Outback Oasis Orb 2": LocData(0x4B0B, "Outback Oasis - Infra", hint_info="Spinning Platforms"),
+    "Sly's Shack Orb":  LocData(0x4B0A, "SR - Sly Shack", hint_info="Sly Shack"),
+    "Never Never Orb 1":  LocData(0x4B0F, "Never Never", hint_info="Behind Wall"), #smasharang
+    "Never Never Orb 2":  LocData(0x4B10, "Never Never", hint_info="In Trees"), #lasharang OPTIONAL
+    "Never Never Orb 3":  LocData(0x4B11, "Never Never", hint_info="Swinging Fence"),
+    "Never Never Orb 4":  LocData(0x4B12, "Never Never", hint_info="By Fence"),
+    "Never Never Orb 5":  LocData(0x4B13, "Never Never", hint_info="Rope Slide"),
+    "Never Never Orb 6":  LocData(0x4B14, "Never Never", hint_info="Swinging Under"),
+    "Never Never Orb 7":  LocData(0x4B15, "Never Never", hint_info="Water Wheel"),
+    "Wetlands Orb":  LocData(0x4B16, "Wetlands", hint_info="Crocs"), #lasharang
+    "Frill Neck Orb":  LocData(0x4B17, "Frill Neck Forest", hint_info="Side Platform"),
+    "Dennis Freeway Orb": LocData(0x4B19, "SR - Dennis Freeway"), #warparang
+    "Faire Dinkum Orb 1":  LocData(0x4B1A, "Faire Dinkum", hint_info="Moving Platform"),
+    "Faire Dinkum Orb 2":  LocData(0x4B1C, "Faire Dinkum", hint_info="Behind Dunny"),
+}
 
 bilby_dict: Dict[str, LocData] = {
-    "Outback Oasis Bilby 0 - Trampoline": LocData(0x4200, "Outback Oasis"), #smasharang
-    "Outback Oasis Bilby 1 - Hanging On Entrance": LocData(0x4201, "Outback Oasis"),
-    "Outback Oasis Bilby 2 - Cave": LocData(0x4202, "Outback Oasis"),
-    "Never Never Bilby 3": LocData(0x4203, "Never Never"),
-    "Never Never Bilby 4 - Lava Chill Out": LocData(0x4204, "Never Never"),#thermo, lash, OR frosty
-    "Never Never Bilby 5 - Rope Slide": LocData(0x4205, "Never Never"),
-    "Never Never Bilby 6 - Moving Platform": LocData(0x4206, "Never Never"),
-    "Faire Dinkum Bilby 7 - Secret Button": LocData(0x4207, "Faire Dinkum"),
-    "Faire Dinkum Bilby 8 - Town Overlook": LocData(0x4208, "Faire Dinkum"),
-    "Faire Dinkum Bilby 9 - Half Under Webs": LocData(0x4209, "Faire Dinkum"),
-    "Sulphur Rocks Bilby 10 - Sulpher Overlook": LocData(0x420A, "Sulphur Rocks"),
-    "Sulphur Rocks Bilby 11": LocData(0x420B, "Sulphur Rocks"),
-    "Sulphur Rocks Bilby 12 - Floating Over Sulpher": LocData(0x420C, "Sulphur Rocks"),
-    "Sulphur Rocks Bilby 13": LocData(0x420D, "Sulphur Rocks"),
-    "Sulphur Rocks Bilby 14 - Over pond": LocData(0x420E, "Sulphur Rocks"),
-    "Faire Dinkum Bilby 15": LocData(0x420F, "Faire Dinkum - Infra"), #(infra)
-    "Frill Neck Bilby 16 - End Trunk": LocData(0x4210, "Frill Neck Forest"), #lasharang - possible without
-    "Frill Neck Bilby 17": LocData(0x4211, "Frill Neck Forest"),
-    "MountBoom Bilby 18 - Beginning": LocData(0x4212, "MountBoom"), #lasharang and thermo - MountBoom Beginning
-    "MountBoom Bilby 19 - Warp": LocData(0x4213, "MountBoom"), #warparang #thermo
-    "Wetlands Bilby 20 - In Log": LocData(0x4214, "Wetlands"),
-    "Wetlands Bilby 21 - Webbed": LocData(0x4215, "Wetlands"), #flamerang
-    "Wetlands Bilby 22 - Bunyip": LocData(0x4216, "Wetlands"), #todo: flamerang
-    "Burramudgee Bilby 23 - Under Ramp": LocData(0x4217, "Burramudgee HQ"),
-    "Burramudgee Bilby 24 - Cliffside": LocData(0x4218, "Burramudgee HQ"),
-    "Burramudgee Bilby - Top of HQ": LocData(0x4219, "Burramudgee HQ"), #25
-    "Burramudgee Bilby 26 - Watch Tower": LocData(0x421A, "Burramudgee HQ"),
-    "Wobbygon Bilby 27 - Warp Tree": LocData(0x421B, "SR - Wobbygon Bay"),
-    "Wobbygon Bilby 28 - Race Island": LocData(0x421C, "SR - Wobbygon Bay"),
-    "Wobbygon Bilby 29 - Underwater South Boathouse": LocData(0x421D, "SR - Wobbygon Bay"),
+    "Outback Oasis Bilby 1":  LocData(0x4200, "Outback Oasis", hint_info="Trampoline"), #smasharang
+    "Outback Oasis Bilby 2":  LocData(0x4201, "Outback Oasis", hint_info="Hanging On Entrance"),
+    "Outback Oasis Bilby 3":  LocData(0x4202, "Outback Oasis", hint_info="Cave"),
+    "Never Never Bilby 1": LocData(0x4203, "Never Never"),
+    "Never Never Bilby 2":  LocData(0x4204, "Never Never", hint_info="Lava Chill Out"),#thermo, lash, OR frosty
+    "Never Never Bilby 3":  LocData(0x4205, "Never Never", hint_info="Rope Slide"),
+    "Never Never Bilby 4":  LocData(0x4206, "Never Never", hint_info="Moving Platform"),
+    "Faire Dinkum Bilby 1":  LocData(0x4207, "Faire Dinkum", hint_info="Secret Button"),
+    "Faire Dinkum Bilby 2":  LocData(0x4208, "Faire Dinkum", hint_info="Town Overlook"),
+    "Faire Dinkum Bilby 3":  LocData(0x4209, "Faire Dinkum", hint_info="Half Under Webs"),
+    "Faire Dinkum Bilby 4": LocData(0x420F, "Faire Dinkum - Infra"),  # (infra)
+    "Sulphur Rocks Bilby 1":  LocData(0x420A, "Sulphur Rocks", hint_info="Sulphur Overlook"),
+    "Sulphur Rocks Bilby 2": LocData(0x420B, "Sulphur Rocks"),
+    "Sulphur Rocks Bilby 3":  LocData(0x420C, "Sulphur Rocks", hint_info="Floating Over Sulphur"),
+    "Sulphur Rocks Bilby 4": LocData(0x420D, "Sulphur Rocks"),
+    "Sulphur Rocks Bilby 5":  LocData(0x420E, "Sulphur Rocks", hint_info="Over pond"),
+    "Frill Neck Bilby 1":  LocData(0x4210, "Frill Neck Forest", hint_info="End Trunk"), #lasharang - possible without
+    "Frill Neck Bilby 2": LocData(0x4211, "Frill Neck Forest"),
+    "Mount Boom Bilby 1":  LocData(0x4212, "Mount Boom", hint_info="Beginning"), #lasharang and thermo - Mount Boom Beginning
+    "Mount Boom Bilby 2":  LocData(0x4213, "Mount Boom", hint_info="Warp"), #warparang #thermo
+    "Wetlands Bilby 1":  LocData(0x4214, "Wetlands", hint_info="In Log"),
+    "Wetlands Bilby 2":  LocData(0x4215, "Wetlands", hint_info="Webbed"), #flamerang
+    "Wetlands Bilby 3":  LocData(0x4216, "Wetlands", hint_info="Bunyip"), #flamerang
+    "Burramudgee Bilby 1":  LocData(0x4217, "Burramudgee HQ", hint_info="Under Ramp"),
+    "Burramudgee Bilby 2":  LocData(0x4218, "Burramudgee HQ", hint_info="Cliffside"),
+    "Burramudgee Bilby 3":  LocData(0x4219, "Burramudgee HQ", hint_info="Top of HQ"), #25
+    "Burramudgee Bilby 4":  LocData(0x421A, "Burramudgee HQ", hint_info="Watch Tower"),
+    "Wobbygon Bilby 1":  LocData(0x421B, "SR - Wobbygon Bay", hint_info="Warp Tree"),
+    "Wobbygon Bilby 2":  LocData(0x421C, "SR - Wobbygon Bay", hint_info="Race Island"),
+    "Wobbygon Bilby 3":  LocData(0x421D, "SR - Wobbygon Bay", hint_info="Underwater South Boathouse"),
 }
 
 
 disguised_frill_dict: Dict[str, LocData] = {
-    "Outback Oasis Frill 0 - By Bunyip": LocData(0x4600, "Outback Oasis"), #smasharang
-    "Outback Oasis Frill 1 - Start": LocData(0x4601, "Outback Oasis"),
-    "Outback Oasis Frill 2 - Cave Overlook": LocData(0x4602, "Outback Oasis"),
-    "Never Never Frill 3 - By Wall": LocData(0x4603, "Never Never"),
-    "Never Never Frill 4 - Rocky Road": LocData(0x4604, "Never Never"),
-    "Never Never Frill 5 - Vine Climb": LocData(0x4605, "Never Never"),
-    "Wetlands Frill 6 - By Button": LocData(0x4606, "Wetlands"),
-    "Wetlands Frill 7 - Crocs": LocData(0x4607, "Wetlands"),
-    "Faire Dinkum Frill 8 - Under Walkway": LocData(0x4608, "Faire Dinkum"),
-    "Sulphur Rocks Frill 9 - Start": LocData(0x4609, "Sulphur Rocks"),
-    "Sulphur Rocks Frill 10 - In Hole": LocData(0x460A, "Sulphur Rocks"),
-    "Sulphur Rocks Frill 11 - Behind Fence": LocData(0x460B, "Sulphur Rocks"), #lasharang, not needed
-    "Burramudgee Frill 12 - Near Police": LocData(0x460C, "Burramudgee Town"),
-    "Burramudgee Frill 13 - Near Canal": LocData(0x460D, "Burramudgee Town"),
-    "Dennis Freeway - Disguised Frill 14": LocData(0x460E, "SR - Dennis Freeway"),
-    "Outback Oasis Frill 15 - Picnic": LocData(0x460F, "SR - Outback Oasis"),
-    "Dusty Burrows Frill 16": LocData(0x4610, "SR - Dusty Burrows"),
-    "Lake Burramudgee Frill 17": LocData(0x4611, "SR - Lake Burramudgee"),
-    "Frill Neck Frill 18": LocData(0x4612, "SR - Frill Neck Forest"),
-    "Truck Tragedy Frill 19": LocData(0x4613, "SR - Truck Tragedy"),
-    "Never Never Frill 20 - Never Never Entrance": LocData(0x4614, "SR - Never Never"),
-    "Sheep Dip Frill 21": LocData(0x4615, "SR - Old Stony Creek"),
-    "Frill Neck Frill 22": LocData(0x4616, "Frill Neck Forest"),
-    "MountBoom Frill 23": LocData(0x4617, "MountBoom Start"),
-    "MountBoom Frill 24": LocData(0x4618, "MountBoom End"),
+    "Outback Oasis Frill 1":  LocData(0x4600, "Outback Oasis", hint_info="By Bunyip"), #smasharang
+    "Outback Oasis Frill 2":  LocData(0x4601, "Outback Oasis", hint_info="Start"),
+    "Outback Oasis Frill 3":  LocData(0x4602, "Outback Oasis", hint_info="Cave Overlook"),
+    "Outback Oasis Frill 4": LocData(0x460F, "SR - Outback Oasis", hint_info="Picnic"),
+    "Never Never Frill 1":  LocData(0x4603, "Never Never", hint_info="By Wall"),
+    "Never Never Frill 2":  LocData(0x4604, "Never Never", hint_info="Rocky Road"),
+    "Never Never Frill 3":  LocData(0x4605, "Never Never", hint_info="Vine Climb"),
+    "Never Never Frill 4": LocData(0x4614, "SR - Never Never", hint_info="Never Never Entrance"),
+    "Wetlands Frill 1":  LocData(0x4606, "Wetlands", hint_info="By Button"),
+    "Wetlands Frill 2":  LocData(0x4607, "Wetlands", hint_info="Crocs"),
+    "Faire Dinkum Frill":  LocData(0x4608, "Faire Dinkum", hint_info="Under Walkway"),
+    "Sulphur Rocks Frill 1":  LocData(0x4609, "Sulphur Rocks", hint_info="Start"),
+    "Sulphur Rocks Frill 2":  LocData(0x460A, "Sulphur Rocks", hint_info="In Hole"),
+    "Sulphur Rocks Frill 3":  LocData(0x460B, "Sulphur Rocks", hint_info="Behind Fence"), #lasharang, not needed
+    "Burramudgee Frill 1":  LocData(0x460C, "Burramudgee Town", hint_info="Near Police"),
+    "Burramudgee Frill 2":  LocData(0x460D, "Burramudgee Town", hint_info="Near Canal"),
+    "Dennis Freeway Frill": LocData(0x460E, "SR - Dennis Freeway"),
+    "Dusty Burrows Frill": LocData(0x4610, "SR - Dusty Burrows"),
+    "Lake Burramudgee Frill": LocData(0x4611, "SR - Lake Burramudgee"),
+    "Frill Neck Frill 1": LocData(0x4612, "SR - Frill Neck Forest"),
+    "Frill Neck Frill 2": LocData(0x4616, "Frill Neck Forest"),
+    "Truck Tragedy Frill": LocData(0x4613, "SR - Truck Tragedy"),
+    "Sheep Dip Frill": LocData(0x4615, "SR - Old Stony Creek"),
+    "Mount Boom Frill 1": LocData(0x4617, "Mount Boom Start"),
+    "Mount Boom Frill 2": LocData(0x4618, "Mount Boom End"),
     "Killer Koala": LocData(0x6d000046, "Burramudgee Town", 70),
 }
 
 
 steve_dict: Dict[str, LocData] = {
     "Steve - Sly Shack": LocData(0x5300, "SR - Sly Shack"),
-    "Steve - Burramudgee Town": LocData(0x5301, "Burramudgee Town"),
+    "Steve - Burramudgee Sewers": LocData(0x5301, "Burramudgee Town"),
     "Steve - Outback Oasis": LocData(0x5302, "Outback Oasis"),
     "Steve - Sulphur Rocks": LocData(0x5303, "Sulphur Rocks"),
-    "Steve - MountBoom": LocData(0x5304, "MountBoom"), #thermo
-    "Steve - Freeway Training": LocData(0x5305, "SR - Freeway Training Grounds"),
+    "Steve - Mount Boom": LocData(0x5304, "Mount Boom"), #thermo
+    "Steve - Freeway Training Grounds": LocData(0x5305, "SR - Freeway Training Grounds"),
     "Steve - Never Never": LocData(0x5306, "Never Never"), #thermo
-    "Steve - Wetlands": LocData(0x5307, "Wetlands"),
-    "Steve - Fill Neck": LocData(0x5308, "SR - Frill Neck Forest"),
+    "Steve - The Wetlands": LocData(0x5307, "Wetlands"),
+    "Steve - Frill Neck Forest": LocData(0x5308, "SR - Frill Neck Forest"),
     "Steve - Wobbygon Bay": LocData(0x5309, "SR - Wobbygon Bay"),
 }
 
 picture_frame_dict: Dict[str, LocData] = {
-    "Outback Oasis Frame 0 - Warp": LocData(0x5000, "Outback Oasis"), #warparang
-    "Outback Oasis Frame 1 - Warp": LocData(0x5001, "Outback Oasis"),#warparang
-    "Outback Oasis Frame 2 - Warp": LocData(0x5002, "Outback Oasis"),#warparang
-    "Never Never Frame 3 - On Rock": LocData(0x5003, "Never Never"),
-    "Never Never Frame 4 - In Trees": LocData(0x5004, "Never Never"), #lasharang
-    "Never Never Frame 5 - In Trees": LocData(0x5005, "Never Never"),
-    "Never Never Frame 6 - Lava Chill Out": LocData(0x5006, "Never Never"), #thermo OR lash OR frosty
-    "Never Never Frame 7 - Alien Cliff Corner": LocData(0x5007, "Never Never"),
-    "Never Never Frame 8 - Underwater Alien": LocData(0x5008, "Never Never"),
-    "Never Never Frame 9 - Alien Corner": LocData(0x5009, "Never Never"),
-    "Never Never Frame 10 - Underwater Alien": LocData(0x500A, "Never Never"),
-    "Never Never Frame 11 - Rope Slide": LocData(0x500B, "Never Never"),
-    "Never Never Frame 12 - Dennis Rock Wall": LocData(0x500C, "Never Never"), #smasharang
-    "Never Never Frame 13 - Swinging Under": LocData(0x500D, "Never Never"), #infra
-    "Never Never Frame 14 - Vine Climb": LocData(0x500E, "Never Never"),#infra
-    "Never Never Frame 15 - Vine Climb": LocData(0x500F, "Never Never"),#infra
-    "Never Never Frame 16 - Vine Climb": LocData(0x5010, "Never Never"),#infra
-    "Never Never Frame 17 - Vine Climb": LocData(0x5011, "Never Never"),#infra
-    "Wetlands Frame 18 - Warp Tree": LocData(0x5012, "Wetlands Tree"),#warparang
-    "Wetlands Frame 19 - Warp Tree": LocData(0x5013, "Wetlands Tree"),#warparang
-    "Wetlands Frame 20 - Warp Tree": LocData(0x5014, "Wetlands Tree"),#warparang
-    "Wetlands Frame 21 - Warp Tree": LocData(0x5015, "Wetlands Tree"),#warparang
-    "Wetlands Frame 22 - Warp Tree": LocData(0x5016, "Wetlands Tree"), #warparang
-    "Faire Dinkum Frame 23 - In tree": LocData(0x5017, "Faire Dinkum"),
-    "Faire Dinkum Frame 24 - Town Roofs": LocData(0x5018, "Faire Dinkum"),
-    "Faire Dinkum Frame 25 - Town Roofs": LocData(0x5019, "Faire Dinkum"),
-    "Faire Dinkum Frame 26 - Town Roofs": LocData(0x501A, "Faire Dinkum"),
-    "Faire Dinkum Frame 27 - Town Roofs": LocData(0x501B, "Faire Dinkum"),
-    "Faire Dinkum Frame 28 - Town Roofs": LocData(0x501C, "Faire Dinkum"),
-    "Faire Dinkum Frame 29 - Behind End Croc": LocData(0x501D, "Faire Dinkum"),
-    "Faire Dinkum Frame 30 - Smash Wall": LocData(0x501E, "Faire Dinkum"), #smasharang
-    "Faire Dinkum Frame 31 - Smash Wall": LocData(0x501F, "Faire Dinkum"), #smasharang
-    "Sulphur Rocks Frame 32 - Sulpher Start": LocData(0x5020, "Sulphur Rocks"),
-    "Sulphur Rocks Frame 33 - Sulpher Start": LocData(0x5021, "Sulphur Rocks"),
-    "Sulphur Rocks Frame 34 - In Hole": LocData(0x5022, "Sulphur Rocks"),
-    "Sulphur Rocks Frame 35 - Behind Fence": LocData(0x5023, "Sulphur Rocks"),#lasharang, not needed
-    "Sulphur Rocks Frame 36 - Behind Fence": LocData(0x5024, "Sulphur Rocks"), #lasharang, not needed
-    "Sulphur Rocks Frame 37 - Behind Fence": LocData(0x5025, "Sulphur Rocks"),#lasharang, not needed
-    "Sulphur Rocks Frame 38 - In Hole": LocData(0x5026, "Sulphur Rocks"),
-    "Burramudgee Frame 39 - Floating Above HQ": LocData(0x5027, "Burramudgee HQ - Infra"),
-    "Burramudgee Frame 40 - Floating Above HQ": LocData(0x5028, "Burramudgee HQ - Infra"),
-    "Burramudgee Frame 41 - Floating Above HQ": LocData(0x5029, "Burramudgee HQ - Infra"),
-    "Burramudgee Frame 42 - Watch Tower": LocData(0x502A, "Burramudgee HQ"),
-    "Burramudgee Frame 43 - Watch Tower": LocData(0x502B, "Burramudgee HQ"),
-    "Burramudgee Frame 44 - Watch Tower": LocData(0x502C, "Burramudgee HQ"),
-    "Burramudgee Frame 45 - Watch Tower": LocData(0x502D, "Burramudgee HQ"),
-    "Frill Neck Frame 46 - Trunk Vines": LocData(0x502E, "Frill Neck Forest"),
-    "Frill Neck Frame 47 - Trunk Vines": LocData(0x502F, "Frill Neck Forest"),
-    "Frill Neck Frame 48 - Trunk Vines": LocData(0x5030, "Frill Neck Forest"),
-    "Frill Neck Frame 49 - Trunk Vines": LocData(0x5031, "Frill Neck Forest"),
-    "Frill Neck Frame 50 - Trunk Vines": LocData(0x5032, "Frill Neck Forest"),
-    "Frill Neck Frame 51 - On Tree": LocData(0x5033, "Frill Neck Forest"),
-    "Frill Neck Frame 52 - Rope Start": LocData(0x5034, "Frill Neck Forest"),
-    "Frill Neck Frame 53 - Rope Log": LocData(0x5035, "Frill Neck Forest"),
-    "Frill Neck Frame 54": LocData(0x5036, "Frill Neck Forest"),
-    "Frill Neck Frame 55 - Up Ladder": LocData(0x5037, "Frill Neck Forest"),
-    "Frill Neck Frame 56 - On net": LocData(0x5038, "Frill Neck Forest"),
-    "Frill Neck Frame 57 - Up Ladder": LocData(0x5039, "Frill Neck Forest"),
-    "Frill Neck Frame 58 - Below Money Bag": LocData(0x503A, "Frill Neck Forest"),
-    "Frill Neck Frame 59 - Above Dunny": LocData(0x503B, "Frill Neck Forest"),
-    "Frill Neck Frame 60 - Side Platform": LocData(0x503C, "Frill Neck Forest"),
-    "MountBoom Frame 61 - End": LocData(0x503D, "MountBoom End"), #Lasharang
-    "Outback Oasis Frame 62 - Cave Invisi-crates": LocData(0x503E, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 63 - Cave Invisi-crates": LocData(0x503F, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 64 - Cave Invisi-crates": LocData(0x5040, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 65 - Cave Invisi-crates": LocData(0x5041, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 66 - Cave Invisi-crates": LocData(0x5042, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 67 - Cave Invisi-crates": LocData(0x5043, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 68 - Cave Invisi-crates": LocData(0x5044, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 69 - Cave Invisi-crates": LocData(0x5045, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 70 - Cave Invisi-crates": LocData(0x5046, "Outback Oasis - Infra"), #infra
-    "Outback Oasis Frame 71 - Cave Invisi-crates": LocData(0x5047, "Outback Oasis - Infra"), #infra
-    "Never Never Frame 72 - Start": LocData(0x5048, "Never Never - Infra"), #infra
-    "Never Never Frame 73 - Start": LocData(0x5049, "Never Never - Infra"),#infra
-    "Never Never Frame 74 - Start": LocData(0x504A, "Never Never - Infra"),#infra
-    "Never Never Frame 75 - Start": LocData(0x504B, "Never Never - Infra"),#infra
-    "Never Never Frame 76 - Start": LocData(0x504C, "Never Never - Infra"),#infra
-    "Never Never Frame 77 - Invisi-crate": LocData(0x504D, "Never Never - Infra"), #infra
-    "Never Never Frame 78 - Invisi-crate": LocData(0x504E, "Never Never - Infra"), #infra
-    "Never Never Frame 79 - Invisi-crate": LocData(0x504F, "Never Never - Infra"), #infra
-    "Never Never Frame 80 - Invisi-crate": LocData(0x5050, "Never Never - Infra"), #infra
-    "Never Never Frame 81 - Invisi-crate": LocData(0x5051, "Never Never - Infra"), #infra
-    "Never Never Frame 82 - Island Invisi-crate": LocData(0x5052, "Never Never - Infra"),#infra
-    "Never Never Frame 83 - Island Invisi-crate": LocData(0x5053, "Never Never - Infra"),#infra
-    "Never Never Frame 84 - Island Invisi-crate": LocData(0x5054, "Never Never - Infra"),#infra
-    "Never Never Frame 85 - Island Invisi-crate": LocData(0x5055, "Never Never - Infra"),#infra
-    "Never Never Frame 86 - Island Invisi-crate": LocData(0x5056, "Never Never - Infra"),#infra
-    "Wetlands Frame 87 - Invisi-crates": LocData(0x5057, "Wetlands - Infra"), #infra
-    "Wetlands Frame 88 - Invisi-crates": LocData(0x5058, "Wetlands - Infra"), #infra
-    "Wetlands Frame 89 - Invisi-crates": LocData(0x5059, "Wetlands - Infra"), #infra
-    "Wetlands Frame 90 - Invisi-crates": LocData(0x505A, "Wetlands - Infra"), #infra
-    "Wetlands Frame 91 - Invisi-crates": LocData(0x505B, "Wetlands - Infra"), #infra
-    "Wetlands Frame 92 - Invisi-crates": LocData(0x505C, "Wetlands - Infra"), #infra
-    "Wetlands Frame 93 - Invisi-crates": LocData(0x505D, "Wetlands - Infra"),#infra
-    "Wetlands Frame 94 - Invisi-crates": LocData(0x505E, "Wetlands - Infra"),#infra
-    "Faire Dinkum Frame 95 - Town Invisi-crates": LocData(0x505F, "Faire Dinkum - Infra"), #infra
-    "Faire Dinkum Frame 96 - Town Invisi-crates": LocData(0x5060, "Faire Dinkum - Infra"), #infra
-    "Faire Dinkum Frame 97 - End Invisi-crates": LocData(0x5061, "Faire Dinkum - Infra"), #infra
-    "Faire Dinkum Frame 98 - End Invisi-crates": LocData(0x5062, "Faire Dinkum - Infra"), #infra
-    "Faire Dinkum Frame 99 - End Invisi-crates": LocData(0x5063, "Faire Dinkum - Infra"), #infra
-    "Sulphur Rocks Frame 100 - Start Invisi-crates": LocData(0x5064, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 101 - Start Invisi-crates": LocData(0x5065, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 102 - Start Invisi-crates": LocData(0x5066, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 103 - Start Invisi-crates": LocData(0x5067, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 104 - Start Invisi-crates": LocData(0x5068, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 105 - Start Invisi-crates": LocData(0x5069, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 106 - Start Invisi-crates": LocData(0x506A, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 107 - Start Invisi-crates": LocData(0x506B, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 108 - Start Invisi-crates": LocData(0x506C, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 109 - Start Invisi-crates": LocData(0x506D, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 110 - Snake Eyes Invisi-crates": LocData(0x506E, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 111 - Snake Eyes Invisi-crates": LocData(0x506F, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 112 - Snake Eyes Invisi-crates": LocData(0x5070, "Sulphur Rocks - Infra"), #infra
-    "Sulphur Rocks Frame 113 - Snake Eyes Invisi-crates": LocData(0x5071, "Sulphur Rocks - Infra"), #infra
-    "Burramudgee Frame 114 - Sewer Grid": LocData(0x5072, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 115 - Sewer Grid": LocData(0x5073, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 116 - Sewer Grid": LocData(0x5074, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 117 - Sewer Grid": LocData(0x5075, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 118 - Sewer Grid": LocData(0x5076, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 119 - Sewer CrossWay": LocData(0x5077, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 120 - Sewer Steve": LocData(0x5078, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 121 - Sewer CrossWay": LocData(0x5079, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 122 - Sewer CrossWay": LocData(0x507A, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 123 - Sewer CrossWay": LocData(0x507B, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 124 - Sewer CrossWay Dead End": LocData(0x507C, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 125 - Sewer CrossWay Dead End": LocData(0x507D, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 126 - Sewer CrossWay Dead End": LocData(0x507E, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 127 - Sewer Steve": LocData(0x507F, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 128 - Sewer CrossWay": LocData(0x5080, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 129 - Sewer CrossWay": LocData(0x5081, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 130 - Sewer CrossWay": LocData(0x5082, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 131 - Sewer CrossWay": LocData(0x5083, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 132 - Sewer CrossWay": LocData(0x5084, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 133 - Sewer Entrance": LocData(0x5085, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 134 - Sewer Grid": LocData(0x5086, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 135 - Sewer Grid": LocData(0x5087, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 136 - Sewer Steve": LocData(0x5088, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 137 - Sewer Grid": LocData(0x5089, "Burramudgee Town - Infra"),
-    "Burramudgee Frame 138 - HQ Balcony Boxes": LocData(0x508A, "Burramudgee HQ"),
-    "Burramudgee Frame 139 - HQ Balcony Boxes": LocData(0x508B, "Burramudgee HQ"),
-    "Burramudgee Frame 140 - HQ Balcony Boxes": LocData(0x508C, "Burramudgee HQ"),
-    "Burramudgee Frame 141 - HQ Balcony Boxes": LocData(0x508D, "Burramudgee HQ"),
-    "Burramudgee Frame 142 - HQ Balcony Boxes": LocData(0x508E, "Burramudgee HQ"),
-    "Burramudgee Frame 143 - HQ Balcony Boxes": LocData(0x508F, "Burramudgee HQ"),
-    "Burramudgee Frame 144 - HQ Balcony Boxes": LocData(0x5090, "Burramudgee HQ"),
-    "Burramudgee Frame 145 - HQ Balcony Boxes": LocData(0x5091, "Burramudgee HQ"),
-    "Burramudgee Frame 146 - HQ Balcony Boxes": LocData(0x5092, "Burramudgee HQ"),
-    "Burramudgee Frame 147 - HQ Balcony Boxes": LocData(0x5093, "Burramudgee HQ"),
-    "Burramudgee Frame 148 - HQ Balcony Boxes": LocData(0x5094, "Burramudgee HQ"),
-    "Burramudgee Frame 149 - HQ Balcony Boxes": LocData(0x5095, "Burramudgee HQ"),
-    "Burramudgee Frame 150 - HQ Balcony Boxes": LocData(0x5096, "Burramudgee HQ"),
-    "Burramudgee Frame 151 - HQ Balcony Boxes": LocData(0x5097, "Burramudgee HQ"),
-    "Burramudgee Frame 152 - HQ Balcony Boxes": LocData(0x5098, "Burramudgee HQ"),
-    "Burramudgee Frame 153 - HQ Warparang Tutorial": LocData(0x5099, "Burramudgee HQ"),#Smasharang
-    "Burramudgee Frame 154 - HQ Warparang Tutorial": LocData(0x509A, "Burramudgee HQ"),#Smasharang
-    "Burramudgee Frame 155 - HQ Warparang Tutorial": LocData(0x509B, "Burramudgee HQ"),#Smasharang
-    "Burramudgee Frame 156 - HQ Hanger Boxes": LocData(0x509C, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 157 - HQ Hanger Boxes": LocData(0x509D, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 158 - HQ Hanger Boxes": LocData(0x509E, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 159 - HQ Roof Box": LocData(0x509F, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 160 - HQ Roof Box": LocData(0x50A0, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 161 - HQ Roof Box": LocData(0x50A1, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 162 - HQ Roof Box": LocData(0x50A2, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 163 - HQ Roof Box": LocData(0x50A3, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 164 - HQ Meeting Room Box": LocData(0x50A4, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 165 - HQ Meeting Room Box": LocData(0x50A5, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 166 - HQ Meeting Room Box": LocData(0x50A6, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 167 - HQ Meeting Room Box": LocData(0x50A7, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 168 - HQ Meeting Room Box": LocData(0x50A8, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 169 - HQ Hanger Boxes": LocData(0x50A9, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 170 - HQ Hanger Boxes": LocData(0x50AA, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 171 - HQ Hanger Boxes": LocData(0x50AB, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 172 - HQ Hanger Boxes": LocData(0x50AC, "Burramudgee HQ - Crates"),#Smasharang
-    "Burramudgee Frame 173 - HQ Hanger Boxes": LocData(0x50AD, "Burramudgee HQ - Crates"),#Smasharang
-    "Sulphur Rocks Frame 174 - Start": LocData(0x50AE, "Sulphur Rocks"),
+    "Outback Oasis Frame 1":  LocData(0x5000, "Outback Oasis", hint_info="Warp"), #warparang
+    "Outback Oasis Frame 2":  LocData(0x5001, "Outback Oasis", hint_info="Warp"),#warparang
+    "Outback Oasis Frame 3":  LocData(0x5002, "Outback Oasis", hint_info="Warp"),#warparang
+    "Outback Oasis Frame 4": LocData(0x503E, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 5": LocData(0x503F, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 6": LocData(0x5040, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 7": LocData(0x5041, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 8": LocData(0x5042, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 9": LocData(0x5043, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 10": LocData(0x5044, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 11": LocData(0x5045, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 12": LocData(0x5046, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Outback Oasis Frame 13": LocData(0x5047, "Outback Oasis - Infra", hint_info="Cave Invisi-crates"),  # infra
+    "Never Never Frame 1":  LocData(0x5003, "Never Never", hint_info="On Rock"),
+    "Never Never Frame 2":  LocData(0x5004, "Never Never", hint_info="In Trees"), #lasharang
+    "Never Never Frame 3":  LocData(0x5005, "Never Never", hint_info="In Trees"),
+    "Never Never Frame 4":  LocData(0x5006, "Never Never", hint_info="Lava Chill Out"), #thermo OR lash OR frosty
+    "Never Never Frame 5":  LocData(0x5007, "Never Never", hint_info="Alien Cliff Corner"),
+    "Never Never Frame 6":  LocData(0x5008, "Never Never", hint_info="Underwater Alien"),
+    "Never Never Frame 7":  LocData(0x5009, "Never Never", hint_info="Alien Corner"),
+    "Never Never Frame 8":  LocData(0x500A, "Never Never", hint_info="Underwater Alien"),
+    "Never Never Frame 9":  LocData(0x500B, "Never Never", hint_info="Rope Slide"),
+    "Never Never Frame 10":  LocData(0x500C, "Never Never", hint_info="Dennis Rock Wall"), #smasharang
+    "Never Never Frame 11":  LocData(0x500D, "Never Never", hint_info="Swinging Under"), #infra
+    "Never Never Frame 12":  LocData(0x500E, "Never Never", hint_info="Vine Climb"),#infra
+    "Never Never Frame 13":  LocData(0x500F, "Never Never", hint_info="Vine Climb"),#infra
+    "Never Never Frame 14":  LocData(0x5010, "Never Never", hint_info="Vine Climb"),#infra
+    "Never Never Frame 15":  LocData(0x5011, "Never Never", hint_info="Vine Climb"),#infra
+    "Never Never Frame 16":  LocData(0x5048, "Never Never - Infra", hint_info="Start"), #infra
+    "Never Never Frame 17":  LocData(0x5049, "Never Never - Infra", hint_info="Start"),#infra
+    "Never Never Frame 18":  LocData(0x504A, "Never Never - Infra", hint_info="Start"),#infra
+    "Never Never Frame 19":  LocData(0x504B, "Never Never - Infra", hint_info="Start"),#infra
+    "Never Never Frame 20":  LocData(0x504C, "Never Never - Infra", hint_info="Start"),#infra
+    "Never Never Frame 21":  LocData(0x504D, "Never Never - Infra", hint_info="Invisi-crate"), #infra
+    "Never Never Frame 22":  LocData(0x504E, "Never Never - Infra", hint_info="Invisi-crate"), #infra
+    "Never Never Frame 23":  LocData(0x504F, "Never Never - Infra", hint_info="Invisi-crate"), #infra
+    "Never Never Frame 24":  LocData(0x5050, "Never Never - Infra", hint_info="Invisi-crate"), #infra
+    "Never Never Frame 25":  LocData(0x5051, "Never Never - Infra", hint_info="Invisi-crate"), #infra
+    "Never Never Frame 26":  LocData(0x5052, "Never Never - Infra", hint_info="Island Invisi-crate"),#infra
+    "Never Never Frame 27":  LocData(0x5053, "Never Never - Infra", hint_info="Island Invisi-crate"),#infra
+    "Never Never Frame 28":  LocData(0x5054, "Never Never - Infra", hint_info="Island Invisi-crate"),#infra
+    "Never Never Frame 29":  LocData(0x5055, "Never Never - Infra", hint_info="Island Invisi-crate"),#infra
+    "Never Never Frame 30":  LocData(0x5056, "Never Never - Infra", hint_info="Island Invisi-crate"),#infra
+    "Wetlands Frame 1":  LocData(0x5012, "Wetlands Tree", hint_info="Warp Tree"),#warparang
+    "Wetlands Frame 2":  LocData(0x5013, "Wetlands Tree", hint_info="Warp Tree"),#warparang
+    "Wetlands Frame 3":  LocData(0x5014, "Wetlands Tree", hint_info="Warp Tree"),#warparang
+    "Wetlands Frame 4":  LocData(0x5015, "Wetlands Tree", hint_info="Warp Tree"),#warparang
+    "Wetlands Frame 5":  LocData(0x5016, "Wetlands Tree", hint_info="Warp Tree"), #warparang
+    "Wetlands Frame 6":  LocData(0x5057, "Wetlands - Infra", hint_info="Invisi-crates"), #infra
+    "Wetlands Frame 7":  LocData(0x5058, "Wetlands - Infra", hint_info="Invisi-crates"), #infra
+    "Wetlands Frame 8":  LocData(0x5059, "Wetlands - Infra", hint_info="Invisi-crates"), #infra
+    "Wetlands Frame 9":  LocData(0x505A, "Wetlands - Infra", hint_info="Invisi-crates"), #infra
+    "Wetlands Frame 10":  LocData(0x505B, "Wetlands - Infra", hint_info="Invisi-crates"), #infra
+    "Wetlands Frame 11":  LocData(0x505C, "Wetlands - Infra", hint_info="Invisi-crates"), #infra
+    "Wetlands Frame 12":  LocData(0x505D, "Wetlands - Infra", hint_info="Invisi-crates"),#infra
+    "Wetlands Frame 13":  LocData(0x505E, "Wetlands - Infra", hint_info="Invisi-crates"),#infra
+    "Faire Dinkum Frame 1":  LocData(0x5017, "Faire Dinkum", hint_info="In tree"),
+    "Faire Dinkum Frame 2":  LocData(0x5018, "Faire Dinkum", hint_info="Town Roofs"),
+    "Faire Dinkum Frame 3":  LocData(0x5019, "Faire Dinkum", hint_info="Town Roofs"),
+    "Faire Dinkum Frame 4":  LocData(0x501A, "Faire Dinkum", hint_info="Town Roofs"),
+    "Faire Dinkum Frame 5":  LocData(0x501B, "Faire Dinkum", hint_info="Town Roofs"),
+    "Faire Dinkum Frame 6":  LocData(0x501C, "Faire Dinkum", hint_info="Town Roofs"),
+    "Faire Dinkum Frame 7":  LocData(0x501D, "Faire Dinkum", hint_info="Behind End Croc"),
+    "Faire Dinkum Frame 8":  LocData(0x501E, "Faire Dinkum", hint_info="Smash Wall"), #smasharang
+    "Faire Dinkum Frame 9":  LocData(0x501F, "Faire Dinkum", hint_info="Smash Wall"), #smasharang
+    "Faire Dinkum Frame 10":  LocData(0x505F, "Faire Dinkum - Infra", hint_info="Town Invisi-crates"), #infra
+    "Faire Dinkum Frame 11":  LocData(0x5060, "Faire Dinkum - Infra", hint_info="Town Invisi-crates"), #infra
+    "Faire Dinkum Frame 12":  LocData(0x5061, "Faire Dinkum - Infra", hint_info="End Invisi-crates"), #infra
+    "Faire Dinkum Frame 13":  LocData(0x5062, "Faire Dinkum - Infra", hint_info="End Invisi-crates"), #infra
+    "Faire Dinkum Frame 14":  LocData(0x5063, "Faire Dinkum - Infra", hint_info="End Invisi-crates"), #infra
+    "Sulphur Rocks Frame 1":  LocData(0x5020, "Sulphur Rocks", hint_info="Sulphur Start"),
+    "Sulphur Rocks Frame 2":  LocData(0x5021, "Sulphur Rocks", hint_info="Sulphur Start"),
+    "Sulphur Rocks Frame 3":  LocData(0x5022, "Sulphur Rocks", hint_info="In Hole"),
+    "Sulphur Rocks Frame 4":  LocData(0x5023, "Sulphur Rocks", hint_info="Behind Fence"),#lasharang, not needed
+    "Sulphur Rocks Frame 5":  LocData(0x5024, "Sulphur Rocks", hint_info="Behind Fence"), #lasharang, not needed
+    "Sulphur Rocks Frame 6":  LocData(0x5025, "Sulphur Rocks", hint_info="Behind Fence"),#lasharang, not needed
+    "Sulphur Rocks Frame 7":  LocData(0x5026, "Sulphur Rocks", hint_info="In Hole"),
+    "Sulphur Rocks Frame 8": LocData(0x5064,  "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 9": LocData(0x5065,  "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 10": LocData(0x5066, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 11": LocData(0x5067, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 12": LocData(0x5068, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 13": LocData(0x5069, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 14": LocData(0x506A, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 15": LocData(0x506B, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 16": LocData(0x506C, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 17": LocData(0x506D, "Sulphur Rocks - Infra", hint_info="Start Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 18": LocData(0x506E, "Sulphur Rocks - Infra", hint_info="Trial Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 19": LocData(0x506F, "Sulphur Rocks - Infra", hint_info="Trial Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 20": LocData(0x5070, "Sulphur Rocks - Infra", hint_info="Trial Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 21": LocData(0x5071, "Sulphur Rocks - Infra", hint_info="Trial Invisi-crates"),  # infra
+    "Sulphur Rocks Frame 22": LocData(0x50AE, "Sulphur Rocks", hint_info="Start"),
+    "Burramudgee Frame 1":  LocData(0x5027, "Burramudgee HQ - Infra", hint_info="Floating Above HQ"),
+    "Burramudgee Frame 2":  LocData(0x5028, "Burramudgee HQ - Infra", hint_info="Floating Above HQ"),
+    "Burramudgee Frame 3":  LocData(0x5029, "Burramudgee HQ - Infra", hint_info="Floating Above HQ"),
+    "Burramudgee Frame 4":  LocData(0x502A, "Burramudgee HQ", hint_info="Watch Tower"),
+    "Burramudgee Frame 5":  LocData(0x502B, "Burramudgee HQ", hint_info="Watch Tower"),
+    "Burramudgee Frame 6":  LocData(0x502C, "Burramudgee HQ", hint_info="Watch Tower"),
+    "Burramudgee Frame 7":  LocData(0x502D, "Burramudgee HQ", hint_info="Watch Tower"),
+    "Burramudgee Frame 8":  LocData(0x5072, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 9":  LocData(0x5073, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 10":  LocData(0x5074, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 11":  LocData(0x5075, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 12":  LocData(0x5076, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 13":  LocData(0x5077, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 14":  LocData(0x5078, "Burramudgee Town - Infra", hint_info="Sewer Steve"),
+    "Burramudgee Frame 15":  LocData(0x5079, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 16":  LocData(0x507A, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 17":  LocData(0x507B, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 18":  LocData(0x507C, "Burramudgee Town - Infra", hint_info="Sewer CrossWay Dead End"),
+    "Burramudgee Frame 19":  LocData(0x507D, "Burramudgee Town - Infra", hint_info="Sewer CrossWay Dead End"),
+    "Burramudgee Frame 20":  LocData(0x507E, "Burramudgee Town - Infra", hint_info="Sewer CrossWay Dead End"),
+    "Burramudgee Frame 21":  LocData(0x507F, "Burramudgee Town - Infra", hint_info="Sewer Steve"),
+    "Burramudgee Frame 22":  LocData(0x5080, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 23":  LocData(0x5081, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 24":  LocData(0x5082, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 25":  LocData(0x5083, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 26":  LocData(0x5084, "Burramudgee Town - Infra", hint_info="Sewer CrossWay"),
+    "Burramudgee Frame 27":  LocData(0x5085, "Burramudgee Town - Infra", hint_info="Sewer Entrance"),
+    "Burramudgee Frame 28":  LocData(0x5086, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 29":  LocData(0x5087, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 30":  LocData(0x5088, "Burramudgee Town - Infra", hint_info="Sewer Steve"),
+    "Burramudgee Frame 31":  LocData(0x5089, "Burramudgee Town - Infra", hint_info="Sewer Grid"),
+    "Burramudgee Frame 32":  LocData(0x508A, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 33":  LocData(0x508B, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 34":  LocData(0x508C, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 35":  LocData(0x508D, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 36":  LocData(0x508E, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 37":  LocData(0x508F, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 38":  LocData(0x5090, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 39":  LocData(0x5091, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 40":  LocData(0x5092, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 41":  LocData(0x5093, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 42":  LocData(0x5094, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 43":  LocData(0x5095, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 44":  LocData(0x5096, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 45":  LocData(0x5097, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 46":  LocData(0x5098, "Burramudgee HQ", hint_info="HQ Balcony Boxes"),
+    "Burramudgee Frame 47":  LocData(0x5099, "Burramudgee HQ", hint_info="HQ Warparang Tutorial"),#Smasharang
+    "Burramudgee Frame 48":  LocData(0x509A, "Burramudgee HQ", hint_info="HQ Warparang Tutorial"),#Smasharang
+    "Burramudgee Frame 49":  LocData(0x509B, "Burramudgee HQ", hint_info="HQ Warparang Tutorial"),#Smasharang
+    "Burramudgee Frame 50":  LocData(0x509C, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Burramudgee Frame 51":  LocData(0x509D, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Burramudgee Frame 52":  LocData(0x509E, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Burramudgee Frame 53":  LocData(0x509F, "Burramudgee HQ - Crates", hint_info="HQ Roof Box"),#Smasharang
+    "Burramudgee Frame 54":  LocData(0x50A0, "Burramudgee HQ - Crates", hint_info="HQ Roof Box"),#Smasharang
+    "Burramudgee Frame 55":  LocData(0x50A1, "Burramudgee HQ - Crates", hint_info="HQ Roof Box"),#Smasharang
+    "Burramudgee Frame 56":  LocData(0x50A2, "Burramudgee HQ - Crates", hint_info="HQ Roof Box"),#Smasharang
+    "Burramudgee Frame 57":  LocData(0x50A3, "Burramudgee HQ - Crates", hint_info="HQ Roof Box"),#Smasharang
+    "Burramudgee Frame 58":  LocData(0x50A4, "Burramudgee HQ - Crates", hint_info="HQ Meeting Room Box"),#Smasharang
+    "Burramudgee Frame 59":  LocData(0x50A5, "Burramudgee HQ - Crates", hint_info="HQ Meeting Room Box"),#Smasharang
+    "Burramudgee Frame 60":  LocData(0x50A6, "Burramudgee HQ - Crates", hint_info="HQ Meeting Room Box"),#Smasharang
+    "Burramudgee Frame 61":  LocData(0x50A7, "Burramudgee HQ - Crates", hint_info="HQ Meeting Room Box"),#Smasharang
+    "Burramudgee Frame 62":  LocData(0x50A8, "Burramudgee HQ - Crates", hint_info="HQ Meeting Room Box"),#Smasharang
+    "Burramudgee Frame 63":  LocData(0x50A9, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Burramudgee Frame 64":  LocData(0x50AA, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Burramudgee Frame 65":  LocData(0x50AB, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Burramudgee Frame 66":  LocData(0x50AC, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Burramudgee Frame 67":  LocData(0x50AD, "Burramudgee HQ - Crates", hint_info="HQ Hangar Boxes"),#Smasharang
+    "Frill Neck Frame 1":  LocData(0x502E, "Frill Neck Forest", hint_info="Trunk Vines"),
+    "Frill Neck Frame 2":  LocData(0x502F, "Frill Neck Forest", hint_info="Trunk Vines"),
+    "Frill Neck Frame 3":  LocData(0x5030, "Frill Neck Forest", hint_info="Trunk Vines"),
+    "Frill Neck Frame 4":  LocData(0x5031, "Frill Neck Forest", hint_info="Trunk Vines"),
+    "Frill Neck Frame 5":  LocData(0x5032, "Frill Neck Forest", hint_info="Trunk Vines"),
+    "Frill Neck Frame 6":  LocData(0x5033, "Frill Neck Forest", hint_info="On Tree"),
+    "Frill Neck Frame 7":  LocData(0x5034, "Frill Neck Forest", hint_info="Rope Start"),
+    "Frill Neck Frame 8":  LocData(0x5035, "Frill Neck Forest", hint_info="Rope Log"),
+    "Frill Neck Frame 9":  LocData(0x5036, "Frill Neck Forest"),
+    "Frill Neck Frame 10": LocData(0x5037, "Frill Neck Forest", hint_info="Up Ladder"),
+    "Frill Neck Frame 11": LocData(0x5038, "Frill Neck Forest", hint_info="On net"),
+    "Frill Neck Frame 12": LocData(0x5039, "Frill Neck Forest", hint_info="Up Ladder"),
+    "Frill Neck Frame 13": LocData(0x503A, "Frill Neck Forest", hint_info="Below Money Bag"),
+    "Frill Neck Frame 14": LocData(0x503B, "Frill Neck Forest", hint_info="Above Dunny"),
+    "Frill Neck Frame 15": LocData(0x503C, "Frill Neck Forest", hint_info="Side Platform"),
+    "Mount Boom Frame":  LocData(0x503D, "Mount Boom End", hint_info="End"), #Lasharang
 }
 
 race_dict: Dict[str, LocData] = {
@@ -477,7 +477,7 @@ mission_dict: Dict[str, LocData] = {
     "Dennis Freeway": LocData(0x6d000021, "Dennis Freeway", 33), #didnt update
     "Teeter Tottering Inferno": LocData(0x6d000022, "Sulphur Rocks", 34),
     "Grindstone Cowboy": LocData(0x6d000024, "Sulphur Rocks", 36),
-    "Volcano Rescue": LocData(0x6d000025, "MountBoom End", 37), #thermo
+    "Volcano Rescue": LocData(0x6d000025, "Mount Boom End", 37), #thermo
     "Bush Fire": LocData(0x6d000026, "Bush Fire", 38), #thermo
     "Truck Stop": LocData(0x6d000027, "SR - Truck Stop", 39), #stupid long mission #lifter bunyip
     "Sea Lab": LocData(0x6d000028, "Beach Sub", 40), #sub bunyip
@@ -504,7 +504,7 @@ mission_dict: Dict[str, LocData] = {
     # is m981
     #nano is m982
     #mission 100 spawns warp flower at sly
-    #mission 371 gate 1 MountBoom
+    #mission 371 gate 1 Mount Boom
     #mission 373 is warperang spot button
     #mission 372 is gate
 

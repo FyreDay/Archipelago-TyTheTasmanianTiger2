@@ -133,8 +133,8 @@ class Ty2World(World):
     def create_items(self):
         create_ty2_items(self)
 
-        self.push_precollected(Item("Burramudgee Town ParkingBay", ItemClassification.progression,
-                                    self.item_name_to_id["Burramudgee Town ParkingBay"], self.player))
+        self.push_precollected(Item("Parking Bay - Burramudgee Town", ItemClassification.progression,
+                                    self.item_name_to_id["Parking Bay - Burramudgee Town"], self.player))
 
         self.push_precollected(Item("Boomerang", ItemClassification.progression,
                                         self.item_name_to_id["Boomerang"], self.player))
@@ -247,3 +247,11 @@ class Ty2World(World):
         self.options.death_link.value = slot_data["DeathLink"]
 
         return slot_data
+
+
+    def extend_hint_information(self, hint_data: Dict[int, Dict[int, str]]):
+        for key, data in full_location_dict.items():
+            try:
+                hint_data[self.player][data.code] = data.hint_info
+            except KeyError:
+                continue

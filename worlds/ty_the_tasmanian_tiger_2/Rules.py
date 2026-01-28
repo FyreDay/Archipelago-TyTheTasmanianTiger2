@@ -2,7 +2,6 @@ from BaseClasses import ItemClassification, CollectionState, Location
 from worlds.ty_the_tasmanian_tiger_2.Items import Ty2Item
 from worlds.ty_the_tasmanian_tiger_2.Locations import Ty2Location, mission_dict, full_location_dict
 
-
 def has_infra(world, state):
     return (state.has("Progressive Infrarang", world.player)
             or state.has("Infrarang", world.player)
@@ -102,182 +101,184 @@ def get_rules(world):
             "Killer Koala": lambda state:
                 has_infra(world, state) and state.has("Disguised Frill Found", world.player, 25),
             "Grub Grab": lambda state:
-                state.has("Burramudgee Town ParkingBay", world.player) and (state.has("Patchy Barriers", world.player) or state.has("Buster Barriers", world.player)),
+                state.has("Parking Bay - Burramudgee Town", world.player) and (state.has("Patchy Barriers", world.player) or state.has("Buster Barriers", world.player)),
             "Ripper Nipper": lambda state:
-                state.has("Wobbygon Bay ParkingBay", world.player) and state.has("Ripper Nipper ParkingBay", world.player),
+                state.has("Parking Bay - Wobbygon Bay", world.player) and state.has("Parking Bay - Ripper Nipper", world.player),
             #Cogs
-            "Outback Oasis Cog 1 - Dunny Rock Wall": lambda state:
+            "Outback Oasis Cog 1": lambda state:
                 can_smash_wall(world, state),
-            "Outback Oasis Cog 3 - Near Trampoline": lambda state:
+            "Outback Oasis Cog 3": lambda state:
                 can_smash_wall(world, state),
-            "Never Never Cog 5 - Vanishing Platforms": lambda state:
+            "Never Never Cog 2": lambda state:
                 can_smash_wall(world, state),
-            "Never Never Cog 11 - Lava Chill Out": lambda state:
-            (can_swing(world, state)  or can_cold(world, state)) and state.has("Thermo Bunyip Key", world.player),
-            "Never Never Cog 19 - End Wall": lambda state:
+            "Never Never Cog 8": lambda state:
+                (can_swing(world, state)  or can_cold(world, state)) and state.has("Thermo Bunyip Key", world.player),
+            "Never Never Cog 16": lambda state:
                 can_smash_wall(world, state),
-            "Faire Dinkum Cog 20 - End of Level": lambda state:
+            "Faire Dinkum Cog 1": lambda state:
                 can_smash_wall(world, state),
-            "Faire Dinkum Cog 21 - Smash Wall": lambda state:
+            "Faire Dinkum Cog 2": lambda state:
                 can_smash_wall(world, state),
-            "Sulphur Rocks Cog 23 - Snake Eyes Challenge": lambda state:
+            "Sulphur Rocks Cog 1": lambda state:
                 can_freeze(world, state),
-            "Sulphur Rocks Cog 24 - Boulder Lift": lambda state:
+            "Sulphur Rocks Cog 2": lambda state:
                 state.has("Lifter Bunyip Key", world.player),
-            "Sulphur Rocks Cog 25 - Swinging Around": lambda state:
+            "Sulphur Rocks Cog 3": lambda state:
                 can_swing(world, state),
-            "Sulphur Rocks Cog 26": lambda state:
+            "Sulphur Rocks Cog 4": lambda state:
                 can_swing(world, state),
-            "Sulphur Rocks Cog 31": lambda state:
+            "Sulphur Rocks Cog 9": lambda state:
                 can_tp(world, state),
-            "Burramudgee Cog 33 - Rope Timer Race": lambda state:
+            "Burramudgee Cog 2": lambda state:
                 can_smash_crate(world, state),
-            "Burramudgee Cog 34 - On Haunted Mansion": lambda state:
+            "Burramudgee Cog 3": lambda state:
                 has_infra(world, state),
-            "MountBoom Cog 37": lambda state:
+            "Mount Boom Cog 2": lambda state:
                 can_tp(world, state),
-            "MountBoom Cog 38": lambda state:
+            "Mount Boom Cog 3": lambda state:
                 can_tp(world, state),
-            "MountBoom Cog 39": lambda state:
+            "Mount Boom Cog 4": lambda state:
                 can_tp(world, state),
-            "Wetlands Cog 41 - Rock Wall": lambda state:
+            "Wetlands Cog 2": lambda state:
                 can_smash_wall(world, state),
-            "Wetlands Cog 44 - Bunyip": lambda state:
+            "Wetlands Cog 5": lambda state:
                 can_burn(world, state),
             #Orbs
-            "Burramudgee Orb 0 - High Above Burramudgee": lambda state:
+            "Burramudgee Orb 1": lambda state:
                 can_swing(world, state),
-            "Sulphur Rocks Orb 2 - Swinging Over the Pond": lambda state:
+            "Sulphur Rocks Orb 1": lambda state:
                 can_swing(world, state),
-            "Sulphur Rocks Orb 3 - Sulphur Lava": lambda state:
+            "Sulphur Rocks Orb 2": lambda state:
                 can_swing(world, state) and can_freeze(world, state),
-            "MountBoom Orb 7": lambda state:
+            "Mount Boom Orb 2": lambda state:
                 can_tp(world, state) and can_smash_wall(world, state),
-            "Outback Oasis Orb 9 - Super Frill Beat Up": lambda state:
+            "Outback Oasis Orb 1": lambda state:
                 can_smash_wall(world, state),
-            "Never Never Orb 15 - Behind Wall": lambda state:
+            "Never Never Orb 1": lambda state:
                 can_smash_wall(world, state),
-            "Never Never Orb 16 - In Trees": lambda state:
+            "Never Never Orb 2": lambda state:
                 can_swing(world, state),
-            "Never Never Orb 17 - Swinging Fence": lambda state:
+            "Never Never Orb 3": lambda state:
                 can_swing(world, state),
-            "Never Never Orb 20 - Swinging Under": lambda state:
+            "Never Never Orb 6": lambda state:
                 can_swing(world, state),
-            "Never Never Orb 21 - Water Wheel": lambda state:
+            "Never Never Orb 7": lambda state:
                 can_swing(world, state),
-            "Wetlands Orb 22 - Crocs": lambda state:
+            "Wetlands Orb": lambda state:
                 can_swing(world, state),
-            "Dennis Freeway Orb 25": lambda state:
+            "Dennis Freeway Orb": lambda state:
                 can_tp(world, state),
-            "Burramudgee Orb 27 - Frosty Tutorial": lambda state:
+            "Burramudgee Orb 4": lambda state:
                 can_freeze(world, state),
             #Bilbies
-            "Outback Oasis Bilby 0 - Trampoline": lambda state:
+            "Outback Oasis Bilby 1": lambda state:
                 can_smash_wall(world,state),
-            "Never Never Bilby 4 - Lava Chill Out": lambda state:
+            "Never Never Bilby 2": lambda state:
                 can_swing(world, state) or can_cold(world, state),
-            "Frill Neck Bilby 16 - End Trunk": lambda state:
+            "Frill Neck Bilby 1": lambda state:
                 can_swing(world, state),
-            "MountBoom Bilby 18 - Beginning": lambda state:
+            "Mount Boom Bilby 1": lambda state:
                 can_swing(world, state) and state.has("Thermo Bunyip Key", world.player),
-            "MountBoom Bilby 19 - Warp": lambda state:
+            "Mount Boom Bilby 2": lambda state:
                 can_tp(world, state),
-            "Wetlands Bilby 21 - Webbed": lambda state:
+            "Wetlands Bilby 2": lambda state:
                 can_burn(world, state),
-            "Wetlands Bilby 22 - Bunyip": lambda state:
+            "Wetlands Bilby 3": lambda state:
                 can_burn(world, state),
             #Frills
-            "Outback Oasis Frill 0 - By Bunyip": lambda state:
+            "Outback Oasis Frill 1": lambda state:
                 has_infra(world, state)
                 and state.can_reach_region("Burramudgee Town", world.player)
                 and can_smash_wall(world, state),
-            "Outback Oasis Frill 1 - Start": lambda state:
+            "Outback Oasis Frill 2": lambda state:
                 has_infra(world, state),
-            "Outback Oasis Frill 2 - Cave Overlook": lambda state:
+            "Outback Oasis Frill 3": lambda state:
                 has_infra(world, state),
-            "Never Never Frill 3 - By Wall": lambda state:
+            "Never Never Frill 1": lambda state:
                 has_infra(world, state),
-            "Never Never Frill 4 - Rocky Road": lambda state:
+            "Never Never Frill 2": lambda state:
                 has_infra(world, state),
-            "Never Never Frill 5 - Vine Climb": lambda state:
+            "Never Never Frill 3": lambda state:
                 has_infra(world, state),
-            "Wetlands Frill 6 - By Button": lambda state:
+            "Wetlands Frill 1": lambda state:
                 has_infra(world, state),
-            "Wetlands Frill 7 - Crocs": lambda state:
+            "Wetlands Frill 2": lambda state:
                 has_infra(world, state),
-            "Faire Dinkum Frill 8 - Under Walkway": lambda state:
+            "Faire Dinkum Frill": lambda state:
                 has_infra(world, state),
-            "Sulphur Rocks Frill 9 - Start": lambda state:
+            "Sulphur Rocks Frill 1": lambda state:
                 has_infra(world, state),
-            "Sulphur Rocks Frill 10 - In Hole": lambda state:
+            "Sulphur Rocks Frill 2": lambda state:
                 has_infra(world, state),
-            "Sulphur Rocks Frill 11 - Behind Fence": lambda state:
+            "Sulphur Rocks Frill 3": lambda state:
                 has_infra(world, state)
                 and state.can_reach_region("Burramudgee Town", world.player)
                 and can_swing(world, state),
-            "Burramudgee Frill 12 - Near Police": lambda state:
+            "Burramudgee Frill 1": lambda state:
                 has_infra(world, state),
-            "Burramudgee Frill 13 - Near Canal": lambda state:
+            "Burramudgee Frill 2": lambda state:
                 has_infra(world, state),
-            "Dennis Freeway - Disguised Frill 14": lambda state:
+            "Dennis Freeway Frill": lambda state:
                 has_infra(world, state),
-            "Outback Oasis Frill 15 - Picnic": lambda state:
+            "Outback Oasis Frill 4": lambda state:
                 has_infra(world, state),
-            "Dusty Burrows Frill 16": lambda state:
+            "Dusty Burrows Frill": lambda state:
                 has_infra(world, state),
-            "Lake Burramudgee Frill 17": lambda state:
+            "Lake Burramudgee Frill": lambda state:
                 has_infra(world, state),
-            "Frill Neck Frill 18": lambda state:
+            "Frill Neck Frill 1": lambda state:
                 has_infra(world, state) and state.can_reach_region("Burramudgee Town", world.player),
-            "Truck Tragedy Frill 19": lambda state:
+            "Truck Tragedy Frill": lambda state:
                 has_infra(world, state),
-            "Never Never Frill 20 - Never Never Entrance": lambda state:
+            "Never Never Frill 4": lambda state:
                 has_infra(world, state),
-            "Sheep Dip Frill 21": lambda state:
+            "Sheep Dip Frill": lambda state:
                 has_infra(world, state),
-            "Frill Neck Frill 22": lambda state:
+            "Frill Neck Frill 2": lambda state:
                 has_infra(world, state),
-            "MountBoom Frill 23": lambda state:
+            "Mount Boom Frill 1": lambda state:
                 has_infra(world, state) and state.has("Thermo Bunyip Key", world.player),
-            "MountBoom Frill 24": lambda state:
+            "Mount Boom Frill 2": lambda state:
                 has_infra(world, state),
             #Steves
             "Steve - Outback Oasis": lambda state:
                 can_swing(world, state),
-            "Steve - MountBoom": lambda state:
+            "Steve - Mount Boom": lambda state:
+                state.has("Thermo Bunyip Key", world.player),
+            "Steve - Never Never": lambda state:
                 state.has("Thermo Bunyip Key", world.player),
             #Frames
-            "Outback Oasis Frame 0 - Warp": lambda state:
+            "Outback Oasis Frame 1": lambda state:
                 can_tp(world, state),
-            "Outback Oasis Frame 1 - Warp": lambda state:
+            "Outback Oasis Frame 2": lambda state:
                 can_tp(world, state),
-            "Outback Oasis Frame 2 - Warp": lambda state:
+            "Outback Oasis Frame 3": lambda state:
                 can_tp(world, state),
-            "Never Never Frame 4 - In Trees": lambda state:
+            "Never Never Frame 1": lambda state:
                 can_swing(world, state),
-            "Never Never Frame 6 - Lava Chill Out": lambda state:
+            "Never Never Frame 4": lambda state:
                 can_swing(world, state) or can_cold(world, state),
-            "Never Never Frame 12 - Dennis Rock Wall": lambda state:
+            "Never Never Frame 10": lambda state:
                 can_smash_wall(world, state),
-            "Never Never Frame 13 - Swinging Under": lambda state:
+            "Never Never Frame 11": lambda state:
                 can_swing(world, state),
-            "Faire Dinkum Frame 30 - Smash Wall": lambda state:
+            "Faire Dinkum Frame 8": lambda state:
                 can_smash_wall(world, state),
-            "Faire Dinkum Frame 31 - Smash Wall": lambda state:
+            "Faire Dinkum Frame 9": lambda state:
                 can_smash_wall(world, state),
-            "Sulphur Rocks Frame 35 - Behind Fence": lambda state:
+            "Sulphur Rocks Frame 4": lambda state:
                 can_swing(world, state),
-            "Sulphur Rocks Frame 36 - Behind Fence": lambda state:
+            "Sulphur Rocks Frame 5": lambda state:
                 can_swing(world, state),
-            "Sulphur Rocks Frame 37 - Behind Fence": lambda state:
+            "Sulphur Rocks Frame 6": lambda state:
                 can_swing(world, state),
-            "MountBoom Frame 61 - End": lambda state:
+            "Mount Boom Frame": lambda state:
                 can_swing(world, state),
-            "Burramudgee Frame 153 - HQ Warparang Tutorial": lambda state:
+            "Burramudgee Frame 47": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
-            "Burramudgee Frame 154 - HQ Warparang Tutorial": lambda state:
+            "Burramudgee Frame 48": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
-            "Burramudgee Frame 155 - HQ Warparang Tutorial": lambda state:
+            "Burramudgee Frame 49": lambda state:
             can_smash_crate(world, state) and can_tp(world, state),
         },
         "events": {
@@ -318,7 +319,7 @@ def get_rules(world):
             "Outback Oasis -> Infra":
                 lambda state: not world.options.require_infra
                               or has_infra(world, state),
-            "MountBoom -> Infra":
+            "Mount Boom -> Infra":
                 lambda state: not world.options.require_infra
                               or has_infra(world, state),
             "Frill Neck Forest -> Infra":
@@ -338,83 +339,83 @@ def get_rules(world):
                               or has_infra(world, state),
             "Wetlands Teleport":lambda state:
                 can_tp(world, state),
-            "MountBoom Start ParkingBay":
-                lambda state: state.has("MountBoom Start ParkingBay", world.player),
-            "MountBoom Start Lava":
+            "Mount Boom Start Parking Bay":
+                lambda state: state.has("Parking Bay - Mount Boom Start", world.player),
+            "Mount Boom Start Lava":
                 lambda state: state.has("Thermo Bunyip Key", world.player),
-            "MountBoom End Lava":
+            "Mount Boom End Lava":
                 lambda state: state.has("Thermo Bunyip Key", world.player),
-            "MountBoom End ParkingBay":
-                lambda state: state.has("MountBoom End ParkingBay", world.player) and state.has("MountBoom Start ParkingBay", world.player) and state.has("Thermo Bunyip Key", world.player),
-            "Burramudgee ParkingBay":
-                lambda state: state.has("Burramudgee Town ParkingBay", world.player),
-            "Min Min Plains ParkingBay":
-                lambda state: state.has("Min Min Plains ParkingBay", world.player),
-            "Freeway Training Grounds ParkingBay":
-                lambda state: state.has("Freeway Training Grounds ParkingBay", world.player),
-            "Beach Training Grounds ParkingBay":
-                lambda state: state.has("Beach Training Grounds ParkingBay", world.player),
-            "Dennis Freeway ParkingBay":
-                lambda state: state.has("Dennis Freeway ParkingBay", world.player),
-            "Wobbygon Bay ParkingBay":
-                lambda state: state.has("Wobbygon Bay ParkingBay", world.player),
-            "Lava Falls Race ParkingBay":
-                lambda state: state.has("Lava Falls Race ParkingBay", world.player),
-            "Frill Neck Forest ParkingBay":
-                lambda state: state.has("Frill Neck Forest ParkingBay", world.player),
-            "Old Stony Creek ParkingBay":
-                lambda state: state.has("Old Stony Creek ParkingBay", world.player),
-            "Camping ParkingBay":
-                lambda state: state.has("Camping ParkingBay", world.player),
-            "Outback Oasis ParkingBay":
-                lambda state: state.has("Outback Oasis ParkingBay", world.player),
-            "Refinery Run ParkingBay":
-                lambda state: state.has("Refinery Run ParkingBay", world.player),
-            "Fire Fight ParkingBay":
-                lambda state: state.has("Fire Fight ParkingBay", world.player),
-            "Sly ParkingBay":
-                lambda state: state.has("Sly ParkingBay", world.player),
-            "Outback Dash ParkingBay":
-                lambda state: state.has("Outback Dash ParkingBay", world.player),
-            "Never Never Road ParkingBay":
-                lambda state: state.has("Never Never Road ParkingBay", world.player),
-            "Truck Tragedy ParkingBay":
-                lambda state: state.has("Truck Tragedy ParkingBay", world.player),
-            "Truck Stop ParkingBay South":
-                lambda state: state.has("Truck Stop ParkingBay", world.player),
-            "Truck Stop ParkingBay North":
-                lambda state: state.has("Truck Stop ParkingBay", world.player),
-            "Plutonium Panic ParkingBay":
-                lambda state: state.has("Plutonium Panic ParkingBay", world.player),
-            "50 Foot Squeaver ParkingBay":
-                lambda state: state.has("50 Foot Squeaver ParkingBay", world.player),
-            "Never Never ParkingBay":
-                lambda state: state.has("Never Never ParkingBay", world.player),
-            "Min Min Mining ParkingBay":
-                lambda state: state.has("Min Min Mining ParkingBay", world.player),
-            "Turbo Track ParkingBay":
-                lambda state: state.has("Turbo Track ParkingBay", world.player),
-            "King Squeaver ParkingBay":
-                lambda state: state.has("King Squeaver ParkingBay", world.player),
-            "Bush Fire ParkingBay":
-                lambda state: state.has("Bush Fire ParkingBay", world.player),
-            "Sulphur Rocks ParkingBay":
-                lambda state: state.has("Sulphur Rocks ParkingBay", world.player),
-            "Lake Burramudgee ParkingBay":
-                lambda state: state.has("Lake Burramudgee ParkingBay", world.player),
-            "Muddy Bottom ParkingBay":
-                lambda state: state.has("Muddy Bottom ParkingBay", world.player),
-            "Dusty Burrows ParkingBay":
-                lambda state: state.has("Dusty Burrows ParkingBay", world.player),
-            "Ripper Nipper ParkingBay":
-                lambda state: state.has("Ripper Nipper ParkingBay", world.player),
+            "Mount Boom End Parking Bay":
+                lambda state: state.has("Parking Bay - Mount Boom End", world.player) and state.has("Parking Bay - Mount Boom Start", world.player) and state.has("Thermo Bunyip Key", world.player),
+            "Burramudgee Parking Bay":
+                lambda state: state.has("Parking Bay - Burramudgee Town", world.player),
+            "Min Min Plains Parking Bay":
+                lambda state: state.has("Parking Bay - Min Min Plains", world.player),
+            "Freeway Training Grounds Parking Bay":
+                lambda state: state.has("Parking Bay - Freeway Training Grounds", world.player),
+            "Beach Training Grounds Parking Bay":
+                lambda state: state.has("Parking Bay - Beach Training Grounds", world.player),
+            "Dennis Freeway Parking Bay":
+                lambda state: state.has("Parking Bay - Dennis Freeway", world.player),
+            "Wobbygon Bay Parking Bay":
+                lambda state: state.has("Parking Bay - Wobbygon Bay", world.player),
+            "Lava Falls Race Parking Bay":
+                lambda state: state.has("Parking Bay - Lava Falls Race", world.player),
+            "Frill Neck Forest Parking Bay":
+                lambda state: state.has("Parking Bay - Frill Neck Forest", world.player),
+            "Old Stony Creek Parking Bay":
+                lambda state: state.has("Parking Bay - Old Stony Creek", world.player),
+            "Camping Parking Bay":
+                lambda state: state.has("Parking Bay - Camping", world.player),
+            "Outback Oasis Parking Bay":
+                lambda state: state.has("Parking Bay - Outback Oasis", world.player),
+            "Refinery Run Parking Bay":
+                lambda state: state.has("Parking Bay - Refinery Run", world.player),
+            "Fire Fight Parking Bay":
+                lambda state: state.has("Parking Bay - Fire Fight", world.player),
+            "Sly Parking Bay":
+                lambda state: state.has("Parking Bay - Sly", world.player),
+            "Outback Dash Parking Bay":
+                lambda state: state.has("Parking Bay - Outback Dash", world.player),
+            "Never Never Road Parking Bay":
+                lambda state: state.has("Parking Bay - Never Never Road", world.player),
+            "Truck Tragedy Parking Bay":
+                lambda state: state.has("Parking Bay - Truck Tragedy", world.player),
+            "Truck Stop Parking Bay South":
+                lambda state: state.has("Parking Bay - Truck Stop", world.player),
+            "Truck Stop Parking Bay North":
+                lambda state: state.has("Parking Bay - Truck Stop", world.player),
+            "Plutonium Panic Parking Bay":
+                lambda state: state.has("Parking Bay - Plutonium Panic", world.player),
+            "50 Foot Squeaver Parking Bay":
+                lambda state: state.has("Parking Bay - 50 Foot Squeaver", world.player),
+            "Never Never Parking Bay":
+                lambda state: state.has("Parking Bay - Never Never", world.player),
+            "Min Min Mining Parking Bay":
+                lambda state: state.has("Parking Bay - Min Min Mining", world.player),
+            "Turbo Track Parking Bay":
+                lambda state: state.has("Parking Bay - Turbo Track", world.player),
+            "King Squeaver Parking Bay":
+                lambda state: state.has("Parking Bay - King Squeaver", world.player),
+            "Bush Fire Parking Bay":
+                lambda state: state.has("Parking Bay - Bush Fire", world.player),
+            "Sulphur Rocks Parking Bay":
+                lambda state: state.has("Parking Bay - Sulphur Rocks", world.player),
+            "Lake Burramudgee Parking Bay":
+                lambda state: state.has("Parking Bay - Lake Burramudgee", world.player),
+            "Muddy Bottom Parking Bay":
+                lambda state: state.has("Parking Bay - Muddy Bottom", world.player),
+            "Dusty Burrows Parking Bay":
+                lambda state: state.has("Parking Bay - Dusty Burrows", world.player),
+            "Ripper Nipper Parking Bay":
+                lambda state: state.has("Parking Bay - Ripper Nipper", world.player),
 
-            "Faire Dinkum ParkingBay":
-                lambda state: state.has("Faire Dinkum ParkingBay", world.player),
-            "Wetlands ParkingBay":
-                lambda state: state.has("Wetlands ParkingBay", world.player),
-            "Hearty Beach ParkingBay":
-                lambda state: state.has("Hearty Beach ParkingBay", world.player),
+            "Faire Dinkum Parking Bay":
+                lambda state: state.has("Parking Bay - Faire Dinkum", world.player),
+            "Wetlands Parking Bay":
+                lambda state: state.has("Parking Bay - Wetlands", world.player),
+            "Hearty Beach Parking Bay":
+                lambda state: state.has("Parking Bay - Hearty Beach", world.player),
             "Patchy Barriers West":
                 lambda state: state.has("Patchy Barriers", world.player),
             "Patchy Barriers West Backwards":
@@ -440,17 +441,17 @@ def get_rules(world):
             "Buster Barriers East Backwards":
                 lambda state: state.has("Buster Barriers", world.player),
             "Truck Stop Clear":
-                lambda state: state.has("Truck Stop ParkingBay", world.player),
+                lambda state: state.has("Parking Bay - Truck Stop", world.player),
             "Truck Stop Clear Backwards":
-                lambda state: state.has("Truck Stop ParkingBay", world.player),
-            "Patchy ParkingBay":
-                lambda state: state.has("Patchy ParkingBay", world.player),
-            "Oil Rig ParkingBay":
-                lambda state: state.has("Oil Rig ParkingBay", world.player),
+                lambda state: state.has("Parking Bay - Truck Stop", world.player),
+            "Patchy Parking Bay":
+                lambda state: state.has("Parking Bay - Patchy", world.player),
+            "Oil Rig Parking Bay":
+                lambda state: state.has("Parking Bay - Oil Rig", world.player),
             "Oil Rig Button":
                 lambda state: state.has("Thermo Bunyip Key", world.player),
-            "Fluffy ParkingBay":
-                lambda state: state.has("Fluffy ParkingBay", world.player),
+            "Fluffy Parking Bay":
+                lambda state: state.has("Parking Bay - Fluffy", world.player),
             "Bush Rescue Plane":
                 lambda state: (state.has("Mission Complete", world.player, world.options.missions_for_goal.value)
                                and state.has("Patchy Defeated", world.player)
@@ -460,7 +461,6 @@ def get_rules(world):
         }
     }
     return rules
-
 
 
 def set_rules(world):
@@ -480,6 +480,7 @@ def set_rules(world):
         try:
             world.get_location(location_name).access_rule = rule
         except KeyError as e:
+            print(f"Key error, {e}")
             pass
 
     for event_name, rule in rules_lookup["events"].items():
@@ -488,10 +489,6 @@ def set_rules(world):
         except KeyError as e:
             print(f"Key error, {e}")
             pass
-
-    for location_name, rule in rules_lookup["locations"].items():
-        if location_name not in full_location_dict.keys():
-            print(f"Key error, {location_name}")
 
     if world.options.frill_sanity:
         world.get_location("Complete Killer Koala").access_rule \

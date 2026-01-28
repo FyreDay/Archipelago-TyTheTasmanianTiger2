@@ -31,7 +31,7 @@ def create_item(world, name: str, classification: ItemClassification, amount: Op
 
 
 def create_ty2_items(world):
-    starting_items = ["Burramudgee Town ParkingBay"]
+    starting_items = ["Parking Bay - Burramudgee Town"]
 
     total_location_count = len(world.multiworld.get_unfilled_locations(world.player))
     # print(total_location_count)
@@ -49,7 +49,7 @@ def create_ty2_items(world):
 
     for item_name, item_data in get_collectable_currencies(world).items():
         create_item(world, item_name, item_data.classification, item_data.amount)
-    for item_name, item_data in get_parking_pads(world).items():
+    for item_name, item_data in parking_bays.items():
         if item_name in starting_items:
             continue
         create_item(world, item_name, item_data.classification, item_data.amount)
@@ -113,8 +113,6 @@ item_dict: Dict[str, ItemData] = {
     "Mysterious Anomalies Map": ItemData(57, ItemClassification.useful),
     "Sub Bunyip Key": ItemData(59, ItemClassification.progression),
     "Progressive Health Paw": ItemData(77, ItemClassification.useful, 2),
-    # "Platinum Paw": ItemData(78, ItemClassification.useful),
-    # "fourbie speed upgrade": ItemData(0x00, ItemClassification.useful),
 }
 
 def get_rangs(world) -> Dict[str, ItemData]:
@@ -146,9 +144,9 @@ individual_rangs: Dict[str, ItemData] = {
     # "Aquarang": ItemData(0x12, ItemClassification.progression),
     # "?": ItemData(0x13, ItemClassification.progression),
     "Craftyrang": ItemData(0x14, ItemClassification.progression),
-    "Camerarang": ItemData(0x15, ItemClassification.useful),
-
+    "Camerang": ItemData(0x15, ItemClassification.useful),
 }
+
 
 progressive_rangs: Dict[str, ItemData] = {
     "Progressive Boomerang": ItemData(0x16, ItemClassification.useful, 3), #Boomerang - Multirang - Megarang - Omegarang
@@ -158,62 +156,51 @@ progressive_rangs: Dict[str, ItemData] = {
     "Progressive Lasharang": ItemData(0x1a, ItemClassification.progression, 2),
     "Progressive Infrarang": ItemData(0x1b, ItemClassification.progression, 2),
     "Progressive Smasharang": ItemData(0x1c, ItemClassification.progression, 5), #Craftyrang - Smasharang - Kaboomarang - Deadlyrang - Doomerang
-    "Camerarang": ItemData(0x15, ItemClassification.useful),
-
+    "Camerang": ItemData(0x15, ItemClassification.useful),
 }
-
-def get_parking_pads(world) -> Dict[str, ItemData]:
-    # if world.options.progressive_parking_pads.value:
-    #     return progressive_parking_pads
-    # else:
-    return parking_bays
-
 
 
 parking_bays: Dict[str, ItemData] = {
-    "Burramudgee Town ParkingBay": ItemData(3736, ItemClassification.progression),#patchy
-    "Min Min Plains ParkingBay": ItemData(3689, ItemClassification.progression), #patchy
-    "Freeway Training Grounds ParkingBay": ItemData(3688, ItemClassification.progression), #Buster
-    "Beach Training Grounds ParkingBay": ItemData(4092, ItemClassification.progression), #Buster
-    "Dennis Freeway ParkingBay": ItemData(3692, ItemClassification.progression), #Buster
-    "Muddy Bottom ParkingBay": ItemData(3306, ItemClassification.progression), #Buster
-    "Oil Rig ParkingBay": ItemData(3285, ItemClassification.progression), #Buster
-    "Wobbygon Bay ParkingBay": ItemData(3287, ItemClassification.progression), #Buster
-    "Hearty Beach ParkingBay": ItemData(3712, ItemClassification.progression), #Buster
-    "MountBoom End ParkingBay": ItemData(3735, ItemClassification.progression),#Buster
-    "MountBoom Start ParkingBay": ItemData(3694, ItemClassification.progression),#Buster
-    "Frill Neck Forest ParkingBay": ItemData(3693, ItemClassification.progression), #Buster
-    "Old Stony Creek ParkingBay": ItemData(3292, ItemClassification.progression), ##Buster
-    "Camping ParkingBay": ItemData(4130, ItemClassification.progression), #Buster
-    "Outback Oasis ParkingBay": ItemData(3685, ItemClassification.progression),#patchy
-    "Refinery Run ParkingBay": ItemData(3687, ItemClassification.progression), #patchy
-    "Fire Fight ParkingBay": ItemData(3983, ItemClassification.progression), #Buster
-    "Sly ParkingBay": ItemData(3244, ItemClassification.progression), #Buster
-    "Outback Dash ParkingBay": ItemData(3714, ItemClassification.progression), #Cass
-    "Truck Tragedy ParkingBay": ItemData(3702, ItemClassification.progression), #Cass
-    "Truck Stop ParkingBay": ItemData(3732, ItemClassification.progression), #Cass
-    "Never Never Road ParkingBay": ItemData(3713, ItemClassification.progression), #Cass
-    "Plutonium Panic ParkingBay": ItemData(3284, ItemClassification.progression), #Cass
-    "50 Foot Squeaver ParkingBay": ItemData(3709, ItemClassification.progression), #Cass
-    "Never Never ParkingBay": ItemData(3710, ItemClassification.progression), #Cass
-    "Lava Falls Race ParkingBay": ItemData(3711, ItemClassification.progression), #Cass
-    "Min Min Mining ParkingBay": ItemData(4035, ItemClassification.progression), #Cass
-    "Turbo Track ParkingBay": ItemData(3300, ItemClassification.progression), #patchy
-    "Patchy ParkingBay": ItemData(3951, ItemClassification.progression), #patchy
-    "Lake Burramudgee ParkingBay": ItemData(3686, ItemClassification.progression), #patchy
-    "Bush Fire ParkingBay": ItemData(3733, ItemClassification.progression), #fluffy
-    "Sulphur Rocks ParkingBay": ItemData(3967, ItemClassification.progression), #fluffy
-    "King Squeaver ParkingBay": ItemData(3690, ItemClassification.progression), #fluffy
-    "Fluffy ParkingBay": ItemData(3691, ItemClassification.progression), #fluffy
-    "Faire Dinkum ParkingBay": ItemData(3954, ItemClassification.progression), #fluffy
-    "Wetlands ParkingBay": ItemData(3277, ItemClassification.progression), #fluffy
-    "Dusty Burrows ParkingBay": ItemData(4046, ItemClassification.progression), #patchy
-    "Ripper Nipper ParkingBay": ItemData(3972, ItemClassification.progression), ##Buster NEED TO ADD (lotion mission)
+    "Parking Bay - Burramudgee Town": ItemData(3736, ItemClassification.progression),#patchy
+    "Parking Bay - Min Min Plains": ItemData(3689, ItemClassification.progression), #patchy
+    "Parking Bay - Freeway Training Grounds": ItemData(3688, ItemClassification.progression), #Buster
+    "Parking Bay - Beach Training Grounds": ItemData(4092, ItemClassification.progression), #Buster
+    "Parking Bay - Dennis Freeway": ItemData(3692, ItemClassification.progression), #Buster
+    "Parking Bay - Muddy Bottom": ItemData(3306, ItemClassification.progression), #Buster
+    "Parking Bay - Oil Rig": ItemData(3285, ItemClassification.progression), #Buster
+    "Parking Bay - Wobbygon Bay": ItemData(3287, ItemClassification.progression), #Buster
+    "Parking Bay - Hearty Beach": ItemData(3712, ItemClassification.progression), #Buster
+    "Parking Bay - Mount Boom End": ItemData(3735, ItemClassification.progression),#Buster
+    "Parking Bay - Mount Boom Start": ItemData(3694, ItemClassification.progression),#Buster
+    "Parking Bay - Frill Neck Forest": ItemData(3693, ItemClassification.progression), #Buster
+    "Parking Bay - Old Stony Creek": ItemData(3292, ItemClassification.progression), ##Buster
+    "Parking Bay - Camping": ItemData(4130, ItemClassification.progression), #Buster
+    "Parking Bay - Outback Oasis": ItemData(3685, ItemClassification.progression),#patchy
+    "Parking Bay - Refinery Run": ItemData(3687, ItemClassification.progression), #patchy
+    "Parking Bay - Fire Fight": ItemData(3983, ItemClassification.progression), #Buster
+    "Parking Bay - Sly": ItemData(3244, ItemClassification.progression), #Buster
+    "Parking Bay - Outback Dash": ItemData(3714, ItemClassification.progression), #Cass
+    "Parking Bay - Truck Tragedy": ItemData(3702, ItemClassification.progression), #Cass
+    "Parking Bay - Truck Stop": ItemData(3732, ItemClassification.progression), #Cass
+    "Parking Bay - Never Never Road": ItemData(3713, ItemClassification.progression), #Cass
+    "Parking Bay - Plutonium Panic": ItemData(3284, ItemClassification.progression), #Cass
+    "Parking Bay - 50 Foot Squeaver": ItemData(3709, ItemClassification.progression), #Cass
+    "Parking Bay - Never Never": ItemData(3710, ItemClassification.progression), #Cass
+    "Parking Bay - Lava Falls Race": ItemData(3711, ItemClassification.progression), #Cass
+    "Parking Bay - Min Min Mining": ItemData(4035, ItemClassification.progression), #Cass
+    "Parking Bay - Turbo Track": ItemData(3300, ItemClassification.progression), #patchy
+    "Parking Bay - Patchy": ItemData(3951, ItemClassification.progression), #patchy
+    "Parking Bay - Lake Burramudgee": ItemData(3686, ItemClassification.progression), #patchy
+    "Parking Bay - Bush Fire": ItemData(3733, ItemClassification.progression), #fluffy
+    "Parking Bay - Sulphur Rocks": ItemData(3967, ItemClassification.progression), #fluffy
+    "Parking Bay - King Squeaver": ItemData(3690, ItemClassification.progression), #fluffy
+    "Parking Bay - Fluffy": ItemData(3691, ItemClassification.progression), #fluffy
+    "Parking Bay - Faire Dinkum": ItemData(3954, ItemClassification.progression), #fluffy
+    "Parking Bay - Wetlands": ItemData(3277, ItemClassification.progression), #fluffy
+    "Parking Bay - Dusty Burrows": ItemData(4046, ItemClassification.progression), #patchy
+    "Parking Bay - Ripper Nipper": ItemData(3972, ItemClassification.progression), ##Buster NEED TO ADD (lotion mission)
 }
 
-progressive_parking_bays: Dict[str, ItemData] = {
-    "Progressive Parking Bay": ItemData(0x1f, ItemClassification.progression, 100),
-}
 
 def get_collectable_currencies(world) -> Dict[str, ItemData]:
     collectibles_copy: Dict[str, ItemData] = copy.deepcopy(collectibles)
@@ -227,8 +214,10 @@ collectibles: Dict[str, ItemData] = {
     "Kromium Orb": ItemData(0x21, ItemClassification.progression_skip_balancing, 30),
 }
 
+
 def get_filler(world) -> Dict[str, ItemData]:
     return junk_items
+
 
 junk_items: Dict[str, ItemData] = {
     "100 Opals": ItemData(0x22, ItemClassification.filler),
@@ -239,6 +228,7 @@ junk_items: Dict[str, ItemData] = {
     "Full Pie": ItemData(0x27, ItemClassification.filler),
 }
 
+
 junk_weights = {
     "100 Opals": 0,
     "200 Opals": 30,
@@ -248,4 +238,5 @@ junk_weights = {
     "Full Pie": 10,
 }
 
-full_item_dict: Dict[str, ItemData] = {**item_dict, **individual_rangs, **progressive_rangs, **parking_bays, **barriers, **progressive_parking_bays, **collectibles, **junk_items}
+
+full_item_dict: Dict[str, ItemData] = {**item_dict, **individual_rangs, **progressive_rangs, **parking_bays, **barriers, **collectibles, **junk_items}

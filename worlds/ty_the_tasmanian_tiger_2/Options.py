@@ -24,7 +24,7 @@ class TotalMissionsForGoal(Range):
     """
     display_name = "Missions For Goal"
     range_start = 0
-    range_end = 40
+    range_end = 39
     default = 20
 
 class SkipCurrawong(DefaultOnToggle):
