@@ -27,8 +27,8 @@ class Ty2Web(WebWorld):
 
 class Ty2World(World):
     """
-    Ty the Tasmanian Tiger is a 3D platformer collectathon created by Australian developers Krome Studios.
-    Play as Ty and travel the Australian outback to snowy mountains to defeat Boss Cass and rescue your family from The Dreaming.
+    It's time to go back Down Under with Ty and the gang! Rang, bite, smash and glide your way around the Australian
+    Outback and stop the evil machinations of the diabolical Boss Cass in this open world sequel to the hit 3D Platformer.
     """
     game = "Ty the Tasmanian Tiger 2"
     web = Ty2Web()
