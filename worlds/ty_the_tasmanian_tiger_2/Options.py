@@ -167,8 +167,8 @@ class FrillSanity(Toggle):
 #     range_end = 100
 #     default = 20
 
-@dataclass
-class ty2_option_groups(PerGameCommonOptions):
+
+ty2_option_groups = [
     OptionGroup("Goal Options", [
         Goal,
         TotalMissionsForGoal,
@@ -194,6 +194,7 @@ class ty2_option_groups(PerGameCommonOptions):
     OptionGroup("Death Link", [
         DeathLink
     ])
+]
 
 @dataclass
 class Ty2Options(PerGameCommonOptions):

@@ -22,10 +22,11 @@ class Ty2Web(WebWorld):
         language="English",
         file_name="setup_en.md",
         link="setup/en",
-        authors=["FyreDay, xMcacutt"]
+        authors=["FyreDay", "xMcacutt"]
     )
 
     tutorials = [setup_en]
+    option_groups = ty2_option_groups
 
 class Ty2World(World):
     """
@@ -116,8 +117,6 @@ class Ty2World(World):
 
         self.locations = create_ty2_locations(self)
 
-
-
     def create_regions(self):
         create_ty2_regions(self, self.locations)
         connect_ty2_regions(self)
@@ -127,7 +126,6 @@ class Ty2World(World):
                 loc = Ty2Location(self.player, f"Found {name}", None, region)
                 loc.place_locked_item(Ty2Item("Disguised Frill Found", ItemClassification.progression, None, self.player))
                 region.locations.append(loc)
-
 
     def connect_entrances(self) -> None:
         print("Connect Entrance")

@@ -566,19 +566,20 @@ ty2_level_dict = {
 
 def get_location_groups() -> dict[str, set[str]]:
     location_groups = {
-        "Platinum Cog": set(platinum_cog_dict.keys()),
-        "Bilby": set(bilby_dict.keys()),
-        "Mission": set(mission_dict.keys()),
-        "Kromium Orb": set(kromium_orb_dict.keys()),
-        "Steve": set(steve_dict.keys()),
-        "Disguised Frill": set(disguised_frill_dict.keys())
+        "Platinum Cog": set(name for name, data in platinum_cog_dict.items() if data.level is not None),
+        "Bilby": set(name for name, data in bilby_dict.items() if data.level is not None),
+        "Mission": set(name for name, data in mission_dict.items() if data.level is not None),
+        "Kromium Orb": set(name for name, data in kromium_orb_dict.items() if data.level is not None),
+        "Steve": set(name for name, data in steve_dict.items() if data.level is not None),
+        "Disguised Frill": set(name for name, data in disguised_frill_dict.items() if data.level is not None)
     }
-    for code, level in ty2_level_dict.items():
-        location_groups[level] = set()
     for loc_name, loc_data in full_location_dict.items():
         if loc_data.level is None:
             continue
-        location_groups[ty2_level_dict[loc_data.level]].add(loc_name)
+        level_name = ty2_level_dict[loc_data.level]
+        if loc_data.level not in location_groups:
+            location_groups[level_name] = set()
+        location_groups[level_name].add(loc_name)
     return location_groups
 
 
