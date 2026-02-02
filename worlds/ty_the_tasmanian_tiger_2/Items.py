@@ -99,6 +99,15 @@ def add_mission_complete_events(world):
             print(f"Location {mission_name} not found in multiworld, skipping.")
     return count
 
+
+def get_rangs(world) -> Dict[str, ItemData]:
+    if world.options.progressive_rangs.value:
+        return progressive_rangs
+    else:
+        print("individual rangs")
+        return individual_rangs
+
+
 barriers: Dict[str, ItemData] = {
     "Patchy Barriers": ItemData(980, ItemClassification.progression),
     "Buster Barriers": ItemData(982, ItemClassification.progression),
@@ -115,12 +124,6 @@ item_dict: Dict[str, ItemData] = {
     "Progressive Health Paw": ItemData(77, ItemClassification.useful, 2),
 }
 
-def get_rangs(world) -> Dict[str, ItemData]:
-    if world.options.progressive_rangs.value:
-        return progressive_rangs
-    else:
-        print("individual rangs")
-        return individual_rangs
 
 individual_rangs: Dict[str, ItemData] = {
     "Boomerang": ItemData(0x13, ItemClassification.useful),
@@ -230,13 +233,29 @@ junk_items: Dict[str, ItemData] = {
 
 
 junk_weights = {
-    "100 Opals": 0,
+    "100 Opals": 15,
     "200 Opals": 30,
     "500 Opals": 20,
-    "1000 Opals": 10,
-    "5000 Opals": 5,
+    "1000 Opals": 5,
+    "5000 Opals": 1,
     "Full Pie": 10,
 }
 
 
 full_item_dict: Dict[str, ItemData] = {**item_dict, **individual_rangs, **progressive_rangs, **parking_bays, **barriers, **collectibles, **junk_items}
+
+
+def get_item_groups() -> dict[str, set[str]]:
+    return {
+        "Rang": set(individual_rangs) | set(progressive_rangs),
+        "Parking Bay": set(parking_bays),
+        "Barrier": set(barriers),
+        "Bunyip": {
+            "Thermo Bunyip Key",
+            "Sub Bunyip Key",
+            "Lifter Bunyip Key",
+        },
+    }
+
+
+ty1_item_groups = get_item_groups()

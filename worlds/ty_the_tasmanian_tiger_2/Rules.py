@@ -151,7 +151,7 @@ def get_rules(world):
             "Sulphur Rocks Orb 2": lambda state:
                 can_swing(world, state) and can_freeze(world, state),
             "Mount Boom Orb 2": lambda state:
-                can_tp(world, state) and can_smash_wall(world, state),
+                can_tp(world, state) and can_smash_crate(world, state),
             "Outback Oasis Orb 1": lambda state:
                 can_smash_wall(world, state),
             "Never Never Orb 1": lambda state:
@@ -441,9 +441,11 @@ def get_rules(world):
             "Buster Barriers East Backwards":
                 lambda state: state.has("Buster Barriers", world.player),
             "Truck Stop Clear":
-                lambda state: state.has("Parking Bay - Truck Stop", world.player),
+                lambda state: state.has("Parking Bay - Truck Stop", world.player)
+                    and state.has("Lifter Bunyip Key", world.player),
             "Truck Stop Clear Backwards":
-                lambda state: state.has("Parking Bay - Truck Stop", world.player),
+                lambda state: state.has("Parking Bay - Truck Stop", world.player)
+                    and state.has("Lifter Bunyip Key", world.player),
             "Patchy Parking Bay":
                 lambda state: state.has("Parking Bay - Patchy", world.player),
             "Oil Rig Parking Bay":

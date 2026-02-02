@@ -4,8 +4,10 @@ from BaseClasses import Tutorial, Item, ItemClassification, CollectionState, Loc
 from Utils import visualize_regions
 from entrance_rando import disconnect_entrance_for_randomization, randomize_entrances
 from worlds.AutoWorld import WebWorld, World
-from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items, full_item_dict, Ty2Item, junk_weights
-from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations, full_location_dict, disguised_frill_dict, Ty2Location
+from worlds.ty_the_tasmanian_tiger_2.Items import create_ty2_items, full_item_dict, Ty2Item, junk_weights, \
+    get_junk_item_names, ty1_item_groups
+from worlds.ty_the_tasmanian_tiger_2.Locations import create_ty2_locations, full_location_dict, disguised_frill_dict, \
+    Ty2Location, ty1_location_groups
 from worlds.ty_the_tasmanian_tiger_2.Options import ty2_option_groups, Ty2Options
 from worlds.ty_the_tasmanian_tiger_2.Regions import create_ty2_regions, connect_ty2_regions
 from worlds.ty_the_tasmanian_tiger_2.Rules import set_rules
@@ -20,7 +22,7 @@ class Ty2Web(WebWorld):
         language="English",
         file_name="setup_en.md",
         link="setup/en",
-        authors=["FyreDay"]
+        authors=["FyreDay, xMcacutt"]
     )
 
     tutorials = [setup_en]
@@ -37,6 +39,8 @@ class Ty2World(World):
     option_groups = ty2_option_groups
     item_name_to_id: ClassVar[Dict[str, int]] = {item_name: item_data.code for item_name, item_data in full_item_dict.items()}
     location_name_to_id: ClassVar[Dict[str, int]] = {loc_name: loc_data.code for loc_name, loc_data in full_location_dict.items()}
+    item_name_groups = ty1_item_groups
+    location_name_groups = ty1_location_groups
 
     # UT Stuff Here
     ut_can_gen_without_yaml = True
@@ -61,8 +65,10 @@ class Ty2World(World):
 
         self.hints = {}
 
-    def generate_early(self) -> None:
+    def get_filler_item_name(self) -> str:
+        return get_junk_item_names(self.random, 1)[0]
 
+    def generate_early(self) -> None:
         min_price, max_price = 1000, 3000
         if self.options.shop_difficulty.value == 1:
             min_price, max_price = 1000, 5000
@@ -167,7 +173,7 @@ class Ty2World(World):
 
     def fill_slot_data(self) -> id:
         return {
-            "ModVersion": "0.1.6",
+            "ModVersion": "0.2.0",
             "Goal": self.options.goal.value,
             "MissionsToGoal": self.options.missions_for_goal.value,
             "SkipCurrawong" : self.options.skip_currawong.value,
@@ -214,7 +220,6 @@ class Ty2World(World):
         return shop_prices
 
     def handle_ut_yamless(self, slot_data: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-
         if not slot_data \
                 and hasattr(self.multiworld, "re_gen_passthrough") \
                 and isinstance(self.multiworld.re_gen_passthrough, dict) \
@@ -248,10 +253,11 @@ class Ty2World(World):
 
         return slot_data
 
-
     def extend_hint_information(self, hint_data: Dict[int, Dict[int, str]]):
+        hint_data[self.player] = {}
         for key, data in full_location_dict.items():
             try:
-                hint_data[self.player][data.code] = data.hint_info
+                if data.hint_info is not None:
+                    hint_data[self.player][data.code] = data.hint_info
             except KeyError:
                 continue
