@@ -62,7 +62,7 @@ class ExtraCogs(Range):
     """
     display_name = "Extra Cogs"
     range_start = 0
-    range_end = 40
+    range_end = 30
     default = 20
 
 class ExtraOrbs(Range):
@@ -71,7 +71,7 @@ class ExtraOrbs(Range):
     """
     display_name = "Extra Orbs"
     range_start = 0
-    range_end = 20
+    range_end = 10
     default = 10
 
 class StartWithMaps(Toggle):
